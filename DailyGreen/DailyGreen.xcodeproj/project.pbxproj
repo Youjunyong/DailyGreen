@@ -28,6 +28,7 @@
 		E143223B272FDC9C0028DAE4 /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143223A272FDC9C0028DAE4 /* OnboardingView3.swift */; };
 		E143223D272FDCA20028DAE4 /* OnboardingView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143223C272FDCA20028DAE4 /* OnboardingView4.swift */; };
 		E143223F272FE3D00028DAE4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E143223E272FE3D00028DAE4 /* UIViewController.swift */; };
+		E1432242272FE89B0028DAE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1432241272FE89B0028DAE4 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		E143223A272FDC9C0028DAE4 /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
 		E143223C272FDCA20028DAE4 /* OnboardingView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView4.swift; sourceTree = "<group>"; };
 		E143223E272FE3D00028DAE4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E1432241272FE89B0028DAE4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E1432243272FE98F0028DAE4 /* DailyGreen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyGreen.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,7 @@
 		E14321C6272FA1730028DAE4 /* DailyGreen */ = {
 			isa = PBXGroup;
 			children = (
+				E1432243272FE98F0028DAE4 /* DailyGreen.entitlements */,
 				E14321FE272FA4570028DAE4 /* Configuration */,
 				E14321FA272FA2DB0028DAE4 /* Model */,
 				E14321C9272FA1730028DAE4 /* SceneDelegate.swift */,
@@ -168,6 +172,7 @@
 		E14321FC272FA2E20028DAE4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1432240272FE88A0028DAE4 /* LoginView */,
 				E1432230272FCA860028DAE4 /* OnboardingVIew */,
 			);
 			path = View;
@@ -217,6 +222,14 @@
 				E143223E272FE3D00028DAE4 /* UIViewController.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E1432240272FE88A0028DAE4 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				E1432241272FE89B0028DAE4 /* LoginViewController.swift */,
+			);
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1432242272FE89B0028DAE4 /* LoginViewController.swift in Sources */,
 				E14321CC272FA1730028DAE4 /* ViewController.swift in Sources */,
 				E1432229272FC1CF0028DAE4 /* UserDefault.swift in Sources */,
 				E14321C8272FA1730028DAE4 /* AppDelegate.swift in Sources */,
@@ -541,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DailyGreen/DailyGreen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5KZ5C4UW39;
@@ -558,7 +573,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jy.DailyGreen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.DailyGreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -571,6 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DailyGreen/DailyGreen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5KZ5C4UW39;
@@ -588,7 +604,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jy.DailyGreen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jy.DailyGreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

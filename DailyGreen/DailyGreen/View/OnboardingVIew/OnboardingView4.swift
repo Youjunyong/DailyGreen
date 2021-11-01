@@ -54,21 +54,22 @@ class OnboardingView4: UIView{
         return label
     }()
     
-    let startButton: UIButton = {
+    let startButton: UIButton = { // 임시
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("시작하기", for: .normal)
         return btn
     }()
     
-    let startButtonView: UIImageView = {
+    let startButtonView: UIImageView = { // 임시
         let view = UIImageView()
-        view.image = 
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.primary
         return view
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.configureUI()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -82,6 +83,9 @@ class OnboardingView4: UIView{
         addSubview(indexLabel)
         addSubview(subTitleLabel)
         addSubview(bodyLabel)
+        addSubview(startButtonView)
+        addSubview(startButton)
+        
         NSLayoutConstraint.activate([
                 titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 91.9),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -92,7 +96,17 @@ class OnboardingView4: UIView{
                 
                 bodyLabel.widthAnchor.constraint(equalToConstant: 220),
                 bodyLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 36)
+                bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 36),
+                
+                startButtonView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                startButtonView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 50),
+                startButtonView.widthAnchor.constraint(equalToConstant: 200),
+                startButtonView.heightAnchor.constraint(equalToConstant: 50),
+                startButton.leadingAnchor.constraint(equalTo: startButtonView.leadingAnchor),
+                startButton.trailingAnchor.constraint(equalTo: startButtonView.trailingAnchor),
+                startButton.topAnchor.constraint(equalTo: startButtonView.topAnchor),
+                startButton.bottomAnchor.constraint(equalTo: startButtonView.bottomAnchor)
+                
             ])
     }
     

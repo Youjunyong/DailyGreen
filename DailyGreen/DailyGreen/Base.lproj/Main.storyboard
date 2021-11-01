@@ -77,6 +77,53 @@
             </objects>
             <point key="canvasLocation" x="846" y="116"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="r1c-6a-2iv">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="ooN-FD-AVp" customClass="LoginViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vja-GI-MjJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login VIewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XU4-iB-hgD">
+                                <rect key="frame" x="127.5" y="437.5" width="159" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEV-4v-JrP">
+                                <rect key="frame" x="159.5" y="706" width="95" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="apple login"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qV-wf-xWn">
+                                <rect key="frame" x="107" y="575" width="200" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4Q1-WS-s3O"/>
+                                    <constraint firstAttribute="width" constant="200" id="l2O-L8-Rbk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i12-Nh-v1A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2qV-wf-xWn" firstAttribute="top" secondItem="XU4-iB-hgD" secondAttribute="bottom" constant="116.5" id="6cl-gM-zsf"/>
+                            <constraint firstItem="XU4-iB-hgD" firstAttribute="centerY" secondItem="Vja-GI-MjJ" secondAttribute="centerY" id="7lh-U0-4af"/>
+                            <constraint firstItem="i12-Nh-v1A" firstAttribute="bottom" secondItem="SEV-4v-JrP" secondAttribute="bottom" constant="125" id="Afq-5v-JuN"/>
+                            <constraint firstItem="2qV-wf-xWn" firstAttribute="centerX" secondItem="Vja-GI-MjJ" secondAttribute="centerX" id="QUV-Zc-qEn"/>
+                            <constraint firstItem="SEV-4v-JrP" firstAttribute="centerX" secondItem="Vja-GI-MjJ" secondAttribute="centerX" id="aTV-s7-Kwl"/>
+                            <constraint firstItem="XU4-iB-hgD" firstAttribute="centerX" secondItem="Vja-GI-MjJ" secondAttribute="centerX" id="dXw-zB-5Jb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="testView" destination="2qV-wf-xWn" id="DWc-Az-CVk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3xK-By-0Zp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="882"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
