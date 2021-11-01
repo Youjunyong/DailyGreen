@@ -26,8 +26,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>NanumSquareB.ttf</string>
-		<string>NanumSquareEB.ttf</string>
-		<string>NanumSquareOTF_acB.otf</string>
+		<string>NanumSquareR.ttf</string>
 	</array>
 </dict>
 </plist>

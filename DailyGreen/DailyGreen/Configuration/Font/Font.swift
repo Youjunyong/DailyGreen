@@ -9,7 +9,8 @@ import Foundation
 
 struct NanumFont {
     static let bold = "NanumSquareB"
-    static let extraBold = "NanumSquareEB"
-    static let acBold = "NanumSquareOTF_acB"
+    static let regular = "NanumSquareR"
+//    static let extraBold = "NanumSquareEB"
+//    static let acBold = "NanumSquareOTF_acB"
     
 }
