@@ -7,11 +7,20 @@
 
 import UIKit
 import AuthenticationServices
+import KakaoSDKAuth
+import KakaoSDKCommon
 
 class LoginViewController: UIViewController{
 
     @IBOutlet weak var testView: UIView!
 
+    // MARK: - 임시 로그인 기능
+    @IBAction func tempLogin(_ sender: Any) {
+        
+        
+        
+    }
+    
     
     func setupProviderLoginView() {
         let appleButton = ASAuthorizationAppleIDButton(type:.signIn , style: .black )
@@ -42,7 +51,27 @@ class LoginViewController: UIViewController{
         setupProviderLoginView()
     }
     
-
+//    func onKakaoLoginByAppTouched(_ sender: Any) {
+//     // 카카오톡 설치 여부 확인
+//        AuthApi.isKakaoTalkLoginUrl(<#T##url: URL##URL#>)
+//        
+//      if (AuthApi.isKakaoTalkLoginAvailable()) {
+//        // 카카오톡 로그인. api 호출 결과를 클로저로 전달.
+//        AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+//            if let error = error {
+//                // 예외 처리 (로그인 취소 등)
+//                print(error)
+//            }
+//            else {
+//                print("loginWithKakaoTalk() success.")
+//               // do something
+//                _ = oauthToken
+//               // 어세스토큰
+//               let accessToken = oauthToken?.accessToken
+//            }
+//        }
+//      }
+//    }
 
 }
 extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {

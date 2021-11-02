@@ -6,17 +6,31 @@
 //
 
 import UIKit
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    
+        
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                _ = AuthController.handleOpenUrl(url: url)
+            }
+        }
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+                
         guard let _ = (scene as? UIWindowScene) else { return }
+        setRootViewController(scene)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,7 +63,89 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+}
 
 
+extension SceneDelegate {
+    
+    private func setRootViewController(_ scene: UIScene){
+            setRootViewController(scene, name: "Main", identifier: "MainTabBarController")
+
+        
+//        if Storage.isFirstLaunch() {
+//            print("In sceneDelegate : isFirstLauch > if")
+//            setRootViewController(scene, name: "Main",
+//                                  identifier: "InitVC")
+//        } else{
+//            print("In sceneDelegate : isFirstLauch > else")
+//
+//            if Storage.isLogin() {
+//                print("In sceneDelegate : isLogin > if")
+//
+//                setRootViewController(scene, name: "Main", identifier: "MainPageVC")
+//            }else{
+//                print("In sceneDelegate : isLogin > else")
+//
+//                setRootViewController(scene, name: "Main",
+//                                      identifier: "LoginVC")
+//            }
+//
+//        }
+}
+    private func setRootViewController(_ scene: UIScene, name: String, identifier: String) {
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            let storyboard = UIStoryboard(name: name, bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
+            window.rootViewController = viewController
+            self.window = window
+            window.makeKeyAndVisible()
+        }
+    }
+    
+}
+
+// MARK: - 첫 화면 설정할 로직. 나중에 개발어느정도 끝나고 다시 보자
+public class Storage {
+    
+    static func isFirstLaunch() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isFirstLaunch") == nil {
+            defaults.set("No", forKey:"isFirstLaunch")
+            return true
+        } else {
+            return true
+        }
+    }
+    
+    static func isLogin() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isLogin") == nil {
+            defaults.set("No", forKey:"isLogin")
+            return false
+        } else {
+            return false
+        }
+    }
+    
+//    static func isFirstLaunch() -> Bool {
+//        let defaults = UserDefaults.standard
+//        if defaults.object(forKey: "isFirstLaunch") == nil {
+//            defaults.set("No", forKey:"isFirstLaunch")
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
+//
+//    static func isLogin() -> Bool {
+//        let defaults = UserDefaults.standard
+//        if defaults.object(forKey: "isLogin") == nil {
+//            defaults.set("No", forKey:"isLogin")
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
 }
 

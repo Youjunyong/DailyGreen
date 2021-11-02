@@ -65,6 +65,8 @@ class OnboardingView4: UIView{
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.primary
+        view.layer.cornerRadius = 24;
+        
         return view
     }()
     
@@ -98,10 +100,10 @@ class OnboardingView4: UIView{
                 bodyLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 36),
                 
+                startButtonView.widthAnchor.constraint(equalToConstant: 343),
+                startButtonView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -150),
                 startButtonView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                startButtonView.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: 50),
-                startButtonView.widthAnchor.constraint(equalToConstant: 200),
-                startButtonView.heightAnchor.constraint(equalToConstant: 50),
+                startButtonView.heightAnchor.constraint(equalToConstant: 48),
                 startButton.leadingAnchor.constraint(equalTo: startButtonView.leadingAnchor),
                 startButton.trailingAnchor.constraint(equalTo: startButtonView.trailingAnchor),
                 startButton.topAnchor.constraint(equalTo: startButtonView.topAnchor),
