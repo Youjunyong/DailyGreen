@@ -23,4 +23,9 @@ extension UIColor {
     class var light2: UIColor { UIColor(hex: 0x6DF59A) }
     class var dark1: UIColor { UIColor(hex: 0x1CC554) }
     class var dark2: UIColor { UIColor(hex: 0x009C34) }
+    class var primaryLight1: UIColor { UIColor(hex: 0x9bfdbb)}
+    class var primaryLight2: UIColor { UIColor(hex: 0x6df59a)}
+    class var selected: UIColor { UIColor(hex: 0x9bfdbb, alpha: 0.72)}
+    class var grayGreen: UIColor { UIColor(hex: 0xbff6d1)}
+    class var grayLongtxt: UIColor { UIColor(hex: 0x7a7e7a)}
 }
