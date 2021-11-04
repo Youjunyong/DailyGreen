@@ -69,8 +69,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     
     private func setRootViewController(_ scene: UIScene){
-            setRootViewController(scene, name: "Main", identifier: "MainTabBarController")
-
+            setRootViewController(scene, name: "Main", identifier: "LoginNaviVC")
+//OnBoardVC 온보딩
+//LoginNaviVC 이메일 로그인
+        
         
 //        if Storage.isFirstLaunch() {
 //            print("In sceneDelegate : isFirstLauch > if")

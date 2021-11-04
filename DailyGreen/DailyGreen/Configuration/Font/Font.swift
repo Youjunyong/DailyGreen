@@ -11,7 +11,7 @@ import UIKit
 struct NanumFont {
     static let bold = "NanumSquareB"
     static let regular = "NanumSquareR"
-//    static let extraBold = "NanumSquareEB"
+    static let extraBold = "NanumSquareEB"
 //    static let acBold = "NanumSquareOTF_acB"
     
     

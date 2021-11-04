@@ -65,7 +65,7 @@ class OnboardingView4: UIView{
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.primary
-        view.layer.cornerRadius = 24;
+        view.layer.cornerRadius = 24
         
         return view
     }()

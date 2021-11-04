@@ -36,6 +36,10 @@
 		E14426CF2731174700EC86D1 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14426CE2731174700EC86D1 /* MainPageViewController.swift */; };
 		E14426D6273186D300EC86D1 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14426D4273186D300EC86D1 /* EventCollectionViewCell.swift */; };
 		E14426D7273186D300EC86D1 /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14426D5273186D300EC86D1 /* EventCollectionViewCell.xib */; };
+		E1509DB82734006500D0B94C /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1509DB72734006500D0B94C /* NanumSquareEB.ttf */; };
+		E1509DBA273408F300D0B94C /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1509DB9273408F300D0B94C /* Register.storyboard */; };
+		E1509DBC2734093700D0B94C /* RegisterEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1509DBB2734093700D0B94C /* RegisterEmail.swift */; };
+		E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */; };
 		E1E944F9273233C90047ABA8 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944F8273233C90047ABA8 /* CommunityView.swift */; };
 		E1E944FD273257010047ABA8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944FC273257010047ABA8 /* TabBarController.swift */; };
 		E1E9450027325E400047ABA8 /* GuideViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944FF27325E400047ABA8 /* GuideViewContorller.swift */; };
@@ -103,6 +107,10 @@
 		E14426CE2731174700EC86D1 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		E14426D4273186D300EC86D1 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		E14426D5273186D300EC86D1 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
+		E1509DB72734006500D0B94C /* NanumSquareEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareEB.ttf; path = Assets/Font/NanumSquareEB.ttf; sourceTree = SOURCE_ROOT; };
+		E1509DB9273408F300D0B94C /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		E1509DBB2734093700D0B94C /* RegisterEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmail.swift; sourceTree = "<group>"; };
+		E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		E1E944F8273233C90047ABA8 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		E1E944FC273257010047ABA8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E1E944FF27325E400047ABA8 /* GuideViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewContorller.swift; sourceTree = "<group>"; };
@@ -233,10 +241,11 @@
 			isa = PBXGroup;
 			children = (
 				E14321CD272FA1730028DAE4 /* Main.storyboard */,
+				E19D4E9D2732B12C0024B6FE /* RegisterScene */,
 				E14321CB272FA1730028DAE4 /* ViewController.swift */,
 				E14426CB27310E2800EC86D1 /* MainPage */,
-				E1432240272FE88A0028DAE4 /* LoginView */,
-				E1432230272FCA860028DAE4 /* OnboardingVIew */,
+				E1432240272FE88A0028DAE4 /* LoginPage */,
+				E1432230272FCA860028DAE4 /* OnboardingPage */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,12 +272,13 @@
 			children = (
 				E1432220272FA6850028DAE4 /* Font.swift */,
 				E1432226272FB76E0028DAE4 /* NanumSquareB.ttf */,
+				E1509DB72734006500D0B94C /* NanumSquareEB.ttf */,
 				E1432236272FD6AF0028DAE4 /* NanumSquareR.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
 		};
-		E1432230272FCA860028DAE4 /* OnboardingVIew */ = {
+		E1432230272FCA860028DAE4 /* OnboardingPage */ = {
 			isa = PBXGroup;
 			children = (
 				E143222A272FC61B0028DAE4 /* OnboardViewController.swift */,
@@ -277,7 +287,7 @@
 				E143223A272FDC9C0028DAE4 /* OnboardingView3.swift */,
 				E143223C272FDCA20028DAE4 /* OnboardingView4.swift */,
 			);
-			path = OnboardingVIew;
+			path = OnboardingPage;
 			sourceTree = "<group>";
 		};
 		E1432233272FCBF60028DAE4 /* Extension */ = {
@@ -289,12 +299,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		E1432240272FE88A0028DAE4 /* LoginView */ = {
+		E1432240272FE88A0028DAE4 /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
 				E1432241272FE89B0028DAE4 /* LoginViewController.swift */,
+				E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */,
 			);
-			path = LoginView;
+			path = LoginPage;
 			sourceTree = "<group>";
 		};
 		E1432244272FF1DF0028DAE4 /* Secret */ = {
@@ -315,6 +326,15 @@
 				E1E944F8273233C90047ABA8 /* CommunityView.swift */,
 			);
 			path = MainPage;
+			sourceTree = "<group>";
+		};
+		E19D4E9D2732B12C0024B6FE /* RegisterScene */ = {
+			isa = PBXGroup;
+			children = (
+				E1509DB9273408F300D0B94C /* Register.storyboard */,
+				E1509DBB2734093700D0B94C /* RegisterEmail.swift */,
+			);
+			path = RegisterScene;
 			sourceTree = "<group>";
 		};
 		E1E944FB273256F60047ABA8 /* CustomClass */ = {
@@ -446,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1509DB82734006500D0B94C /* NanumSquareEB.ttf in Resources */,
 				E1E9450827326AD30047ABA8 /* GuideTableViewCell.xib in Resources */,
 				E1E9450227325E560047ABA8 /* Guide.storyboard in Resources */,
 				E14321D7272FA1740028DAE4 /* LaunchScreen.storyboard in Resources */,
@@ -454,6 +475,7 @@
 				E1432227272FB76E0028DAE4 /* NanumSquareB.ttf in Resources */,
 				E14321CF272FA1730028DAE4 /* Main.storyboard in Resources */,
 				E14426D7273186D300EC86D1 /* EventCollectionViewCell.xib in Resources */,
+				E1509DBA273408F300D0B94C /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +606,7 @@
 				E1E9450727326AD30047ABA8 /* GuideTableViewCell.swift in Sources */,
 				E14426D6273186D300EC86D1 /* EventCollectionViewCell.swift in Sources */,
 				E1432242272FE89B0028DAE4 /* LoginViewController.swift in Sources */,
+				E1509DBC2734093700D0B94C /* RegisterEmail.swift in Sources */,
 				E1E944FD273257010047ABA8 /* TabBarController.swift in Sources */,
 				E14321CC272FA1730028DAE4 /* ViewController.swift in Sources */,
 				E1432229272FC1CF0028DAE4 /* UserDefault.swift in Sources */,
@@ -594,6 +617,7 @@
 				E14321CA272FA1730028DAE4 /* SceneDelegate.swift in Sources */,
 				E1432232272FCA9C0028DAE4 /* OnboardingView1.swift in Sources */,
 				E143223F272FE3D00028DAE4 /* UIViewController.swift in Sources */,
+				E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */,
 				E14321D2272FA1730028DAE4 /* DailyGreen.xcdatamodeld in Sources */,
 				E1432246272FF1EA0028DAE4 /* File.swift in Sources */,
 				E143223B272FDC9C0028DAE4 /* OnboardingView3.swift in Sources */,

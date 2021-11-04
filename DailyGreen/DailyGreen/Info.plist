@@ -6,6 +6,7 @@
 	<array>
 		<string>NanumSquareB.ttf</string>
 		<string>NanumSquareR.ttf</string>
+		<string>NanumSquareEB.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
