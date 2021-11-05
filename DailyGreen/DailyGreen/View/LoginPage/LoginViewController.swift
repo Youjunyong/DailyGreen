@@ -17,10 +17,26 @@ class LoginViewController: UIViewController{
     // MARK: - 임시 로그인 기능
     @IBAction func tempLogin(_ sender: Any) {
         
-        
+        guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
+        self.changeRootViewController(MainTabBarController)
         
     }
     
+    @IBAction func kakaoLogin(_ sender: Any) {
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+
+                    
+                    _ = oauthToken
+                }
+            }
+        }
+    }
     
     func setupProviderLoginView() {
         let appleButton = ASAuthorizationAppleIDButton(type:.signIn , style: .black )
@@ -49,6 +65,7 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProviderLoginView()
+        
     }
     
 //    func onKakaoLoginByAppTouched(_ sender: Any) {

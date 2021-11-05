@@ -19,10 +19,10 @@ class EmailLoginViewController: UIViewController {
         return btn
     }()
     
-    let headerView: ModalHeaderView = {
-        let view = ModalHeaderView()
+    let naviShadowView : UIView = {
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.titleLabel.text = "이메일 로그인"
+        view.backgroundColor = .dark1
         return view
     }()
     
@@ -45,7 +45,7 @@ class EmailLoginViewController: UIViewController {
     @IBAction func register(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let RegisterNaviVC = storyboard.instantiateViewController(withIdentifier: "RegisterVC")
-        self.changeRootViewController(RegisterNaviVC)
+        self.navigationController?.pushViewController(RegisterNaviVC, animated: true)
         
     }
     @IBAction func emailClear(_ sender: Any) {
@@ -63,22 +63,34 @@ class EmailLoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         configureUI()
+        configureNavi()
+        
+    }
+    private func configureNavi(){
+        
+
+        
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        
         
     }
     
     private func configureUI(){
 
-        view.addSubview(headerView)
+        self.hideKeyboardWhenTappedBackground()
         view.addSubview(submitButton)
+        view.addSubview(naviShadowView)
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 44.0),
+
             submitButton.heightAnchor.constraint(equalToConstant: 48),
-            submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -85),
-            submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18),
-            submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18)
+            submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
+            submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            
+            naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadowView.heightAnchor.constraint(equalToConstant: 1),
+            naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         findEmailButton.setTitle("", for: .normal)
         findPwButton.setTitle("", for: .normal)

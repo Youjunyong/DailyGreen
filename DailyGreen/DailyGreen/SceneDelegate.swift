@@ -69,7 +69,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     
     private func setRootViewController(_ scene: UIScene){
-            setRootViewController(scene, name: "Main", identifier: "LoginNaviVC")
+            setRootViewController(scene, name: "Main", identifier: "InitVC")
 //OnBoardVC 온보딩
 //LoginNaviVC 이메일 로그인
         

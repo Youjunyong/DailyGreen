@@ -57,6 +57,7 @@ class MainPageViewController: UIViewController{
         // DUMMY VALUE
         grid01View.activate = true
         grid21View.activate = true
+        grid10View.activate = true
         
         
         for (idx,gridView) in gridViews.enumerated() {

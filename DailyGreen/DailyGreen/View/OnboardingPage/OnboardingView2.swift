@@ -9,7 +9,12 @@ import Foundation
 import UIKit
 
 class OnboardingView2: UIView{
-    
+    let pageIndicator: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.image = UIImage(named: "pageIndicator24")
+        return view
+    }()
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -77,6 +82,7 @@ class OnboardingView2: UIView{
         addSubview(imageView)
         addSubview(subTitleLabel)
         addSubview(bodyLabel)
+        addSubview(pageIndicator)
         NSLayoutConstraint.activate([
                 titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 91.9),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -90,7 +96,11 @@ class OnboardingView2: UIView{
                 subTitleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 32),
                 bodyLabel.widthAnchor.constraint(equalToConstant: 280),
                 bodyLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 24)
+                bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 24),
+                pageIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+                pageIndicator.widthAnchor.constraint(equalToConstant: 68),
+                pageIndicator.heightAnchor.constraint(equalToConstant: 8),
+                pageIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -64)
                 
                 
             ])

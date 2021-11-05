@@ -9,6 +9,7 @@ target 'DailyGreen' do
   pod	'KakaoSDKCommon' #kakao 공통 모듈
   pod	'KakaoSDKAuth'  #kakao 로그인
   pod	'KakaoSDKUser'
+  pod	'KakaoSDKTalk'
   # Pods for DailyGreen
 
   target 'DailyGreenTests' do

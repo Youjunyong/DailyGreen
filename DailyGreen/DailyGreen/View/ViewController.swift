@@ -10,7 +10,8 @@ import UIKit
 
 
 class ViewController: UIViewController {
-
+    
+    var isShowed = false
     
     
     lazy var upperLabel: UILabel = {
@@ -31,11 +32,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        configureUI()
-        animateLabel()
+        if isShowed == false{
+            animateLabel()
+            isShowed = true
+        }
+       
     }
     
 
@@ -51,6 +56,7 @@ class ViewController: UIViewController {
         ])
     }
     
+    
     private func animateLabel(){
         self.upperLabel.alpha = 0
         self.lowerLabel.alpha = 0
@@ -59,7 +65,11 @@ class ViewController: UIViewController {
             self.lowerLabel.alpha = 1;
         } completion: { _ in
             if Storage.isFirstLaunch() {
-                guard let OnBoardVC = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC") else{return}
+                guard let OnBoardVC = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC")
+                as? OnboardViewController else{return}
+                self.upperLabel.alpha = 0
+                self.lowerLabel.alpha = 0
+                OnBoardVC.presentingVC = self
                 OnBoardVC.modalPresentationStyle = .fullScreen
                 self.present(OnBoardVC, animated: true, completion: nil)
             }
@@ -68,10 +78,13 @@ class ViewController: UIViewController {
     }
     
     func changeToLoginView(){
-        self.dismiss(animated: false, completion: nil)
-//        guard let LoginVC = self.presentingViewController?.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController else{return}
-//        self.changeRootViewController(LoginVC)
+        self.dismiss(animated: true) {
+            guard let LoginNaviVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginNaviVC") as? CustomNavigationController else{return}
+            self.changeRootViewController(LoginNaviVC)
+        }
+        
     }
+    
 
 }
 
