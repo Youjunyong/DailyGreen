@@ -7,6 +7,9 @@
 
 import UIKit
 import CoreData
+import KakaoSDKAuth
+import KakaoSDKCommon
+import KakaoSDKUser
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        KakaoSDKCommon.initSDK(appKey: "5dc7b449fe1b06abc2e57cc75be3a1cd")
+
         return true
     }
 

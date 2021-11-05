@@ -16,7 +16,7 @@ struct NickNameResponse: Decodable {
     var code: Int
     var message: String
     var isSuccess: Bool
-    var result: String
+    var result: String?
 }
 
 

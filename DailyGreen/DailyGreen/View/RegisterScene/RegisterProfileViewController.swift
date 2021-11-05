@@ -57,6 +57,7 @@ class RegisterProfileViewController: UIViewController {
     @IBOutlet weak var nickNameTextField: UITextField!
     @IBOutlet weak var nickNameDivideView: UIView!
     @IBOutlet weak var centerDivideView: UIView!
+    @IBOutlet weak var introduceTitleLabel: UILabel!
     @IBOutlet weak var introduceView: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var profileImageButton: UIButton!
@@ -110,6 +111,8 @@ class RegisterProfileViewController: UIViewController {
         introduceView.layer.cornerRadius = 16
         introduceView.layer.borderWidth = 2
         introduceView.layer.borderColor = UIColor.dark2.cgColor
+        introduceTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
+        introduceTitleLabel.text = "자기소개를 입력해주세요."
     }
     
     private func configureTargetAction(){
@@ -237,14 +240,18 @@ extension RegisterProfileViewController {
     func failedToRequest(message: String){
         presentAlert(title: message)
         nickNameDivideView.backgroundColor = UIColor.error
+        nickNameInfoLabel.isHidden = false
         nickNameInfoLabel.textColor = UIColor.error
         nickNameInfoLabel.text = "이미 사용중인 이름입니다."
+        nickNameCheckButton.backgroundColor = .white
+        nickNameCheckButton.setTitle("중복확인", for: .normal)
     }
     func didSuccessPost(message: String){
         presentAlert(title: message)
         nickNameCheckButton.backgroundColor = UIColor.grayDisabled
         nickNameCheckButton.setTitle("사용가능", for: .normal)
         nickNameCheckButton.setTitleColor(UIColor.white, for: .normal)
+        nickNameDivideView.backgroundColor = UIColor.dark2
         nickNameInfoLabel.isHidden = true
     }
 }

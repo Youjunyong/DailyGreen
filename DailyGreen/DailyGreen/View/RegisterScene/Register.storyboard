@@ -435,6 +435,7 @@
                     </view>
                     <connections>
                         <outlet property="centerDivideView" destination="UvK-V4-7xs" id="udZ-Vv-nzJ"/>
+                        <outlet property="introduceTitleLabel" destination="Bd6-oI-1FR" id="igI-JY-O1v"/>
                         <outlet property="introduceView" destination="jKf-jD-LoA" id="Xam-GK-UAw"/>
                         <outlet property="nickNameDivideView" destination="DnO-1o-uRl" id="71s-eo-qrY"/>
                         <outlet property="nickNameInfoLabel" destination="kA2-nr-c3u" id="gqQ-bW-cZa"/>

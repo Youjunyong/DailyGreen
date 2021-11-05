@@ -157,9 +157,12 @@ extension MainPageViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as? EventCollectionViewCell else {return UICollectionViewCell() }
         
-        if indexPath.row == 1{
-            cell.backgroundColor = .blue
-        }
+        
+        cell.imageView.image = UIImage(named: "testimage\(indexPath.row + 1)")
+
+        
+        
+        
         return cell
     }
 }

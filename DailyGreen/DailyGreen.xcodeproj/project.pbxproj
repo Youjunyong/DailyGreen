@@ -186,6 +186,7 @@
 		E1362C4B2734709B0045C9EE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E1A6D46E273510A900E2EC82 /* KakaoLogin */,
 				E145B9752734F3F9007C593B /* NickNamePost */,
 				E1362C4C273470BF0045C9EE /* Constant.swift */,
 			);
@@ -368,6 +369,13 @@
 				E1362C46273451D90045C9EE /* RegisterPhoneViewController.swift */,
 			);
 			path = RegisterScene;
+			sourceTree = "<group>";
+		};
+		E1A6D46E273510A900E2EC82 /* KakaoLogin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KakaoLogin;
 			sourceTree = "<group>";
 		};
 		E1E944FB273256F60047ABA8 /* CustomClass */ = {
@@ -850,12 +858,14 @@
 				DEVELOPMENT_TEAM = 5KZ5C4UW39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyGreen/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "For uploading a profile image or posting a picture of environmental activity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -882,12 +892,14 @@
 				DEVELOPMENT_TEAM = 5KZ5C4UW39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyGreen/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "For uploading a profile image or posting a picture of environmental activity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -16,8 +16,8 @@ class NickNameDataManager {
                 switch response.result {
                 case .success(let response):
                     // 성공했을 때
-                    if response.isSuccess {
-                        let result = response.result
+                    if response.isSuccess , let result = response.result {
+//                        let result = response.result
                         delegate.didSuccessPost(message: result)
                         
                     }
@@ -32,7 +32,9 @@ class NickNameDataManager {
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
-                    delegate.failedToRequest(message: "서버와의 연결이 원활하지 않습니다")
+                    print(String(describing: error))
+
+                    delegate.failedToRequest(message: ".ㄹ먀ㅣㅕㄱㄷ서버와의 연결이 원활하지 않습니다")
                 }
             }
     }

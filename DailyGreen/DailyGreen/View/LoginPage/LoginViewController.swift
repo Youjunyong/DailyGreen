@@ -9,6 +9,7 @@ import UIKit
 import AuthenticationServices
 import KakaoSDKAuth
 import KakaoSDKCommon
+import KakaoSDKUser
 
 class LoginViewController: UIViewController{
 
@@ -22,6 +23,7 @@ class LoginViewController: UIViewController{
         
     }
     
+    // MARK: - 카카오 계정 로그인
     @IBAction func kakaoLogin(_ sender: Any) {
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
@@ -31,10 +33,37 @@ class LoginViewController: UIViewController{
                 else {
                     print("loginWithKakaoTalk() success.")
 
-                    
-                    _ = oauthToken
+                    //dosomething
+                    let token = oauthToken
+                    print("KakaoToken:",token)
                 }
             }
+        }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupProviderLoginView()
+        
+    }
+    // MARK: - 카카오 토큰 존재 여부
+    private func isHaveKaKaoToken(){
+        if (AuthApi.hasToken()) {
+            UserApi.shared.accessTokenInfo { (_, error) in
+                if let error = error {
+                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true  {
+                        //로그인 필요
+                    }
+                    else {
+                        //기타 에러
+                    }
+                }
+                else {
+                    //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
+                }
+            }
+        }
+        else {
+            //로그인 필요
         }
     }
     
@@ -62,33 +91,9 @@ class LoginViewController: UIViewController{
     }
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupProviderLoginView()
-        
-    }
+
     
-//    func onKakaoLoginByAppTouched(_ sender: Any) {
-//     // 카카오톡 설치 여부 확인
-//        AuthApi.isKakaoTalkLoginUrl(<#T##url: URL##URL#>)
-//        
-//      if (AuthApi.isKakaoTalkLoginAvailable()) {
-//        // 카카오톡 로그인. api 호출 결과를 클로저로 전달.
-//        AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-//            if let error = error {
-//                // 예외 처리 (로그인 취소 등)
-//                print(error)
-//            }
-//            else {
-//                print("loginWithKakaoTalk() success.")
-//               // do something
-//                _ = oauthToken
-//               // 어세스토큰
-//               let accessToken = oauthToken?.accessToken
-//            }
-//        }
-//      }
-//    }
+
 
 }
 extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
