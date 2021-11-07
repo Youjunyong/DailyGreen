@@ -10,6 +10,8 @@ import UIKit
 class MainPageViewController: UIViewController{
     
     var gridViews: [CommunityView?] = []
+    var participateList = [Int]()
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var upperDivider: UIView!
@@ -23,7 +25,6 @@ class MainPageViewController: UIViewController{
     @IBOutlet weak var grid01View: CommunityView!
     @IBOutlet weak var grid02View: CommunityView!
     @IBOutlet weak var grid10View: CommunityView!
-    
     @IBOutlet weak var gridProfileImageView: UIImageView!
     @IBOutlet weak var grid12View: CommunityView!
     @IBOutlet weak var grid20View: CommunityView!
@@ -47,11 +48,20 @@ class MainPageViewController: UIViewController{
         configureGridView()
         configureUI()
         configureCollectionView()
-        configureTouchEvent()
+//        configureTouchEvent()
     }
-
+    @objc func participate(_ sender: UIButton){
+        guard let CommunityView = sender.superview as? CommunityView else{return}
+        
+        CommunityView.backgroundColor = .red
+        
+    }
     private func configureGridView(){
         self.gridViews = [grid00View ,grid01View, grid02View, grid10View, grid12View, grid20View, grid21View, grid22View]
+        
+        for (tag , gridView) in gridViews.enumerated() {
+            gridView?.participateBtn.addTarget(self, action: #selector(participate(_:)), for: .touchUpInside)
+        }
         let nameArr = ["플로깅", "제로웨이스트", "분리배출", "비건레시피", "에너지,물절약", "업사이클링", "차없이 가기", "환경문화"]
         let imageArr = ["grid00", "grid01" , "grid02" , "grid10", "grid12", "grid20", "grid21", "grid22"]
         // DUMMY VALUE
@@ -71,9 +81,6 @@ class MainPageViewController: UIViewController{
         gridProfileImageView.layer.masksToBounds = true
         gridProfileImageView.image = UIImage(named: "다운로드")
         
-        
-        //MARK: - Touch Event (Drag and Drop)
-        gridProfileImageView.isUserInteractionEnabled = true
     }
 
     private func configureCollectionView(){
@@ -108,23 +115,23 @@ class MainPageViewController: UIViewController{
     }
     
     
-    private func configureTouchEvent(){
-        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.test) )
-        singleTapGestureRecognizer.numberOfTapsRequired = 1
-
-        singleTapGestureRecognizer.isEnabled = true
-
-        singleTapGestureRecognizer.cancelsTouchesInView = false
-        gridProfileImageView.gestureRecognizerShouldBegin(singleTapGestureRecognizer)
-
-        scrollView.addGestureRecognizer(singleTapGestureRecognizer)
-    }
-    
-    @objc private func test(){
-        print("#######")
-        print(self.isFirstResponder)
-        print(self.canResignFirstResponder)
-    }
+//    private func configureTouchEvent(){
+//        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.test) )
+//        singleTapGestureRecognizer.numberOfTapsRequired = 1
+//
+//        singleTapGestureRecognizer.isEnabled = true
+//
+//        singleTapGestureRecognizer.cancelsTouchesInView = false
+//        gridProfileImageView.gestureRecognizerShouldBegin(singleTapGestureRecognizer)
+//
+//        scrollView.addGestureRecognizer(singleTapGestureRecognizer)
+//    }
+//
+//    @objc private func test(){
+//        print("#######")
+//        print(self.isFirstResponder)
+//        print(self.canResignFirstResponder)
+//    }
     
     
 }
@@ -168,23 +175,23 @@ extension MainPageViewController : UICollectionViewDataSource {
 }
 
 
-extension MainPageViewController {
-    @objc override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(#function)
-        guard let touch = touches.first else {
-            return
-        }
-        let location = touch.location(in: gridProfileImageView)
-        if gridProfileImageView.bounds.contains(location) {
-            print("did touch in  blue view")
-        }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-}
+//extension MainPageViewController {
+//    @objc override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print(#function)
+//        guard let touch = touches.first else {
+//            return
+//        }
+//        let location = touch.location(in: gridProfileImageView)
+//        if gridProfileImageView.bounds.contains(location) {
+//            print("did touch in  blue view")
+//        }
+//    }
+//
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//    }
+//
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//    }
+//}

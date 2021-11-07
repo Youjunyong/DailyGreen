@@ -10,6 +10,8 @@ import UIKit
 
 class RegisterProfileViewController: UIViewController {
     
+    let dimmingView = DimmingView()
+    
     let imagePickerController = UIImagePickerController()
     var whiteViewConstraint:[NSLayoutConstraint] = []
     lazy var datamanager = NickNameDataManager()
@@ -65,8 +67,6 @@ class RegisterProfileViewController: UIViewController {
     @IBAction func profileSelect(_ sender: Any) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
-
-        
     }
     
     override func viewDidLoad() {
@@ -81,10 +81,7 @@ class RegisterProfileViewController: UIViewController {
     
     private func configureUI(){
         view.addSubview(submitButton)
-        
-        //========
         view.addSubview(whiteView)
-        
         let l = whiteView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         let r = whiteView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         let h = whiteView.heightAnchor.constraint(equalToConstant: 88)
@@ -139,9 +136,7 @@ class RegisterProfileViewController: UIViewController {
         if inputNickName.count > 0 {
             let parameter = NickNameRequest(nickname: inputNickName)
             datamanager.postNickName(parameter, delegate: self)
-            print("#function")
         }else{return}
-        
         
     }
     
@@ -192,6 +187,27 @@ class RegisterProfileViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
+    private func presentDimmingView(){
+        dimmingView.translatesAutoresizingMaskIntoConstraints = false
+        dimmingView.alretText = "회원가입을 축하합니다."
+        view.addSubview(dimmingView)
+        NSLayoutConstraint.activate([
+            dimmingView.topAnchor.constraint(equalTo: view.topAnchor),
+            dimmingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            dimmingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dimmingView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
+        
+        dimmingView.dismissBtn.addTarget(self, action: #selector(removeAlert), for: .touchUpInside)
+        
+    }
+    
+    @objc func removeAlert(){
+        if dimmingView != nil {
+            dimmingView.removeFromSuperview()
+        }
+    }
+    
 }
 
 extension RegisterProfileViewController : UITextViewDelegate {

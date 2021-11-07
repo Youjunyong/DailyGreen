@@ -13,14 +13,11 @@ class OnboardViewController: UIViewController {
     
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
-//    @IBOutlet weak var pageController: UIPageControl!
     
     let onBoardingViews = [OnboardingView1(), OnboardingView2(), OnboardingView3(), OnboardingView4()]
     
        override func viewDidLoad() {
            super.viewDidLoad()
-//           setPageControl()
-//           scrollView.delegate = self
            addContentScrollView()
        }
     
@@ -39,30 +36,8 @@ class OnboardViewController: UIViewController {
            }
        }
        
-//       private func setPageControl() {
-//
-//           self.pageController.pageIndicatorTintColor =
-//           UIColor.primary
-//           self.contentViewWidthConstraint.constant = self.view.frame.width * CGFloat(onBoardingViews.count)
-//       }
-       
-//       private func setPageControlSelectedPage(currentPage:Int) {
-//           pageController.currentPage = currentPage
-//
-//           pageController.currentPageIndicatorTintColor = UIColor.dark1
-//       }
     
     @objc func startButtonClicked(_ sender: UIButton){
-        
-        
         presentingVC?.changeToLoginView()
-
     }
 }
-//extension OnboardViewController: UIScrollViewDelegate{
-////    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-////        let value = scrollView.contentOffset.x/scrollView.frame.size.width
-//////        setPageControlSelectedPage(currentPage: Int(round(value)))
-////
-////    }
-//}

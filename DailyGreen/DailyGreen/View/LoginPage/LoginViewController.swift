@@ -15,6 +15,7 @@ class LoginViewController: UIViewController{
 
     @IBOutlet weak var testView: UIView!
 
+    @IBOutlet weak var tempLoginButton: UIButton!
     // MARK: - 임시 로그인 기능
     @IBAction func tempLogin(_ sender: Any) {
         
@@ -72,6 +73,7 @@ class LoginViewController: UIViewController{
         appleButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
         self.testView.addSubview(appleButton)
         appleButton.translatesAutoresizingMaskIntoConstraints = false
+  
         appleButton.leadingAnchor.constraint(equalTo: testView.leadingAnchor).isActive = true
         appleButton.trailingAnchor.constraint(equalTo: testView.trailingAnchor).isActive = true
         appleButton.topAnchor.constraint(equalTo: testView.topAnchor).isActive = true

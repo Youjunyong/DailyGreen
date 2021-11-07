@@ -10,6 +10,7 @@ import UIKit
 class RegisterPhoneViewController: UIViewController {
     
     
+
     
     let naviShadowView : UIView = {
         let view = UIView()
@@ -70,6 +71,7 @@ class RegisterPhoneViewController: UIViewController {
     }
 
     @objc func submit(){
+        
         guard let RegisterProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterProfileVC") else{return}
         
         self.navigationController?.pushViewController(RegisterProfileVC, animated: true)
@@ -120,5 +122,5 @@ class RegisterPhoneViewController: UIViewController {
         ])
     }
     
-    
+
 }

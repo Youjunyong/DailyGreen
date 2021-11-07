@@ -53,6 +53,8 @@
 		E1E94504273261A50047ABA8 /* ModalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E94503273261A50047ABA8 /* ModalHeaderView.swift */; };
 		E1E9450727326AD30047ABA8 /* GuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9450527326AD30047ABA8 /* GuideTableViewCell.swift */; };
 		E1E9450827326AD30047ABA8 /* GuideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E9450627326AD30047ABA8 /* GuideTableViewCell.xib */; };
+		E1F6A1142737ABE100BEFF6A /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6A1132737ABE100BEFF6A /* UILabel.swift */; };
+		E1F6A1162737C2B000BEFF6A /* DimmingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6A1152737C2B000BEFF6A /* DimmingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		E1E94503273261A50047ABA8 /* ModalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalHeaderView.swift; sourceTree = "<group>"; };
 		E1E9450527326AD30047ABA8 /* GuideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideTableViewCell.swift; sourceTree = "<group>"; };
 		E1E9450627326AD30047ABA8 /* GuideTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideTableViewCell.xib; sourceTree = "<group>"; };
+		E1F6A1132737ABE100BEFF6A /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		E1F6A1152737C2B000BEFF6A /* DimmingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingView.swift; sourceTree = "<group>"; };
 		E495ED25C705C91183EA472D /* Pods_DailyGreen_DailyGreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyGreen_DailyGreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F972C54A305860F3A48AD373 /* Pods_DailyGreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyGreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -318,6 +322,7 @@
 			children = (
 				E1432234272FCC000028DAE4 /* Color.swift */,
 				E143223E272FE3D00028DAE4 /* UIViewController.swift */,
+				E1F6A1132737ABE100BEFF6A /* UILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				E1E944FC273257010047ABA8 /* TabBarController.swift */,
 				E1E94503273261A50047ABA8 /* ModalHeaderView.swift */,
 				E1509DBD27340CEE00D0B94C /* CustomNavigationConroller.swift */,
+				E1F6A1152737C2B000BEFF6A /* DimmingView.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -650,12 +656,14 @@
 				E1432242272FE89B0028DAE4 /* LoginViewController.swift in Sources */,
 				E1509DBC2734093700D0B94C /* RegisterEmailViewController.swift in Sources */,
 				E1E944FD273257010047ABA8 /* TabBarController.swift in Sources */,
+				E1F6A1142737ABE100BEFF6A /* UILabel.swift in Sources */,
 				E14321CC272FA1730028DAE4 /* ViewController.swift in Sources */,
 				E1432229272FC1CF0028DAE4 /* UserDefault.swift in Sources */,
 				E1362C4D273470BF0045C9EE /* Constant.swift in Sources */,
 				E1E9450027325E400047ABA8 /* GuideViewContorller.swift in Sources */,
 				E1362C4927345A890045C9EE /* RegisterProfileViewController.swift in Sources */,
 				E14321C8272FA1730028DAE4 /* AppDelegate.swift in Sources */,
+				E1F6A1162737C2B000BEFF6A /* DimmingView.swift in Sources */,
 				E1432235272FCC000028DAE4 /* Color.swift in Sources */,
 				E1432221272FA6850028DAE4 /* Font.swift in Sources */,
 				E145B9742734F21E007C593B /* NickNameDataManager.swift in Sources */,

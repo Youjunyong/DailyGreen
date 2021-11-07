@@ -11,10 +11,19 @@ class CommunityView: UIView{
     
     var activate = false
     
+    
     let imageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    let participateBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("", for: .normal)
+        
+        return btn
     }()
     
     let nameLabel: UILabel = {
@@ -38,6 +47,7 @@ class CommunityView: UIView{
         self.backgroundColor = .none
         addSubview(imageView)
         addSubview(nameLabel)
+        addSubview(participateBtn)
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 60),
@@ -45,7 +55,12 @@ class CommunityView: UIView{
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 6),
-            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            participateBtn.topAnchor.constraint(equalTo: imageView.topAnchor),
+            participateBtn.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+            participateBtn.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            participateBtn.leadingAnchor.constraint(equalTo: imageView.leadingAnchor)
         ])
     }
     

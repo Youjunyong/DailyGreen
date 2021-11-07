@@ -15,7 +15,7 @@ struct NanumFont {
 //    static let acBold = "NanumSquareOTF_acB"
     
     
-    public func setLineSpace( label: UILabel, space: Int){
+    func setLineSpace( label: UILabel, space: Int){
         let attrString = NSMutableAttributedString(string: label.text!)
         
         let paragraphStyle = NSMutableParagraphStyle()
@@ -23,6 +23,15 @@ struct NanumFont {
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         label.attributedText = attrString
     }
+    
+    func setSectionFont( label: UILabel, section: String, font: UIFont){
+        
+        let attrString = NSMutableAttributedString(string: label.text!)
+//        attrString.addAttribute(.foregroundColor , value: color, range:(label.text! as NSString).range(of: section))
+        attrString.addAttribute(.font, value: font, range: (label.text! as NSString).range(of: section))
+        label.attributedText = attrString
+    }
+
     
 }
 

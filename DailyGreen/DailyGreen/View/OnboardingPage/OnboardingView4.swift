@@ -64,6 +64,8 @@ class OnboardingView4: UIView{
     let startButton: UIButton = { // 임시
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.titleLabel?.font = UIFont(name: NanumFont.extraBold, size: 17)
+        btn.setTitleColor(UIColor.black, for: .normal)
         btn.setTitle("시작하기", for: .normal)
         return btn
     }()
@@ -109,13 +111,15 @@ class OnboardingView4: UIView{
                 bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 36),
                 
                 startButtonView.widthAnchor.constraint(equalToConstant: 343),
-                startButtonView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -150),
+                startButtonView.bottomAnchor.constraint(equalTo: pageIndicator.topAnchor, constant: -52),
                 startButtonView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 startButtonView.heightAnchor.constraint(equalToConstant: 48),
+                
                 startButton.leadingAnchor.constraint(equalTo: startButtonView.leadingAnchor),
                 startButton.trailingAnchor.constraint(equalTo: startButtonView.trailingAnchor),
                 startButton.topAnchor.constraint(equalTo: startButtonView.topAnchor),
                 startButton.bottomAnchor.constraint(equalTo: startButtonView.bottomAnchor),
+                
                 pageIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
                 pageIndicator.widthAnchor.constraint(equalToConstant: 68),
                 pageIndicator.heightAnchor.constraint(equalToConstant: 8),
