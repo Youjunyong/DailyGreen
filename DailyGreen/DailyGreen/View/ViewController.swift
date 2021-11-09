@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     
     func changeToLoginView(){
         self.dismiss(animated: true) {
-            guard let LoginNaviVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginNaviVC") as? CustomNavigationController else{return}
+            guard let LoginNaviVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginNaviVC") as? RegisterNavigationController else{return}
             self.changeRootViewController(LoginNaviVC)
         }
         

@@ -33,10 +33,14 @@ class LoginViewController: UIViewController{
                 }
                 else {
                     print("loginWithKakaoTalk() success.")
-
                     //dosomething
-                    let token = oauthToken
-                    print("KakaoToken:",token)
+                    let token = oauthToken?.accessToken
+                    let storyboard = UIStoryboard(name: "Register", bundle: nil)
+                    
+                    guard let RegisterProfileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{return}
+                    RegisterProfileVC.kakaoToken = token
+                    self.navigationController?.pushViewController(RegisterProfileVC, animated: false)
+                    
                 }
             }
         }

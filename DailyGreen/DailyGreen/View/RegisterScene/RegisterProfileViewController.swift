@@ -6,15 +6,18 @@
 //
 
 import UIKit
-
+import Alamofire
 
 class RegisterProfileViewController: UIViewController {
     
     let dimmingView = DimmingView()
+    var kakaoToken: String?
+    
     
     let imagePickerController = UIImagePickerController()
     var whiteViewConstraint:[NSLayoutConstraint] = []
     lazy var datamanager = NickNameDataManager()
+    lazy var KRegisterDataManager = KakaoRegisterDataManager()
     
     let whiteView: UIView = {
        let view = UIView()
@@ -53,7 +56,7 @@ class RegisterProfileViewController: UIViewController {
         return btn
     }()
     
-    
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileTitleLabel: UILabel!
     @IBOutlet weak var nickNameInfoLabel: UILabel!
     @IBOutlet weak var nickNameTextField: UITextField!
@@ -67,10 +70,12 @@ class RegisterProfileViewController: UIViewController {
     @IBAction func profileSelect(_ sender: Any) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureUI()
         configureNavi()
         hideKeyboardWhenTappedBackground()
@@ -101,6 +106,7 @@ class RegisterProfileViewController: UIViewController {
         ])
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         profileImageButton.setTitle("", for: .normal)
+        profileImageView.isHidden = true
         nickNameInfoLabel.textColor = UIColor.dark2
         nickNameDivideView.backgroundColor = .dark2
         centerDivideView.backgroundColor = .primary
@@ -114,6 +120,7 @@ class RegisterProfileViewController: UIViewController {
     
     private func configureTargetAction(){
         nickNameCheckButton.addTarget(self, action: #selector(nickNameCheck(_:)), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(submit(_:)), for: .touchUpInside)
     }
     
     private func configureNavi(){
@@ -127,17 +134,46 @@ class RegisterProfileViewController: UIViewController {
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    
+    private func isSubmitReady() -> Bool{
+        let nickName = nickNameTextField.text
+        let bio = textView.text
+        if nickName!.count > 0 , bio!.count > 0 {
+            submitButton.backgroundColor = .primary
+            submitButton.titleLabel?.textColor = UIColor.black
+            return true
+        }
+        return false
+    }
     override func viewWillAppear(_ animated: Bool) { self.addKeyboardNotifications() }
     override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications() }
 
-    
+    @objc private func submit(_: UIButton){
+        let nickName = nickNameTextField.text!
+        let bio = textView.text!
+        let image = profileImageView.image
+        let data = image?.jpegData(compressionQuality: 0.01)
+        
+        
+        
+
+        let imgData = NSData(data: image!.jpegData(compressionQuality: 0)!)
+        var imageSize: Int = imgData.count
+        print("actual size of image in KB: %f ", Double(imageSize) / 1000.0)
+        
+        
+        
+        let parameter = KRegisterRequest(nickname: nickName, profilePhoto: data, bio: bio, accessToken: kakaoToken!)
+        KRegisterDataManager.postNickName(parameter, delegate: self)
+        
+    }
     @objc private func nickNameCheck(_: UIButton){
         guard let inputNickName = nickNameTextField.text else{return}
         if inputNickName.count > 0 {
             let parameter = NickNameRequest(nickname: inputNickName)
             datamanager.postNickName(parameter, delegate: self)
         }else{return}
-        
+        nickNameTextField.isUserInteractionEnabled = false
     }
     
     // MARK: - 키보드 노티
@@ -148,14 +184,14 @@ class RegisterProfileViewController: UIViewController {
             return
         }
         
-        if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+        if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             whiteViewConstraint.append(whiteView.topAnchor.constraint(equalTo: view.topAnchor, constant: keyboardHeight))
             NSLayoutConstraint.activate(whiteViewConstraint)
             whiteView.isHidden = false
             self.view.frame.origin.y -= keyboardHeight
-
+            print(self.view.frame.origin.y)
             }
         }
     // 키보드가 사라졌다는 알림을 받으면 실행할 메서드
@@ -164,16 +200,32 @@ class RegisterProfileViewController: UIViewController {
         if nickNameTextField.isEditing {
             return
         }
+        if self.view.frame.origin.y == 0.0{
+            return
+        }
         if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             whiteView.isHidden = true
-
             self.view.frame.origin.y += keyboardHeight
+            
             }
+        
+        if isSubmitReady() {
+            let nickName = nickNameTextField.text
+            let bio = textView.text
+            
+            
+
+
+
+     
+            print(profileImageView.image)
+            
+        }
         }
 
-    
+
     
     func addKeyboardNotifications(){ // 키보드가 나타날 때 앱에게 알리는 메서드 추가
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
@@ -203,9 +255,7 @@ class RegisterProfileViewController: UIViewController {
     }
     
     @objc func removeAlert(){
-        if dimmingView != nil {
-            dimmingView.removeFromSuperview()
-        }
+        dimmingView.removeFromSuperview()
     }
     
 }
@@ -216,8 +266,6 @@ extension RegisterProfileViewController : UITextViewDelegate {
             textView.text = "자기소개를 자유롭게 입력해주세요.(0/500)."
             textView.textColor = UIColor.lightGray
             textView.font = UIFont(name: NanumFont.regular, size:15 )
-
-                
             }
         
         // TextView Place Holder
@@ -244,8 +292,8 @@ extension RegisterProfileViewController: UIImagePickerControllerDelegate, UINavi
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage{
-//            imageView.image = image
-            print(info)
+            profileImageView.image = image
+            profileImageView.isHidden = false
         }
         dismiss(animated: true, completion: nil)
     }
@@ -270,4 +318,11 @@ extension RegisterProfileViewController {
         nickNameDivideView.backgroundColor = UIColor.dark2
         nickNameInfoLabel.isHidden = true
     }
+    func failedToKRegister(message: String){
+        presentAlert(title: message)
+    }
+    func successKRegister(message: String){
+        presentAlert(title: message)
+    }
+    
 }

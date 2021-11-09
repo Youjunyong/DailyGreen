@@ -123,13 +123,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕, 한나" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqg-4b-gOt">
-                                                <rect key="frame" x="18" y="47" width="71.333333333333329" height="19"/>
+                                                <rect key="frame" x="18" y="47" width="68.333333333333329" height="20"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PSz-hR-7lt">
-                                                <rect key="frame" x="18" y="102" width="372" height="180"/>
+                                                <rect key="frame" x="18" y="103" width="372" height="180"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="03o-Hr-VXt"/>
@@ -152,27 +152,27 @@
                                                 </cells>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXC-we-wjx">
-                                                <rect key="frame" x="0.0" y="318" width="390" height="1"/>
+                                                <rect key="frame" x="0.0" y="319" width="390" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="ged-CZ-GcE"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그린이들의 일상에 참여해보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3F-Bd-SGX">
-                                                <rect key="frame" x="18.000000000000014" y="346" width="229.33333333333337" height="19"/>
+                                                <rect key="frame" x="18.000000000000014" y="347" width="220.33333333333337" height="20"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareR" family="NanumSquare" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDs-Fn-YaK">
-                                                <rect key="frame" x="0.0" y="381" width="303" height="2"/>
+                                                <rect key="frame" x="0.0" y="383" width="303" height="2"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="7c5-UA-bEZ"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSx-6E-Ypz">
-                                                <rect key="frame" x="303" y="360" width="68.666666666666686" height="44"/>
+                                                <rect key="frame" x="303" y="362" width="68.666666666666686" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="3ES-7l-175"/>
                                                 </constraints>
@@ -183,19 +183,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="함께 하는 친환경 실천을 하고 싶나요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96g-Sb-38X">
-                                                <rect key="frame" x="17.999999999999986" y="399" width="250.66666666666663" height="20.333333333333314"/>
+                                                <rect key="frame" x="17.999999999999986" y="401" width="250.66666666666663" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필을 드래그하여 참여하고 싶은 커뮤니티에 드롭해보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7Y-eq-Gh6">
-                                                <rect key="frame" x="18" y="424.33333333333337" width="409" height="20.333333333333314"/>
+                                                <rect key="frame" x="18" y="426.33333333333337" width="409" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="C9E-dX-fte">
-                                                <rect key="frame" x="24" y="468.66666666666663" width="342" height="100"/>
+                                                <rect key="frame" x="24" y="470.66666666666663" width="342" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdd-Sy-uxc" customClass="CommunityView" customModule="DailyGreen" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -224,7 +224,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Q2D-8w-cVi">
-                                                <rect key="frame" x="24" y="588.66666666666663" width="342" height="100"/>
+                                                <rect key="frame" x="24" y="590.66666666666663" width="342" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbH-IM-SoR" customClass="CommunityView" customModule="DailyGreen" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -261,7 +261,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="8bf-BH-5VI">
-                                                <rect key="frame" x="24" y="708.66666666666663" width="342" height="100"/>
+                                                <rect key="frame" x="24" y="710.66666666666663" width="342" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOB-jW-tBq" customClass="CommunityView" customModule="DailyGreen" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -290,7 +290,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이런 활동들은 어때요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoa-2B-MWO">
-                                                <rect key="frame" x="18" y="70.333333333333343" width="157" height="19"/>
+                                                <rect key="frame" x="18" y="71.333333333333343" width="151.33333333333334" height="20"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -590,7 +590,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="이메일로 로그인하기"/>
                                 <connections>
-                                    <segue destination="4oI-w9-5Oi" kind="push" id="DKp-DW-mdc"/>
+                                    <segue destination="4oI-w9-5Oi" kind="push" id="asb-WZ-Wkg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoW-qV-cx3">
@@ -659,34 +659,75 @@
             </objects>
             <point key="canvasLocation" x="2242" y="579"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="pcG-64-1rl">
             <objects>
-                <viewController id="IR3-LC-NdI" sceneMemberID="viewController">
+                <viewController id="IR3-LC-NdI" customClass="CommunityViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tRx-qt-a35">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="secPage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHq-cQ-BtT">
-                                <rect key="frame" x="162" y="411.66666666666669" width="66" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다른 그린이들과 함께" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6z-Co-mO7">
+                                <rect key="frame" x="16" y="112" width="125" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 친환경 실천 관심사를 공유해보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR5-kS-BPL">
+                                <rect key="frame" x="16" y="135" width="241" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d7l-Pc-b2r">
+                                <rect key="frame" x="0.0" y="185" width="390" height="527"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YaD-FJ-4IP">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YaD-FJ-4IP" id="zqQ-Ef-55l">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t81-cT-rsg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xHq-cQ-BtT" firstAttribute="centerX" secondItem="tRx-qt-a35" secondAttribute="centerX" id="Cbp-Db-Nac"/>
-                            <constraint firstItem="xHq-cQ-BtT" firstAttribute="centerY" secondItem="tRx-qt-a35" secondAttribute="centerY" id="VLr-gn-REk"/>
+                            <constraint firstItem="LR5-kS-BPL" firstAttribute="top" secondItem="M6z-Co-mO7" secondAttribute="bottom" constant="5" id="1ro-cE-yz3"/>
+                            <constraint firstItem="d7l-Pc-b2r" firstAttribute="leading" secondItem="t81-cT-rsg" secondAttribute="leading" id="2aX-qK-plb"/>
+                            <constraint firstItem="d7l-Pc-b2r" firstAttribute="top" secondItem="LR5-kS-BPL" secondAttribute="bottom" constant="32" id="PMe-Ja-O2V"/>
+                            <constraint firstItem="t81-cT-rsg" firstAttribute="bottom" secondItem="d7l-Pc-b2r" secondAttribute="bottom" id="RdV-Ry-OT0"/>
+                            <constraint firstItem="t81-cT-rsg" firstAttribute="trailing" secondItem="d7l-Pc-b2r" secondAttribute="trailing" id="cP2-Tv-LJV"/>
+                            <constraint firstItem="M6z-Co-mO7" firstAttribute="top" secondItem="t81-cT-rsg" secondAttribute="top" constant="24" id="po0-Uq-vzV"/>
+                            <constraint firstItem="LR5-kS-BPL" firstAttribute="leading" secondItem="M6z-Co-mO7" secondAttribute="leading" id="pzH-m7-Bx3"/>
+                            <constraint firstItem="M6z-Co-mO7" firstAttribute="leading" secondItem="t81-cT-rsg" secondAttribute="leading" constant="16" id="tUR-hz-pGp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lIr-os-zSH"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="kb5-yX-ghz">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="icChat" style="plain" id="9mf-IB-VYI">
+                                <inset key="imageInsets" minX="-9" minY="0.0" maxX="7" maxY="0.0"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="icBell" style="plain" id="PoV-CC-vxQ">
+                                <inset key="imageInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="d7l-Pc-b2r" id="cnK-dr-Mo8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSS-Av-yj9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700" y="271"/>
+            <point key="canvasLocation" x="4089" y="296"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Z8N-tp-ASY">
@@ -721,7 +762,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4d-2f-pVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3039" y="271"/>
+            <point key="canvasLocation" x="3331" y="319"/>
         </scene>
         <!--나의 계정-->
         <scene sceneID="Qna-Ma-FUT">
@@ -796,10 +837,10 @@
             </objects>
             <point key="canvasLocation" x="3700.0000000000005" y="-387.05357142857139"/>
         </scene>
-        <!--Custom Navigation Controller-->
+        <!--Register Navigation Controller-->
         <scene sceneID="JVv-XB-ySo">
             <objects>
-                <navigationController storyboardIdentifier="LoginNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="WdZ-RG-GEn" customClass="CustomNavigationController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="WdZ-RG-GEn" customClass="RegisterNavigationController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y9z-VI-kRH">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
@@ -818,6 +859,7 @@
     <resources>
         <image name="icBell" width="44" height="44"/>
         <image name="icBtnQuestion" width="44.333332061767578" height="44"/>
+        <image name="icChat" width="43.333332061767578" height="43.333332061767578"/>
         <image name="icHamberger" width="44.333332061767578" height="44.333332061767578"/>
         <image name="tabbar1False" width="25" height="25.333333969116211"/>
         <image name="tabbar1True" width="25" height="25.333333969116211"/>

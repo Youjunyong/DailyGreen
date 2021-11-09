@@ -62,7 +62,7 @@
                                     <constraint firstItem="V9v-La-4Zd" firstAttribute="leading" secondItem="leo-hR-DAT" secondAttribute="trailing" constant="5" id="tsz-eq-Rfc"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9M-KQ-7TO">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9M-KQ-7TO" customClass="r">
                                 <rect key="frame" x="0.0" y="184" width="414" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQx-rP-KNt">
@@ -406,6 +406,13 @@
                                     <action selector="profileSelect:" destination="MLx-ag-gqQ" eventType="touchUpInside" id="7Kg-V6-UfK"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Aa-tV-NeO">
+                                <rect key="frame" x="162" y="124.5" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="1l2-u8-Jo7"/>
+                                    <constraint firstAttribute="height" constant="90" id="DcW-MP-Dj7"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PBC-Dl-pfu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -413,11 +420,13 @@
                             <constraint firstItem="Bd6-oI-1FR" firstAttribute="leading" secondItem="PBC-Dl-pfu" secondAttribute="leading" constant="16" id="3YQ-UU-7hP"/>
                             <constraint firstItem="PBC-Dl-pfu" firstAttribute="bottom" secondItem="XlG-OU-fo5" secondAttribute="bottom" constant="128" id="BEA-QK-4lX"/>
                             <constraint firstItem="2Nr-Ej-wbb" firstAttribute="top" secondItem="CTJ-oY-1JG" secondAttribute="bottom" constant="37" id="FeD-d3-QKv"/>
+                            <constraint firstItem="4Aa-tV-NeO" firstAttribute="centerY" secondItem="CTJ-oY-1JG" secondAttribute="centerY" id="IWw-OG-4aB"/>
                             <constraint firstItem="CTJ-oY-1JG" firstAttribute="centerX" secondItem="H45-nl-svr" secondAttribute="centerX" id="IYw-Bp-L7u"/>
                             <constraint firstItem="2Nr-Ej-wbb" firstAttribute="trailing" secondItem="PBC-Dl-pfu" secondAttribute="trailing" id="MEn-f5-aRX"/>
                             <constraint firstItem="7vh-O7-cSK" firstAttribute="leading" secondItem="CTJ-oY-1JG" secondAttribute="leading" id="NB0-au-e6G"/>
                             <constraint firstItem="7vh-O7-cSK" firstAttribute="top" secondItem="CTJ-oY-1JG" secondAttribute="top" id="VpA-kO-qRm"/>
                             <constraint firstItem="CTJ-oY-1JG" firstAttribute="top" secondItem="wbC-3t-3gu" secondAttribute="bottom" constant="27" id="a4l-hM-Hhy"/>
+                            <constraint firstItem="4Aa-tV-NeO" firstAttribute="centerX" secondItem="CTJ-oY-1JG" secondAttribute="centerX" id="dMZ-8i-Q6E"/>
                             <constraint firstItem="7vh-O7-cSK" firstAttribute="bottom" secondItem="CTJ-oY-1JG" secondAttribute="bottom" id="dTG-mo-7WX"/>
                             <constraint firstItem="Bd6-oI-1FR" firstAttribute="top" secondItem="UvK-V4-7xs" secondAttribute="bottom" constant="16" id="e0p-5G-2PZ"/>
                             <constraint firstItem="XlG-OU-fo5" firstAttribute="centerX" secondItem="H45-nl-svr" secondAttribute="centerX" id="fvO-LQ-1Xk"/>
@@ -441,6 +450,7 @@
                         <outlet property="nickNameInfoLabel" destination="kA2-nr-c3u" id="gqQ-bW-cZa"/>
                         <outlet property="nickNameTextField" destination="bQI-DK-oRi" id="bUy-60-VDK"/>
                         <outlet property="profileImageButton" destination="7vh-O7-cSK" id="o0i-FX-fta"/>
+                        <outlet property="profileImageView" destination="4Aa-tV-NeO" id="4AQ-kk-G9j"/>
                         <outlet property="profileTitleLabel" destination="wbC-3t-3gu" id="4vc-IU-CGT"/>
                         <outlet property="textView" destination="dia-3O-JXa" id="iQK-12-QCS"/>
                     </connections>

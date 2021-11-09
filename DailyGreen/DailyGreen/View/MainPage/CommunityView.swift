@@ -15,6 +15,7 @@ class CommunityView: UIView{
     let imageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        
         return view
     }()
     
