@@ -22,7 +22,7 @@ struct KRegisterResponse: Decodable {
 }
 
 struct UserData: Decodable{
-    var userIdx: String
-    var accountIdx: String
+    var userIdx: Int
+    var accountIdx: Int
 }
 

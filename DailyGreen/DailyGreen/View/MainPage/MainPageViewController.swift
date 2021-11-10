@@ -103,7 +103,7 @@ class MainPageViewController: UIViewController{
         upperDivider.backgroundColor = UIColor.dark1
         lowerDivider.backgroundColor = UIColor.dark1
         guideButton.setTitle("", for: .normal)
-        guideButton.tintColor = .dark1
+//        guideButton.tintColor = .white
         let userName = "한나"
         userNameLabel.text = "안녕, \(userName)"
         communityTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
@@ -115,23 +115,6 @@ class MainPageViewController: UIViewController{
     }
     
     
-//    private func configureTouchEvent(){
-//        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.test) )
-//        singleTapGestureRecognizer.numberOfTapsRequired = 1
-//
-//        singleTapGestureRecognizer.isEnabled = true
-//
-//        singleTapGestureRecognizer.cancelsTouchesInView = false
-//        gridProfileImageView.gestureRecognizerShouldBegin(singleTapGestureRecognizer)
-//
-//        scrollView.addGestureRecognizer(singleTapGestureRecognizer)
-//    }
-//
-//    @objc private func test(){
-//        print("#######")
-//        print(self.isFirstResponder)
-//        print(self.canResignFirstResponder)
-//    }
     
     
 }
@@ -174,24 +157,3 @@ extension MainPageViewController : UICollectionViewDataSource {
     }
 }
 
-
-//extension MainPageViewController {
-//    @objc override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print(#function)
-//        guard let touch = touches.first else {
-//            return
-//        }
-//        let location = touch.location(in: gridProfileImageView)
-//        if gridProfileImageView.bounds.contains(location) {
-//            print("did touch in  blue view")
-//        }
-//    }
-//
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//    }
-//
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//    }
-//}

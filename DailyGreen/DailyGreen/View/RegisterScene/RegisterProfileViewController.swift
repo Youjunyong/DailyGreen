@@ -149,22 +149,45 @@ class RegisterProfileViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications() }
 
     @objc private func submit(_: UIButton){
+        
+        
+        
         let nickName = nickNameTextField.text!
         let bio = textView.text!
-        let image = profileImageView.image
-        let data = image?.jpegData(compressionQuality: 0.01)
+
+        let parameters = [
+            "nickname": nickName,
+            "bio" : bio,
+            "accessToken" : kakaoToken
+        ]
+        
+        print(parameters)
         
         
         
 
-        let imgData = NSData(data: image!.jpegData(compressionQuality: 0)!)
-        var imageSize: Int = imgData.count
-        print("actual size of image in KB: %f ", Double(imageSize) / 1000.0)
+//        let imgData = data: image!.jpegData(compressionQuality: 0.1
+//        var imageSize: Int = imgData.count
+        
+//        print("actual size of image in KB: %f ", Double(imageSize) / 1000.0)
+      
+        if profileImageView.image != nil {
+            let image = profileImageView.image
+            guard let data = image?.jpegData(compressionQuality: 0.1) else{return}
+            KRegisterDataManager.upload(image: data,  params: parameters, delegate: self)
+        }else{
+            KRegisterDataManager.upload(image: nil,  params: parameters, delegate: self)
+        }
+
         
         
+//        let parameter = KRegisterRequest(nickname: nickName, profilePhoto: data, bio: bio, accessToken: kakaoToken!)
+//
+//        KRegisterDataManager.postProfile(parameter, delegate: self)
+
         
-        let parameter = KRegisterRequest(nickname: nickName, profilePhoto: data, bio: bio, accessToken: kakaoToken!)
-        KRegisterDataManager.postNickName(parameter, delegate: self)
+        
+        print("업로드는 실행됐음")
         
     }
     @objc private func nickNameCheck(_: UIButton){
@@ -215,10 +238,6 @@ class RegisterProfileViewController: UIViewController {
             let nickName = nickNameTextField.text
             let bio = textView.text
             
-            
-
-
-
      
             print(profileImageView.image)
             
