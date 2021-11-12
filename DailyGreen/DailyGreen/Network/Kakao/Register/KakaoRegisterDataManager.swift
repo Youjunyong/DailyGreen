@@ -60,8 +60,10 @@ class KakaoRegisterDataManager {
                if image != nil {
                    multiPart.append(image!, withName: "profilePhoto", fileName: "\(params["nickname"]).png", mimeType: "image/jpeg")
                }else{
-                   // 유저가 프사 안넣으면 nil이라도 넣어서 보내야하는지,,,, ?
-                   multiPart.append(nil, withName: "profilePhoto")
+//                    유저가 프사 안넣으면 nil이라도 넣어서 보내야하는지,,,, ?
+//                   그냥 자체적으로 기본사진 넣어서 보내는게 나을듯 .. ?
+//                   multiPart.append("", withName: "profilePhoto")
+                   print("no image")
                }
            }, to: "\(Constant.BASE_URL)/app/users/kakao"
             , headers: headers)

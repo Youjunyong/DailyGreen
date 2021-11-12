@@ -70,6 +70,10 @@ extension SceneDelegate {
     
     private func setRootViewController(_ scene: UIScene){
             setRootViewController(scene, name: "Main", identifier: "InitVC")
+//        setRootViewController(scene, name: "PagerTabbar", identifier: "PagerTabVC")
+
+        
+//        PagerTabVC
 //OnBoardVC 온보딩
 //LoginNaviVC 이메일 로그인
         

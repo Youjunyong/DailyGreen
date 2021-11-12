@@ -401,16 +401,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vh-O7-cSK">
                                 <rect key="frame" x="142" y="109.5" width="130" height="120"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
                                     <action selector="profileSelect:" destination="MLx-ag-gqQ" eventType="touchUpInside" id="7Kg-V6-UfK"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Aa-tV-NeO">
-                                <rect key="frame" x="162" y="124.5" width="90" height="90"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Aa-tV-NeO">
+                                <rect key="frame" x="147" y="109.5" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="1l2-u8-Jo7"/>
-                                    <constraint firstAttribute="height" constant="90" id="DcW-MP-Dj7"/>
+                                    <constraint firstAttribute="height" constant="120" id="JUi-4Y-emU"/>
+                                    <constraint firstAttribute="width" constant="120" id="s6R-3N-3LA"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -449,6 +449,7 @@
                         <outlet property="nickNameDivideView" destination="DnO-1o-uRl" id="71s-eo-qrY"/>
                         <outlet property="nickNameInfoLabel" destination="kA2-nr-c3u" id="gqQ-bW-cZa"/>
                         <outlet property="nickNameTextField" destination="bQI-DK-oRi" id="bUy-60-VDK"/>
+                        <outlet property="profileCircleButtonView" destination="CTJ-oY-1JG" id="X02-gL-vFB"/>
                         <outlet property="profileImageButton" destination="7vh-O7-cSK" id="o0i-FX-fta"/>
                         <outlet property="profileImageView" destination="4Aa-tV-NeO" id="4AQ-kk-G9j"/>
                         <outlet property="profileTitleLabel" destination="wbC-3t-3gu" id="4vc-IU-CGT"/>

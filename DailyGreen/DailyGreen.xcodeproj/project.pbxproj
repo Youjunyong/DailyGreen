@@ -41,6 +41,9 @@
 		E14426D7273186D300EC86D1 /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14426D5273186D300EC86D1 /* EventCollectionViewCell.xib */; };
 		E145B9742734F21E007C593B /* NickNameDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145B9732734F21E007C593B /* NickNameDataManager.swift */; };
 		E145B9772734F419007C593B /* NickNameCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145B9762734F419007C593B /* NickNameCodable.swift */; };
+		E1467146273D741500DD2037 /* CoParticipateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1467145273D741500DD2037 /* CoParticipateDataManager.swift */; };
+		E1467148273D742200DD2037 /* CoParticipateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1467147273D742200DD2037 /* CoParticipateResponse.swift */; };
+		E146714A273D772C00DD2037 /* ParticipateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1467149273D772C00DD2037 /* ParticipateView.swift */; };
 		E14ED2FD2739643700CCBCED /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14ED2FC2739643700CCBCED /* CommunityViewController.swift */; };
 		E14ED300273A2BB900CCBCED /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14ED2FE273A2BB900CCBCED /* CommunityTableViewCell.swift */; };
 		E14ED301273A2BB900CCBCED /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14ED2FF273A2BB900CCBCED /* CommunityTableViewCell.xib */; };
@@ -53,6 +56,15 @@
 		E1509DBA273408F300D0B94C /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1509DB9273408F300D0B94C /* Register.storyboard */; };
 		E1509DBC2734093700D0B94C /* RegisterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1509DBB2734093700D0B94C /* RegisterEmailViewController.swift */; };
 		E1509DBE27340CEE00D0B94C /* RegisterNavigationConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1509DBD27340CEE00D0B94C /* RegisterNavigationConroller.swift */; };
+		E15CB80C273E04A100D66360 /* CoSubscribeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB80B273E04A100D66360 /* CoSubscribeDataManager.swift */; };
+		E15CB80E273E04B500D66360 /* CoSubscribeCodabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB80D273E04B500D66360 /* CoSubscribeCodabel.swift */; };
+		E15CB811273E103200D66360 /* PagerTabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E15CB810273E103200D66360 /* PagerTabbar.storyboard */; };
+		E15CB813273E104100D66360 /* PagerTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB812273E104100D66360 /* PagerTabbarViewController.swift */; };
+		E15CB815273E12D100D66360 /* MeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB814273E12D100D66360 /* MeetingViewController.swift */; };
+		E15CB817273E12DB00D66360 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB816273E12DB00D66360 /* FeedViewController.swift */; };
+		E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB818273E188A00D66360 /* WorkshopViewController.swift */; };
+		E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */; };
+		E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */; };
 		E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */; };
 		E1E944F9273233C90047ABA8 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944F8273233C90047ABA8 /* CommunityView.swift */; };
 		E1E944FD273257010047ABA8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944FC273257010047ABA8 /* TabBarController.swift */; };
@@ -126,6 +138,9 @@
 		E14426D5273186D300EC86D1 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		E145B9732734F21E007C593B /* NickNameDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameDataManager.swift; sourceTree = "<group>"; };
 		E145B9762734F419007C593B /* NickNameCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameCodable.swift; sourceTree = "<group>"; };
+		E1467145273D741500DD2037 /* CoParticipateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoParticipateDataManager.swift; sourceTree = "<group>"; };
+		E1467147273D742200DD2037 /* CoParticipateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoParticipateResponse.swift; sourceTree = "<group>"; };
+		E1467149273D772C00DD2037 /* ParticipateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateView.swift; sourceTree = "<group>"; };
 		E14ED2FC2739643700CCBCED /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		E14ED2FE273A2BB900CCBCED /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		E14ED2FF273A2BB900CCBCED /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
@@ -138,6 +153,15 @@
 		E1509DB9273408F300D0B94C /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		E1509DBB2734093700D0B94C /* RegisterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmailViewController.swift; sourceTree = "<group>"; };
 		E1509DBD27340CEE00D0B94C /* RegisterNavigationConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNavigationConroller.swift; sourceTree = "<group>"; };
+		E15CB80B273E04A100D66360 /* CoSubscribeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoSubscribeDataManager.swift; sourceTree = "<group>"; };
+		E15CB80D273E04B500D66360 /* CoSubscribeCodabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoSubscribeCodabel.swift; sourceTree = "<group>"; };
+		E15CB810273E103200D66360 /* PagerTabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PagerTabbar.storyboard; sourceTree = "<group>"; };
+		E15CB812273E104100D66360 /* PagerTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTabbarViewController.swift; sourceTree = "<group>"; };
+		E15CB814273E12D100D66360 /* MeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewController.swift; sourceTree = "<group>"; };
+		E15CB816273E12DB00D66360 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		E15CB818273E188A00D66360 /* WorkshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopViewController.swift; sourceTree = "<group>"; };
+		E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoCardTableViewCell.swift; sourceTree = "<group>"; };
+		E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCardTableViewCell.xib; sourceTree = "<group>"; };
 		E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		E1E944F8273233C90047ABA8 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		E1E944FC273257010047ABA8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -366,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				E14426CE2731174700EC86D1 /* MainPageViewController.swift */,
+				E1467149273D772C00DD2037 /* ParticipateView.swift */,
 				E14426D4273186D300EC86D1 /* EventCollectionViewCell.swift */,
 				E14426D5273186D300EC86D1 /* EventCollectionViewCell.xib */,
 				E1E944F8273233C90047ABA8 /* CommunityView.swift */,
@@ -383,12 +408,22 @@
 			path = NickNamePost;
 			sourceTree = "<group>";
 		};
+		E1467144273D73F800DD2037 /* Participate */ = {
+			isa = PBXGroup;
+			children = (
+				E1467145273D741500DD2037 /* CoParticipateDataManager.swift */,
+				E1467147273D742200DD2037 /* CoParticipateResponse.swift */,
+			);
+			path = Participate;
+			sourceTree = "<group>";
+		};
 		E14ED2FB273963E900CCBCED /* CommunityScene */ = {
 			isa = PBXGroup;
 			children = (
 				E14ED2FC2739643700CCBCED /* CommunityViewController.swift */,
 				E14ED2FE273A2BB900CCBCED /* CommunityTableViewCell.swift */,
 				E14ED2FF273A2BB900CCBCED /* CommunityTableViewCell.xib */,
+				E15CB80F273E100F00D66360 /* WorkshopFeedScene */,
 			);
 			path = CommunityScene;
 			sourceTree = "<group>";
@@ -396,6 +431,8 @@
 		E14ED302273A31C900CCBCED /* CommunityList */ = {
 			isa = PBXGroup;
 			children = (
+				E15CB80A273E048300D66360 /* Subscribe */,
+				E1467144273D73F800DD2037 /* Participate */,
 				E14ED303273A31EC00CCBCED /* CommunityListResponse.swift */,
 				E14ED305273A31F700CCBCED /* CommunityListDataManager.swift */,
 				E14ED307273A396800CCBCED /* CommunityList.swift */,
@@ -417,6 +454,29 @@
 			children = (
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		E15CB80A273E048300D66360 /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				E15CB80B273E04A100D66360 /* CoSubscribeDataManager.swift */,
+				E15CB80D273E04B500D66360 /* CoSubscribeCodabel.swift */,
+			);
+			path = Subscribe;
+			sourceTree = "<group>";
+		};
+		E15CB80F273E100F00D66360 /* WorkshopFeedScene */ = {
+			isa = PBXGroup;
+			children = (
+				E15CB810273E103200D66360 /* PagerTabbar.storyboard */,
+				E15CB812273E104100D66360 /* PagerTabbarViewController.swift */,
+				E15CB814273E12D100D66360 /* MeetingViewController.swift */,
+				E15CB816273E12DB00D66360 /* FeedViewController.swift */,
+				E15CB818273E188A00D66360 /* WorkshopViewController.swift */,
+				E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */,
+				E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */,
+			);
+			path = WorkshopFeedScene;
 			sourceTree = "<group>";
 		};
 		E19D4E9D2732B12C0024B6FE /* RegisterScene */ = {
@@ -571,12 +631,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1509DB82734006500D0B94C /* NanumSquareEB.ttf in Resources */,
+				E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */,
 				E1E9450827326AD30047ABA8 /* GuideTableViewCell.xib in Resources */,
 				E1E9450227325E560047ABA8 /* Guide.storyboard in Resources */,
 				E14321D7272FA1740028DAE4 /* LaunchScreen.storyboard in Resources */,
 				E14321D4272FA1740028DAE4 /* Assets.xcassets in Resources */,
 				E14ED301273A2BB900CCBCED /* CommunityTableViewCell.xib in Resources */,
 				E1432237272FD6AF0028DAE4 /* NanumSquareR.ttf in Resources */,
+				E15CB811273E103200D66360 /* PagerTabbar.storyboard in Resources */,
 				E1432227272FB76E0028DAE4 /* NanumSquareB.ttf in Resources */,
 				E14321CF272FA1730028DAE4 /* Main.storyboard in Resources */,
 				E14426D7273186D300EC86D1 /* EventCollectionViewCell.xib in Resources */,
@@ -709,11 +771,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E9450727326AD30047ABA8 /* GuideTableViewCell.swift in Sources */,
+				E15CB80E273E04B500D66360 /* CoSubscribeCodabel.swift in Sources */,
 				E14ED308273A396800CCBCED /* CommunityList.swift in Sources */,
 				E14426D6273186D300EC86D1 /* EventCollectionViewCell.swift in Sources */,
 				E1432242272FE89B0028DAE4 /* LoginViewController.swift in Sources */,
 				E1509DBC2734093700D0B94C /* RegisterEmailViewController.swift in Sources */,
 				E1E944FD273257010047ABA8 /* TabBarController.swift in Sources */,
+				E1467146273D741500DD2037 /* CoParticipateDataManager.swift in Sources */,
 				E1F6A1142737ABE100BEFF6A /* UILabel.swift in Sources */,
 				E14321CC272FA1730028DAE4 /* ViewController.swift in Sources */,
 				E1432229272FC1CF0028DAE4 /* UserDefault.swift in Sources */,
@@ -725,20 +789,28 @@
 				E1F6A1162737C2B000BEFF6A /* DimmingView.swift in Sources */,
 				E1432235272FCC000028DAE4 /* Color.swift in Sources */,
 				E1432221272FA6850028DAE4 /* Font.swift in Sources */,
+				E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */,
+				E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */,
 				E145B9742734F21E007C593B /* NickNameDataManager.swift in Sources */,
+				E1467148273D742200DD2037 /* CoParticipateResponse.swift in Sources */,
 				E14ED30F273A57AE00CCBCED /* KakaoRegisterCodable.swift in Sources */,
 				E14321CA272FA1730028DAE4 /* SceneDelegate.swift in Sources */,
 				E1509DBE27340CEE00D0B94C /* RegisterNavigationConroller.swift in Sources */,
 				E1432232272FCA9C0028DAE4 /* OnboardingView1.swift in Sources */,
+				E15CB817273E12DB00D66360 /* FeedViewController.swift in Sources */,
 				E143223F272FE3D00028DAE4 /* UIViewController.swift in Sources */,
 				E14ED2FD2739643700CCBCED /* CommunityViewController.swift in Sources */,
 				E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */,
 				E14ED304273A31EC00CCBCED /* CommunityListResponse.swift in Sources */,
 				E1362C47273451D90045C9EE /* RegisterPhoneViewController.swift in Sources */,
+				E146714A273D772C00DD2037 /* ParticipateView.swift in Sources */,
 				E145B9772734F419007C593B /* NickNameCodable.swift in Sources */,
+				E15CB815273E12D100D66360 /* MeetingViewController.swift in Sources */,
 				E14321D2272FA1730028DAE4 /* DailyGreen.xcdatamodeld in Sources */,
 				E14ED306273A31F700CCBCED /* CommunityListDataManager.swift in Sources */,
 				E1432246272FF1EA0028DAE4 /* File.swift in Sources */,
+				E15CB813273E104100D66360 /* PagerTabbarViewController.swift in Sources */,
+				E15CB80C273E04A100D66360 /* CoSubscribeDataManager.swift in Sources */,
 				E143223B272FDC9C0028DAE4 /* OnboardingView3.swift in Sources */,
 				E143222B272FC61B0028DAE4 /* OnboardViewController.swift in Sources */,
 				E1E94504273261A50047ABA8 /* ModalHeaderView.swift in Sources */,

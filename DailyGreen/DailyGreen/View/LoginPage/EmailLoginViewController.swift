@@ -67,12 +67,7 @@ class EmailLoginViewController: UIViewController {
         
     }
     private func configureNavi(){
-        
-
-        
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
-        
-        
     }
     
     private func configureUI(){

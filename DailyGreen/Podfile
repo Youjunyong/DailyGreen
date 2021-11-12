@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'DailyGreen' do
   # Comment the next line if you don't want to use dynamic frameworks
-
+  pod 	'XLPagerTabStrip', '~> 9.0'
   pod	'KakaoSDKCommon' #kakao 공통 모듈
   pod	'KakaoSDKAuth'  #kakao 로그인
   pod	'KakaoSDKUser'

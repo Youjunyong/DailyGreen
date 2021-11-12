@@ -48,6 +48,14 @@ class CommunityViewController: UIViewController {
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    
+    @objc func pushPagerTabVC(_ sender: UIButton){
+
+        let storyboard = UIStoryboard(name: "PagerTabbar", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "PagerTabVC") as? PagerTabbarViewController else{return}
+        VC.naviTitle = Constant.titleArr[sender.tag]
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
 }
 
 
@@ -69,8 +77,10 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
         cell.titleLabel.text = data.name
         cell.numOfFollowerLabel.text = "\(data.followers)"
         
-        cell.cImageView.image = UIImage(named: Constant.imageArr[data.idx + 1])
-        
+        cell.cImageView.image = UIImage(named: Constant.imageArr[data.idx - 1])
+        cell.pushPagerTabVCButton.tag = data.idx - 1
+        cell.pushPagerTabVCButton.setTitle("", for: .normal)
+        cell.pushPagerTabVCButton.addTarget(self, action: #selector(pushPagerTabVC(_:)), for: .touchUpInside)
         for (idx,strUrl) in data.profileUrl.enumerated(){
             let url = URL(string: strUrl)
             var image : UIImage?

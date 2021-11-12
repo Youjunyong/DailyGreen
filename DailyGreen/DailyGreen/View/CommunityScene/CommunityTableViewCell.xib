@@ -45,31 +45,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOl-uZ-1gP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOl-uZ-1gP">
                                 <rect key="frame" x="12" y="69" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="mVg-7v-1fz"/>
                                     <constraint firstAttribute="height" constant="20" id="owp-9P-o9x"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ayI-AF-bdw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ayI-AF-bdw">
                                 <rect key="frame" x="30" y="69" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="SfO-1E-wWo"/>
                                     <constraint firstAttribute="width" constant="20" id="mq1-1H-hXC"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uqk-K9-O0Y">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uqk-K9-O0Y">
                                 <rect key="frame" x="48" y="69" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="QZY-NM-4qg"/>
                                     <constraint firstAttribute="width" constant="20" id="ZOH-4F-QXR"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKJ-it-8Ca">
+                                <rect key="frame" x="0.0" y="0.0" width="380" height="124"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
+                            <constraint firstItem="TKJ-it-8Ca" firstAttribute="top" secondItem="m8b-KJ-7OX" secondAttribute="top" id="17J-hH-ykR"/>
                             <constraint firstItem="ayI-AF-bdw" firstAttribute="centerY" secondItem="nOl-uZ-1gP" secondAttribute="centerY" id="2f7-CW-aGB"/>
+                            <constraint firstItem="TKJ-it-8Ca" firstAttribute="leading" secondItem="m8b-KJ-7OX" secondAttribute="leading" id="2go-kd-556"/>
                             <constraint firstItem="ayI-AF-bdw" firstAttribute="leading" secondItem="nOl-uZ-1gP" secondAttribute="trailing" constant="-2" id="83o-Vu-i3W"/>
                             <constraint firstItem="Uqk-K9-O0Y" firstAttribute="centerY" secondItem="ayI-AF-bdw" secondAttribute="centerY" id="GEe-Gl-leD"/>
                             <constraint firstAttribute="bottom" secondItem="g72-1N-8Z3" secondAttribute="bottom" constant="12" id="IWA-0c-Y7d"/>
@@ -80,6 +87,8 @@
                             <constraint firstItem="wDz-Ou-yIc" firstAttribute="top" secondItem="m8b-KJ-7OX" secondAttribute="top" constant="12" id="dnf-s8-D4Z"/>
                             <constraint firstItem="SXG-VD-JcQ" firstAttribute="leading" secondItem="g72-1N-8Z3" secondAttribute="trailing" constant="2" id="g46-j1-IWx"/>
                             <constraint firstAttribute="trailing" secondItem="wDz-Ou-yIc" secondAttribute="trailing" constant="12" id="gBD-wV-Taz"/>
+                            <constraint firstAttribute="trailing" secondItem="TKJ-it-8Ca" secondAttribute="trailing" id="iWW-Qz-rvz"/>
+                            <constraint firstAttribute="bottom" secondItem="TKJ-it-8Ca" secondAttribute="bottom" id="n7t-EU-xGP"/>
                             <constraint firstAttribute="height" constant="124" id="nLm-Ic-TSf"/>
                             <constraint firstItem="Uqk-K9-O0Y" firstAttribute="leading" secondItem="ayI-AF-bdw" secondAttribute="trailing" constant="-2" id="odb-ia-z2y"/>
                             <constraint firstItem="nOl-uZ-1gP" firstAttribute="leading" secondItem="g72-1N-8Z3" secondAttribute="leading" id="wSn-bJ-3W8"/>
@@ -101,6 +110,7 @@
                 <outlet property="profileImage1" destination="nOl-uZ-1gP" id="Fem-PS-o8f"/>
                 <outlet property="profileImage2" destination="ayI-AF-bdw" id="y3i-9f-0Yh"/>
                 <outlet property="profileImage3" destination="Uqk-K9-O0Y" id="uh7-6i-DWx"/>
+                <outlet property="pushPagerTabVCButton" destination="TKJ-it-8Ca" id="CEh-cZ-ns4"/>
                 <outlet property="titleLabel" destination="ykY-8q-mY1" id="Arf-08-ltv"/>
             </connections>
             <point key="canvasLocation" x="47.826086956521742" y="118.19196428571428"/>

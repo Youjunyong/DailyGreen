@@ -16,12 +16,14 @@ PODS:
     - KakaoSDKCommon/Common (= 2.8.1)
   - KakaoSDKUser (2.8.1):
     - KakaoSDKAuth (= 2.8.1)
+  - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKTalk
   - KakaoSDKUser
+  - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   trunk:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - KakaoSDKTalk
     - KakaoSDKTemplate
     - KakaoSDKUser
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
@@ -39,7 +42,8 @@ SPEC CHECKSUMS:
   KakaoSDKTalk: 14a62541fbe93bfeafae8751e58d7212d3642431
   KakaoSDKTemplate: 1e47d4d711cdae4250e8750cf6ce76652736e73e
   KakaoSDKUser: c4bdbca17b05ce7a25c67176ac68b6b0c8b1db56
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: dd3be04779757a36fc257d04719e7f83f67c6d6b
+PODFILE CHECKSUM: fcc2889d9800ede1b2860160e0425db7e6a16d76
 
 COCOAPODS: 1.11.2

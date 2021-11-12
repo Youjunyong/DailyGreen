@@ -15,6 +15,7 @@ class CommunityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cImageView: UIImageView!
+    @IBOutlet weak var pushPagerTabVCButton: UIButton!
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var numOfFollowerLabel: UILabel!
@@ -28,6 +29,11 @@ class CommunityTableViewCell: UITableViewCell {
         backView.layer.borderWidth = 2
         backView.layer.borderColor = UIColor.primary.cgColor
         cImageView.backgroundColor = .none
+        
+        
+        profileImage1.layer.cornerRadius = 10
+        profileImage2.layer.cornerRadius = 10
+        profileImage3.layer.cornerRadius = 10
         selectionStyle = .none
         
     }

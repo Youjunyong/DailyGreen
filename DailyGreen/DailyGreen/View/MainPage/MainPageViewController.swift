@@ -9,7 +9,11 @@ import UIKit
 
 class MainPageViewController: UIViewController{
     
-    var gridViews: [CommunityView?] = []
+    lazy var dataManager = CoParticipateDataManager()
+    lazy var participateView = ParticipateView()
+    lazy var subscribeDataManager = CoSubscribeDataManager()
+
+    lazy var gridViews = [grid00View ,grid01View, grid02View, grid10View, grid12View, grid20View, grid21View, grid22View]
     var participateList = [Int]()
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -52,34 +56,80 @@ class MainPageViewController: UIViewController{
     }
     @objc func participate(_ sender: UIButton){
         guard let CommunityView = sender.superview as? CommunityView else{return}
-        
-        CommunityView.backgroundColor = .red
+        dataManager.getCoParticpate(delegate: self, communityIdx: CommunityView.tag + 1)
         
     }
-    private func configureGridView(){
-        self.gridViews = [grid00View ,grid01View, grid02View, grid10View, grid12View, grid20View, grid21View, grid22View]
+    
+    @objc func postSubscribe(_ sender: UIButton) {
+        guard let participateView = sender.superview as? ParticipateView else{return}
+        let idx = participateView.tag
+        let coSubscribeRequest = CoSubscribeRequest(communityIdx: "\(idx + 1)")
+        subscribeDataManager.postSubscribe(coSubscribeRequest, delegate: self, communityIdx: idx)
         
-        for (tag , gridView) in gridViews.enumerated() {
-            gridView?.participateBtn.addTarget(self, action: #selector(participate(_:)), for: .touchUpInside)
+    }
+    
+    private func configureParticipateView(_ communityIdx: Int, urls: [String], followers: Int){
+        
+        participateView.translatesAutoresizingMaskIntoConstraints = false
+        for (i,url) in urls.enumerated(){
+            let url = URL(string: url)
+            
+            let data = try? Data(contentsOf: url!)
+            switch i {
+            case 0:
+                participateView.profileImageView1.image = UIImage(data: data!)
+
+            case 1:
+                participateView.profileImageView2.image = UIImage(data: data!)
+                
+                
+
+            default:
+                participateView.profileImageView3.image = UIImage(data: data!)
+                
+                
+            }
         }
-        let nameArr = ["플로깅", "제로웨이스트", "분리배출", "비건레시피", "에너지,물절약", "업사이클링", "차없이 가기", "환경문화"]
+        participateView.tag = communityIdx
+        
+        participateView.followerLabel.text = "\(followers)"
+        participateView.titleLabel.text = CommunityData.nameArr[communityIdx]
+        participateView.subTitleLabel.text = CommunityData.subTitleArr[communityIdx]
+        participateView.communityImageView.image = UIImage(named: CommunityData.imageArr[communityIdx])
+        participateView.dismissBtn.addTarget(self, action: #selector(dismissParticipateView(_:)) , for: .touchUpInside)
+        participateView.participateButton.addTarget(self, action: #selector(postSubscribe(_:)), for: .touchUpInside)
+        self.view.addSubview(participateView)
+        NSLayoutConstraint.activate([
+            participateView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            participateView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            participateView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            participateView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
+    }
+    
+    @objc func dismissParticipateView(_ sender: UIButton){
+        participateView.removeFromSuperview()
+    }
+    
+    private func configureGridView(){
+        
         let imageArr = ["grid00", "grid01" , "grid02" , "grid10", "grid12", "grid20", "grid21", "grid22"]
         // DUMMY VALUE
         grid01View.activate = true
-        grid21View.activate = true
-        grid10View.activate = true
         
         
         for (idx,gridView) in gridViews.enumerated() {
-  
-            gridView?.nameLabel.text = nameArr[idx]
+            gridView?.participateBtn.addTarget(self, action: #selector(participate(_:)), for: .touchUpInside)
+
+            gridView?.nameLabel.text = CommunityData.nameArr[idx]
             gridView?.imageView.image = UIImage(named: imageArr[idx])
+            gridView?.tag = idx
         }
         
         gridProfileImageView.layer.cornerRadius = gridProfileImageView.layer.frame.size.height / 2
         gridProfileImageView.layer.borderWidth = 0
         gridProfileImageView.layer.masksToBounds = true
-        gridProfileImageView.image = UIImage(named: "다운로드")
+        gridProfileImageView.image = UIImage(named: "ico-Profile")
         
     }
 
@@ -157,3 +207,28 @@ extension MainPageViewController : UICollectionViewDataSource {
     }
 }
 
+
+extension MainPageViewController {
+    
+    func failedToRequest(message: String){
+        presentAlert(title: message)
+    }
+    func didSuccessGet(message: String, results: CoPResult, communityIdx: Int){
+        
+        var urls = [String]()
+        if results.urlList.count > 0{
+            for url in results.urlList {
+                urls.append(url.profilePhotoUrl)
+            }
+        }
+        configureParticipateView(communityIdx - 1, urls : urls, followers: results.totalFollowers)
+        presentAlert(title: message)
+    }
+    func didSuccessPostSubscribe(message: String, communityIdx: Int){
+        
+        self.gridViews[communityIdx]?.activate = true
+        configureGridView()
+        presentAlert(title: message)
+    }
+    
+}

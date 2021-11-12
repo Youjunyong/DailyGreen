@@ -13,6 +13,7 @@ class RegisterProfileViewController: UIViewController {
     let dimmingView = DimmingView()
     var kakaoToken: String?
     
+    @IBOutlet weak var profileCircleButtonView: UIImageView!
     
     let imagePickerController = UIImagePickerController()
     var whiteViewConstraint:[NSLayoutConstraint] = []
@@ -107,6 +108,7 @@ class RegisterProfileViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         profileImageButton.setTitle("", for: .normal)
         profileImageView.isHidden = true
+        profileImageView.layer.cornerRadius = 60
         nickNameInfoLabel.textColor = UIColor.dark2
         nickNameDivideView.backgroundColor = .dark2
         centerDivideView.backgroundColor = .primary
@@ -163,14 +165,6 @@ class RegisterProfileViewController: UIViewController {
         
         print(parameters)
         
-        
-        
-
-//        let imgData = data: image!.jpegData(compressionQuality: 0.1
-//        var imageSize: Int = imgData.count
-        
-//        print("actual size of image in KB: %f ", Double(imageSize) / 1000.0)
-      
         if profileImageView.image != nil {
             let image = profileImageView.image
             guard let data = image?.jpegData(compressionQuality: 0.1) else{return}
@@ -178,14 +172,6 @@ class RegisterProfileViewController: UIViewController {
         }else{
             KRegisterDataManager.upload(image: nil,  params: parameters, delegate: self)
         }
-
-        
-        
-//        let parameter = KRegisterRequest(nickname: nickName, profilePhoto: data, bio: bio, accessToken: kakaoToken!)
-//
-//        KRegisterDataManager.postProfile(parameter, delegate: self)
-
-        
         
         print("업로드는 실행됐음")
         
@@ -312,6 +298,7 @@ extension RegisterProfileViewController: UIImagePickerControllerDelegate, UINavi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage{
             profileImageView.image = image
+            profileCircleButtonView.isHidden = true
             profileImageView.isHidden = false
         }
         dismiss(animated: true, completion: nil)
