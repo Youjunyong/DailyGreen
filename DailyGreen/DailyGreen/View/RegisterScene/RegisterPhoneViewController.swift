@@ -9,9 +9,8 @@ import UIKit
 
 class RegisterPhoneViewController: UIViewController {
     
-    
-
-    
+    lazy var phoneAuthDataManager = PhoneAuthDataManager()
+    lazy var checkAuthDataManager = CheckAuthDataManager()
     let naviShadowView : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -77,13 +76,25 @@ class RegisterPhoneViewController: UIViewController {
         self.navigationController?.pushViewController(RegisterProfileVC, animated: true)
         
     }
+    @objc func postAuth(){
+        let phoneNumber = phoneTextFiled.text! // 유효성검사 추가해라
+        let param = PhoneAuthRequest(phoneNumber: phoneNumber)
+        phoneAuthDataManager.postPhoneAuth(param, delegate: self)
+    }
     
+    @objc func checkAuth(){
+        let phoneNumber = phoneTextFiled.text!
+        let codeNumber = codeTextField.text! //유효성 검사 추가해라
+        let param = CheckAuthRequest(phoneNumber: phoneNumber, verifyCode: codeNumber)
+        checkAuthDataManager.checkPhoneAuth(param, delegate: self)
+    }
     private func configureUI(){
         view.addSubview(submitButton)
-
         view.addSubview(checkCodeButton)
         view.addSubview(checkPhoneButton)
         submitButton.addTarget(self, action: #selector(submit) , for: .touchUpInside)
+        checkPhoneButton.addTarget(self, action: #selector(postAuth), for: .touchUpInside)
+        checkCodeButton.addTarget(self, action: #selector(checkAuth), for: .touchUpInside)
         phoneDivideView.backgroundColor = .dark2
         codeDivideView.backgroundColor = .dark2
         
@@ -121,6 +132,17 @@ class RegisterPhoneViewController: UIViewController {
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-    
+}
 
+extension RegisterPhoneViewController {
+    func failedPostPhoneAuth(message: String){
+        self.presentAlert(title: message)
+    }
+    
+    func successPhoneAuth(message: String) {
+        self.presentAlert(title: message)
+    }
+    func successCheckAuth(message: String) {
+        self.presentAlert(title: message)
+    }
 }

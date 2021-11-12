@@ -66,6 +66,10 @@
 		E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */; };
 		E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */; };
 		E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */; };
+		E1CC0F58273E97EB00778650 /* PhoneAuthCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC0F57273E97EB00778650 /* PhoneAuthCodable.swift */; };
+		E1CC0F5A273E97F600778650 /* PhoneAuthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC0F59273E97F600778650 /* PhoneAuthDataManager.swift */; };
+		E1CC0F5C273E9AA400778650 /* CheckAuthCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC0F5B273E9AA400778650 /* CheckAuthCodable.swift */; };
+		E1CC0F5E273E9AB200778650 /* CheckAuthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC0F5D273E9AB200778650 /* CheckAuthDataManager.swift */; };
 		E1E944F9273233C90047ABA8 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944F8273233C90047ABA8 /* CommunityView.swift */; };
 		E1E944FD273257010047ABA8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944FC273257010047ABA8 /* TabBarController.swift */; };
 		E1E9450027325E400047ABA8 /* GuideViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944FF27325E400047ABA8 /* GuideViewContorller.swift */; };
@@ -163,6 +167,10 @@
 		E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoCardTableViewCell.swift; sourceTree = "<group>"; };
 		E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCardTableViewCell.xib; sourceTree = "<group>"; };
 		E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
+		E1CC0F57273E97EB00778650 /* PhoneAuthCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthCodable.swift; sourceTree = "<group>"; };
+		E1CC0F59273E97F600778650 /* PhoneAuthDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthDataManager.swift; sourceTree = "<group>"; };
+		E1CC0F5B273E9AA400778650 /* CheckAuthCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAuthCodable.swift; sourceTree = "<group>"; };
+		E1CC0F5D273E9AB200778650 /* CheckAuthDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAuthDataManager.swift; sourceTree = "<group>"; };
 		E1E944F8273233C90047ABA8 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		E1E944FC273257010047ABA8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E1E944FF27325E400047ABA8 /* GuideViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewContorller.swift; sourceTree = "<group>"; };
@@ -230,6 +238,7 @@
 		E1362C4B2734709B0045C9EE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E1CC0F56273E97D200778650 /* PhoneAuth */,
 				E14ED302273A31C900CCBCED /* CommunityList */,
 				E1A6D46E273510A900E2EC82 /* Kakao */,
 				E145B9752734F3F9007C593B /* NickNamePost */,
@@ -497,6 +506,17 @@
 				E14ED309273A570300CCBCED /* Register */,
 			);
 			path = Kakao;
+			sourceTree = "<group>";
+		};
+		E1CC0F56273E97D200778650 /* PhoneAuth */ = {
+			isa = PBXGroup;
+			children = (
+				E1CC0F57273E97EB00778650 /* PhoneAuthCodable.swift */,
+				E1CC0F59273E97F600778650 /* PhoneAuthDataManager.swift */,
+				E1CC0F5B273E9AA400778650 /* CheckAuthCodable.swift */,
+				E1CC0F5D273E9AB200778650 /* CheckAuthDataManager.swift */,
+			);
+			path = PhoneAuth;
 			sourceTree = "<group>";
 		};
 		E1E944FB273256F60047ABA8 /* CustomClass */ = {
@@ -793,12 +813,16 @@
 				E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */,
 				E145B9742734F21E007C593B /* NickNameDataManager.swift in Sources */,
 				E1467148273D742200DD2037 /* CoParticipateResponse.swift in Sources */,
+				E1CC0F5E273E9AB200778650 /* CheckAuthDataManager.swift in Sources */,
+				E1CC0F58273E97EB00778650 /* PhoneAuthCodable.swift in Sources */,
 				E14ED30F273A57AE00CCBCED /* KakaoRegisterCodable.swift in Sources */,
 				E14321CA272FA1730028DAE4 /* SceneDelegate.swift in Sources */,
 				E1509DBE27340CEE00D0B94C /* RegisterNavigationConroller.swift in Sources */,
 				E1432232272FCA9C0028DAE4 /* OnboardingView1.swift in Sources */,
+				E1CC0F5A273E97F600778650 /* PhoneAuthDataManager.swift in Sources */,
 				E15CB817273E12DB00D66360 /* FeedViewController.swift in Sources */,
 				E143223F272FE3D00028DAE4 /* UIViewController.swift in Sources */,
+				E1CC0F5C273E9AA400778650 /* CheckAuthCodable.swift in Sources */,
 				E14ED2FD2739643700CCBCED /* CommunityViewController.swift in Sources */,
 				E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */,
 				E14ED304273A31EC00CCBCED /* CommunityListResponse.swift in Sources */,
