@@ -13,6 +13,8 @@ import KakaoSDKUser
 
 class LoginViewController: UIViewController{
 
+    lazy var kakaoLoginDataManager = KakaoLoginDataManager()
+    
     @IBOutlet weak var testView: UIView!
 
     @IBOutlet weak var tempLoginButton: UIButton!
@@ -48,6 +50,8 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProviderLoginView()
+        isHaveKaKaoToken()
+        print("LoginVC", #function)
         
     }
     // MARK: - 카카오 토큰 존재 여부
@@ -57,18 +61,28 @@ class LoginViewController: UIViewController{
                 if let error = error {
                     if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true  {
                         //로그인 필요
+                        print("In LoginVC (kakao) : 로그인 필요")
                     }
                     else {
                         //기타 에러
+                        print("In LoginVC (kakao) : 기타 에러")
                     }
                 }
                 else {
                     //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
+                    print("In LoginVC (kakao) : 토큰 유효성 체크 성공(필요시 토큰 갱신됨")
+                    let token  = TokenManager().getToken()?.accessToken
+                    print("####토큰?: ", token)
+                    
+                    let param = KakaoLoginRequest(accessToken:token! )
+                    self.kakaoLoginDataManager.postKakaoLogin(param, delegate: self)
+                    
                 }
             }
         }
         else {
             //로그인 필요
+            print("In LoginVC (kakao) : 로그인 필요")
         }
     }
     
@@ -108,6 +122,23 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
         return self.view.window!
     }
     
+}
+
+
+
+extension LoginViewController {
+    func successKakaoLogin(message: String){
+        presentAlert(title: message)
+        let jwt = UserDefaults.standard.string(forKey: "jwt")
+        let nickName = UserDefaults.standard.string(forKey: "nickName")
+        let profile = UserDefaults.standard.string(forKey: "profilePhotoUrl")
+        
+        print("로그인 성공", jwt, nickName, profile)
+    }
+    
+    func failedToKakaoLogin(message: String){
+        presentAlert(title: message)
+    }
 }
 
 
