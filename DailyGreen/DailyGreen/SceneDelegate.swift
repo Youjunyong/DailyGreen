@@ -69,34 +69,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     
     private func setRootViewController(_ scene: UIScene){
+        if Storage.isFirstLaunch() {
             setRootViewController(scene, name: "Main", identifier: "InitVC")
-//        setRootViewController(scene, name: "PagerTabbar", identifier: "PagerTabVC")
+        } else{
+            setRootViewController(scene, name: "Main", identifier: "LoginVC")
 
-        
-//        PagerTabVC
-//OnBoardVC 온보딩
-//LoginNaviVC 이메일 로그인
-        
-        
-//        if Storage.isFirstLaunch() {
-//            print("In sceneDelegate : isFirstLauch > if")
-//            setRootViewController(scene, name: "Main",
-//                                  identifier: "InitVC")
-//        } else{
-//            print("In sceneDelegate : isFirstLauch > else")
-//
-//            if Storage.isLogin() {
-//                print("In sceneDelegate : isLogin > if")
-//
-//                setRootViewController(scene, name: "Main", identifier: "MainPageVC")
-//            }else{
-//                print("In sceneDelegate : isLogin > else")
-//
-//                setRootViewController(scene, name: "Main",
-//                                      identifier: "LoginVC")
-//            }
-//
-//        }
+        }
 }
     private func setRootViewController(_ scene: UIScene, name: String, identifier: String) {
         if let windowScene = scene as? UIWindowScene {
@@ -111,7 +89,6 @@ extension SceneDelegate {
     
 }
 
-// MARK: - 첫 화면 설정할 로직. 나중에 개발어느정도 끝나고 다시 보자
 public class Storage {
     
     static func isFirstLaunch() -> Bool {
@@ -120,38 +97,8 @@ public class Storage {
             defaults.set("No", forKey:"isFirstLaunch")
             return true
         } else {
-            return true
-        }
-    }
-    
-    static func isLogin() -> Bool {
-        let defaults = UserDefaults.standard
-        if defaults.object(forKey: "isLogin") == nil {
-            defaults.set("No", forKey:"isLogin")
-            return false
-        } else {
             return false
         }
     }
-    
-//    static func isFirstLaunch() -> Bool {
-//        let defaults = UserDefaults.standard
-//        if defaults.object(forKey: "isFirstLaunch") == nil {
-//            defaults.set("No", forKey:"isFirstLaunch")
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-//
-//    static func isLogin() -> Bool {
-//        let defaults = UserDefaults.standard
-//        if defaults.object(forKey: "isLogin") == nil {
-//            defaults.set("No", forKey:"isLogin")
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
+ 
 }
-

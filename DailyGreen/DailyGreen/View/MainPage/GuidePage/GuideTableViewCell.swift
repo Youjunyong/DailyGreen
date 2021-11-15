@@ -39,6 +39,7 @@ class GuideTableViewCell: UITableViewCell {
         bodyLabel.textColor = UIColor.dark2
         bodyLabel.numberOfLines = 0
         
+        
         let nanum = NanumFont()
         nanum.setLineSpace(label: self.subTitleLabel, space:6)
         nanum.setLineSpace(label: bodyLabel, space: 5)

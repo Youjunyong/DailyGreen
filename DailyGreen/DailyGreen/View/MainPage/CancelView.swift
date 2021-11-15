@@ -1,13 +1,12 @@
 //
-//  ParticipateView.swift
+//  CancelView.swift
 //  DailyGreen
 //
-//  Created by 유준용 on 2021/11/12.
+//  Created by 유준용 on 2021/11/15.
 //
 
 import UIKit
-
-class ParticipateView: UIView {
+class CancelView: UIView {
     
     let frameView : UIView = {
         let view = UIView()

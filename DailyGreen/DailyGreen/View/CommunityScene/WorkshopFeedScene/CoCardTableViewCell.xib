@@ -211,12 +211,19 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bodyLabel" destination="oPJ-dB-B84" id="lw7-6U-iqQ"/>
+                <outlet property="calendarImageView" destination="gcY-Vf-xoO" id="U78-Ch-xaz"/>
                 <outlet property="categoryLabel" destination="PDc-zp-OmT" id="xhP-Zq-dyF"/>
                 <outlet property="categoryView" destination="7uA-6P-5RK" id="bqz-Fh-DMA"/>
                 <outlet property="centerDivideView" destination="OJY-fV-CDy" id="kuH-H6-H9P"/>
+                <outlet property="dateLabel" destination="CmX-Wf-bKC" id="iMw-2A-TVe"/>
+                <outlet property="devideViewConstraint" destination="qkB-Md-gbp" id="cRf-uV-aTi"/>
                 <outlet property="footerView" destination="sqn-yq-ZWg" id="2SW-Jo-wVx"/>
+                <outlet property="locationLabel" destination="72h-QH-tPx" id="0Yn-8W-3Rm"/>
+                <outlet property="maxPeopleNum" destination="isj-Yq-xzX" id="H9s-zg-Igx"/>
+                <outlet property="nickNameLabel" destination="D2u-xi-22o" id="zSL-IB-HGe"/>
                 <outlet property="participateButton" destination="tes-QW-pvg" id="uw2-gl-yFa"/>
                 <outlet property="participateLabel" destination="MpK-n1-V8A" id="mlL-tp-2pP"/>
+                <outlet property="profileImageView" destination="1hB-b8-Y9i" id="ANn-b4-6Oo"/>
                 <outlet property="titleLabel" destination="wUP-1b-E8u" id="IkW-AS-vKo"/>
                 <outlet property="upperImageView" destination="ir9-1f-k3D" id="oeI-xH-pJ6"/>
             </connections>

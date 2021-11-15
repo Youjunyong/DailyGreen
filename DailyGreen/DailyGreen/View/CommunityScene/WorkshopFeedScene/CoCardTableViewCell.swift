@@ -9,7 +9,12 @@ import UIKit
 
 class CoCardTableViewCell: UITableViewCell {
 
+    var preHashTag: UILabel? = nil
     
+    @IBOutlet weak var calendarImageView: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var centerDivideView: UIView!
     @IBOutlet weak var participateButton: UIButton!
@@ -18,12 +23,18 @@ class CoCardTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var upperImageView: UIImageView!
     @IBOutlet weak var footerView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var maxPeopleNum: UILabel!
     @IBOutlet weak var participateLabel: UILabel!
+    
+    @IBOutlet weak var devideViewConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -50,11 +61,43 @@ class CoCardTableViewCell: UITableViewCell {
         footerView.layer.borderColor = UIColor.primary.cgColor
         footerView.layer.borderWidth = 2
         
-        
+        profileImageView.layer.cornerRadius = 18
+        profileImageView.contentMode = .scaleAspectFill
     
         titleLabel.font = UIFont(name: NanumFont.bold, size: 17)
     }
 
+    
+    
+    func addHashTag(_ text : String){
+        let hashTagLabel: UILabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.backgroundColor = .light1
+            label.numberOfLines = 1
+            label.layer.cornerRadius = 10
+            label.font = UIFont.systemFont(ofSize: 13)
+            label.text = text
+            return label
+        }()
+        
+        addSubview(hashTagLabel)
+        
+        if preHashTag == nil{
+            NSLayoutConstraint.activate([
+                hashTagLabel.topAnchor.constraint(equalTo: calendarImageView.bottomAnchor, constant: 10),
+                hashTagLabel.leadingAnchor.constraint(equalTo: calendarImageView.leadingAnchor)
+            ])
+        }else{
+            NSLayoutConstraint.activate([
+                hashTagLabel.centerYAnchor.constraint(equalTo: preHashTag!.centerYAnchor),
+                hashTagLabel.leadingAnchor.constraint(equalTo: preHashTag!.trailingAnchor, constant: 5)
+            ])
+            
+        }
+        self.preHashTag = hashTagLabel
+        
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

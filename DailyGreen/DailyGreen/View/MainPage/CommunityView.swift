@@ -9,8 +9,6 @@ import UIKit
 
 class CommunityView: UIView{
     
-    var activate = false
-    
     
     let imageView: UIImageView = {
         let view = UIImageView()
@@ -35,9 +33,6 @@ class CommunityView: UIView{
     }()
     override func layoutSubviews() {
         configureUI()
-        if activate {
-            backgroundColor = UIColor.selected
-        }
     }
     
     

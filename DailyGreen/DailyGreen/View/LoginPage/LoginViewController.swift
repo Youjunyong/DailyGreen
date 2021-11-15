@@ -50,12 +50,12 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProviderLoginView()
-        isHaveKaKaoToken()
-        print("LoginVC", #function)
+        isHaveKakaoToken()
+        
         
     }
     // MARK: - 카카오 토큰 존재 여부
-    private func isHaveKaKaoToken(){
+    private func isHaveKakaoToken(){
         if (AuthApi.hasToken()) {
             UserApi.shared.accessTokenInfo { (_, error) in
                 if let error = error {
@@ -72,11 +72,10 @@ class LoginViewController: UIViewController{
                     //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
                     print("In LoginVC (kakao) : 토큰 유효성 체크 성공(필요시 토큰 갱신됨")
                     let token  = TokenManager().getToken()?.accessToken
-                    print("####토큰?: ", token)
-                    
-                    let param = KakaoLoginRequest(accessToken:token! )
+                    let param = KakaoLoginRequest(accessToken:token!)
                     self.kakaoLoginDataManager.postKakaoLogin(param, delegate: self)
-                    
+                    guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
+                    self.changeRootViewController(MainTabBarController)
                 }
             }
         }
@@ -132,8 +131,6 @@ extension LoginViewController {
         let jwt = UserDefaults.standard.string(forKey: "jwt")
         let nickName = UserDefaults.standard.string(forKey: "nickName")
         let profile = UserDefaults.standard.string(forKey: "profilePhotoUrl")
-        
-        print("로그인 성공", jwt, nickName, profile)
     }
     
     func failedToKakaoLogin(message: String){

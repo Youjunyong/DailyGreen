@@ -15,13 +15,14 @@ struct ClubResponse: Decodable {
 }
 
 struct ClubInfo: Decodable {
-    var clubInfoObj: ClubInfoObejct
+    var clubInfoObj: ClubInfoObject
     var profilePhotoUrlListObj: ClubImageList
     var clubTagListObj: ClubTagListObj
 }
 
 
-struct ClubInfoObejct: Decodable {
+struct ClubInfoObject: Decodable {
+    var isRegular: Int
     var clubIdx: Int
     var userIdx: Int
     var nickname: String
@@ -38,17 +39,17 @@ struct ClubInfoObejct: Decodable {
 }
 
 struct ClubImageList: Decodable {
-    var clubIdx: Int
-    var urlList: [ProfilePhotoUrl]
+    var clubIdx: Int?
+    var urlList: [ProfilePhotoUrl?]?
 }
 
 struct ProfilePhotoUrl: Decodable {
-    var profilePhotoUrl: String
+    var profilePhotoUrl: String?
 }
 
 struct ClubTagListObj: Decodable {
-    var clubIdx: Int
-    var tagList: [TagName]
+    var clubIdx: Int?
+    var tagList: [TagName?]?
 }
 
 struct TagName: Decodable{

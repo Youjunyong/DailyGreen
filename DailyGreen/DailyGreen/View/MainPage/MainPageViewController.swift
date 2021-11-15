@@ -12,6 +12,8 @@ class MainPageViewController: UIViewController{
     lazy var dataManager = CoParticipateDataManager()
     lazy var participateView = ParticipateView()
     lazy var subscribeDataManager = CoSubscribeDataManager()
+    lazy var cListDataManager = CommunityListDataManager() // 현재 구독중인 커뮤니티
+    lazy var cancelDataManager = CancelCommunityDataManager() // 참여한 커뮤니티 구독취소하기
 
     lazy var gridViews = [grid00View ,grid01View, grid02View, grid10View, grid12View, grid20View, grid21View, grid22View]
     var participateList = [Int]()
@@ -42,29 +44,53 @@ class MainPageViewController: UIViewController{
         GuideVC.modalPresentationStyle = .fullScreen
         self.present(GuideVC, animated: true, completion: nil)
     }
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        cListDataManager.getCommunityList(delegate: self)
         configureGridView()
         configureUI()
         configureCollectionView()
-//        configureTouchEvent()
     }
-    @objc func participate(_ sender: UIButton){
-        guard let CommunityView = sender.superview as? CommunityView else{return}
-        dataManager.getCoParticpate(delegate: self, communityIdx: CommunityView.tag + 1)
+    
+    @objc func participate(_ sender: UIButton){ // 커뮤니티 view 눌렀을때
+        guard let communityView = sender.superview as? CommunityView else{return}
         
+        
+        dataManager.getCoParticpate(delegate: self, communityIdx: communityView.tag)
+
+        
+    }
+    
+    private func communityViewColor(){
+        for i in 1...8{
+            let v = view.viewWithTag(i)
+
+            if participateList.contains(i) {
+                v?.backgroundColor = .selected
+            }else{
+                v?.backgroundColor = .white
+            }
+            
+        }
     }
     
     @objc func postSubscribe(_ sender: UIButton) {
         guard let participateView = sender.superview as? ParticipateView else{return}
         let idx = participateView.tag
-        let coSubscribeRequest = CoSubscribeRequest(communityIdx: "\(idx + 1)")
+        print("현재 담긴 커뮤니티 배열 : ", participateList)
+
+        if participateList.contains(idx) {
+            let param = CancelCommunityRequest(communityIdx: String(idx))
+            cancelDataManager.patchCancelCommunity(param, delegate: self, communityIdx: idx)
+            participateList.removeFirst(idx)
+            communityViewColor()
+        }
+        
+        
+        let coSubscribeRequest = CoSubscribeRequest(communityIdx: "\(idx)")
         subscribeDataManager.postSubscribe(coSubscribeRequest, delegate: self, communityIdx: idx)
+        print("현재 담긴 커뮤니티 배열 : ", participateList)
+
         
     }
     
@@ -72,25 +98,17 @@ class MainPageViewController: UIViewController{
         
         participateView.translatesAutoresizingMaskIntoConstraints = false
         for (i,url) in urls.enumerated(){
-            let url = URL(string: url)
-            
-            let data = try? Data(contentsOf: url!)
             switch i {
             case 0:
-                participateView.profileImageView1.image = UIImage(data: data!)
-
+                participateView.profileImageView1.load(strUrl: url)
             case 1:
-                participateView.profileImageView2.image = UIImage(data: data!)
-                
-                
-
+                participateView.profileImageView2.load(strUrl: url)
             default:
-                participateView.profileImageView3.image = UIImage(data: data!)
-                
-                
+                participateView.profileImageView3.load(strUrl: url)
             }
         }
         participateView.tag = communityIdx
+        
         
         participateView.followerLabel.text = "\(followers)"
         participateView.titleLabel.text = CommunityData.nameArr[communityIdx]
@@ -114,22 +132,19 @@ class MainPageViewController: UIViewController{
     private func configureGridView(){
         
         let imageArr = ["grid00", "grid01" , "grid02" , "grid10", "grid12", "grid20", "grid21", "grid22"]
-        // DUMMY VALUE
-        grid01View.activate = true
-        
-        
         for (idx,gridView) in gridViews.enumerated() {
             gridView?.participateBtn.addTarget(self, action: #selector(participate(_:)), for: .touchUpInside)
 
-            gridView?.nameLabel.text = CommunityData.nameArr[idx]
+            gridView?.nameLabel.text = CommunityData.nameArr[idx + 1]
             gridView?.imageView.image = UIImage(named: imageArr[idx])
-            gridView?.tag = idx
+            gridView?.tag = idx + 1
         }
         
         gridProfileImageView.layer.cornerRadius = gridProfileImageView.layer.frame.size.height / 2
         gridProfileImageView.layer.borderWidth = 0
         gridProfileImageView.layer.masksToBounds = true
-        gridProfileImageView.image = UIImage(named: "ico-Profile")
+        guard let url = UserDefaults.standard.string(forKey: "profilePhotoUrl") else{return}
+        gridProfileImageView.load(strUrl: url)
         
     }
 
@@ -153,9 +168,9 @@ class MainPageViewController: UIViewController{
         upperDivider.backgroundColor = UIColor.dark1
         lowerDivider.backgroundColor = UIColor.dark1
         guideButton.setTitle("", for: .normal)
-//        guideButton.tintColor = .white
-        let userName = "한나"
-        userNameLabel.text = "안녕, \(userName)"
+        
+        let nickName = UserDefaults.standard.string(forKey: "nickName") ?? ""
+        userNameLabel.text = "안녕, \(nickName)"
         communityTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
         let attributedStr = NSMutableAttributedString(string: communityTitleLabel.text!)
         attributedStr.addAttribute(.foregroundColor , value: UIColor.dark2, range:(communityTitleLabel.text! as NSString).range(of: "그린이") )
@@ -213,22 +228,37 @@ extension MainPageViewController {
     func failedToRequest(message: String){
         presentAlert(title: message)
     }
-    func didSuccessGet(message: String, results: CoPResult, communityIdx: Int){
-        
+    
+    func didSuccessGet(message: String, results: CoPResult, communityIdx: Int){  // 커뮤니티 클릭시 참가 Alert창
         var urls = [String]()
         if results.urlList.count > 0{
             for url in results.urlList {
                 urls.append(url.profilePhotoUrl)
             }
         }
-        configureParticipateView(communityIdx - 1, urls : urls, followers: results.totalFollowers)
-        presentAlert(title: message)
+        configureParticipateView(communityIdx, urls : urls, followers: results.totalFollowers)
+        
     }
     func didSuccessPostSubscribe(message: String, communityIdx: Int){
         
-        self.gridViews[communityIdx]?.activate = true
+        view.viewWithTag(communityIdx)?.backgroundColor = .selected
         configureGridView()
-        presentAlert(title: message)
+
     }
     
+    func didSuccessGetCList(message: String, dataList: [CommunityList]){
+        for data in dataList {
+            self.participateList.append(data.idx)
+            view.viewWithTag(data.idx)?.backgroundColor = .selected
+            print("viewdidLoad : ", participateList)
+        }
+        
+        
+    }
+    
+    func didSuccessCancelCommunity(message: String, communityIdx: Int){
+        self.presentAlert(title: message)
+    }
 }
+
+

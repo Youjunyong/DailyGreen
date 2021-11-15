@@ -20,7 +20,7 @@ class KakaoLoginDataManager {
                         let result = response.result
                         
                         
-                        print(result)
+                        print("내 카카오 jwt ? ",result?.jwt)
                         guard let jwt = result?.jwt else{return}
                         guard let nickName = result?.nickname else{return}
                         guard let profilePhotoUrl = result?.profilePhotoUrl else{return}

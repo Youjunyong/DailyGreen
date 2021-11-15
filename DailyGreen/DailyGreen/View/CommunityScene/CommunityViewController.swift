@@ -22,10 +22,15 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        datamanager.getCommunityListDetail(delegate: self)
         title = "참여 중인 커뮤니티"
         configureUI()
         configureTabelView()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        datamanager.getCommunityListDetail(delegate: self)
     }
 
     private func configureTabelView(){
@@ -53,7 +58,7 @@ class CommunityViewController: UIViewController {
 
         let storyboard = UIStoryboard(name: "PagerTabbar", bundle: nil)
         guard let VC = storyboard.instantiateViewController(withIdentifier: "PagerTabVC") as? PagerTabbarViewController else{return}
-        VC.naviTitle = Constant.titleArr[sender.tag]
+//        VC.naviTitle = Constant.titleArr[sender.tag] ??? titleArr지워서 다른걸로 교체할것
         self.navigationController?.pushViewController(VC, animated: true)
     }
 }
@@ -76,32 +81,31 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.titleLabel.text = data.name
         cell.numOfFollowerLabel.text = "\(data.followers)"
-        
-        cell.cImageView.image = UIImage(named: Constant.imageArr[data.idx - 1])
-        cell.pushPagerTabVCButton.tag = data.idx - 1
-        cell.pushPagerTabVCButton.setTitle("", for: .normal)
-        cell.pushPagerTabVCButton.addTarget(self, action: #selector(pushPagerTabVC(_:)), for: .touchUpInside)
-        for (idx,strUrl) in data.profileUrl.enumerated(){
-            let url = URL(string: strUrl)
-            var image : UIImage?
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!)
-                DispatchQueue.main.async {
-                    image = UIImage(data: data!)
-                    switch idx {
-                        case 0:
-                            cell.profileImage1.image = image
-                        case 1:
-                            cell.profileImage2.image = image
-                        case 2:
-                            cell.profileImage3.image = image
-                        default:
-                            break
-                    }
+        if 0 < data.idx, data.idx < 9{
+//            cell.cImageView.image = UIImage(named: Constant.imageArr[data.idx]) // titleArr 지워서 다른걸로 교체할것
+            cell.pushPagerTabVCButton.tag = data.idx
+            cell.pushPagerTabVCButton.setTitle("", for: .normal)
+            cell.pushPagerTabVCButton.addTarget(self, action: #selector(pushPagerTabVC(_:)), for: .touchUpInside)
+            for (idx,strUrl) in data.profileUrl.enumerated(){
+
+                switch idx {
+                case 0:
+                    cell.profileImage1.layer.cornerRadius = 10
+                    cell.profileImage1.contentMode = .scaleAspectFill
+                    cell.profileImage1.load(strUrl: strUrl)
+                    
+                case 1:
+                    cell.profileImage2.load(strUrl: strUrl)
+                case 2:
+                    cell.profileImage3.load(strUrl: strUrl)
+                default:
+                    break
+                    
                 }
+                
             }
-            
         }
+
         return cell
     }
 }
