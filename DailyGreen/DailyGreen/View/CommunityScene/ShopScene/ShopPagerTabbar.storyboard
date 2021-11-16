@@ -171,6 +171,9 @@
                             <constraint firstItem="SV6-1j-RTl" firstAttribute="trailing" secondItem="QRX-fX-gi5" secondAttribute="trailing" id="kaZ-Qz-enC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="QRX-fX-gi5" id="5ps-j5-a0n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yY-Rl-Dqc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

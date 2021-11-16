@@ -9,10 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="362" id="MOv-Dl-HUT">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntireCell" rowHeight="362" id="MOv-Dl-HUT" customClass="EntireShopTableViewCell" customModule="DailyGreen" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="362"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="entireCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MOv-Dl-HUT" id="YMV-Dq-bsr" customClass="EntireShopTableViewCell" customModule="DailyGreen" customModuleProvider="target">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MOv-Dl-HUT" id="YMV-Dq-bsr">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="362"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -28,15 +28,37 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ve4-Et-JSJ">
+                        <rect key="frame" x="48" y="195" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="TVU-hw-fNN"/>
+                            <constraint firstAttribute="width" constant="24" id="ipx-gp-wbl"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVX-Gc-Vma">
+                        <rect key="frame" x="77" y="196.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="o64-JM-fUH" firstAttribute="leading" secondItem="YMV-Dq-bsr" secondAttribute="leadingMargin" constant="16" id="18p-e9-y9h"/>
+                    <constraint firstItem="Ve4-Et-JSJ" firstAttribute="leading" secondItem="Sfz-Re-pDh" secondAttribute="leading" id="2I1-2j-dIV"/>
                     <constraint firstItem="Sfz-Re-pDh" firstAttribute="bottom" secondItem="o64-JM-fUH" secondAttribute="bottom" constant="-48" id="BYj-pk-g6w"/>
+                    <constraint firstItem="Ve4-Et-JSJ" firstAttribute="top" secondItem="Sfz-Re-pDh" secondAttribute="bottom" constant="12" id="IHR-Hp-sUq"/>
+                    <constraint firstItem="nVX-Gc-Vma" firstAttribute="centerY" secondItem="Ve4-Et-JSJ" secondAttribute="centerY" id="J6x-dQ-bks"/>
                     <constraint firstItem="o64-JM-fUH" firstAttribute="top" secondItem="YMV-Dq-bsr" secondAttribute="topMargin" constant="20" id="M8P-DZ-6UZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="o64-JM-fUH" secondAttribute="trailing" constant="16" id="PgQ-7r-g0C"/>
+                    <constraint firstItem="nVX-Gc-Vma" firstAttribute="leading" secondItem="Ve4-Et-JSJ" secondAttribute="trailing" constant="5" id="QjM-1Q-nXx"/>
                     <constraint firstItem="Sfz-Re-pDh" firstAttribute="leading" secondItem="o64-JM-fUH" secondAttribute="leading" constant="12" id="wVy-vp-oAN"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="locationLabel" destination="nVX-Gc-Vma" id="hra-BE-t7Z"/>
+                <outlet property="shopImageView" destination="o64-JM-fUH" id="u5D-nZ-e0B"/>
+                <outlet property="titleLabel" destination="Sfz-Re-pDh" id="wZY-HG-pbM"/>
+            </connections>
             <point key="canvasLocation" x="224.63768115942031" y="202.90178571428569"/>
         </tableViewCell>
     </objects>

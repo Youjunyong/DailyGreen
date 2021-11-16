@@ -44,6 +44,7 @@ class MainPageViewController: UIViewController{
         GuideVC.modalPresentationStyle = .fullScreen
         self.present(GuideVC, animated: true, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cListDataManager.getCommunityList(delegate: self)
@@ -52,50 +53,50 @@ class MainPageViewController: UIViewController{
         configureCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        cListDataManager.getCommunityList(delegate: self)
+
+    }
+    
     @objc func participate(_ sender: UIButton){ // 커뮤니티 view 눌렀을때
         guard let communityView = sender.superview as? CommunityView else{return}
-        
-        
         dataManager.getCoParticpate(delegate: self, communityIdx: communityView.tag)
-
-        
     }
     
-    private func communityViewColor(){
-        for i in 1...8{
-            let v = view.viewWithTag(i)
 
-            if participateList.contains(i) {
-                v?.backgroundColor = .selected
-            }else{
-                v?.backgroundColor = .white
-            }
-            
-        }
-    }
     
     @objc func postSubscribe(_ sender: UIButton) {
+        
+
         guard let participateView = sender.superview as? ParticipateView else{return}
         let idx = participateView.tag
-        print("현재 담긴 커뮤니티 배열 : ", participateList)
-
         if participateList.contains(idx) {
-            let param = CancelCommunityRequest(communityIdx: String(idx))
-            cancelDataManager.patchCancelCommunity(param, delegate: self, communityIdx: idx)
-            participateList.removeFirst(idx)
-            communityViewColor()
+            return
         }
-        
-        
-        let coSubscribeRequest = CoSubscribeRequest(communityIdx: "\(idx)")
-        subscribeDataManager.postSubscribe(coSubscribeRequest, delegate: self, communityIdx: idx)
-        print("현재 담긴 커뮤니티 배열 : ", participateList)
+        let param = CoSubscribeRequest(communityIdx: "\(idx)")
+        subscribeDataManager.postSubscribe(param, delegate: self, communityIdx: idx)
+        participateView.removeFromSuperview()
+        print(#function)
 
-        
+
     }
     
-    private func configureParticipateView(_ communityIdx: Int, urls: [String], followers: Int){
-        
+    @objc func cancelSubscribe(_ sender: UIButton) {
+        guard let participateView = sender.superview as? ParticipateView else{return}
+        let idx = participateView.tag
+        if participateList.contains(idx) == false {
+            return
+        }
+        let param = CancelCommunityRequest(communityIdx: String(idx))
+
+        cancelDataManager.patchCancelCommunity(param, delegate: self, communityIdx: idx)
+        participateView.removeFromSuperview()
+        print(#function)
+
+    }
+    
+    private func configureParticipateView(_ communityIdx: Int, urls: [String], followers: Int, contain: Bool){
         participateView.translatesAutoresizingMaskIntoConstraints = false
         for (i,url) in urls.enumerated(){
             switch i {
@@ -107,15 +108,27 @@ class MainPageViewController: UIViewController{
                 participateView.profileImageView3.load(strUrl: url)
             }
         }
+        
         participateView.tag = communityIdx
-        
-        
         participateView.followerLabel.text = "\(followers)"
         participateView.titleLabel.text = CommunityData.nameArr[communityIdx]
         participateView.subTitleLabel.text = CommunityData.subTitleArr[communityIdx]
         participateView.communityImageView.image = UIImage(named: CommunityData.imageArr[communityIdx])
         participateView.dismissBtn.addTarget(self, action: #selector(dismissParticipateView(_:)) , for: .touchUpInside)
-        participateView.participateButton.addTarget(self, action: #selector(postSubscribe(_:)), for: .touchUpInside)
+        
+    
+        if contain {
+            participateView.participateButton.setTitle("참여 취소하기", for: .normal)
+            participateView.backgroundColor = .white
+            participateView.layer.borderWidth = 2
+            participateView.layer.borderColor = UIColor.primary.cgColor
+            participateView.participateButton.addTarget(self, action: #selector(cancelSubscribe(_:)), for: .touchUpInside)
+
+        }else{
+            participateView.participateButton.setTitle("참여하기", for: .normal)
+            participateView.participateButton.addTarget(self, action: #selector(postSubscribe(_:)), for: .touchUpInside)
+
+        }
         self.view.addSubview(participateView)
         NSLayoutConstraint.activate([
             participateView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -161,6 +174,7 @@ class MainPageViewController: UIViewController{
         collectionView.register(nib, forCellWithReuseIdentifier: "eventCell")
          
     }
+    
     private func configureUI(){
         // MARK: - 네비바를 어떻게해야할지,,, 커스텀 뷰로 해야하나 아니면 커스텀 네비바로 해야하나....
         self.navigationController?.isNavigationBarHidden = true
@@ -211,13 +225,7 @@ extension MainPageViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as? EventCollectionViewCell else {return UICollectionViewCell() }
-        
-        
         cell.imageView.image = UIImage(named: "testimage\(indexPath.row + 1)")
-
-        
-        
-        
         return cell
     }
 }
@@ -236,28 +244,44 @@ extension MainPageViewController {
                 urls.append(url.profilePhotoUrl)
             }
         }
-        configureParticipateView(communityIdx, urls : urls, followers: results.totalFollowers)
+        
+        print("NOW@",participateList)
+        if participateList.contains(communityIdx) {
+            configureParticipateView(communityIdx, urls: urls, followers: results.totalFollowers, contain: true)
+        }else{
+            configureParticipateView(communityIdx, urls : urls, followers: results.totalFollowers, contain: false)
+        }
         
     }
+    
     func didSuccessPostSubscribe(message: String, communityIdx: Int){
         
-        view.viewWithTag(communityIdx)?.backgroundColor = .selected
-        configureGridView()
+        cListDataManager.getCommunityList(delegate: self)
 
     }
     
     func didSuccessGetCList(message: String, dataList: [CommunityList]){
+        var unSelectedList = [1,2,3,4,5,6,7,8]
         for data in dataList {
-            self.participateList.append(data.idx)
             view.viewWithTag(data.idx)?.backgroundColor = .selected
-            print("viewdidLoad : ", participateList)
+            if participateList.firstIndex(of: data.idx) == nil {
+                participateList.append(data.idx)
+            }
+            guard let target = unSelectedList.firstIndex(of: data.idx) else{continue}
+            unSelectedList.remove(at: target)
         }
-        
-        
+        for element in unSelectedList {
+            view.viewWithTag(element)?.backgroundColor = .white
+            guard let target = participateList.firstIndex(of: element) else{continue}
+            participateList.remove(at: target)
+        }
+        print(#function, participateList)
     }
     
     func didSuccessCancelCommunity(message: String, communityIdx: Int){
         self.presentAlert(title: message)
+        cListDataManager.getCommunityList(delegate: self)
+
     }
 }
 

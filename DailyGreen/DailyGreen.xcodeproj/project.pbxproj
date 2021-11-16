@@ -298,6 +298,7 @@
 		E1362C4B2734709B0045C9EE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E1BBD31527427F7100268BB5 /* Shop */,
 				E19F53512741409700B3A28D /* Meet */,
 				E1CC0F56273E97D200778650 /* PhoneAuth */,
 				E14ED302273A31C900CCBCED /* CommunityList */,
@@ -575,6 +576,13 @@
 				E14ED309273A570300CCBCED /* Register */,
 			);
 			path = Kakao;
+			sourceTree = "<group>";
+		};
+		E1BBD31527427F7100268BB5 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		E1CC0F56273E97D200778650 /* PhoneAuth */ = {
