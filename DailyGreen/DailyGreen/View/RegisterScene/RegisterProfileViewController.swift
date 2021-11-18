@@ -151,9 +151,6 @@ class RegisterProfileViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications() }
 
     @objc private func submit(_: UIButton){
-        
-        
-        
         let nickName = nickNameTextField.text!
         let bio = textView.text!
 
@@ -170,7 +167,7 @@ class RegisterProfileViewController: UIViewController {
             guard let data = image?.jpegData(compressionQuality: 0.1) else{return}
             KRegisterDataManager.upload(image: data,  params: parameters, delegate: self)
         }else{
-            KRegisterDataManager.upload(image: nil,  params: parameters, delegate: self)
+            KRegisterDataManager.upload(image: nil,  params: parameters, delegate: self) // 삭제해야됨 무조건 이미지 있어야됌
         }
         
         print("업로드는 실행됐음")

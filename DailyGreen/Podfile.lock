@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.4)
+  - BSImagePicker (3.3.1)
   - KakaoSDKAuth (2.8.1):
     - KakaoSDKCommon (= 2.8.1)
   - KakaoSDKCommon (2.8.1):
@@ -19,6 +20,7 @@ PODS:
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
+  - BSImagePicker (~> 3.1)
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKTalk
@@ -28,6 +30,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BSImagePicker
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKTalk
@@ -37,6 +40,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  BSImagePicker: 0fe04b574d4d6b81093785d2af6c26227efc8428
   KakaoSDKAuth: 3cf74660531ac85cd2c7931df8d90d562b0a8fe2
   KakaoSDKCommon: 701ef2a9b92215a4bf131b2a6139c3586b5e8d99
   KakaoSDKTalk: 14a62541fbe93bfeafae8751e58d7212d3642431
@@ -44,6 +48,6 @@ SPEC CHECKSUMS:
   KakaoSDKUser: c4bdbca17b05ce7a25c67176ac68b6b0c8b1db56
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: fcc2889d9800ede1b2860160e0425db7e6a16d76
+PODFILE CHECKSUM: 18c4cb5bc318476cb4612a9876ec6b4836bdeddb
 
 COCOAPODS: 1.11.2

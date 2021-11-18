@@ -113,4 +113,6 @@ class EmailLoginViewController: UIViewController {
         registerLabel.textColor = UIColor.dark2
     }
     
+   
+    
 }

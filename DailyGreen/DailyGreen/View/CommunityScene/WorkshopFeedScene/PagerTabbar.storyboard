@@ -162,26 +162,39 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWrite" translatesAutoresizingMaskIntoConstraints="NO" id="LZJ-Yg-dRS">
-                                <rect key="frame" x="334" y="782" width="64" height="64"/>
+                                <rect key="frame" x="317" y="782" width="81" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="PWW-My-BeH"/>
-                                    <constraint firstAttribute="width" constant="64" id="X4g-JA-XQH"/>
+                                    <constraint firstAttribute="width" constant="81" id="X4g-JA-XQH"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28C-G6-clp">
+                                <rect key="frame" x="317" y="782" width="81" height="64"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="write:" destination="KpG-cx-fv7" eventType="touchUpInside" id="ccy-zd-dhC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F6l-Ng-vLo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="F6l-Ng-vLo" firstAttribute="trailing" secondItem="LZJ-Yg-dRS" secondAttribute="trailing" constant="16" id="1aV-uu-lZq"/>
+                            <constraint firstItem="28C-G6-clp" firstAttribute="bottom" secondItem="LZJ-Yg-dRS" secondAttribute="bottom" id="5C2-NG-w14"/>
                             <constraint firstItem="lgY-ON-hSJ" firstAttribute="leading" secondItem="F6l-Ng-vLo" secondAttribute="leading" id="Byg-NU-bSW"/>
                             <constraint firstItem="F6l-Ng-vLo" firstAttribute="trailing" secondItem="lgY-ON-hSJ" secondAttribute="trailing" id="W95-lh-pnH"/>
+                            <constraint firstItem="28C-G6-clp" firstAttribute="trailing" secondItem="LZJ-Yg-dRS" secondAttribute="trailing" id="fIH-aD-4yl"/>
+                            <constraint firstItem="28C-G6-clp" firstAttribute="top" secondItem="LZJ-Yg-dRS" secondAttribute="top" id="hwP-GB-OXc"/>
                             <constraint firstItem="lgY-ON-hSJ" firstAttribute="top" secondItem="F6l-Ng-vLo" secondAttribute="top" id="m0o-jr-m9z"/>
                             <constraint firstItem="F6l-Ng-vLo" firstAttribute="bottom" secondItem="lgY-ON-hSJ" secondAttribute="bottom" id="nvF-iB-Jqz"/>
+                            <constraint firstItem="28C-G6-clp" firstAttribute="leading" secondItem="LZJ-Yg-dRS" secondAttribute="leading" id="ppb-1W-FZx"/>
                             <constraint firstItem="F6l-Ng-vLo" firstAttribute="bottom" secondItem="LZJ-Yg-dRS" secondAttribute="bottom" constant="16" id="rpw-SV-EI6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="lgY-ON-hSJ" id="3uF-4L-X31"/>
+                        <outlet property="writeButton" destination="28C-G6-clp" id="fry-qi-EHq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1w0-t8-wSv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

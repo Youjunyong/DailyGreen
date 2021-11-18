@@ -9,8 +9,33 @@ import UIKit
 
 class CoCardTableViewCell: UITableViewCell {
 
-    var preHashTag: UILabel? = nil
     
+    var isHaveHashTag: Bool? {
+        didSet{
+            if isHaveHashTag == true {
+                hashTagView1.isHidden = false
+                hashTagView2.isHidden = false
+                hashTagView3.isHidden = false
+            }else{
+                hashTagView1.isHidden = true
+                hashTagView2.isHidden = true
+                hashTagView3.isHidden = true
+            }
+        }
+    }
+
+    
+
+    @IBOutlet weak var hashTagView1: UIView!
+    @IBOutlet weak var hashTag1: UILabel!
+    
+    @IBOutlet weak var hashTagView2: UIView!
+    @IBOutlet weak var hashTag2: UILabel!
+    
+    @IBOutlet weak var hashTagView3: UIView!
+    @IBOutlet weak var hashTag3: UILabel!
+    
+    @IBOutlet weak var dDayLabel: UILabel!
     @IBOutlet weak var calendarImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -40,6 +65,18 @@ class CoCardTableViewCell: UITableViewCell {
         super.layoutSubviews()
         selectionStyle = .none
         
+        hashTag1.font = UIFont.systemFont(ofSize: 13)
+        hashTag2.font = UIFont.systemFont(ofSize: 13)
+        hashTag3.font = UIFont.systemFont(ofSize: 13)
+        hashTagView1.backgroundColor = .light1
+        hashTagView2.backgroundColor = .light1
+        hashTagView3.backgroundColor = .light1
+        
+        hashTagView1.layer.cornerRadius = 12
+        hashTagView2.layer.cornerRadius = 12
+        hashTagView3.layer.cornerRadius = 12
+
+        
         bodyLabel.textColor = .grayLongtxt
         centerDivideView.backgroundColor = .dark1
         
@@ -68,36 +105,7 @@ class CoCardTableViewCell: UITableViewCell {
     }
 
     
-    
-    func addHashTag(_ text : String){
-        let hashTagLabel: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.backgroundColor = .light1
-            label.numberOfLines = 1
-            label.layer.cornerRadius = 10
-            label.font = UIFont.systemFont(ofSize: 13)
-            label.text = text
-            return label
-        }()
-        
-        addSubview(hashTagLabel)
-        
-        if preHashTag == nil{
-            NSLayoutConstraint.activate([
-                hashTagLabel.topAnchor.constraint(equalTo: calendarImageView.bottomAnchor, constant: 10),
-                hashTagLabel.leadingAnchor.constraint(equalTo: calendarImageView.leadingAnchor)
-            ])
-        }else{
-            NSLayoutConstraint.activate([
-                hashTagLabel.centerYAnchor.constraint(equalTo: preHashTag!.centerYAnchor),
-                hashTagLabel.leadingAnchor.constraint(equalTo: preHashTag!.trailingAnchor, constant: 5)
-            ])
-            
-        }
-        self.preHashTag = hashTagLabel
-        
-    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -26,7 +26,7 @@ class CommunityListDataManager {
                     if response.isSuccess, let results = response.result  {
                         var dataList = [CommunityList]()
                         
-                        if results.count > 1 {
+                        if results.count > 0 {
                             for result in results {
                                 var profileUrl = [String]()
                                 
@@ -69,7 +69,9 @@ class CommunityListDataManager {
                     if response.isSuccess, let results = response.result  {
                         var dataList = [CommunityList]()
                         
-                        if results.count > 1 {
+                        
+                        if results.count > 0 {
+                            
                             for result in results {
                                 var profileUrl = [String]()
                                 
@@ -77,9 +79,13 @@ class CommunityListDataManager {
                                     profileUrl.append(url.profilePhotoUrl)
                                 }
                                 dataList.append(CommunityList(name: result.communityName ?? "", followers: result.totalFollowers,idx: result.communityIdx , profileUrl: profileUrl))
+                                
                             }
                         }
+                        
                         delegate.didSuccessGetCList(message: "성공", dataList: dataList)
+                        
+                        
                     }
 
                     else {

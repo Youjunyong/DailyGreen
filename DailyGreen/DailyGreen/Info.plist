@@ -45,5 +45,8 @@
 	</dict>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDarkContent</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Why you want to access photo library</string>
+
 </dict>
 </plist>

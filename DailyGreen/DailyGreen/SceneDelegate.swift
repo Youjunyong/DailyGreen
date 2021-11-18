@@ -72,7 +72,7 @@ extension SceneDelegate {
         if Storage.isFirstLaunch() {
             setRootViewController(scene, name: "Main", identifier: "InitVC")
         } else{
-            setRootViewController(scene, name: "Main", identifier: "LoginVC")
+            setRootViewController(scene, name: "Main", identifier: "LoginNaviVC")
 
         }
 }

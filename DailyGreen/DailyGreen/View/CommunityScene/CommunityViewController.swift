@@ -11,6 +11,8 @@ class CommunityViewController: UIViewController {
     var dataList: [CommunityList]? = nil
     lazy var datamanager = CommunityListDataManager()
     
+    
+    lazy var dimmingView = DimmingView()
     let naviShadowView: UIView = {
         let view = UIView()
         view.backgroundColor = .dark2
@@ -22,7 +24,8 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "참여 중인 커뮤니티"
+        
+        self.navigationItem.title = "참여 중인 커뮤니티"
         configureUI()
         configureTabelView()
     }
@@ -53,12 +56,31 @@ class CommunityViewController: UIViewController {
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    private func presentDimmingView(){
+        dimmingView.translatesAutoresizingMaskIntoConstraints = false
+        dimmingView.alretText = "홈 화면에서 커뮤니티에 참가해주세요"
+        view.addSubview(dimmingView)
+        NSLayoutConstraint.activate([
+            dimmingView.topAnchor.constraint(equalTo: view.topAnchor),
+            dimmingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            dimmingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dimmingView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
+        
+        dimmingView.dismissBtn.addTarget(self, action: #selector(removeAlert), for: .touchUpInside)
+        
+    }
+    
+    @objc func removeAlert(){
+        dimmingView.removeFromSuperview()
+    }
     
     @objc func pushPagerTabVC(_ sender: UIButton){
 
         let storyboard = UIStoryboard(name: "PagerTabbar", bundle: nil)
         guard let VC = storyboard.instantiateViewController(withIdentifier: "PagerTabVC") as? PagerTabbarViewController else{return}
-//        VC.naviTitle = Constant.titleArr[sender.tag] ??? titleArr지워서 다른걸로 교체할것
+        VC.naviTitle = CommunityData.shared.nameArr[sender.tag]
+        VC.communityIdx = sender.tag
         self.navigationController?.pushViewController(VC, animated: true)
     }
 }
@@ -82,7 +104,7 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
         cell.titleLabel.text = data.name
         cell.numOfFollowerLabel.text = "\(data.followers)"
         if 0 < data.idx, data.idx < 9{
-//            cell.cImageView.image = UIImage(named: Constant.imageArr[data.idx]) // titleArr 지워서 다른걸로 교체할것
+            cell.cImageView.image = UIImage(named: CommunityData.shared.imageArr[data.idx])
             cell.pushPagerTabVCButton.tag = data.idx
             cell.pushPagerTabVCButton.setTitle("", for: .normal)
             cell.pushPagerTabVCButton.addTarget(self, action: #selector(pushPagerTabVC(_:)), for: .touchUpInside)
@@ -117,8 +139,11 @@ extension CommunityViewController {
     func didSuccessGet(message: String, dataList: [CommunityList]){
         
         self.dataList = dataList
+        if dataList.count == 0 {
+            presentDimmingView()
+        }
         self.tableView.reloadData()
-        presentAlert(title: message)
+        
         
     }
 }

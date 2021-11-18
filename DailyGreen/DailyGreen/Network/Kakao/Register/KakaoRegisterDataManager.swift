@@ -41,9 +41,6 @@ class KakaoRegisterDataManager {
     
     
     func upload(image: Data?,  params: [String: Any], delegate: RegisterProfileViewController){
-           
-  
-           
            let headers: HTTPHeaders = [
                "Content-type": "multipart/form-data"
            ]
