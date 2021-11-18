@@ -9,7 +9,11 @@ import UIKit
 import XLPagerTabStrip
 
 class FeedViewController: UIViewController, IndicatorInfoProvider{
-
+    
+    
+    lazy var getFeedDataManager = FeedDataManager()
+    lazy var likeDataManager = LikeDataManager()
+    var postIdxs = [Int]()
     var captions = [String]()
     var nickNames = [String]()
     var isFollowings = [Int]()
@@ -18,19 +22,16 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
     var feedUrls = [Array<String>]()
     var commentTotals = [Int]()
     var postLikeTotals = [Int]()
-    
-    
-    
     var childNumber: String = ""
     var communityIdx: Int?
     var community: String?
-    lazy var getFeedDataManager = FeedDataManager()
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
-
-      super.viewDidLoad()
+        
+        super.viewDidLoad()
         configureTableView()
         
     }
@@ -39,11 +40,11 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
         super.viewWillAppear(true)
         getFeedDataManager.getFeedData(delegate: self, communityIdx: self.communityIdx!, page: 1)
     }
-
+    
     override func didReceiveMemoryWarning() {
-
-      super.didReceiveMemoryWarning()
-
+        
+        super.didReceiveMemoryWarning()
+        
     }
     private func configureTableView(){
         tableView.delegate = self
@@ -55,10 +56,15 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
     
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-      return IndicatorInfo(title: "\(childNumber)")
+        return IndicatorInfo(title: "\(childNumber)")
     }
     
-    
+    @objc func like(_ sender: UIButton){
+        let postIdx = sender.tag - 100
+        let params = LikeRequest(postIdx: postIdx)
+        likeDataManager.postLike(params, delegate: self)
+        // 네트워크통신은 추가했으나, 버튼View가 heartFill로 바뀌는 토글과정은 추가하지 않았음.
+    }
     
 }
 
@@ -81,46 +87,56 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
         cell.bodyLabel.text = self.captions[idx]
         cell.numOfLikeLabel.text = "\(self.postLikeTotals[idx])명이"
         cell.numOfCommentLabel.text = "\(self.commentTotals[idx])"
+        cell.likeButton.tag = self.postIdxs[idx] + 100
+        cell.likeButton.addTarget(self, action: #selector(like(_:)), for: .touchUpInside)
         if isFollowings[idx] == 1{
             cell.followImageView.isHidden = false
         }else{
             cell.followImageView.isHidden = true
         }
-                
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 550
+        return 600
     }
 }
 
 extension FeedViewController {
     func didSuccessFeed(message: String, results: [FeedResult?]){
-        
         var urlArr = [String]()
-        
-        
         for result in results{
             urlArr = [String]()
-            self.captions.append(result?.postInfoObj?.caption ?? "")
-            self.nickNames.append(result?.postInfoObj?.nickname ?? "")
-            self.profileUrl.append(result?.postInfoObj?.profilePhotoUrl ?? "")
-            self.isFollowings.append(result?.postInfoObj?.isFollowing ?? 0)
-            self.isPostLikes.append(result?.postInfoObj?.isPostLiked ?? 0)
-            self.commentTotals.append(result?.postInfoObj?.commentTotal ?? 0)
-            self.postLikeTotals.append(result?.postInfoObj?.postLikeTotal ?? 0)
+            guard let postInfoObj = result?.postInfoObj else{return}
+            self.captions.append(postInfoObj.caption)
+            self.nickNames.append(postInfoObj.nickname)
+            self.profileUrl.append(postInfoObj.profilePhotoUrl)
+            self.isFollowings.append(postInfoObj.isFollowing)
+            self.isPostLikes.append(postInfoObj.isPostLiked)
+            self.commentTotals.append(postInfoObj.commentTotal)
+            self.postLikeTotals.append(postInfoObj.postLikeTotal)
+            self.postIdxs.append(postInfoObj.postIdx)
             guard let urls = result!.postPhotoUrlListObj else{continue}
             for feedUrl in urls.urlList{
                 urlArr.append(feedUrl.url)
             }
             self.feedUrls.append(urlArr)
         }
-    
-        
         self.tableView.reloadData()
+    }
+    
+    func didSuccessLike(message: String){
+        self.presentAlert(title: message)
+
         
     }
+    
+    func failedToRequest(message: String){
+        self.presentAlert(title: message)
+    }
 }
+
+
 
 

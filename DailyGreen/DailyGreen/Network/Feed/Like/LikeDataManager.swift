@@ -1,25 +1,24 @@
 //
-//  CoSubscribeDataManager.swift
+//  LikeDataManager.swift
 //  DailyGreen
 //
-//  Created by 유준용 on 2021/11/12.
+//  Created by 유준용 on 2021/11/18.
 //
 
 import Alamofire
 
-class CoSubscribeDataManager {
-    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
-
-    func postSubscribe(_ parameters: CoSubscribeRequest, delegate: MainPageViewController, communityIdx: Int) {
-        AF.request("\(Constant.BASE_URL)/app/communities", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)
+class LikeDataManager {
+    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN]
+    func postLike(_ parameters: LikeRequest, delegate: FeedViewController) {
+        AF.request("\(Constant.BASE_URL)/app/posts/likes", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)
             .validate()
-            .responseDecodable(of: CoSubscribeResponse.self) { response in
+            .responseDecodable(of: LikeResponse.self) { response in
                 switch response.result {
                 case .success(let response):
                     // 성공했을 때
                     if response.isSuccess {
                         
-                        delegate.didSuccessPostSubscribe(message: "구독 성공", communityIdx: communityIdx)
+                        delegate.didSuccessLike(message: response.message)
                         
                     }
                     // 실패했을 때
@@ -39,4 +38,3 @@ class CoSubscribeDataManager {
             }
     }
 }
-    

@@ -75,6 +75,8 @@
 		E1534EC8274610EC00E1FA01 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1534EC6274610EC00E1FA01 /* FeedTableViewCell.xib */; };
 		E1534ECC2746177B00E1FA01 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1534ECA2746177B00E1FA01 /* FeedCollectionViewCell.swift */; };
 		E1534ECD2746177B00E1FA01 /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1534ECB2746177B00E1FA01 /* FeedCollectionViewCell.xib */; };
+		E1534ED227467A3F00E1FA01 /* LikeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1534ED127467A3F00E1FA01 /* LikeDataManager.swift */; };
+		E1534ED427467A4B00E1FA01 /* LikeCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1534ED327467A4B00E1FA01 /* LikeCodable.swift */; };
 		E15CB80C273E04A100D66360 /* CoSubscribeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB80B273E04A100D66360 /* CoSubscribeDataManager.swift */; };
 		E15CB80E273E04B500D66360 /* CoSubscribeCodabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB80D273E04B500D66360 /* CoSubscribeCodabel.swift */; };
 		E15CB811273E103200D66360 /* PagerTabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E15CB810273E103200D66360 /* PagerTabbar.storyboard */; };
@@ -203,6 +205,8 @@
 		E1534EC6274610EC00E1FA01 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		E1534ECA2746177B00E1FA01 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		E1534ECB2746177B00E1FA01 /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCollectionViewCell.xib; sourceTree = "<group>"; };
+		E1534ED127467A3F00E1FA01 /* LikeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDataManager.swift; sourceTree = "<group>"; };
+		E1534ED327467A4B00E1FA01 /* LikeCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCodable.swift; sourceTree = "<group>"; };
 		E15CB80B273E04A100D66360 /* CoSubscribeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoSubscribeDataManager.swift; sourceTree = "<group>"; };
 		E15CB80D273E04B500D66360 /* CoSubscribeCodabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoSubscribeCodabel.swift; sourceTree = "<group>"; };
 		E15CB810273E103200D66360 /* PagerTabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PagerTabbar.storyboard; sourceTree = "<group>"; };
@@ -581,10 +585,20 @@
 		E1534EC02746097E00E1FA01 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				E1534ED027467A3200E1FA01 /* Like */,
 				E1534EC12746098C00E1FA01 /* FeedDataManager.swift */,
 				E1534EC3274609AD00E1FA01 /* FeedResponse.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		E1534ED027467A3200E1FA01 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				E1534ED127467A3F00E1FA01 /* LikeDataManager.swift */,
+				E1534ED327467A4B00E1FA01 /* LikeCodable.swift */,
+			);
+			path = Like;
 			sourceTree = "<group>";
 		};
 		E15CB80A273E048300D66360 /* Subscribe */ = {
@@ -974,6 +988,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E9450727326AD30047ABA8 /* GuideTableViewCell.swift in Sources */,
+				E1534ED227467A3F00E1FA01 /* LikeDataManager.swift in Sources */,
 				E1534EBC27452AE500E1FA01 /* WriteFeedDataManager.swift in Sources */,
 				E15CB80E273E04B500D66360 /* CoSubscribeCodabel.swift in Sources */,
 				E14ED308273A396800CCBCED /* CommunityList.swift in Sources */,
@@ -999,6 +1014,7 @@
 				E1534EC7274610EC00E1FA01 /* FeedTableViewCell.swift in Sources */,
 				E14321C8272FA1730028DAE4 /* AppDelegate.swift in Sources */,
 				E1F6A1162737C2B000BEFF6A /* DimmingView.swift in Sources */,
+				E1534ED427467A4B00E1FA01 /* LikeCodable.swift in Sources */,
 				E1432235272FCC000028DAE4 /* Color.swift in Sources */,
 				E19F535B2741F20A00B3A28D /* UIImageView.swift in Sources */,
 				E1432221272FA6850028DAE4 /* Font.swift in Sources */,

@@ -100,10 +100,7 @@ class WriteFeedViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             self.view.frame.origin.y += (keyboardHeight - (self.tabBarController?.tabBar.frame.size.height ?? 100))
-            
             }
-        
-
         }
     
     
@@ -138,10 +135,6 @@ class WriteFeedViewController: UIViewController {
         })
         return thumbnail
     }
-
-
-    
-    
     @objc func pickerClicked(_ sender: UIButton){
         selecetedImage =  [UIImage]()
         let imagePicker = ImagePickerController()
@@ -158,31 +151,13 @@ class WriteFeedViewController: UIViewController {
                 self.indicatorView.image = UIImage(named: "pindicator1\(self.selecetedImage.count)")
                 self.collectionView.reloadData()
             }
-            
         }
-            
-//        self.presentImagePicker(imagePicker, select: { (asset) in
-//
-//        }, deselect: { (asset) in
-////            print("Deselected: \(asset)")
-//        }, cancel: { (assets) in
-////            print("Canceled with selections: \(assets)")
-//        }, finish: { (assets) in
-////            print("Finished with selections: \(assets)")
-//            for asset in assets{
-//                self.getAssetThumbnail(asset: asset)
-//                self.isPhoto = true
-//                self.checkSubmitReady()
-//                self.indicatorView.image = UIImage(named: "pindicator1\(self.selecetedImage.count)")
-//                self.collectionView.reloadData()
-//
-//            }
-//        }, completion: {
-//        })
-    
     }
+
     @objc func removeAlert(){
         dimmingView.removeFromSuperview()
+        let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 2 ], animated: false)
     }
     
     private func presentDimmingView(message: String){
@@ -353,6 +328,7 @@ extension WriteFeedViewController: UITextViewDelegate {
 extension WriteFeedViewController {
     func successWriteFeed(message: String){
         presentDimmingView(message: message)
+        
     }
     
     func failedToWrite(message: String){

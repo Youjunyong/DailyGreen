@@ -31,16 +31,16 @@ class FeedDataManager {
 
                     else {
                         switch response.code {
-//                        case 2000: delegate.failedToRequest(message: "2000error")
+                        case 2000: delegate.failedToRequest(message: "2000error")
                         default :
-//                            delegate.failedToRequest(message: "실패 code: \(response.code)")
+                            delegate.failedToRequest(message: "실패 code: \(response.code)")
                             break
                         }
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                     print(String(describing: error))
-//                    delegate.failedToRequest(message: "서버 연결 원할하지 않음")
+                    delegate.failedToRequest(message: "서버 연결 원할하지 않음")
                 }
             }
     }
