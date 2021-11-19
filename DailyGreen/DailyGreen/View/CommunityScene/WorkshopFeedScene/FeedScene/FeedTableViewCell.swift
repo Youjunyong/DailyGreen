@@ -12,7 +12,9 @@ class FeedTableViewCell: UITableViewCell{
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var likeImageView: UIImageView!
     
+    @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var moreCommentButton: UIButton!
     @IBOutlet weak var followImageView: UIImageView!
     
@@ -27,6 +29,19 @@ class FeedTableViewCell: UITableViewCell{
     @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var commentButton: UIButton!
+    
+    
+    @IBAction func togleLike(_ sender: Any) {
+        if likeImageView.image == UIImage(named: "bheart"){
+            likeImageView.image = UIImage(named: "bheartFill")
+        }else{
+            likeImageView.image = UIImage(named: "bheart")
+        }
+    }
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

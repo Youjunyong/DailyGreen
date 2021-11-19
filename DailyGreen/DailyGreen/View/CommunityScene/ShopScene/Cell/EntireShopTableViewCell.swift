@@ -9,14 +9,36 @@ import UIKit
 
 class EntireShopTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var shopImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var dimmingView: UIView!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeButtonImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     
+    @IBOutlet weak var locationImageView: UIImageView!
+    @IBAction func like(_ sender: Any) {
+        if likeButtonImageView.image == UIImage(named: "wheart"){
+            likeButtonImageView.image = UIImage(named: "wheartFill")
+        }
+        else{
+                likeButtonImageView.image = UIImage(named: "wheart")
+            }
+        }
+        
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
+        detailButton.setTitle("", for: .normal)
+        dimmingView.backgroundColor = UIColor.dimmingView
+        dimmingView.layer.cornerRadius = 12
+        locationImageView.image = UIImage(named: "wlocation")
+        likeButtonImageView.image = UIImage(named: "wheart")
+        likeButton.setTitle("", for: .normal)
         titleLabel.font = UIFont(name: NanumFont.bold, size: 20)
         titleLabel.textColor = .white
         locationLabel.font = UIFont(name: NanumFont.regular, size: 17)

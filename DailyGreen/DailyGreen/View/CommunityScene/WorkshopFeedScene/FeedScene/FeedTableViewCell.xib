@@ -75,6 +75,9 @@
                         <rect key="frame" x="15" y="393" width="44" height="44"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        <connections>
+                            <action selector="togleLike:" destination="Qrv-er-bQ1" eventType="touchUpInside" id="m9q-UO-pUF"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXb-nS-1oq">
                         <rect key="frame" x="62" y="393" width="44" height="44"/>
@@ -164,9 +167,11 @@
                 <outlet property="bodyLabel" destination="dtt-5W-s0i" id="Ao7-QR-1fM"/>
                 <outlet property="collectionView" destination="3qE-XW-k5E" id="dIX-ND-zc6"/>
                 <outlet property="commentButton" destination="VXb-nS-1oq" id="Vbs-FM-PM9"/>
+                <outlet property="commentImageView" destination="el3-G4-GMC" id="IoC-qj-bap"/>
                 <outlet property="followImageView" destination="i8e-gA-ZUI" id="wTD-wE-EoF"/>
                 <outlet property="indicatorImageView" destination="XzL-AC-TjZ" id="Q1h-P0-Tkw"/>
                 <outlet property="likeButton" destination="bqW-pJ-hyl" id="DcQ-Kg-Byf"/>
+                <outlet property="likeImageView" destination="tIm-Sc-EgF" id="BSo-d3-Nor"/>
                 <outlet property="moreCommentButton" destination="fMv-QA-5ni" id="2XC-5x-LB9"/>
                 <outlet property="nickNameLabel" destination="lb3-2J-P4t" id="xFY-Yh-LzA"/>
                 <outlet property="numOfCommentLabel" destination="tGf-I7-LhP" id="dMA-3K-WhT"/>

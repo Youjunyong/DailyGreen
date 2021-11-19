@@ -31,4 +31,5 @@ extension UIColor {
     class var grayLongtxt: UIColor { UIColor(hex: 0x7a7e7a)}
     class var error: UIColor { UIColor(hex: 0xff002e)}
     class var dimming: UIColor { UIColor(hex: 0x252525 , alpha: 0.78)}
+    class var dimmingView: UIColor { UIColor(hex: 0x252525 , alpha: 0.2)}
 }

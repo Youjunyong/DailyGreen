@@ -89,6 +89,11 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
         cell.numOfCommentLabel.text = "\(self.commentTotals[idx])"
         cell.likeButton.tag = self.postIdxs[idx] + 100
         cell.likeButton.addTarget(self, action: #selector(like(_:)), for: .touchUpInside)
+        if isPostLikes[idx] == 1{
+            cell.likeImageView.image = UIImage(named: "bheartFill")
+        }else{
+            cell.likeImageView.image = UIImage(named: "bheart")
+        }
         if isFollowings[idx] == 1{
             cell.followImageView.isHidden = false
         }else{

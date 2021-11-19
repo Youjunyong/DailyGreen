@@ -35,11 +35,8 @@ class WriteFeedViewController: UIViewController {
     @IBAction func submit(_ sender: Any) {
         if isPhoto, isText {
             var photos = [Data]()
-            
             for image in selecetedImage {
-                
                 let img = image
-                
                 guard let data = img.jpegData(compressionQuality: 1.0) else{return}
                 photos.append(data)
             }

@@ -11,7 +11,7 @@ import XLPagerTabStrip
 class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     
     
-    var naviTitle = ""
+    var naviTitle = "상점 보기"
     
     let naviShadow: UIView = {
        let view = UIView()
