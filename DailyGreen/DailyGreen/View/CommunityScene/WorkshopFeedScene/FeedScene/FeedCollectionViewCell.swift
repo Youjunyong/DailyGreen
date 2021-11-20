@@ -9,7 +9,7 @@ import UIKit
 
 class FeedCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var indicatorImageView: UIImageView!
+    
     @IBOutlet weak var feedImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

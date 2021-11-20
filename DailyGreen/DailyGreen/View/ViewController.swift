@@ -11,7 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var isShowed = false
+    
     
     
     lazy var upperLabel: UILabel = {
@@ -36,10 +36,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if isShowed == false{
-            animateLabel()
-            isShowed = true
-        }
+        animateLabel()
        
     }
     
@@ -64,15 +61,13 @@ class ViewController: UIViewController {
             self.upperLabel.alpha = 1;
             self.lowerLabel.alpha = 1;
         } completion: { _ in
-            if Storage.isFirstLaunch() {
-                guard let OnBoardVC = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC")
-                as? OnboardViewController else{return}
-                self.upperLabel.alpha = 0
-                self.lowerLabel.alpha = 0
-                OnBoardVC.presentingVC = self
-                OnBoardVC.modalPresentationStyle = .fullScreen
-                self.present(OnBoardVC, animated: true, completion: nil)
-            }
+            guard let OnBoardVC = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardVC")
+            as? OnboardViewController else{return}
+            self.upperLabel.alpha = 0
+            self.lowerLabel.alpha = 0
+            OnBoardVC.presentingVC = self
+            OnBoardVC.modalPresentationStyle = .fullScreen
+            self.present(OnBoardVC, animated: true, completion: nil)
             
         }
     }

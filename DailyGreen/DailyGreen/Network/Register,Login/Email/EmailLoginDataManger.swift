@@ -1,15 +1,14 @@
 //
-//  KakaoLoginDataManager.swift
+//  EmailLoginDataManger.swift
 //  DailyGreen
 //
-//  Created by 유준용 on 2021/11/14.
+//  Created by 유준용 on 2021/11/20.
 //
 
 import Alamofire
-
-class KakaoLoginDataManager {
+class EmailLoginDataManager {
     
-    func postKakaoLogin(_ parameters: KakaoLoginRequest, delegate: LoginViewController) {
+    func postEmailLogin(_ parameters: KakaoLoginRequest, delegate: LoginViewController) {
         AF.request("\(Constant.BASE_URL)/app/login/kakao", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
             .responseDecodable(of: KakaoLoginResponse.self) { response in
@@ -18,9 +17,6 @@ class KakaoLoginDataManager {
                     // 성공했을 때
                     if response.isSuccess {
                         let result = response.result
-                        
-                        
-                        print("내 카카오 jwt ? ",result?.jwt)
                         guard let jwt = result?.jwt else{return}
                         guard let nickName = result?.nickname else{return}
                         guard let profilePhotoUrl = result?.profilePhotoUrl else{return}
@@ -48,8 +44,4 @@ class KakaoLoginDataManager {
                 }
             }
     }
-    
-    
-    
 }
-    

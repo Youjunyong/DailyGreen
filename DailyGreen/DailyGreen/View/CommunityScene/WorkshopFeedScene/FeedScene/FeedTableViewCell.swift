@@ -38,16 +38,14 @@ class FeedTableViewCell: UITableViewCell{
             likeImageView.image = UIImage(named: "bheart")
         }
     }
-    
-    
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         selectionStyle = .none
         configureCollectionView()
         configureUI()
+        
         
     }
     private func configureUI(){
@@ -80,8 +78,6 @@ class FeedTableViewCell: UITableViewCell{
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
@@ -111,8 +107,12 @@ extension FeedTableViewCell : UICollectionViewDelegate, UICollectionViewDelegate
         switch page{
         case 0:
             self.indicatorImageView.image = UIImage(named: "pindicator\(page + 1)\(feedUrlsForRow.count)")
+            print(page)
+
         case 1:
             self.indicatorImageView.image = UIImage(named: "pindicator\(page + 1)\(feedUrlsForRow.count)")
+            print(page)
+
         case 2:
             print(page)
             self.indicatorImageView.image = UIImage(named: "pindicator\(page + 1)\(feedUrlsForRow.count)")
@@ -139,8 +139,9 @@ extension FeedTableViewCell : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? FeedCollectionViewCell else {return UICollectionViewCell() }
-        cell.feedImageView.load(strUrl: feedUrlsForRow[indexPath.row])
-        
+        if feedUrlsForRow.count > indexPath.row{
+            cell.feedImageView.load(strUrl: feedUrlsForRow[indexPath.row])
+        }
         
         return cell
     }

@@ -74,7 +74,6 @@ class MainPageViewController: UIViewController{
         if CommunityData.shared.subscribedList.contains(idx) {
             
             let param = CancelCommunityRequest(communityIdx: String(idx))
-            print("######## CANCEL : COMMUNITYIDX: ", idx)
             cancelDataManager.patchCancelCommunity(param, delegate: self, communityIdx: idx)
             
         }else{

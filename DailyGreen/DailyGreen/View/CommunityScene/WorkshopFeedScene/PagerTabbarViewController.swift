@@ -22,7 +22,7 @@ class PagerTabbarViewController: ButtonBarPagerTabStripViewController {
         
     }()
     @IBOutlet weak var searchContentView: UIView!
-    @IBOutlet weak var filterButton: UIButton!
+    
     
     @IBOutlet weak var pagerBarDivideView: UIView!
     @IBOutlet weak var searchButton: UIButton!
@@ -37,7 +37,7 @@ class PagerTabbarViewController: ButtonBarPagerTabStripViewController {
     
     private func configureSearchBar(){
         
-        filterButton.setTitle("", for: .normal)
+        
         searchButton.setTitle("", for: .normal)
         searchContentView.layer.cornerRadius = 16
         searchContentView.layer.borderColor = UIColor.primary.cgColor

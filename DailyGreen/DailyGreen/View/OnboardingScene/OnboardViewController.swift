@@ -14,6 +14,7 @@ class OnboardViewController: UIViewController {
     @IBOutlet weak var contentViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var contentWidthConstraint: NSLayoutConstraint!
     let onBoardingViews = [OnboardingView1(), OnboardingView2(), OnboardingView3(), OnboardingView4()]
     
        override func viewDidLoad() {
@@ -22,7 +23,7 @@ class OnboardViewController: UIViewController {
        }
     
        private func addContentScrollView() {
-           
+           contentWidthConstraint.constant = self.view.frame.width * 4
            for i in 0..<onBoardingViews.count {
                let xPos = self.view.frame.width * CGFloat(i)
                let width = self.view.frame.width

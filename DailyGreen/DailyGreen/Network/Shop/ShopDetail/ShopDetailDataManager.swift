@@ -1,31 +1,34 @@
 //
-//  EtireShopDataManager.swift
+//  ShopDetailDataManager.swift
 //  DailyGreen
 //
 //  Created by 유준용 on 2021/11/19.
 //
 
 
+
 import Alamofire
 
-class EntireShopDataManager {
+class ShopDetailDataManager {
     
-    func getEntireShop(delegate: EntireShopViewController, page: Int) {
+    func getShopDetail(delegate: ShopDetailViewController, shopIdx: Int) {
         
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
-        AF.request("\(Constant.BASE_URL)/app/shops?page=\(page)",
+        AF.request("\(Constant.BASE_URL)/app/shops/\(shopIdx)",                   
                    method: .get,
                    parameters: nil,
                    encoding: URLEncoding.default,
                    headers: headers)
             .validate()
-            .responseDecodable(of: EntireShopResponse.self) { response in
+            .responseDecodable(of: ShopDetailResponse.self) { response in
                 switch response.result{
                 case .success(let response):
 
                     if response.isSuccess  {
                         let results = response.result
-                        delegate.didSuccessGetEntireShop(message: "성공", results: results)
+                        print(results)
+            
+                        delegate.didSuccessGetShopDetail(message: "성공", results: results)
                     }
 
                     else {
@@ -44,5 +47,4 @@ class EntireShopDataManager {
             }
     }
 }
-
 

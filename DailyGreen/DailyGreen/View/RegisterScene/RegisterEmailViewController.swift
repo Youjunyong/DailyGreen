@@ -9,6 +9,10 @@ import UIKit
 
 class RegisterEmailViewController : UIViewController {
     
+    var email: String?
+    var password: String?
+
+    
     let naviShadowView : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +60,13 @@ class RegisterEmailViewController : UIViewController {
     }
     
     @objc func submit(){
-        if submitButton.backgroundColor == .primary {
-            guard let RegisterPhoneVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterPhoneVC") else{return}
+        password = pwTextField.text
+        email = emailTextField.text
+        
+        if submitButton.backgroundColor == .primary , password != nil, email != nil{
+            guard let RegisterPhoneVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterPhoneVC") as? RegisterPhoneViewController else{return}
+            RegisterPhoneVC.email = self.email
+            RegisterPhoneVC.password = self.password
             self.navigationController?.pushViewController(RegisterPhoneVC, animated: true)
         }
         

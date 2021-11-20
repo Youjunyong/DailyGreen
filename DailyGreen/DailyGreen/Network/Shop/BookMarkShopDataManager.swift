@@ -1,31 +1,30 @@
 //
-//  EtireShopDataManager.swift
+//  BookMarkShopDataManager.swift
 //  DailyGreen
 //
 //  Created by 유준용 on 2021/11/19.
 //
 
-
 import Alamofire
 
-class EntireShopDataManager {
+class BookMarkShopDataManager {
     
-    func getEntireShop(delegate: EntireShopViewController, page: Int) {
+    func getBookMarkShop(delegate: BookMarkShopViewController, page: Int) {
         
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
-        AF.request("\(Constant.BASE_URL)/app/shops?page=\(page)",
+        AF.request("\(Constant.BASE_URL)/app/shops/likes?page=\(page)",
                    method: .get,
                    parameters: nil,
                    encoding: URLEncoding.default,
                    headers: headers)
             .validate()
-            .responseDecodable(of: EntireShopResponse.self) { response in
+            .responseDecodable(of: BookMarkShopResponse.self) { response in
                 switch response.result{
                 case .success(let response):
 
                     if response.isSuccess  {
                         let results = response.result
-                        delegate.didSuccessGetEntireShop(message: "성공", results: results)
+                        delegate.didSuccessGetBookMarkShop(message: "성공", results: results)
                     }
 
                     else {

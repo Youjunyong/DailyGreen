@@ -25,9 +25,13 @@ class EntireShopViewController : UIViewController, IndicatorInfoProvider{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        entireShopDataManger.getEntireShop(delegate: self, page: 1)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        entireShopDataManger.getEntireShop(delegate: self, page: 1)
+
+    }
     
     private func configureTableView(){
         tableView.delegate = self
@@ -47,11 +51,13 @@ class EntireShopViewController : UIViewController, IndicatorInfoProvider{
         
         let shopIdx = sender.tag - 100
         let params = LikeShopRequest(shopIdx: shopIdx)
-        likeShopDataManger.postLike(params, delegate: self)
+        likeShopDataManger.postShopLike(params, delegate: self)
         
     }
     @objc func shopDetail(_ sender: UIButton){
-        guard let ShopDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "shopDetailVC") else{return}
+        guard let ShopDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "shopDetailVC") as? ShopDetailViewController else{return}
+        ShopDetailVC.shopIdx = sender.tag - 100
+        
         self.navigationController?.pushViewController(ShopDetailVC, animated: true)
     }
 }
@@ -66,6 +72,14 @@ extension EntireShopViewController: UITableViewDataSource, UITableViewDelegate {
         cell.shopImageView.load(strUrl: urlArr[indexPath.row])
         cell.locationLabel.text = locationDetailArr[indexPath.row]
         cell.titleLabel.text = shopNameArr[indexPath.row]
+        
+        if isShopLikedArr[indexPath.row] == 1{
+            cell.likeButtonImageView.image = UIImage(named: "wheartFill")
+            
+        }else{
+            cell.likeButtonImageView.image = UIImage(named: "wheart")
+            
+        }
         cell.likeButton.tag = shopIdxArr[indexPath.row] + 100
         cell.detailButton.tag = cell.likeButton.tag
         cell.likeButton.addTarget(self, action: #selector(likeShop(_:)), for: .touchUpInside)
@@ -83,6 +97,11 @@ extension EntireShopViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension EntireShopViewController {
     func didSuccessGetEntireShop(message: String, results: [EntireShopResult?]){
+        shopIdxArr = [Int]()
+        shopNameArr = [String]()
+        locationDetailArr = [String]()
+        urlArr = [String]()
+        isShopLikedArr = [Int]()
         configureTableView()
         for result in results {
             guard let res = result else{continue}
@@ -91,6 +110,7 @@ extension EntireShopViewController {
             isShopLikedArr.append(res.isShopLiked)
             shopIdxArr.append(res.shopIdx)
             locationDetailArr.append(res.locationDetail)
+            
         }
         tableView.reloadData()
     }

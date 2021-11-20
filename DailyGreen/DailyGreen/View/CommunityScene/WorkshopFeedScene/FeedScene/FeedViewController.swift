@@ -32,7 +32,6 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        configureTableView()
         
     }
     
@@ -70,6 +69,7 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
 
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(nickNames)
         return nickNames.count
     }
     
@@ -80,6 +80,8 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
         
         if self.feedUrls[idx].count > 1 {
             cell.indicatorImageView.image = UIImage(named: "pindicator1\(feedUrls[idx].count)")
+        }else{
+            cell.indicatorImageView.isHidden = true
         }
         
         cell.nickNameLabel.text = nickNames[idx]
@@ -99,7 +101,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
         }else{
             cell.followImageView.isHidden = true
         }
-        
+        cell.collectionView.reloadData()
         return cell
     }
     
@@ -110,6 +112,17 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
 
 extension FeedViewController {
     func didSuccessFeed(message: String, results: [FeedResult?]){
+        postIdxs = [Int]()
+        captions = [String]()
+        nickNames = [String]()
+        isFollowings = [Int]()
+        isPostLikes = [Int]()
+        profileUrl = [String]()
+        feedUrls = [Array<String>]()
+        commentTotals = [Int]()
+        postLikeTotals = [Int]()
+        
+        configureTableView()
         var urlArr = [String]()
         for result in results{
             urlArr = [String]()

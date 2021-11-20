@@ -154,7 +154,7 @@ class WriteFeedViewController: UIViewController {
     @objc func removeAlert(){
         dimmingView.removeFromSuperview()
         let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 2 ], animated: false)
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 3 ], animated: false)
     }
     
     private func presentDimmingView(message: String){

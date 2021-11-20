@@ -11,14 +11,18 @@ import Alamofire
 class RegisterProfileViewController: UIViewController {
     
     let dimmingView = DimmingView()
+    var phoneNumber: String?
     var kakaoToken: String?
+    var email: String?
+    var password: String?
     
     @IBOutlet weak var profileCircleButtonView: UIImageView!
-    
     let imagePickerController = UIImagePickerController()
     var whiteViewConstraint:[NSLayoutConstraint] = []
+    
     lazy var datamanager = NickNameDataManager()
     lazy var KRegisterDataManager = KakaoRegisterDataManager()
+    lazy var emailRegisterDataManger = EmailRegisterDataManager()
     
     let whiteView: UIView = {
        let view = UIView()
@@ -76,7 +80,7 @@ class RegisterProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("#############",email)
         configureUI()
         configureNavi()
         hideKeyboardWhenTappedBackground()
@@ -154,23 +158,35 @@ class RegisterProfileViewController: UIViewController {
         let nickName = nickNameTextField.text!
         let bio = textView.text!
 
-        let parameters = [
-            "nickname": nickName,
-            "bio" : bio,
-            "accessToken" : kakaoToken
-        ]
-        
-        print(parameters)
-        
         if profileImageView.image != nil {
             let image = profileImageView.image
             guard let data = image?.jpegData(compressionQuality: 0.1) else{return}
-            KRegisterDataManager.upload(image: data,  params: parameters, delegate: self)
+            if kakaoToken != nil{
+                let parameters = [
+                    "nickname": nickName,
+                    "bio" : bio,
+                    "accessToken" : kakaoToken
+                ]
+                KRegisterDataManager.upload(image: data,  params: parameters, delegate: self)
+            }
+            else if phoneNumber != nil{
+                let parameters = [
+                    "email": email,
+                    "password": password,
+                    "phoneNum" : phoneNumber,
+                    "nickname": nickName,
+                    "bio" : bio
+                ]
+                emailRegisterDataManger.emailRegisterUpload(image: data, params: parameters, delegate: self)
+            }
+            else{
+                //애플로그인
+            }
         }else{
-            KRegisterDataManager.upload(image: nil,  params: parameters, delegate: self) // 삭제해야됨 무조건 이미지 있어야됌
+            self.presentAlert(title: "프로필 사진을 등록해주세요.")
         }
         
-        print("업로드는 실행됐음")
+        
         
     }
     @objc private func nickNameCheck(_: UIButton){

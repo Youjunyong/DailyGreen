@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="gTV-IL-0wX" customClass="ShopCollectionViewCell" customModule="DailyGreen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="428" height="244"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="428" height="244"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="apQ-J4-Fxv">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="244"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="apQ-J4-Fxv" secondAttribute="bottom" id="1eH-2z-ICR"/>
+                <constraint firstItem="apQ-J4-Fxv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DTx-L9-CTM"/>
+                <constraint firstItem="apQ-J4-Fxv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vqT-RO-eOq"/>
+                <constraint firstAttribute="trailing" secondItem="apQ-J4-Fxv" secondAttribute="trailing" id="xuo-cR-dIK"/>
+            </constraints>
+            <size key="customSize" width="428" height="244"/>
+            <connections>
+                <outlet property="shopImageView" destination="apQ-J4-Fxv" id="CA1-eu-XNN"/>
+            </connections>
+            <point key="canvasLocation" x="405.79710144927537" y="161.38392857142856"/>
+        </collectionViewCell>
+    </objects>
+</document>

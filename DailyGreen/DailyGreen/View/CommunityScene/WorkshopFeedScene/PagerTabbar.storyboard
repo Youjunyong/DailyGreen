@@ -63,25 +63,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qI4-ZL-jUC">
                                 <rect key="frame" x="0.0" y="68" width="414" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtK-BE-UmQ">
-                                        <rect key="frame" x="356" y="3" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="Gzb-0h-fWc"/>
-                                            <constraint firstAttribute="width" constant="44" id="i1u-vZ-1Rd"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="icFilter"/>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yru-vM-cIG">
-                                        <rect key="frame" x="16" y="1" width="324" height="48"/>
+                                        <rect key="frame" x="16" y="1" width="383" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="어떤 친환경 실천을 찾으세요?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xq-rP-ekC">
-                                                <rect key="frame" x="5" y="15" width="265" height="18.5"/>
+                                                <rect key="frame" x="5" y="15" width="324" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-cU-Hcw">
-                                                <rect key="frame" x="278" y="2" width="44" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-cU-Hcw">
+                                                <rect key="frame" x="337" y="2" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="44" id="twb-uv-aZS"/>
                                                     <constraint firstAttribute="height" constant="44" id="vfa-3a-AaQ"/>
@@ -93,6 +84,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="3xq-rP-ekC" firstAttribute="leading" secondItem="Yru-vM-cIG" secondAttribute="leading" constant="5" id="DEn-OJ-GeR"/>
+                                            <constraint firstItem="Nvh-cU-Hcw" firstAttribute="centerY" secondItem="3xq-rP-ekC" secondAttribute="centerY" id="J6K-l1-azr"/>
                                             <constraint firstItem="Nvh-cU-Hcw" firstAttribute="leading" secondItem="3xq-rP-ekC" secondAttribute="trailing" constant="8" id="Jf1-QB-hOa"/>
                                             <constraint firstAttribute="height" constant="48" id="OvC-gL-4Sk"/>
                                             <constraint firstItem="3xq-rP-ekC" firstAttribute="centerY" secondItem="Yru-vM-cIG" secondAttribute="centerY" id="Uzg-oK-3Nr"/>
@@ -102,12 +94,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Yru-vM-cIG" firstAttribute="leading" secondItem="qI4-ZL-jUC" secondAttribute="leading" constant="16" id="4Zo-ox-xGg"/>
-                                    <constraint firstItem="Nvh-cU-Hcw" firstAttribute="centerY" secondItem="dtK-BE-UmQ" secondAttribute="centerY" id="KRR-yB-JrK"/>
-                                    <constraint firstItem="dtK-BE-UmQ" firstAttribute="centerY" secondItem="qI4-ZL-jUC" secondAttribute="centerY" id="NfP-cy-J1v"/>
                                     <constraint firstAttribute="height" constant="50" id="XRa-EL-e8a"/>
-                                    <constraint firstItem="dtK-BE-UmQ" firstAttribute="leading" secondItem="Yru-vM-cIG" secondAttribute="trailing" constant="16" id="apo-qw-vog"/>
-                                    <constraint firstAttribute="trailing" secondItem="dtK-BE-UmQ" secondAttribute="trailing" constant="14" id="g7Z-qT-vYL"/>
-                                    <constraint firstItem="Yru-vM-cIG" firstAttribute="centerY" secondItem="dtK-BE-UmQ" secondAttribute="centerY" id="hUK-bO-OfR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yru-vM-cIG" secondAttribute="trailing" constant="15" id="apo-qw-vog"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOB-9b-pkH">
@@ -123,6 +111,7 @@
                         <constraints>
                             <constraint firstItem="nkM-V8-561" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1lm-5n-hBH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nkM-V8-561" secondAttribute="bottom" id="5Xa-Dd-V7l"/>
+                            <constraint firstItem="zOB-9b-pkH" firstAttribute="top" secondItem="Yru-vM-cIG" secondAttribute="bottom" constant="13" id="F4F-SL-pnu"/>
                             <constraint firstItem="qI4-ZL-jUC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FPZ-4R-K3r"/>
                             <constraint firstItem="qI4-ZL-jUC" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="MDx-Fg-3GG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qI4-ZL-jUC" secondAttribute="trailing" id="O8R-S0-zRu"/>
@@ -139,7 +128,6 @@
                     <connections>
                         <outlet property="buttonBarView" destination="nHx-BK-4Dd" id="vLP-mD-gnj"/>
                         <outlet property="containerView" destination="nkM-V8-561" id="dpP-VZ-ozq"/>
-                        <outlet property="filterButton" destination="dtK-BE-UmQ" id="Dzt-de-VO5"/>
                         <outlet property="pagerBarDivideView" destination="zOB-9b-pkH" id="SzT-jA-lBT"/>
                         <outlet property="searchButton" destination="Nvh-cU-Hcw" id="Pfd-1w-bed"/>
                         <outlet property="searchContentView" destination="Yru-vM-cIG" id="Kf2-ex-kh6"/>
@@ -281,7 +269,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icFilter" width="44.5" height="45"/>
         <image name="icSearch" width="44.5" height="44.5"/>
         <image name="icWrite" width="80.5" height="80.5"/>
         <systemColor name="systemBackgroundColor">

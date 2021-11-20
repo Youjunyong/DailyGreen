@@ -74,6 +74,7 @@
                     </view>
                     <connections>
                         <outlet property="contentViewWidthConstraint" destination="n6w-AB-LW7" id="8XJ-D9-q1c"/>
+                        <outlet property="contentWidthConstraint" destination="n6w-AB-LW7" id="7h6-Ue-HNO"/>
                         <outlet property="scrollView" destination="mrp-0I-cm8" id="KfN-yc-SfN"/>
                     </connections>
                 </viewController>
@@ -415,7 +416,7 @@
                                     <constraint firstAttribute="height" constant="2" id="spA-ig-fG1"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o15-ku-66G">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o15-ku-66G">
                                 <rect key="frame" x="329" y="185.66666666666666" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5Dp-FZ-up3"/>
@@ -427,7 +428,7 @@
                                     <action selector="emailClear:" destination="4oI-w9-5Oi" eventType="touchUpInside" id="CRL-DQ-8oS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfX-T5-LfV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfX-T5-LfV">
                                 <rect key="frame" x="329" y="265" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="OnL-DV-cmN"/>
@@ -570,23 +571,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEV-4v-JrP">
-                                <rect key="frame" x="30" y="611" width="330" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="비로그인으로 메인화면 이동 (테스트용)"/>
-                                <connections>
-                                    <action selector="tempLogin:" destination="ooN-FD-AVp" eventType="touchUpInside" id="esf-Ka-ipO"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qV-wf-xWn">
-                                <rect key="frame" x="30" y="509" width="330" height="31"/>
+                                <rect key="frame" x="30" y="456.66666666666669" width="330" height="31"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="6tt-hJ-TDh"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrn-ka-pdU">
-                                <rect key="frame" x="30" y="560" width="330" height="31"/>
+                                <rect key="frame" x="126.66666666666669" y="507.66666666666674" width="137" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="이메일로 로그인하기"/>
                                 <connections>
@@ -594,7 +587,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AoW-qV-cx3">
-                                <rect key="frame" x="30" y="459" width="330" height="31"/>
+                                <rect key="frame" x="30" y="406.66666666666669" width="330" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="카카오 로그인"/>
                                 <connections>
@@ -611,25 +604,21 @@
                         <viewLayoutGuide key="safeArea" id="i12-Nh-v1A"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="i12-Nh-v1A" firstAttribute="bottom" secondItem="SEV-4v-JrP" secondAttribute="bottom" constant="168" id="4ix-ve-eNN"/>
-                            <constraint firstItem="Jrn-ka-pdU" firstAttribute="trailing" secondItem="SEV-4v-JrP" secondAttribute="trailing" id="5Cr-Ua-Mpa"/>
-                            <constraint firstItem="Jrn-ka-pdU" firstAttribute="leading" secondItem="SEV-4v-JrP" secondAttribute="leading" id="AeM-Be-RQt"/>
-                            <constraint firstItem="SEV-4v-JrP" firstAttribute="trailing" secondItem="AoW-qV-cx3" secondAttribute="trailing" id="C8S-C1-VQH"/>
+                            <constraint firstItem="AoW-qV-cx3" firstAttribute="centerY" secondItem="Vja-GI-MjJ" secondAttribute="centerY" id="9Fk-zz-hy2"/>
+                            <constraint firstItem="AoW-qV-cx3" firstAttribute="centerX" secondItem="Vja-GI-MjJ" secondAttribute="centerX" id="Gsc-hj-f66"/>
                             <constraint firstItem="Jrn-ka-pdU" firstAttribute="top" secondItem="2qV-wf-xWn" secondAttribute="bottom" constant="20" id="LNH-AC-qrD"/>
                             <constraint firstItem="i12-Nh-v1A" firstAttribute="trailing" secondItem="AoW-qV-cx3" secondAttribute="trailing" constant="30" id="Obg-uZ-1iz"/>
-                            <constraint firstItem="SEV-4v-JrP" firstAttribute="leading" secondItem="AoW-qV-cx3" secondAttribute="leading" id="Rr7-fF-3ug"/>
                             <constraint firstItem="AoW-qV-cx3" firstAttribute="leading" secondItem="i12-Nh-v1A" secondAttribute="leading" constant="30" id="b2n-QM-6Id"/>
                             <constraint firstItem="XU4-iB-hgD" firstAttribute="centerX" secondItem="Vja-GI-MjJ" secondAttribute="centerX" id="dXw-zB-5Jb"/>
                             <constraint firstItem="2qV-wf-xWn" firstAttribute="top" secondItem="AoW-qV-cx3" secondAttribute="bottom" constant="19" id="hWC-uO-Ml3"/>
-                            <constraint firstItem="SEV-4v-JrP" firstAttribute="top" secondItem="Jrn-ka-pdU" secondAttribute="bottom" constant="20" id="hf8-gX-Y6y"/>
                             <constraint firstItem="XU4-iB-hgD" firstAttribute="top" secondItem="i12-Nh-v1A" secondAttribute="top" constant="120" id="nLf-EY-9AK"/>
                             <constraint firstItem="2qV-wf-xWn" firstAttribute="trailing" secondItem="AoW-qV-cx3" secondAttribute="trailing" id="o9d-hi-kWi"/>
+                            <constraint firstItem="Jrn-ka-pdU" firstAttribute="centerX" secondItem="Vja-GI-MjJ" secondAttribute="centerX" id="p6L-HC-oQa"/>
                             <constraint firstItem="2qV-wf-xWn" firstAttribute="leading" secondItem="AoW-qV-cx3" secondAttribute="leading" id="xKE-US-fkR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vbn-SC-1zw"/>
                     <connections>
-                        <outlet property="tempLoginButton" destination="SEV-4v-JrP" id="KlK-FT-F1H"/>
                         <outlet property="testView" destination="2qV-wf-xWn" id="DWc-Az-CVk"/>
                     </connections>
                 </viewController>
