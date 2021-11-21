@@ -8,10 +8,10 @@
 import Alamofire
 class EmailLoginDataManager {
     
-    func postEmailLogin(_ parameters: KakaoLoginRequest, delegate: LoginViewController) {
-        AF.request("\(Constant.BASE_URL)/app/login/kakao", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
+    func postEmailLogin(_ parameters: EmailLoginRequest, delegate: EmailLoginViewController) {
+        AF.request("\(Constant.BASE_URL)/app/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: nil)
             .validate()
-            .responseDecodable(of: KakaoLoginResponse.self) { response in
+            .responseDecodable(of: EmailLoginResponse.self) { response in
                 switch response.result {
                 case .success(let response):
                     // 성공했을 때
@@ -23,24 +23,24 @@ class EmailLoginDataManager {
                         UserDefaults.standard.set(jwt, forKey: "jwt")
                         UserDefaults.standard.set(nickName, forKey: "nickName")
                         UserDefaults.standard.set(profilePhotoUrl, forKey: "profilePhotoUrl")
-                        delegate.successKakaoLogin(message: response.message)
+                        delegate.successEmailLogin(message: "로그인 성공")
                         
                         
                     }
                     // 실패했을 때
                     else {
                         switch response.code {
-                        case 2009: delegate.failedToKakaoLogin(message: "엑세스 토큰을 입력해주세요")
-                        case 3007: delegate.failedToKakaoLogin(message: "존재하지 않는 계정입니다. 회원가입을 해주세요.")
-                        case 4000: delegate.failedToKakaoLogin(message: "데이터 베이스 에러")
-                        default: delegate.failedToKakaoLogin(message: "code : \(response.code)")
+                        case 2009: delegate.failedToEmailLogin(message: "엑세스 토큰을 입력해주세요")
+                        case 3007: delegate.failedToEmailLogin(message: "존재하지 않는 계정입니다. 회원가입을 해주세요.")
+                        case 4000: delegate.failedToEmailLogin(message: "데이터 베이스 에러")
+                        default: delegate.failedToEmailLogin(message: "code : \(response.code)")
                         }
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
                     print(String(describing: error))
 
-                    delegate.failedToKakaoLogin(message: "서버와의 연결이 원활하지 않습니다")
+                    delegate.failedToEmailLogin(message: "서버와의 연결이 원활하지 않습니다")
                 }
             }
     }

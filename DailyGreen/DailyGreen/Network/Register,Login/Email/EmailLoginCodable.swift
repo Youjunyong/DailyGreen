@@ -6,3 +6,21 @@
 //
 
 import Foundation
+
+struct EmailLoginRequest: Encodable {
+    var email: String
+    var password: String
+}
+
+struct EmailLoginResponse: Decodable {
+    var code: Int
+    var message: String
+    var isSuccess: Bool
+    var result: EmailLoginResult?
+}
+
+struct EmailLoginResult: Decodable{
+    var nickname: String
+    var profilePhotoUrl: String
+    var jwt: String
+}

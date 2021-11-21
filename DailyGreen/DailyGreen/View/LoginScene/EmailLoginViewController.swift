@@ -9,6 +9,8 @@ import UIKit
 
 class EmailLoginViewController: UIViewController {
     
+    lazy var emailLoginDataManager = EmailLoginDataManager()
+    
     let submitButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -16,6 +18,7 @@ class EmailLoginViewController: UIViewController {
         btn.titleLabel?.font = UIFont(name: NanumFont.extraBold, size: 17.0)
         btn.backgroundColor = UIColor.primary
         btn.layer.cornerRadius = 24
+        
         return btn
     }()
     
@@ -70,11 +73,22 @@ class EmailLoginViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
     
+    @objc func submitEmailLogin(_ sender: UIButton){
+        let email = emailTextField.text ?? ""
+        let password = pwTextField.text ?? ""
+        
+        if email.count > 3, password.count > 8 {
+            let params = EmailLoginRequest(email: email, password: password)
+            emailLoginDataManager.postEmailLogin(params, delegate: self)
+        } //나중에 유효성검사다시
+        
+    }
     private func configureUI(){
 
         self.hideKeyboardWhenTappedBackground()
         view.addSubview(submitButton)
         view.addSubview(naviShadowView)
+        submitButton.addTarget(self, action: #selector(submitEmailLogin(_:)), for: .touchUpInside)
         NSLayoutConstraint.activate([
 
             submitButton.heightAnchor.constraint(equalToConstant: 48),
@@ -114,5 +128,22 @@ class EmailLoginViewController: UIViewController {
     }
     
    
+    
+}
+
+extension EmailLoginViewController{
+    func successEmailLogin(message: String){
+//        UserDefaults.standard.string(forKey: "jwt")
+//        UserDefaults.standard.string(forKey: "nickName")
+//        UserDefaults.standard.string(forKey: "profilePhotoUrl")
+        presentAlert(title: message)
+
+        guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
+        self.changeRootViewController(MainTabBarController)
+    }
+    
+    func failedToEmailLogin(message: String){
+        presentAlert(title: message)
+    }
     
 }

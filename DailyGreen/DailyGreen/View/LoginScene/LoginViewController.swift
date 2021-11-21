@@ -101,12 +101,14 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 }
 extension LoginViewController {
     func successKakaoLogin(message: String){
-        UserDefaults.standard.string(forKey: "jwt")
-        UserDefaults.standard.string(forKey: "nickName")
-        UserDefaults.standard.string(forKey: "profilePhotoUrl")
+//        UserDefaults.standard.string(forKey: "jwt")
+//        UserDefaults.standard.string(forKey: "nickName")
+//        UserDefaults.standard.string(forKey: "profilePhotoUrl")
         guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
         self.changeRootViewController(MainTabBarController)
     }
+    
+
     
     func failedToKakaoLogin(message: String){
         let storyboard = UIStoryboard(name: "Register", bundle: nil)

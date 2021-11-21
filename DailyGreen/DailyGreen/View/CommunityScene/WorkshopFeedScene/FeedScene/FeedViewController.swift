@@ -81,7 +81,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
         if self.feedUrls[idx].count > 1 {
             cell.indicatorImageView.image = UIImage(named: "pindicator1\(feedUrls[idx].count)")
         }else{
-            cell.indicatorImageView.isHidden = true
+            cell.indicatorImageView.backgroundColor = .red
         }
         
         cell.nickNameLabel.text = nickNames[idx]
