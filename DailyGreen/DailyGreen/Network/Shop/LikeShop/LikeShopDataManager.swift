@@ -8,7 +8,7 @@
 import Alamofire
 
 class LikeShopDataManager {
-    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN]
+    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN]
     func postShopLike(_ parameters: LikeShopRequest, delegate: EntireShopViewController) {
         AF.request("\(Constant.BASE_URL)/app/shops/likes", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)
             .validate()

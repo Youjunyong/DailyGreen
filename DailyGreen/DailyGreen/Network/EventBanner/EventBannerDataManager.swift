@@ -1,30 +1,31 @@
 //
-//  BookMarkShopDataManager.swift
+//  EventBannerDataManager.swift
 //  DailyGreen
 //
-//  Created by 유준용 on 2021/11/19.
+//  Created by 유준용 on 2021/11/22.
 //
+
 
 import Alamofire
 
-class BookMarkShopDataManager {
+class EventBannerDataManager {
     
-    func getBookMarkShop(delegate: BookMarkShopViewController, page: Int) {
+    func getEventBanner(delegate: MainPageViewController) {
         
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN] // 테스트 토큰
-        AF.request("\(Constant.BASE_URL)/app/shops/likes?page=\(page)",
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN]
+        AF.request("\(Constant.BASE_URL)/app/users/events",
                    method: .get,
                    parameters: nil,
                    encoding: URLEncoding.default,
                    headers: headers)
             .validate()
-            .responseDecodable(of: BookMarkShopResponse.self) { response in
+            .responseDecodable(of: EventBannerResponse.self) { response in
                 switch response.result{
                 case .success(let response):
 
                     if response.isSuccess  {
                         let results = response.result
-                        delegate.didSuccessGetBookMarkShop(message: "성공", results: results)
+                        delegate.didSuccessGetEventBanner(message: "성공", results: results)
                     }
 
                     else {
@@ -38,10 +39,9 @@ class BookMarkShopDataManager {
                 case .failure(let error):
                     print(error.localizedDescription)
                     print(String(describing: error))
-                    delegate.failedToRequest(message: "서버 연결 원할하지 않음")
+                    delegate.failedToRequest(message: "EventBAnnerDataManagerError")
                 }
             }
     }
 }
-
 

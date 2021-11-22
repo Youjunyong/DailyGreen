@@ -14,9 +14,19 @@ class MainPageViewController: UIViewController{
     lazy var subscribeDataManager = CoSubscribeDataManager()
     lazy var cListDataManager = CommunityListDataManager() // 현재 구독중인 커뮤니티
     lazy var cancelDataManager = CancelCommunityDataManager() // 참여한 커뮤니티 구독취소하기
-
+    lazy var eventBannerDataManager = EventBannerDataManager()
+    
     lazy var gridViews = [grid00View ,grid01View, grid02View, grid10View, grid12View, grid20View, grid21View, grid22View]
     
+    var bannerIdx = [Int]()
+    var bannerCommunityIdx = [Int]()
+    var bannerName = [String]()
+    var bannerLocationDetail = [String]()
+    var bannerWhen = [String]()
+    var bannerPhoto = [String]()
+    var bannerType = [String]()
+    
+    @IBOutlet weak var profileDimmingView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var upperDivider: UIView!
@@ -48,13 +58,13 @@ class MainPageViewController: UIViewController{
         super.viewDidLoad()
         configureGridView()
         configureUI()
-        configureCollectionView()
+        eventBannerDataManager.getEventBanner(delegate: self)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         cListDataManager.getCommunityList(delegate: self)
-        print(#function, CommunityData.shared.subscribedList)
 
     }
     
@@ -136,18 +146,25 @@ class MainPageViewController: UIViewController{
 
         for (idx,gridView) in gridViews.enumerated() {
             gridView?.participateBtn.addTarget(self, action: #selector(participate(_:)), for: .touchUpInside)
-
             gridView?.nameLabel.text = CommunityData.shared.nameArr[idx + 1]
             gridView?.imageView.image = UIImage(named: CommunityData.shared.imageArr[idx + 1])
             gridView?.tag = idx + 11
-//            print(gridView?.tag)
+            gridView?.layer.shadowColor = UIColor.black.cgColor
+            gridView?.layer.shadowOpacity = 0.12
+            gridView?.layer.shadowRadius = 4
+            gridView?.layer.shadowOffset = CGSize(width: 2, height: 2)
         }
-        
-        gridProfileImageView.layer.cornerRadius = gridProfileImageView.layer.frame.size.height / 2
-        gridProfileImageView.layer.borderWidth = 0
-        gridProfileImageView.layer.masksToBounds = true
         guard let url = UserDefaults.standard.string(forKey: "profilePhotoUrl") else{return}
+
         gridProfileImageView.load(strUrl: url)
+        gridProfileImageView.layer.cornerRadius = gridProfileImageView.layer.frame.size.height / 2
+        profileDimmingView.layer.cornerRadius = profileDimmingView.layer.frame.size.height / 2
+        profileDimmingView.layer.shadowColor = UIColor.black.cgColor
+        profileDimmingView.layer.shadowOpacity = 0.12
+        profileDimmingView.layer.shadowRadius = 4
+        profileDimmingView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        
+
         
     }
 
@@ -209,12 +226,17 @@ extension MainPageViewController : UICollectionViewDelegate, UICollectionViewDel
 
 extension MainPageViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return bannerIdx.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let idx = indexPath.row
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as? EventCollectionViewCell else {return UICollectionViewCell() }
-        cell.imageView.image = UIImage(named: "testimage\(indexPath.row + 1)")
+        cell.imageView.load(strUrl: bannerPhoto[idx])
+        cell.titleLabel.text = bannerName[idx]
+        cell.dateLabel.text = bannerWhen[idx]
+        cell.typeLabel.text = bannerType[idx]
+        
         return cell
     }
 }
@@ -246,16 +268,32 @@ extension MainPageViewController {
         cListDataManager.getCommunityList(delegate: self)
 
     }
+    func didSuccessGetEventBanner(message: String, results: [EventBannerResult]){
+
+        
+        for result in results{
+            bannerIdx.append(result.idx)
+            bannerCommunityIdx.append(result.communityIdx)
+            bannerName.append(result.name)
+            bannerLocationDetail.append(result.locationDetail)
+            bannerWhen.append(result.when)
+            bannerPhoto.append(result.photo)
+            bannerType.append(result.type)
+        }
+        
+        configureCollectionView()
+
+    }
     
     func didSuccessGetCList(message: String, dataList: [CommunityList]){
         
-        print("oldList: ", CommunityData.shared.subscribedList)
+        
         var newList = [Int]()
         for data in dataList {
             view.viewWithTag(data.idx + 10)?.backgroundColor = .selected
             newList.append(data.idx)
         }
-        print("newList: ",newList)
+        
         CommunityData.shared.subscribedList = newList
         for idx in 1...8{
             if CommunityData.shared.subscribedList.contains(idx) == false{

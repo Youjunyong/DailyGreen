@@ -24,6 +24,7 @@ class KakaoLoginDataManager {
                         UserDefaults.standard.set(jwt, forKey: "jwt")
                         UserDefaults.standard.set(nickName, forKey: "nickName")
                         UserDefaults.standard.set(profilePhotoUrl, forKey: "profilePhotoUrl")
+                        UserDefaults.standard.set("kakao", forKey:"way")
                         delegate.successKakaoLogin(message: response.message)
                         
                         

@@ -8,7 +8,7 @@
 import Alamofire
 
 class LikeDataManager {
-    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN]
+    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN]
     func postLike(_ parameters: LikeRequest, delegate: FeedViewController) {
         AF.request("\(Constant.BASE_URL)/app/posts/likes", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)
             .validate()

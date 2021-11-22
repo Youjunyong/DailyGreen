@@ -8,7 +8,7 @@
 import Alamofire
 
 class CancelCommunityDataManager {
-    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
+    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN] // 테스트 토큰
 
     func patchCancelCommunity(_ parameters: CancelCommunityRequest, delegate: MainPageViewController, communityIdx: Int) {
         AF.request("\(Constant.BASE_URL)/app/communities", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)

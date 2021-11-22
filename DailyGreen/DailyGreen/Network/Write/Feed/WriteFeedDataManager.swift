@@ -13,7 +13,7 @@ class WriteFeedDataManager {
     func uploadFeed(params: WriteFeedRequest, delegate: WriteFeedViewController){
            let headers: HTTPHeaders = [
                "Content-type": "multipart/form-data",
-               "X-ACCESS-TOKEN": Constant.TEST_TOKEN
+               "X-ACCESS-TOKEN": Constant.shared.JWTTOKEN
            ]        
 
            AF.upload(multipartFormData: { multiPart in

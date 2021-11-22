@@ -20,7 +20,10 @@ class EmailLoginDataManager {
                         guard let jwt = result?.jwt else{return}
                         guard let nickName = result?.nickname else{return}
                         guard let profilePhotoUrl = result?.profilePhotoUrl else{return}
+                        
+                        
                         UserDefaults.standard.set(jwt, forKey: "jwt")
+                        UserDefaults.standard.set("email", forKey: "way")
                         UserDefaults.standard.set(nickName, forKey: "nickName")
                         UserDefaults.standard.set(profilePhotoUrl, forKey: "profilePhotoUrl")
                         delegate.successEmailLogin(message: "로그인 성공")
@@ -44,4 +47,5 @@ class EmailLoginDataManager {
                 }
             }
     }
+    
 }

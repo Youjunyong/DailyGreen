@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,6 +21,34 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iu8-A1-ZMR">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="180"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JG9-9M-pRt">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="180"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mL-0R-236">
+                                <rect key="frame" x="262.5" y="16" width="71.5" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYk-Bd-aT7">
+                                        <rect key="frame" x="15" y="7.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="13K-FI-wuK"/>
+                                    <constraint firstItem="aYk-Bd-aT7" firstAttribute="centerX" secondItem="2mL-0R-236" secondAttribute="centerX" id="EDx-z7-b49"/>
+                                    <constraint firstAttribute="width" secondItem="aYk-Bd-aT7" secondAttribute="width" multiplier="1.7" id="dvh-wP-Mtk"/>
+                                    <constraint firstItem="aYk-Bd-aT7" firstAttribute="centerY" secondItem="2mL-0R-236" secondAttribute="centerY" id="vcw-Q8-vAs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2mL-0R-236" secondAttribute="trailing" constant="16" id="63W-dd-4Ss"/>
+                            <constraint firstItem="2mL-0R-236" firstAttribute="top" secondItem="JG9-9M-pRt" secondAttribute="top" constant="16" id="Dc7-Rx-IPA"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021. 12. 04. 오후 4시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yur-9p-ufG">
                         <rect key="frame" x="12" y="150" width="144" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -39,19 +68,31 @@
                 <constraint firstItem="iu8-A1-ZMR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ari-jw-uuk"/>
                 <constraint firstItem="iu8-A1-ZMR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JJe-94-VtD"/>
                 <constraint firstItem="Yur-9p-ufG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="KS0-n4-Na7"/>
+                <constraint firstItem="JG9-9M-pRt" firstAttribute="bottom" secondItem="iu8-A1-ZMR" secondAttribute="bottom" id="KuJ-w7-hxv"/>
+                <constraint firstItem="JG9-9M-pRt" firstAttribute="top" secondItem="iu8-A1-ZMR" secondAttribute="top" id="NhY-lI-P4V"/>
                 <constraint firstAttribute="trailing" secondItem="iu8-A1-ZMR" secondAttribute="trailing" id="OVg-5P-gx7"/>
                 <constraint firstAttribute="bottom" secondItem="iu8-A1-ZMR" secondAttribute="bottom" id="TwC-VX-Cur"/>
                 <constraint firstItem="Yur-9p-ufG" firstAttribute="top" secondItem="oas-WT-vUw" secondAttribute="bottom" constant="8" id="b36-fo-lZI"/>
+                <constraint firstItem="JG9-9M-pRt" firstAttribute="leading" secondItem="iu8-A1-ZMR" secondAttribute="leading" id="dFK-sR-0yW"/>
+                <constraint firstItem="JG9-9M-pRt" firstAttribute="trailing" secondItem="iu8-A1-ZMR" secondAttribute="trailing" id="ecw-F1-6EN"/>
                 <constraint firstItem="oas-WT-vUw" firstAttribute="leading" secondItem="Yur-9p-ufG" secondAttribute="leading" id="iDU-MR-L5y"/>
                 <constraint firstAttribute="bottom" secondItem="Yur-9p-ufG" secondAttribute="bottom" constant="12" id="zbt-AI-7fM"/>
             </constraints>
             <size key="customSize" width="351" height="182"/>
             <connections>
                 <outlet property="dateLabel" destination="Yur-9p-ufG" id="9SF-pi-w4L"/>
+                <outlet property="dimmingView" destination="JG9-9M-pRt" id="sjL-2l-Xvb"/>
                 <outlet property="imageView" destination="iu8-A1-ZMR" id="N6c-gN-kBP"/>
                 <outlet property="titleLabel" destination="oas-WT-vUw" id="F6j-0J-fKY"/>
+                <outlet property="typeLabel" destination="aYk-Bd-aT7" id="lmM-Yh-1uC"/>
+                <outlet property="typeView" destination="2mL-0R-236" id="HBQ-r5-kaE"/>
             </connections>
-            <point key="canvasLocation" x="350" y="87.723214285714278"/>
+            <point key="canvasLocation" x="349.27536231884062" y="87.723214285714278"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

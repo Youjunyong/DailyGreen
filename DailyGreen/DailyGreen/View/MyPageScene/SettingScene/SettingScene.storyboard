@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Setting View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SettingVC" id="Y6W-OH-hqX" customClass="SettingViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pIs-to-Mhl">
+                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pIs-to-Mhl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FLe-4r-imm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pIs-to-Mhl" secondAttribute="trailing" id="Ffm-LS-jJO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="pIs-to-Mhl" secondAttribute="bottom" id="gwe-hc-czi"/>
+                            <constraint firstItem="pIs-to-Mhl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="55" id="t0T-Kr-8DA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pIs-to-Mhl" id="Yi7-Ta-VkS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="116"/>
+        </scene>
+        <!--Logout Sign Out View Controller-->
+        <scene sceneID="SnD-YH-gsg">
+            <objects>
+                <viewController storyboardIdentifier="LogoutSIgnOutVC" id="m8L-vi-0sW" customClass="LogoutSignOutViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S2k-NE-NXp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoutButton" translatesAutoresizingMaskIntoConstraints="NO" id="cj7-fM-7SJ">
+                                <rect key="frame" x="16" y="94" width="382" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="uu6-w7-7r8"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signoutButton" translatesAutoresizingMaskIntoConstraints="NO" id="ifq-uT-rdJ">
+                                <rect key="frame" x="16" y="179" width="382" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HdA-cN-iqZ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yf-zK-sK0">
+                                <rect key="frame" x="16" y="94" width="382" height="60"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="logout:" destination="m8L-vi-0sW" eventType="touchUpInside" id="L9c-VO-MkQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTf-yz-XAl">
+                                <rect key="frame" x="16" y="179" width="382" height="60"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="signOut:" destination="m8L-vi-0sW" eventType="touchUpInside" id="z8m-3o-7S8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AA8-Cb-LCD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ifq-uT-rdJ" firstAttribute="top" secondItem="cj7-fM-7SJ" secondAttribute="bottom" constant="25" id="1pc-l1-XJr"/>
+                            <constraint firstItem="9Yf-zK-sK0" firstAttribute="trailing" secondItem="cj7-fM-7SJ" secondAttribute="trailing" id="5BC-RG-Rgg"/>
+                            <constraint firstItem="9Yf-zK-sK0" firstAttribute="bottom" secondItem="cj7-fM-7SJ" secondAttribute="bottom" id="5St-SX-38M"/>
+                            <constraint firstItem="RTf-yz-XAl" firstAttribute="bottom" secondItem="ifq-uT-rdJ" secondAttribute="bottom" id="H4L-1P-MEw"/>
+                            <constraint firstItem="cj7-fM-7SJ" firstAttribute="leading" secondItem="AA8-Cb-LCD" secondAttribute="leading" constant="16" id="L08-KE-Vlg"/>
+                            <constraint firstItem="ifq-uT-rdJ" firstAttribute="leading" secondItem="AA8-Cb-LCD" secondAttribute="leading" constant="16" id="L5H-bC-wLV"/>
+                            <constraint firstItem="9Yf-zK-sK0" firstAttribute="top" secondItem="cj7-fM-7SJ" secondAttribute="top" id="LyT-PJ-8mY"/>
+                            <constraint firstItem="RTf-yz-XAl" firstAttribute="trailing" secondItem="ifq-uT-rdJ" secondAttribute="trailing" id="YoB-ek-R0Y"/>
+                            <constraint firstItem="RTf-yz-XAl" firstAttribute="top" secondItem="ifq-uT-rdJ" secondAttribute="top" id="dBG-FR-wVg"/>
+                            <constraint firstItem="RTf-yz-XAl" firstAttribute="leading" secondItem="ifq-uT-rdJ" secondAttribute="leading" id="fJ2-4X-5pC"/>
+                            <constraint firstItem="AA8-Cb-LCD" firstAttribute="trailing" secondItem="cj7-fM-7SJ" secondAttribute="trailing" constant="16" id="l1y-8Y-MTW"/>
+                            <constraint firstItem="AA8-Cb-LCD" firstAttribute="trailing" secondItem="ifq-uT-rdJ" secondAttribute="trailing" constant="16" id="lSp-oX-LrZ"/>
+                            <constraint firstItem="cj7-fM-7SJ" firstAttribute="top" secondItem="AA8-Cb-LCD" secondAttribute="top" constant="50" id="nGC-N8-Ope"/>
+                            <constraint firstItem="9Yf-zK-sK0" firstAttribute="leading" secondItem="cj7-fM-7SJ" secondAttribute="leading" id="reJ-im-IGE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="9Yf-zK-sK0" id="8xv-ax-iua"/>
+                        <outlet property="signOutButton" destination="RTf-yz-XAl" id="0k4-73-VPK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vq4-0P-l0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3709" y="116"/>
+        </scene>
+        <!--Personalnfo Update View Controller-->
+        <scene sceneID="ZGO-Ll-hST">
+            <objects>
+                <viewController storyboardIdentifier="PersonalInfoVC" id="Ick-S8-of4" customClass="PersonalnfoUpdateViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z6G-oT-CDH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wOc-V0-Qi8">
+                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CUt-ni-SSf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CUt-ni-SSf" firstAttribute="bottom" secondItem="wOc-V0-Qi8" secondAttribute="bottom" id="7vC-1g-87a"/>
+                            <constraint firstItem="wOc-V0-Qi8" firstAttribute="top" secondItem="CUt-ni-SSf" secondAttribute="top" constant="55" id="LoP-Jm-NVx"/>
+                            <constraint firstItem="wOc-V0-Qi8" firstAttribute="leading" secondItem="CUt-ni-SSf" secondAttribute="leading" id="dME-xH-WMu"/>
+                            <constraint firstItem="CUt-ni-SSf" firstAttribute="trailing" secondItem="wOc-V0-Qi8" secondAttribute="trailing" id="p0A-5W-j28"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="wOc-V0-Qi8" id="lQx-0X-9KQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2za-G4-FOD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="116"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logoutButton" width="351" height="56"/>
+        <image name="signoutButton" width="351" height="56"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

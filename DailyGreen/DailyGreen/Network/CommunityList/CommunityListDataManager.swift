@@ -11,7 +11,7 @@ class CommunityListDataManager {
     
     func getCommunityListDetail(delegate: CommunityViewController) {
         
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN] // 테스트 토큰
         AF.request("\(Constant.BASE_URL)/app/communities",
                    method: .get,
                    parameters: nil,
@@ -55,7 +55,7 @@ class CommunityListDataManager {
     }
     func getCommunityList(delegate: MainPageViewController) {
         
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN] // 테스트 토큰
         AF.request("\(Constant.BASE_URL)/app/communities",
                    method: .get,
                    parameters: nil,

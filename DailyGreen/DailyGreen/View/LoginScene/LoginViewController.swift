@@ -14,6 +14,7 @@ import KakaoSDKUser
 class LoginViewController: UIViewController{
 
     lazy var kakaoLoginDataManager = KakaoLoginDataManager()
+    lazy var emailLoginDataManager = EmailLoginDataManager()
     
     @IBOutlet weak var testView: UIView!
 
@@ -37,6 +38,20 @@ class LoginViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(#function)
+        
+        if UserDefaults.standard.string(forKey: "jwt") != nil{
+            
+            if UserDefaults.standard.string(forKey: "way") == "email" {
+                guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
+                self.changeRootViewController(MainTabBarController)
+                
+            }else if UserDefaults.standard.string(forKey: "way") == "kakao"{
+                guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
+                self.changeRootViewController(MainTabBarController)
+            }
+        }
+
         setupProviderLoginView()
     }
     
@@ -91,7 +106,37 @@ class LoginViewController: UIViewController{
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
-        
+   
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+
+        switch authorization.credential { case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            // Create an account in your system.
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            if let authorizationCode = appleIDCredential.authorizationCode,
+                let identityToken = appleIDCredential.identityToken,
+                let authString = String(data: authorizationCode, encoding: .utf8),
+                let tokenString = String(data: identityToken, encoding: .utf8){
+                print("authorizationCode: \(authorizationCode)")
+                print("identityToken: \(identityToken)")
+                print("authString: \(authString)")
+                print("tokenString: \(tokenString)")
+            }
+                print("useridentifier: \(userIdentifier)")
+                print("fullName: \(fullName)")
+                print("email: \(email)")
+        case let passwordCredential as ASPasswordCredential:
+            // Sign in using an existing iCloud Keychain credential.
+            let username = passwordCredential.user
+            let password = passwordCredential.password
+            print("username: \(username)")
+            print("password: \(password)")
+            default: break
+            
+        }
     }
 }
 extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {

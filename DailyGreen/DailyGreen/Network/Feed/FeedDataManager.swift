@@ -11,7 +11,7 @@ class FeedDataManager {
     
     func getFeedData(delegate: FeedViewController, communityIdx: Int, page: Int) {
         
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN] // 테스트 토큰
         AF.request("\(Constant.BASE_URL)/app/communities/\(communityIdx)/posts?page=1",
                    method: .get,
                    parameters: nil,

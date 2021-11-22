@@ -10,6 +10,9 @@ import UIKit
 class EventCollectionViewCell: UICollectionViewCell {
 
     
+    @IBOutlet weak var typeView: UIView!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var dimmingView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -20,10 +23,14 @@ class EventCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureUI(){
+        
+        typeView.layer.cornerRadius = 18
+        dimmingView.layer.cornerRadius = 16
         imageView.layer.cornerRadius = 16
         titleLabel.textColor = .white
         titleLabel.font = UIFont(name: NanumFont.bold, size: 17)
         dateLabel.textColor = .white
+        dimmingView.backgroundColor = .dimmingView
     }
 
 }

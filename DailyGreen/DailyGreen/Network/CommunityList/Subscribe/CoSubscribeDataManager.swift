@@ -8,7 +8,7 @@
 import Alamofire
 
 class CoSubscribeDataManager {
-    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
+    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN]
 
     func postSubscribe(_ parameters: CoSubscribeRequest, delegate: MainPageViewController, communityIdx: Int) {
         AF.request("\(Constant.BASE_URL)/app/communities", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)

@@ -116,6 +116,13 @@
 		E1CC0F5A273E97F600778650 /* PhoneAuthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC0F59273E97F600778650 /* PhoneAuthDataManager.swift */; };
 		E1CC0F5C273E9AA400778650 /* CheckAuthCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC0F5B273E9AA400778650 /* CheckAuthCodable.swift */; };
 		E1CC0F5E273E9AB200778650 /* CheckAuthDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC0F5D273E9AB200778650 /* CheckAuthDataManager.swift */; };
+		E1D20384274B3C280098ADB7 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D20382274B3C280098ADB7 /* SettingTableViewCell.swift */; };
+		E1D20385274B3C280098ADB7 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D20383274B3C280098ADB7 /* SettingTableViewCell.xib */; };
+		E1D2038E274B4E660098ADB7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2038D274B4E660098ADB7 /* MyPageViewController.swift */; };
+		E1D20390274B58670098ADB7 /* LogoutSignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2038F274B58670098ADB7 /* LogoutSignOutViewController.swift */; };
+		E1D20392274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D20391274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift */; };
+		E1D20395274BC1900098ADB7 /* EventBannerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D20394274BC1900098ADB7 /* EventBannerDataManager.swift */; };
+		E1D20397274BC1A10098ADB7 /* EventBannerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D20396274BC1A10098ADB7 /* EventBannerResponse.swift */; };
 		E1E718FF2747F01600F2710F /* SettingScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E718FE2747F01600F2710F /* SettingScene.storyboard */; };
 		E1E719012747F02E00F2710F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E719002747F02E00F2710F /* SettingViewController.swift */; };
 		E1E944F9273233C90047ABA8 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944F8273233C90047ABA8 /* CommunityView.swift */; };
@@ -265,6 +272,13 @@
 		E1CC0F59273E97F600778650 /* PhoneAuthDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthDataManager.swift; sourceTree = "<group>"; };
 		E1CC0F5B273E9AA400778650 /* CheckAuthCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAuthCodable.swift; sourceTree = "<group>"; };
 		E1CC0F5D273E9AB200778650 /* CheckAuthDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAuthDataManager.swift; sourceTree = "<group>"; };
+		E1D20382274B3C280098ADB7 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		E1D20383274B3C280098ADB7 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		E1D2038D274B4E660098ADB7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		E1D2038F274B58670098ADB7 /* LogoutSignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSignOutViewController.swift; sourceTree = "<group>"; };
+		E1D20391274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalnfoUpdateViewController.swift; sourceTree = "<group>"; };
+		E1D20394274BC1900098ADB7 /* EventBannerDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBannerDataManager.swift; sourceTree = "<group>"; };
+		E1D20396274BC1A10098ADB7 /* EventBannerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBannerResponse.swift; sourceTree = "<group>"; };
 		E1E718FE2747F01600F2710F /* SettingScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingScene.storyboard; sourceTree = "<group>"; };
 		E1E719002747F02E00F2710F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E1E944F8273233C90047ABA8 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
@@ -367,6 +381,7 @@
 		E1362C4B2734709B0045C9EE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E1D20393274BC17D0098ADB7 /* EventBanner */,
 				E18C0BD327479CC30020FA17 /* Register,Login */,
 				E1534EC02746097E00E1FA01 /* Feed */,
 				E1534EB927452A7100E1FA01 /* Write */,
@@ -410,7 +425,6 @@
 				E14321C9272FA1730028DAE4 /* SceneDelegate.swift */,
 				E14321C7272FA1730028DAE4 /* AppDelegate.swift */,
 				E14321FC272FA2E20028DAE4 /* View */,
-				E1E718FD2747EFE400F2710F /* SettingScene */,
 				E1362C4B2734709B0045C9EE /* Network */,
 				E14321D3272FA1740028DAE4 /* Assets.xcassets */,
 				E14321D5272FA1740028DAE4 /* LaunchScreen.storyboard */,
@@ -455,6 +469,8 @@
 				E19D4E9D2732B12C0024B6FE /* RegisterScene */,
 				E14426CB27310E2800EC86D1 /* MainPageScene */,
 				E14ED2FB273963E900CCBCED /* CommunityScene */,
+				E12838F12742747100F1E259 /* ShopScene */,
+				E1D20386274B42340098ADB7 /* MyPageScene */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -559,7 +575,6 @@
 				E14ED2FE273A2BB900CCBCED /* CommunityTableViewCell.swift */,
 				E14ED2FF273A2BB900CCBCED /* CommunityTableViewCell.xib */,
 				E15CB80F273E100F00D66360 /* WorkshopFeedScene */,
-				E12838F12742747100F1E259 /* ShopScene */,
 			);
 			path = CommunityScene;
 			sourceTree = "<group>";
@@ -806,11 +821,33 @@
 			path = PhoneAuth;
 			sourceTree = "<group>";
 		};
+		E1D20386274B42340098ADB7 /* MyPageScene */ = {
+			isa = PBXGroup;
+			children = (
+				E1E718FD2747EFE400F2710F /* SettingScene */,
+				E1D2038D274B4E660098ADB7 /* MyPageViewController.swift */,
+			);
+			path = MyPageScene;
+			sourceTree = "<group>";
+		};
+		E1D20393274BC17D0098ADB7 /* EventBanner */ = {
+			isa = PBXGroup;
+			children = (
+				E1D20394274BC1900098ADB7 /* EventBannerDataManager.swift */,
+				E1D20396274BC1A10098ADB7 /* EventBannerResponse.swift */,
+			);
+			path = EventBanner;
+			sourceTree = "<group>";
+		};
 		E1E718FD2747EFE400F2710F /* SettingScene */ = {
 			isa = PBXGroup;
 			children = (
 				E1E718FE2747F01600F2710F /* SettingScene.storyboard */,
 				E1E719002747F02E00F2710F /* SettingViewController.swift */,
+				E1D20382274B3C280098ADB7 /* SettingTableViewCell.swift */,
+				E1D20383274B3C280098ADB7 /* SettingTableViewCell.xib */,
+				E1D2038F274B58670098ADB7 /* LogoutSignOutViewController.swift */,
+				E1D20391274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift */,
 			);
 			path = SettingScene;
 			sourceTree = "<group>";
@@ -961,6 +998,7 @@
 				E1534EC8274610EC00E1FA01 /* FeedTableViewCell.xib in Resources */,
 				E1432237272FD6AF0028DAE4 /* NanumSquareR.ttf in Resources */,
 				E12838FE27427C5700F1E259 /* EntireShopTableViewCell.xib in Resources */,
+				E1D20385274B3C280098ADB7 /* SettingTableViewCell.xib in Resources */,
 				E15CB811273E103200D66360 /* PagerTabbar.storyboard in Resources */,
 				E1432227272FB76E0028DAE4 /* NanumSquareB.ttf in Resources */,
 				E14321CF272FA1730028DAE4 /* Main.storyboard in Resources */,
@@ -1108,8 +1146,11 @@
 				E14426D6273186D300EC86D1 /* EventCollectionViewCell.swift in Sources */,
 				E12838F027426BE500F1E259 /* CancelCommunityCodabel.swift in Sources */,
 				E1432242272FE89B0028DAE4 /* LoginViewController.swift in Sources */,
+				E1D20397274BC1A10098ADB7 /* EventBannerResponse.swift in Sources */,
+				E1D20390274B58670098ADB7 /* LogoutSignOutViewController.swift in Sources */,
 				E1509DBC2734093700D0B94C /* RegisterEmailViewController.swift in Sources */,
 				E1E944FD273257010047ABA8 /* TabBarController.swift in Sources */,
+				E1D20384274B3C280098ADB7 /* SettingTableViewCell.swift in Sources */,
 				E12838F92742799900F1E259 /* BookMarkShopViewController.swift in Sources */,
 				E18C0BD027477B110020FA17 /* BookMarkShopDataManager.swift in Sources */,
 				E1467146273D741500DD2037 /* CoParticipateDataManager.swift in Sources */,
@@ -1138,6 +1179,7 @@
 				E1467148273D742200DD2037 /* CoParticipateResponse.swift in Sources */,
 				E1CC0F5E273E9AB200778650 /* CheckAuthDataManager.swift in Sources */,
 				E1CC0F58273E97EB00778650 /* PhoneAuthCodable.swift in Sources */,
+				E1D20395274BC1900098ADB7 /* EventBannerDataManager.swift in Sources */,
 				E14ED30F273A57AE00CCBCED /* KakaoRegisterCodable.swift in Sources */,
 				E1534EB7274500C800E1FA01 /* PickedImageCollectionViewCell.swift in Sources */,
 				E18C0BBA274751010020FA17 /* LikeShopCodable.swift in Sources */,
@@ -1157,6 +1199,7 @@
 				E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */,
 				E14ED304273A31EC00CCBCED /* CommunityListResponse.swift in Sources */,
 				E18C0BBD274757CF0020FA17 /* ShopDetailViewController.swift in Sources */,
+				E1D2038E274B4E660098ADB7 /* MyPageViewController.swift in Sources */,
 				E1362C47273451D90045C9EE /* RegisterPhoneViewController.swift in Sources */,
 				E146714A273D772C00DD2037 /* ParticipateView.swift in Sources */,
 				E145B9772734F419007C593B /* NickNameCodable.swift in Sources */,
@@ -1165,6 +1208,7 @@
 				E1BAECA327487583008882FA /* EmailRegisterDataManager.swift in Sources */,
 				E1BBD31D2743FC0E00268BB5 /* WriteStep1ViewController.swift in Sources */,
 				E1E719012747F02E00F2710F /* SettingViewController.swift in Sources */,
+				E1D20392274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift in Sources */,
 				E14321D2272FA1730028DAE4 /* DailyGreen.xcdatamodeld in Sources */,
 				E14ED306273A31F700CCBCED /* CommunityListDataManager.swift in Sources */,
 				E1432246272FF1EA0028DAE4 /* File.swift in Sources */,

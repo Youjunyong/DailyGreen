@@ -13,7 +13,7 @@ class ShopDetailDataManager {
     
     func getShopDetail(delegate: ShopDetailViewController, shopIdx: Int) {
         
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.TEST_TOKEN] // 테스트 토큰
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN] // 테스트 토큰
         AF.request("\(Constant.BASE_URL)/app/shops/\(shopIdx)",                   
                    method: .get,
                    parameters: nil,
