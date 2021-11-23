@@ -86,6 +86,9 @@
 		E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB818273E188A00D66360 /* WorkshopViewController.swift */; };
 		E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */; };
 		E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */; };
+		E1897264274C94A80091961C /* WriteMeetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1897263274C94A80091961C /* WriteMeetViewController.swift */; };
+		E1897267274CDCCD0091961C /* KeyWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1897265274CDCCD0091961C /* KeyWordCollectionViewCell.swift */; };
+		E1897268274CDCCD0091961C /* KeyWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1897266274CDCCD0091961C /* KeyWordCollectionViewCell.xib */; };
 		E18C0BB32747480E0020FA17 /* EtireShopDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C0BB22747480E0020FA17 /* EtireShopDataManager.swift */; };
 		E18C0BB52747481D0020FA17 /* EntireShopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C0BB42747481D0020FA17 /* EntireShopResponse.swift */; };
 		E18C0BB8274750FC0020FA17 /* LikeShopDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C0BB7274750FC0020FA17 /* LikeShopDataManager.swift */; };
@@ -242,6 +245,9 @@
 		E15CB818273E188A00D66360 /* WorkshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopViewController.swift; sourceTree = "<group>"; };
 		E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoCardTableViewCell.swift; sourceTree = "<group>"; };
 		E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCardTableViewCell.xib; sourceTree = "<group>"; };
+		E1897263274C94A80091961C /* WriteMeetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMeetViewController.swift; sourceTree = "<group>"; };
+		E1897265274CDCCD0091961C /* KeyWordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWordCollectionViewCell.swift; sourceTree = "<group>"; };
+		E1897266274CDCCD0091961C /* KeyWordCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyWordCollectionViewCell.xib; sourceTree = "<group>"; };
 		E18C0BB22747480E0020FA17 /* EtireShopDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtireShopDataManager.swift; sourceTree = "<group>"; };
 		E18C0BB42747481D0020FA17 /* EntireShopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireShopResponse.swift; sourceTree = "<group>"; };
 		E18C0BB7274750FC0020FA17 /* LikeShopDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeShopDataManager.swift; sourceTree = "<group>"; };
@@ -680,6 +686,16 @@
 			path = WorkshopFeedScene;
 			sourceTree = "<group>";
 		};
+		E1897262274C93570091961C /* WriteMeet */ = {
+			isa = PBXGroup;
+			children = (
+				E1897263274C94A80091961C /* WriteMeetViewController.swift */,
+				E1897265274CDCCD0091961C /* KeyWordCollectionViewCell.swift */,
+				E1897266274CDCCD0091961C /* KeyWordCollectionViewCell.xib */,
+			);
+			path = WriteMeet;
+			sourceTree = "<group>";
+		};
 		E18C0BB6274750EE0020FA17 /* LikeShop */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,9 +819,10 @@
 		E1BBD3192743F91500268BB5 /* WriteScene */ = {
 			isa = PBXGroup;
 			children = (
-				E1534EB12744A87300E1FA01 /* WriteFeed */,
 				E1BBD31A2743F9FA00268BB5 /* WriteScene.storyboard */,
 				E1BBD31C2743FC0E00268BB5 /* WriteStep1ViewController.swift */,
+				E1897262274C93570091961C /* WriteMeet */,
+				E1534EB12744A87300E1FA01 /* WriteFeed */,
 			);
 			path = WriteScene;
 			sourceTree = "<group>";
@@ -993,6 +1010,7 @@
 				E1534EB8274500C800E1FA01 /* PickedImageCollectionViewCell.xib in Resources */,
 				E1E718FF2747F01600F2710F /* SettingScene.storyboard in Resources */,
 				E1BBD31B2743F9FA00268BB5 /* WriteScene.storyboard in Resources */,
+				E1897268274CDCCD0091961C /* KeyWordCollectionViewCell.xib in Resources */,
 				E14321D4272FA1740028DAE4 /* Assets.xcassets in Resources */,
 				E14ED301273A2BB900CCBCED /* CommunityTableViewCell.xib in Resources */,
 				E1534EC8274610EC00E1FA01 /* FeedTableViewCell.xib in Resources */,
@@ -1152,6 +1170,7 @@
 				E1E944FD273257010047ABA8 /* TabBarController.swift in Sources */,
 				E1D20384274B3C280098ADB7 /* SettingTableViewCell.swift in Sources */,
 				E12838F92742799900F1E259 /* BookMarkShopViewController.swift in Sources */,
+				E1897264274C94A80091961C /* WriteMeetViewController.swift in Sources */,
 				E18C0BD027477B110020FA17 /* BookMarkShopDataManager.swift in Sources */,
 				E1467146273D741500DD2037 /* CoParticipateDataManager.swift in Sources */,
 				E1534EBE27452CFA00E1FA01 /* WriteFeedCodable.swift in Sources */,
@@ -1166,6 +1185,7 @@
 				E14ED300273A2BB900CCBCED /* CommunityTableViewCell.swift in Sources */,
 				E1534EC7274610EC00E1FA01 /* FeedTableViewCell.swift in Sources */,
 				E14321C8272FA1730028DAE4 /* AppDelegate.swift in Sources */,
+				E1897267274CDCCD0091961C /* KeyWordCollectionViewCell.swift in Sources */,
 				E1F6A1162737C2B000BEFF6A /* DimmingView.swift in Sources */,
 				E1534ED427467A4B00E1FA01 /* LikeCodable.swift in Sources */,
 				E1432235272FCC000028DAE4 /* Color.swift in Sources */,
@@ -1414,7 +1434,9 @@
 				DEVELOPMENT_TEAM = 5KZ5C4UW39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyGreen/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "일상그린";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "For uploading a profile image or posting a picture of environmental activity";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Why you want to access photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1448,7 +1470,9 @@
 				DEVELOPMENT_TEAM = 5KZ5C4UW39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyGreen/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "일상그린";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "For uploading a profile image or posting a picture of environmental activity";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Why you want to access photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

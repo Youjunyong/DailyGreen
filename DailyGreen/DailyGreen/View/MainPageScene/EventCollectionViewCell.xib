@@ -42,11 +42,20 @@
                                     <constraint firstItem="aYk-Bd-aT7" firstAttribute="centerY" secondItem="2mL-0R-236" secondAttribute="centerY" id="vcw-Q8-vAs"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sF-xv-uAj">
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="180"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2mL-0R-236" secondAttribute="trailing" constant="16" id="63W-dd-4Ss"/>
                             <constraint firstItem="2mL-0R-236" firstAttribute="top" secondItem="JG9-9M-pRt" secondAttribute="top" constant="16" id="Dc7-Rx-IPA"/>
+                            <constraint firstItem="2sF-xv-uAj" firstAttribute="top" secondItem="JG9-9M-pRt" secondAttribute="top" id="NXS-h1-h9L"/>
+                            <constraint firstItem="2sF-xv-uAj" firstAttribute="leading" secondItem="JG9-9M-pRt" secondAttribute="leading" id="X9l-s6-hB1"/>
+                            <constraint firstAttribute="bottom" secondItem="2sF-xv-uAj" secondAttribute="bottom" id="pnO-Nc-CQx"/>
+                            <constraint firstAttribute="trailing" secondItem="2sF-xv-uAj" secondAttribute="trailing" id="rSN-1z-Yyg"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021. 12. 04. 오후 4시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yur-9p-ufG">
@@ -81,6 +90,7 @@
             <size key="customSize" width="351" height="182"/>
             <connections>
                 <outlet property="dateLabel" destination="Yur-9p-ufG" id="9SF-pi-w4L"/>
+                <outlet property="detailButton" destination="2sF-xv-uAj" id="a2E-i2-ycq"/>
                 <outlet property="dimmingView" destination="JG9-9M-pRt" id="sjL-2l-Xvb"/>
                 <outlet property="imageView" destination="iu8-A1-ZMR" id="N6c-gN-kBP"/>
                 <outlet property="titleLabel" destination="oas-WT-vUw" id="F6j-0J-fKY"/>

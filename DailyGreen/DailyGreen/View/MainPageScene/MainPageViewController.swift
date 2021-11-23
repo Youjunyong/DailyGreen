@@ -140,7 +140,11 @@ class MainPageViewController: UIViewController{
     @objc func dismissParticipateView(_ sender: UIButton){
         participateView.removeFromSuperview()
     }
-    
+    @objc func detailButton(_ sender: UIButton){
+        let communityIdx = sender.tag - 100
+        //워크샵, 모임 분류해서 상세보기 API 사용해야한다.
+        
+    }
     private func configureGridView(){
         
 
@@ -236,7 +240,8 @@ extension MainPageViewController : UICollectionViewDataSource {
         cell.titleLabel.text = bannerName[idx]
         cell.dateLabel.text = bannerWhen[idx]
         cell.typeLabel.text = bannerType[idx]
-        
+        cell.detailButton.tag = bannerCommunityIdx[idx] + 100
+        cell.detailButton.addTarget(self, action: #selector(detailButton(_:)), for: .touchUpInside)
         return cell
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class EventCollectionViewCell: UICollectionViewCell {
 
     
+    @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var typeView: UIView!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dimmingView: UIView!
@@ -23,7 +24,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureUI(){
-        
+        detailButton.setTitle("", for: .normal)
         typeView.layer.cornerRadius = 18
         dimmingView.layer.cornerRadius = 16
         imageView.layer.cornerRadius = 16
