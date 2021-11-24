@@ -24,7 +24,6 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.title = "참여 중인 커뮤니티"
         configureUI()
         configureTabelView()
@@ -41,8 +40,7 @@ class CommunityViewController: UIViewController {
         tableView.dataSource = self
         let nib = UINib(nibName: "CommunityTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
-        tableView.separatorStyle = .none
-        
+        tableView.separatorStyle = .none   
     }
     
     

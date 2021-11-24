@@ -267,24 +267,10 @@ extension WriteFeedViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickedImageCell", for: indexPath) as? PickedImageCollectionViewCell else {return UICollectionViewCell() }
-//        cell.imageView.image = UIImage(named: "testimage\(indexPath.row + 1)")
         cell.pickButton.addTarget(self, action: #selector(pickerClicked(_:)), for: .touchUpInside)
         if selecetedImage.count > 0 {
             cell.selectedImageView.image = selecetedImage[indexPath.row]
-//            if indexPath.row == 0{
-//                switch selecetedImage.count {
-//                case 2:
-//                    self.indicatorView.image = UIImage(named: "pindicator12")
-//                case 3:
-//                    self.indicatorView.image = UIImage(named: "pindicator13")
-//                case 4:
-//                    self.indicatorView.image = UIImage(named: "pindicator14")
-//                case 5:
-//                    self.indicatorView.image = UIImage(named: "pindicator15")
-//                default:
-//                    break
-//                }
-//            }
+
 
         }
         

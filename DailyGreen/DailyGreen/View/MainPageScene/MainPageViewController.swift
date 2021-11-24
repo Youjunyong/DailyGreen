@@ -167,9 +167,6 @@ class MainPageViewController: UIViewController{
         profileDimmingView.layer.shadowOpacity = 0.12
         profileDimmingView.layer.shadowRadius = 4
         profileDimmingView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        
-
-        
     }
 
     private func configureCollectionView(){

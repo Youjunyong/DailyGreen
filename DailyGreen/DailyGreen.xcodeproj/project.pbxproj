@@ -10,6 +10,8 @@
 		6E5273E1BBD57AAF6383EE9E /* Pods_DailyGreenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F972C54A305860F3A48AD373 /* Pods_DailyGreenTests.framework */; };
 		AB964E67871A13F34240DDE8 /* Pods_DailyGreen_DailyGreenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E495ED25C705C91183EA472D /* Pods_DailyGreen_DailyGreenUITests.framework */; };
 		D381C6B37D5567E3C4197C42 /* Pods_DailyGreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD86E8DB51510697AAFCC9A /* Pods_DailyGreen.framework */; };
+		E10B0E5B274E82A500FD48C9 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B0E59274E82A500FD48C9 /* MyPageTableViewCell.swift */; };
+		E10B0E5C274E82A500FD48C9 /* MyPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10B0E5A274E82A500FD48C9 /* MyPageTableViewCell.xib */; };
 		E12838EE27426BD600F1E259 /* CancelCommunityDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12838ED27426BD600F1E259 /* CancelCommunityDataManager.swift */; };
 		E12838F027426BE500F1E259 /* CancelCommunityCodabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12838EF27426BE500F1E259 /* CancelCommunityCodabel.swift */; };
 		E12838F3274275A700F1E259 /* ShopPagerTabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12838F2274275A700F1E259 /* ShopPagerTabbar.storyboard */; };
@@ -86,6 +88,8 @@
 		E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB818273E188A00D66360 /* WorkshopViewController.swift */; };
 		E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */; };
 		E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */; };
+		E16CCEA8274E276100865C9E /* CommunityListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16CCEA6274E276100865C9E /* CommunityListCollectionViewCell.swift */; };
+		E16CCEA9274E276100865C9E /* CommunityListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16CCEA7274E276100865C9E /* CommunityListCollectionViewCell.xib */; };
 		E1897264274C94A80091961C /* WriteMeetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1897263274C94A80091961C /* WriteMeetViewController.swift */; };
 		E1897267274CDCCD0091961C /* KeyWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1897265274CDCCD0091961C /* KeyWordCollectionViewCell.swift */; };
 		E1897268274CDCCD0091961C /* KeyWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1897266274CDCCD0091961C /* KeyWordCollectionViewCell.xib */; };
@@ -164,6 +168,8 @@
 		68CE541DBAD19CECAACF8CB3 /* Pods-DailyGreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyGreen.release.xcconfig"; path = "Target Support Files/Pods-DailyGreen/Pods-DailyGreen.release.xcconfig"; sourceTree = "<group>"; };
 		712D0457DF29802A214A0999 /* Pods-DailyGreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyGreen.debug.xcconfig"; path = "Target Support Files/Pods-DailyGreen/Pods-DailyGreen.debug.xcconfig"; sourceTree = "<group>"; };
 		C2F563F61E659619E64A61F4 /* Pods-DailyGreenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyGreenTests.release.xcconfig"; path = "Target Support Files/Pods-DailyGreenTests/Pods-DailyGreenTests.release.xcconfig"; sourceTree = "<group>"; };
+		E10B0E59274E82A500FD48C9 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
+		E10B0E5A274E82A500FD48C9 /* MyPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageTableViewCell.xib; sourceTree = "<group>"; };
 		E12838ED27426BD600F1E259 /* CancelCommunityDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelCommunityDataManager.swift; sourceTree = "<group>"; };
 		E12838EF27426BE500F1E259 /* CancelCommunityCodabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelCommunityCodabel.swift; sourceTree = "<group>"; };
 		E12838F2274275A700F1E259 /* ShopPagerTabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShopPagerTabbar.storyboard; sourceTree = "<group>"; };
@@ -245,6 +251,8 @@
 		E15CB818273E188A00D66360 /* WorkshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopViewController.swift; sourceTree = "<group>"; };
 		E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoCardTableViewCell.swift; sourceTree = "<group>"; };
 		E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCardTableViewCell.xib; sourceTree = "<group>"; };
+		E16CCEA6274E276100865C9E /* CommunityListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListCollectionViewCell.swift; sourceTree = "<group>"; };
+		E16CCEA7274E276100865C9E /* CommunityListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityListCollectionViewCell.xib; sourceTree = "<group>"; };
 		E1897263274C94A80091961C /* WriteMeetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMeetViewController.swift; sourceTree = "<group>"; };
 		E1897265274CDCCD0091961C /* KeyWordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		E1897266274CDCCD0091961C /* KeyWordCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyWordCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -472,7 +480,6 @@
 				E14321CB272FA1730028DAE4 /* ViewController.swift */,
 				E1432230272FCA860028DAE4 /* OnboardingScene */,
 				E1432240272FE88A0028DAE4 /* LoginScene */,
-				E19D4E9D2732B12C0024B6FE /* RegisterScene */,
 				E14426CB27310E2800EC86D1 /* MainPageScene */,
 				E14ED2FB273963E900CCBCED /* CommunityScene */,
 				E12838F12742747100F1E259 /* ShopScene */,
@@ -531,6 +538,7 @@
 			children = (
 				E1432241272FE89B0028DAE4 /* LoginViewController.swift */,
 				E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */,
+				E19D4E9D2732B12C0024B6FE /* RegisterScene */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -843,6 +851,10 @@
 			children = (
 				E1E718FD2747EFE400F2710F /* SettingScene */,
 				E1D2038D274B4E660098ADB7 /* MyPageViewController.swift */,
+				E10B0E59274E82A500FD48C9 /* MyPageTableViewCell.swift */,
+				E10B0E5A274E82A500FD48C9 /* MyPageTableViewCell.xib */,
+				E16CCEA6274E276100865C9E /* CommunityListCollectionViewCell.swift */,
+				E16CCEA7274E276100865C9E /* CommunityListCollectionViewCell.xib */,
 			);
 			path = MyPageScene;
 			sourceTree = "<group>";
@@ -1018,6 +1030,8 @@
 				E12838FE27427C5700F1E259 /* EntireShopTableViewCell.xib in Resources */,
 				E1D20385274B3C280098ADB7 /* SettingTableViewCell.xib in Resources */,
 				E15CB811273E103200D66360 /* PagerTabbar.storyboard in Resources */,
+				E10B0E5C274E82A500FD48C9 /* MyPageTableViewCell.xib in Resources */,
+				E16CCEA9274E276100865C9E /* CommunityListCollectionViewCell.xib in Resources */,
 				E1432227272FB76E0028DAE4 /* NanumSquareB.ttf in Resources */,
 				E14321CF272FA1730028DAE4 /* Main.storyboard in Resources */,
 				E14426D7273186D300EC86D1 /* EventCollectionViewCell.xib in Resources */,
@@ -1227,8 +1241,10 @@
 				E12838FD27427C5700F1E259 /* EntireShopTableViewCell.swift in Sources */,
 				E1BAECA327487583008882FA /* EmailRegisterDataManager.swift in Sources */,
 				E1BBD31D2743FC0E00268BB5 /* WriteStep1ViewController.swift in Sources */,
+				E10B0E5B274E82A500FD48C9 /* MyPageTableViewCell.swift in Sources */,
 				E1E719012747F02E00F2710F /* SettingViewController.swift in Sources */,
 				E1D20392274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift in Sources */,
+				E16CCEA8274E276100865C9E /* CommunityListCollectionViewCell.swift in Sources */,
 				E14321D2272FA1730028DAE4 /* DailyGreen.xcdatamodeld in Sources */,
 				E14ED306273A31F700CCBCED /* CommunityListDataManager.swift in Sources */,
 				E1432246272FF1EA0028DAE4 /* File.swift in Sources */,

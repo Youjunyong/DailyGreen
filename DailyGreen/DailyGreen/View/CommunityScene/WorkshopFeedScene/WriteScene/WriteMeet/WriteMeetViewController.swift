@@ -6,15 +6,22 @@
 //
 
 import UIKit
+import BSImagePicker
+import Photos
 
 class WriteMeetViewController: UIViewController {
     
     var communityIdx: Int?
     var communityName: String?
     var titleName: String?
-    var pretag: UIView? = nil
+    
     var tags = [String]()
 
+    
+    @IBOutlet weak var submitButtonLabel: UILabel!
+    
+    @IBOutlet weak var submitButtonView: UIView!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleLabelUnderView: UIView!
     
@@ -28,9 +35,21 @@ class WriteMeetViewController: UIViewController {
     @IBOutlet weak var textViewFrameView: UIView!
     @IBOutlet weak var keyWordTitleLabelUnderView: UIView!
     @IBOutlet weak var keyWordTitleLabel: UILabel!
-    
     @IBOutlet weak var keyWordTextField: UITextField!
     
+    @IBOutlet weak var divideView1: UIView!
+    @IBOutlet weak var divideView2: UIView!
+    @IBOutlet weak var divideView3: UIView!
+    @IBOutlet weak var divideView4: UIView!
+    @IBOutlet weak var divideView5: UIView!
+    @IBOutlet weak var divideView6: UIView!
+    
+    @IBOutlet weak var helpLabel1: UILabel!
+    @IBOutlet weak var helpLabel2: UILabel!
+    
+    @IBOutlet weak var openChatTitleLabel: UILabel!
+    @IBOutlet weak var feeTitleLabel: UILabel!
+    @IBOutlet weak var peopleTitleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedBackground()
@@ -44,12 +63,16 @@ class WriteMeetViewController: UIViewController {
         keyWordCollectionView.delegate = self
         let nib = UINib(nibName: "KeyWordCollectionViewCell", bundle: nil)
         keyWordCollectionView.register(nib, forCellWithReuseIdentifier: "keyWordCell")
-        
-        
         keyWordCollectionView.collectionViewLayout = CollectionViewLeftAlignFlowLayout()
-        if let flowLayout = keyWordCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-          }
+//        if let flowLayout = keyWordCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//          }
+        
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        let nib2 = UINib(nibName: "PickedImageCollectionViewCell", bundle: nil)
+        collectionView.register(nib2, forCellWithReuseIdentifier: "pickedImageCell")
     }
     
     private func configureUI(){
@@ -68,8 +91,36 @@ class WriteMeetViewController: UIViewController {
         titleTextFieldUnderView.backgroundColor = .dark2
         helpLabelUnderView.backgroundColor = .grayGreen
         keyWordTitleLabelUnderView.backgroundColor = .dark2
+        
+        divideView1.backgroundColor = .grayGreen
+        divideView2.backgroundColor = .dark2
+        divideView3.backgroundColor = .grayGreen
+        divideView4.backgroundColor = .dark2
+        divideView5.backgroundColor = .grayGreen
+        divideView6.backgroundColor = .dark2
+        
+        helpLabel1.textColor = .grayLongtxt
+        helpLabel2.textColor = .grayLongtxt
+        
+        
+        feeTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
+        openChatTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
+        peopleTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
+        
+        submitButtonView.layer.cornerRadius = 24
+        submitButtonView.backgroundColor = .grayDisabled
+        submitButtonLabel.font = UIFont(name: NanumFont.extraBold, size: 17)
+        submitButtonLabel.textColor = .white
+        submitButtonView.layer.shadowColor = UIColor.black.cgColor
+        submitButtonView.layer.shadowOpacity = 0.12
+        submitButtonView.layer.shadowRadius = 4
+        submitButtonView.layer.shadowOffset = CGSize(width: 2, height: 2)
     }
 
+    @objc func submit(_ sender: UIButton){
+        submitButtonView.backgroundColor = .primary
+        //validation check need
+    }
     
 }
 
@@ -96,18 +147,18 @@ extension WriteMeetViewController:UICollectionViewDataSource, UICollectionViewDe
         return tags.count
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let label : UILabel = {
-//            let label = UILabel()
-//            label.font = UIFont.systemFont(ofSize: 13)
-//            label.text = tags[indexPath.item]
-//            label.sizeToFit()
-//            return label
-//        }()
-//        let size = label.frame.size
-//        print(size)
-//        return CGSize(width: size.width + 25, height: size.height + 20)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let label : UILabel = {
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 13)
+            label.text = tags[indexPath.item]
+            label.sizeToFit()
+            return label
+        }()
+        let size = label.frame.size
+        print(size)
+        return CGSize(width: size.width + 75, height: size.height + 20)
+    }
     
     
     

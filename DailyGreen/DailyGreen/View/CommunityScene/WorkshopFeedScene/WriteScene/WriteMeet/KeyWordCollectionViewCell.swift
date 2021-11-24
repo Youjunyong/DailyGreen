@@ -28,11 +28,12 @@ class KeyWordCollectionViewCell: UICollectionViewCell {
         addSubview(tagView)
         sendSubviewToBack(tagView)
         NSLayoutConstraint.activate([
-            tagView.trailingAnchor.constraint(equalTo: tagLabel.trailingAnchor, constant: 5),
-            tagView.leadingAnchor.constraint(equalTo: tagLabel.leadingAnchor, constant: -5),
+            tagView.trailingAnchor.constraint(equalTo: tagLabel.trailingAnchor, constant: 15),
+            tagView.leadingAnchor.constraint(equalTo: tagLabel.leadingAnchor, constant: -35),
+            tagView.centerYAnchor.constraint(equalTo: tagLabel.centerYAnchor),
             tagView.heightAnchor.constraint(equalToConstant: 25)
         ])
-        tagView.layer.cornerRadius = 15
+        tagView.layer.cornerRadius = 13
     }
 
 }
