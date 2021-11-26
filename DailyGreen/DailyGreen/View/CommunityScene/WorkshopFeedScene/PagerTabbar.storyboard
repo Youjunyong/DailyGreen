@@ -208,6 +208,14 @@
                                     <constraint firstAttribute="height" constant="64" id="zlj-ur-YoC"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdF-Tc-P2V">
+                                <rect key="frame" x="327" y="799" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="writeButton:" destination="cV1-an-tOt" eventType="touchUpInside" id="LGJ-95-h8j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PSg-Rm-SMh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -216,12 +224,17 @@
                             <constraint firstItem="PSg-Rm-SMh" firstAttribute="bottom" secondItem="Yfq-aO-799" secondAttribute="bottom" id="PPO-N3-kc7"/>
                             <constraint firstItem="PSg-Rm-SMh" firstAttribute="trailing" secondItem="Yfq-aO-799" secondAttribute="trailing" id="WRQ-Qq-6Kk"/>
                             <constraint firstItem="PSg-Rm-SMh" firstAttribute="trailing" secondItem="Ctv-Na-ikA" secondAttribute="trailing" constant="16" id="WZv-YT-ffw"/>
+                            <constraint firstItem="VdF-Tc-P2V" firstAttribute="top" secondItem="Ctv-Na-ikA" secondAttribute="top" id="XL7-CM-J68"/>
                             <constraint firstItem="PSg-Rm-SMh" firstAttribute="bottom" secondItem="Ctv-Na-ikA" secondAttribute="bottom" constant="16" id="YXA-R0-oeT"/>
+                            <constraint firstItem="VdF-Tc-P2V" firstAttribute="leading" secondItem="Ctv-Na-ikA" secondAttribute="leading" id="fdZ-sd-FM6"/>
+                            <constraint firstItem="VdF-Tc-P2V" firstAttribute="trailing" secondItem="Ctv-Na-ikA" secondAttribute="trailing" id="jZr-Zi-uVA"/>
+                            <constraint firstItem="VdF-Tc-P2V" firstAttribute="bottom" secondItem="Ctv-Na-ikA" secondAttribute="bottom" id="rDI-Ht-e3d"/>
                             <constraint firstItem="Yfq-aO-799" firstAttribute="top" secondItem="PSg-Rm-SMh" secondAttribute="top" id="vkw-Bm-917"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Yfq-aO-799" id="eB5-Cd-0S6"/>
+                        <outlet property="writeBtn" destination="VdF-Tc-P2V" id="rut-xZ-P7P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGf-vf-HDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -247,20 +260,33 @@
                                     <constraint firstAttribute="height" constant="64" id="Xgh-ly-Xco"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6r-87-RoH">
+                                <rect key="frame" x="334" y="782" width="64" height="64"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="write:" destination="tZk-JY-nNK" eventType="touchUpInside" id="iSs-YH-KmM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YAL-zj-Gin"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="M6r-87-RoH" firstAttribute="leading" secondItem="Ojy-b2-shZ" secondAttribute="leading" id="4qh-bo-mq3"/>
                             <constraint firstItem="YAL-zj-Gin" firstAttribute="trailing" secondItem="Ojy-b2-shZ" secondAttribute="trailing" constant="16" id="AvP-bn-NkG"/>
+                            <constraint firstItem="M6r-87-RoH" firstAttribute="bottom" secondItem="Ojy-b2-shZ" secondAttribute="bottom" id="Ryy-8I-exc"/>
                             <constraint firstItem="YAL-zj-Gin" firstAttribute="bottom" secondItem="Ojy-b2-shZ" secondAttribute="bottom" constant="16" id="fJK-ep-jfd"/>
                             <constraint firstItem="YAL-zj-Gin" firstAttribute="trailing" secondItem="r1S-4I-Vmv" secondAttribute="trailing" id="kaB-bW-gIQ"/>
                             <constraint firstItem="r1S-4I-Vmv" firstAttribute="top" secondItem="YAL-zj-Gin" secondAttribute="top" id="oel-pb-kgQ"/>
                             <constraint firstItem="YAL-zj-Gin" firstAttribute="bottom" secondItem="r1S-4I-Vmv" secondAttribute="bottom" id="pLk-6J-n1O"/>
+                            <constraint firstItem="M6r-87-RoH" firstAttribute="trailing" secondItem="Ojy-b2-shZ" secondAttribute="trailing" id="pPc-n4-aB8"/>
+                            <constraint firstItem="M6r-87-RoH" firstAttribute="top" secondItem="Ojy-b2-shZ" secondAttribute="top" id="syM-kP-Bp2"/>
                             <constraint firstItem="r1S-4I-Vmv" firstAttribute="leading" secondItem="YAL-zj-Gin" secondAttribute="leading" id="zeA-Pv-fuE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="r1S-4I-Vmv" id="nKo-AQ-ioy"/>
+                        <outlet property="writeButton" destination="M6r-87-RoH" id="bAq-z0-Apr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrO-8e-yf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

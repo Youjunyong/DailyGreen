@@ -18,10 +18,11 @@ class KeyWordCollectionViewCell: UICollectionViewCell {
         
     }()
 
+    @IBOutlet weak var deleteTagButton: UIButton!
     @IBOutlet weak var tagLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        deleteTagButton.setTitle("", for: .normal)
         tagView.backgroundColor = .light1
         tagView.layer.cornerRadius = tagView.frame.height / 2
         tagLabel.font = UIFont.systemFont(ofSize: 13)

@@ -10,6 +10,15 @@ import UIKit
 class MyPageViewController: UIViewController{
     
     
+    lazy var myPageGetDataManager = MyPageGetDataManager()
+    
+//    var badgeCnt : Int?
+//    var createdPostCnt : Int?
+//    var nickname : String?
+//    var exp: Int?
+//    var participationCnt: Int?
+//    var profilePhotoUrl: String?
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var gaugeFrameView: UIView!
     @IBOutlet weak var levelWidth: NSLayoutConstraint!
@@ -53,13 +62,21 @@ class MyPageViewController: UIViewController{
         title = "나의 계정"
         configureUI()
         configureCollectionView()
+        configureTableView()
+        myPageGetDataManager.getMeetData(delegate: self, userIdx: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         collectionView.reloadData()
     }
-    
+    private func configureTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib = UINib(nibName: "MyPageTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "MyPageCell")
+        tableView.separatorStyle = .none
+    }
     private func configureCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -136,10 +153,55 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return cell
         
     }
+}
+
+extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageCell") as? MyPageTableViewCell else{return UITableViewCell()}
+        
+        
+//        cell.openerImageView.removeFromSuperview()
+//        NSLayoutConstraint.activate([
+//            cell.titleLabel.leadingAnchor.constraint(equalTo: cell.categoryView.trailingAnchor, constant: 5)
+//        ])
+        return cell
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
     
- 
-    
-    
+}
+
+extension MyPageViewController{
+    func didSuccessGet(message: String, results: InfoResult){
+        presentAlert(title: message)
+        let myInfo = results.myInfo
+        let participatingInfo = results.participatingInfo
+        
+        scoreBadgeLabel.text = "\(myInfo.badgeCnt)회"
+        lvLabel.text = "Lv.\(myInfo.exp / 1000 + 1) "
+        scoreFeedLabel.text = "\(myInfo.createdPostCnt)회"
+        
+        scoreWorkshopLabel.text = "\(myInfo.participationCnt)회"
+        profileImage.load(strUrl: myInfo.profilePhotoUrl)
+//        badgeCnt = myInfo.badgeCnt
+//        createdPostCnt = myInfo.createdPostCnt
+//        nickname =  myInfo.nickname
+//        exp = myInfo.exp
+        
+        
+        
+        
+
+        
+    }
+    func failedToRequest(message: String){
+        presentAlert(title: message)
+
+    }
 }

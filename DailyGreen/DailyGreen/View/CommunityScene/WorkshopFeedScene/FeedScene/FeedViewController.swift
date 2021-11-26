@@ -27,10 +27,18 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
     var community: String?
     
     
+    @IBAction func write(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "WriteScene", bundle: nil)
+        guard let writeVC = storyboard.instantiateViewController(withIdentifier: "writeVC") as? WriteStep1ViewController else{return}
+        writeVC.communityName = self.community
+        writeVC.communityIdx = self.communityIdx
+        self.navigationController?.pushViewController(writeVC, animated: true)
+    }
+    @IBOutlet weak var writeButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
-        
+        writeButton.setTitle("", for: .normal)
         super.viewDidLoad()
         
     }

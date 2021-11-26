@@ -108,8 +108,8 @@ class PagerTabbarViewController: ButtonBarPagerTabStripViewController {
         child1.community = naviTitle
         child1.childNumber = "모임"
         let child2 = UIStoryboard.init(name: "PagerTabbar", bundle: nil).instantiateViewController(withIdentifier: "WorkshopVC") as! WorkshopViewController
-//        child2.communityIdx = self.communityIdx // chile에 적용 안함
-//        child2.community = naviTitle// chile에 적용 안함
+        child2.communityIdx = self.communityIdx 
+        child2.community = naviTitle
         child2.childNumber = "워크샵"
         let child3 = UIStoryboard.init(name: "PagerTabbar", bundle: nil).instantiateViewController(withIdentifier: "FeedVC") as! FeedViewController
         child3.communityIdx = self.communityIdx// chile에 적용 안함

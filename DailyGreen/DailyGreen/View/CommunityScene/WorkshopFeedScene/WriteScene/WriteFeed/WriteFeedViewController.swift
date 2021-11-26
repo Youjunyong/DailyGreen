@@ -37,7 +37,7 @@ class WriteFeedViewController: UIViewController {
             var photos = [Data]()
             for image in selecetedImage {
                 let img = image
-                guard let data = img.jpegData(compressionQuality: 1.0) else{return}
+                guard let data = img.jpegData(compressionQuality: 0.5) else{return}
                 photos.append(data)
             }
             guard let caption = writeTextView.text else{return}

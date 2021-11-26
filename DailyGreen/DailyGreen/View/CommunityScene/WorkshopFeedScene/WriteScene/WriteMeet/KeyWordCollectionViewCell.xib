@@ -30,17 +30,26 @@
                             <constraint firstAttribute="width" constant="30" id="b2D-JO-XHR"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELC-qw-MLU">
+                        <rect key="frame" x="45" y="51.5" width="72" height="31"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="ELC-qw-MLU" firstAttribute="leading" secondItem="h3Q-F7-tW8" secondAttribute="leading" id="UqS-dQ-wwR"/>
                 <constraint firstItem="ZBs-NI-vyf" firstAttribute="leading" secondItem="h3Q-F7-tW8" secondAttribute="trailing" id="VFU-jP-biB"/>
+                <constraint firstItem="ELC-qw-MLU" firstAttribute="trailing" secondItem="ZBs-NI-vyf" secondAttribute="trailing" id="VaZ-q9-GTl"/>
+                <constraint firstItem="ELC-qw-MLU" firstAttribute="centerY" secondItem="h3Q-F7-tW8" secondAttribute="centerY" id="gSR-2V-mCX"/>
                 <constraint firstItem="ZBs-NI-vyf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="mcr-w7-nEo"/>
                 <constraint firstItem="ZBs-NI-vyf" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="q7i-gF-RP7"/>
                 <constraint firstItem="ZBs-NI-vyf" firstAttribute="centerY" secondItem="h3Q-F7-tW8" secondAttribute="centerY" id="sSl-fR-8T6"/>
             </constraints>
             <size key="customSize" width="192" height="134"/>
             <connections>
+                <outlet property="deleteTagButton" destination="ELC-qw-MLU" id="Z7U-Dr-shH"/>
                 <outlet property="tagLabel" destination="ZBs-NI-vyf" id="sF6-UQ-2Gs"/>
             </connections>
             <point key="canvasLocation" x="234.78260869565219" y="141.29464285714286"/>

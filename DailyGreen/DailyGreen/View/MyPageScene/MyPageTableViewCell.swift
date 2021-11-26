@@ -9,6 +9,7 @@ import UIKit
 
 class MyPageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var openerImageView: UIImageView!
     @IBOutlet weak var categoryView: UIView!
     @IBOutlet weak var frameView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,8 +20,10 @@ class MyPageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         frameView.layer.borderColor = UIColor.primary.cgColor
         frameView.layer.cornerRadius = 12
+        frameView.layer.borderWidth = 1
         categoryView.layer.cornerRadius = 15
         categoryView.backgroundColor = .light1
         

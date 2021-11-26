@@ -10,8 +10,10 @@ import UIKit
 import XLPagerTabStrip
 
 class MeetingViewController: UIViewController, IndicatorInfoProvider {
-
+    
     lazy var meetDataManger = MeetDataManager()
+    
+    
     var community: String?
     var communityIdx: Int? // 이전 화면에서 보내줘야됨.
     var clubInfo : [ClubInfo?]?
@@ -33,13 +35,13 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
             emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
-
+    
     
     
     @IBOutlet weak var writeButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-
+    
     @IBAction func write(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "WriteScene", bundle: nil)
@@ -59,12 +61,12 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
         
         
     }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-
-  }
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    
     private func configureUI(){
         writeButton.setTitle("", for: .normal)
     }
@@ -76,10 +78,20 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
         let nib = UINib(nibName: "CoCardTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
     }
-  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-    return IndicatorInfo(title: "\(childNumber)")
-
-  }
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: "\(childNumber)")
+        
+    }
+    @objc func detailView(_ sender: UIButton){
+        let clubIdx = sender.tag - 100
+        
+        let storyboard = UIStoryboard(name: "MeetDetailScene", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "meetDetailVC") as? MeetDetailViewController else{return}
+        VC.clubIdx = clubIdx
+        self.navigationController?.pushViewController(VC, animated: true)
+        
+    }
+    
 }
 
 extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
@@ -92,6 +104,9 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
         
         if let clubInfo = clubInfo{
             if let clubInfoObject = clubInfo[indexPath.row]?.clubInfoObj{
+                
+                
+                
                 cell.nickNameLabel.text = clubInfoObject.nickname
                 cell.dDayLabel.text = clubInfoObject.Dday
                 cell.upperImageView.load(strUrl: clubInfoObject.clubPhoto)
@@ -101,6 +116,9 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.maxPeopleNum.text = "\(clubInfoObject.nowFollowing)/\(clubInfoObject.maxPeopleNum)명 참가중" 
                 cell.bodyLabel.text = clubInfoObject.bio
                 cell.dateLabel.text = clubInfoObject.when
+                cell.participateButton.tag = clubInfoObject.clubIdx + 100
+                
+                cell.participateButton.addTarget(self, action: #selector(detailView(_:)) , for: .touchUpInside)
                 
                 if clubInfoObject.isRegular == 0 {
                     cell.categoryLabel.text = "모임"

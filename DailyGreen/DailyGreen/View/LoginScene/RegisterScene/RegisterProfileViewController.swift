@@ -80,7 +80,6 @@ class RegisterProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("#############",email)
         configureUI()
         configureNavi()
         hideKeyboardWhenTappedBackground()
@@ -236,9 +235,6 @@ class RegisterProfileViewController: UIViewController {
         if isSubmitReady() {
             let nickName = nickNameTextField.text
             let bio = textView.text
-            
-     
-            print(profileImageView.image)
             
         }
         }

@@ -24,8 +24,10 @@ class CoCardTableViewCell: UITableViewCell {
         }
     }
 
-    
 
+    
+    @IBOutlet weak var dimmingView: UIView!
+    
     @IBOutlet weak var hashTagView1: UIView!
     @IBOutlet weak var hashTag1: UILabel!
     
@@ -42,7 +44,9 @@ class CoCardTableViewCell: UITableViewCell {
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var centerDivideView: UIView!
+    
     @IBOutlet weak var participateButton: UIButton!
+    
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categoryView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -65,6 +69,7 @@ class CoCardTableViewCell: UITableViewCell {
         super.layoutSubviews()
         selectionStyle = .none
         
+        
         hashTag1.font = UIFont.systemFont(ofSize: 13)
         hashTag2.font = UIFont.systemFont(ofSize: 13)
         hashTag3.font = UIFont.systemFont(ofSize: 13)
@@ -80,14 +85,19 @@ class CoCardTableViewCell: UITableViewCell {
         bodyLabel.textColor = .grayLongtxt
         centerDivideView.backgroundColor = .dark1
         
+        dimmingView.layer.cornerRadius = 24
+        dimmingView.backgroundColor = .dimmingView
+        dimmingView.layer.masksToBounds = true
+        dimmingView.layer.maskedCorners = [.layerMaxXMinYCorner , .layerMinXMinYCorner ]
+        
         upperImageView.layer.cornerRadius = 24
         upperImageView.layer.masksToBounds = true
         upperImageView.layer.maskedCorners = [.layerMaxXMinYCorner , .layerMinXMinYCorner ]
 
-        participateButton.setTitle("", for: .normal)
+        
         participateLabel.font = UIFont(name: NanumFont.extraBold, size: 17)
         
-        participateLabel.text = "참여하기"
+        participateLabel.text = "자세히 보기"
         participateLabel.textColor = UIColor.dark2
         categoryLabel.font = UIFont(name: NanumFont.bold, size: 15)
         categoryView.layer.cornerRadius = 18
@@ -102,6 +112,9 @@ class CoCardTableViewCell: UITableViewCell {
         profileImageView.contentMode = .scaleAspectFill
     
         titleLabel.font = UIFont(name: NanumFont.bold, size: 17)
+        
+        participateButton.setTitle("", for: .normal)
+
     }
 
     
