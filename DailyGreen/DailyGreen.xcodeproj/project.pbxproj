@@ -97,6 +97,7 @@
 		E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */; };
 		E16CCEA8274E276100865C9E /* CommunityListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16CCEA6274E276100865C9E /* CommunityListCollectionViewCell.swift */; };
 		E16CCEA9274E276100865C9E /* CommunityListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16CCEA7274E276100865C9E /* CommunityListCollectionViewCell.xib */; };
+		E181EF0A275130A700225AED /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181EF09275130A700225AED /* UIView.swift */; };
 		E1897264274C94A80091961C /* WriteMeetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1897263274C94A80091961C /* WriteMeetViewController.swift */; };
 		E1897267274CDCCD0091961C /* KeyWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1897265274CDCCD0091961C /* KeyWordCollectionViewCell.swift */; };
 		E1897268274CDCCD0091961C /* KeyWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1897266274CDCCD0091961C /* KeyWordCollectionViewCell.xib */; };
@@ -275,6 +276,7 @@
 		E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCardTableViewCell.xib; sourceTree = "<group>"; };
 		E16CCEA6274E276100865C9E /* CommunityListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListCollectionViewCell.swift; sourceTree = "<group>"; };
 		E16CCEA7274E276100865C9E /* CommunityListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityListCollectionViewCell.xib; sourceTree = "<group>"; };
+		E181EF09275130A700225AED /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		E1897263274C94A80091961C /* WriteMeetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMeetViewController.swift; sourceTree = "<group>"; };
 		E1897265274CDCCD0091961C /* KeyWordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		E1897266274CDCCD0091961C /* KeyWordCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyWordCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -467,7 +469,6 @@
 				E1432243272FE98F0028DAE4 /* DailyGreen.entitlements */,
 				E1432244272FF1DF0028DAE4 /* Secret */,
 				E14321FE272FA4570028DAE4 /* Configuration */,
-				E14321FA272FA2DB0028DAE4 /* Model */,
 				E14321C9272FA1730028DAE4 /* SceneDelegate.swift */,
 				E14321C7272FA1730028DAE4 /* AppDelegate.swift */,
 				E14321FC272FA2E20028DAE4 /* View */,
@@ -497,14 +498,6 @@
 			path = DailyGreenUITests;
 			sourceTree = "<group>";
 		};
-		E14321FA272FA2DB0028DAE4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E1432228272FC1CF0028DAE4 /* UserDefault.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		E14321FC272FA2E20028DAE4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +520,7 @@
 				E1432233272FCBF60028DAE4 /* Extension */,
 				E14321FF272FA45F0028DAE4 /* Font */,
 				E19F535C2741F56500B3A28D /* ImageCacheManager.swift */,
+				E1432228272FC1CF0028DAE4 /* UserDefault.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -561,6 +555,7 @@
 				E143223E272FE3D00028DAE4 /* UIViewController.swift */,
 				E1F6A1132737ABE100BEFF6A /* UILabel.swift */,
 				E19F535A2741F20A00B3A28D /* UIImageView.swift */,
+				E181EF09275130A700225AED /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1299,6 +1294,7 @@
 				E1467146273D741500DD2037 /* CoParticipateDataManager.swift in Sources */,
 				E1534EBE27452CFA00E1FA01 /* WriteFeedCodable.swift in Sources */,
 				E1F6A1142737ABE100BEFF6A /* UILabel.swift in Sources */,
+				E181EF0A275130A700225AED /* UIView.swift in Sources */,
 				E14321CC272FA1730028DAE4 /* ViewController.swift in Sources */,
 				E1534EC4274609AD00E1FA01 /* FeedResponse.swift in Sources */,
 				E1C4D4BF2750E01F003CA961 /* WriteMeetDataManager.swift in Sources */,

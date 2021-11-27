@@ -11,7 +11,8 @@ class MeetDetailViewController: UIViewController {
     
     lazy var meetDetailDataManager = MeetDetailDataManager()
     var clubIdx: Int?
-    
+    var communityName: String?
+    var isRegular: Int?
     var meetUrlList = [String]()
     
     @IBOutlet weak var indicatorImageView: UIImageView!
@@ -24,19 +25,27 @@ class MeetDetailViewController: UIViewController {
     @IBOutlet weak var shopNameLabel: UILabel!
     @IBOutlet weak var nickNameLabel: UILabel!
     
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var likeButtonImageView: UIImageView!
+    @IBOutlet weak var dDayLabel: UILabel!
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "??????"
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        if isRegular == 1{
+            title = "\(communityName!) 정기모임"
+        }else{
+            title = "\(communityName!) 모임"
+        }
         configureUI()
-        meetDetailDataManager.getMeetDetail(delegate: self, clubIdx: clubIdx!)
+        bioTextView.isEditable = false
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        meetDetailDataManager.getMeetDetail(delegate: self, clubIdx: clubIdx!)
+
+    }
     private func configureCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -52,8 +61,7 @@ class MeetDetailViewController: UIViewController {
     
     
     private func configureUI(){
-        likeButton.setTitle("", for: .normal)
-        likeButtonImageView.image = UIImage(named: "wheart")
+    
         profileImageView.layer.cornerRadius = 24
         profileImageView.contentMode = .scaleAspectFill
         nickNameLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
@@ -107,6 +115,7 @@ extension MeetDetailViewController : UICollectionViewDelegate, UICollectionViewD
             break
         }
     }
+
     
 }
 
@@ -114,6 +123,7 @@ extension MeetDetailViewController : UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         return meetUrlList.count
     }
     
@@ -128,21 +138,32 @@ extension MeetDetailViewController : UICollectionViewDataSource {
 extension MeetDetailViewController {
     func didSuccessGetMeetDetail(message: String, results: MeetDetailResult){
         if let clubInfoObj = results.clubInfoObj {
-            clubInfoObj.clubIdx
-            clubInfoObj.fee
-            clubInfoObj.when
-            clubInfoObj.locationDetail
+            shopNameLabel.text =  clubInfoObj.clubName
+//            clubInfoObj.clubIdx
+            websiteLabel.text =  clubInfoObj.fee
+            print(clubInfoObj.fee)
+            
+            phoneLabel.text = clubInfoObj.when
+            locationLabel.text =  clubInfoObj.locationDetail
             clubInfoObj.maxPeopleNum
-            clubInfoObj.bio
-            clubInfoObj.Dday
+            nickNameLabel.text =  clubInfoObj.nickname
+            
+            profileImageView.load(strUrl: clubInfoObj.profilePhotoUrl)
+            bioTextView.text = clubInfoObj.bio
+            dDayLabel.text = clubInfoObj.Dday
         }
+        
+        
+        
         if let urls = results.clubPhotoUrlListObj?.urlList , urls.count > 0{
             for url in urls{
                 guard let url = url?.clubPhotoUrl else{break}
                 self.meetUrlList.append(url)
             }
-            
-            
+            if meetUrlList.count > 1{
+                self.indicatorImageView.image = UIImage(named: "pindicator1\(meetUrlList.count)")
+
+            }
             self.presentAlert(title: message)
         }
         

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "mtabBar1True.png",
+      "filename" : "profileUpdate.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "profileUpdate@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "profileUpdate@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -22,10 +22,11 @@ class MyPageViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var gaugeFrameView: UIView!
     @IBOutlet weak var levelWidth: NSLayoutConstraint!
-    @IBOutlet weak var levelGaugeView: UIView!
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var lvView: UIView!
     
+    @IBOutlet weak var gaugeVIew: UIView!
     @IBOutlet weak var levelGaugeLabel: UILabel!
     @IBOutlet weak var lvLabel: UILabel!
     
@@ -58,12 +59,14 @@ class MyPageViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         self.navigationController?.navigationBar.tintColor = .black
         title = "나의 계정"
         configureUI()
         configureCollectionView()
         configureTableView()
-        myPageGetDataManager.getMeetData(delegate: self, userIdx: 1)
+        myPageGetDataManager.getMeetData(delegate: self, userIdx: 1) // useridx미적용
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +88,8 @@ class MyPageViewController: UIViewController{
         
     }
     private func configureUI(){
+        
+        
         profileImage.layer.cornerRadius = 53
         profileImage.contentMode = .scaleAspectFill
         let url = UserDefaults.standard.string(forKey: "profilePhotoUrl")
@@ -186,12 +191,18 @@ extension MyPageViewController{
         scoreBadgeLabel.text = "\(myInfo.badgeCnt)회"
         lvLabel.text = "Lv.\(myInfo.exp / 1000 + 1) "
         scoreFeedLabel.text = "\(myInfo.createdPostCnt)회"
-        
+        let entire = UIScreen.main.bounds.size.width
+        let rate = Double((myInfo.exp % 1000)) / Double(1000)
+//        levelWidth.constant = entire * CGFloat(rate)
+        levelWidth.constant = 800
+        print(myInfo.exp ,rate, levelWidth.constant)
         scoreWorkshopLabel.text = "\(myInfo.participationCnt)회"
         profileImage.load(strUrl: myInfo.profilePhotoUrl)
+        gaugeVIew.setGradient(color1: .grayGreen, color2: .dark2)
+
 //        badgeCnt = myInfo.badgeCnt
 //        createdPostCnt = myInfo.createdPostCnt
-//        nickname =  myInfo.nickname
+//        nickname =  myInfo.nicknamex
 //        exp = myInfo.exp
         
         

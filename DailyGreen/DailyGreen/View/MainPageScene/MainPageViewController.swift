@@ -151,6 +151,7 @@ class MainPageViewController: UIViewController{
         for (idx,gridView) in gridViews.enumerated() {
             gridView?.participateBtn.addTarget(self, action: #selector(participate(_:)), for: .touchUpInside)
             gridView?.nameLabel.text = CommunityData.shared.nameArr[idx + 1]
+            gridView?.nameLabel.font = UIFont(name: NanumFont.bold, size: 12)
             gridView?.imageView.image = UIImage(named: CommunityData.shared.imageArr[idx + 1])
             gridView?.tag = idx + 11
             gridView?.layer.shadowColor = UIColor.black.cgColor
@@ -293,6 +294,8 @@ extension MainPageViewController {
         var newList = [Int]()
         for data in dataList {
             view.viewWithTag(data.idx + 10)?.backgroundColor = .selected
+            view.viewWithTag(data.idx + 10)?.layer.borderColor = UIColor.grayStroke.cgColor
+            
             newList.append(data.idx)
         }
         

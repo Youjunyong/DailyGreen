@@ -154,6 +154,7 @@ extension FeedViewController {
     
     func didSuccessLike(message: String){
         self.presentAlert(title: message)
+        getFeedDataManager.getFeedData(delegate: self, communityIdx: self.communityIdx!, page: 1)
 
         
     }

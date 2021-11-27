@@ -12,7 +12,6 @@ class WriteDateLocationViewController: UIViewController{
     var date = ""
     var time = ""
     var address = ""
-    
     var photos = [Data]()
     var communityIdx: Int?
     var name: String?
@@ -24,12 +23,14 @@ class WriteDateLocationViewController: UIViewController{
     var kakaoChatLink: String?
     var isRegular: Int?
     
-    lazy var writeMeetDataManager = WriteMeetDataManager()
     
+    var didSetType = 0
+    lazy var writeMeetDataManager = WriteMeetDataManager()
+    lazy var alretView = DimmingView()
+
     private func postMeet(){
         
-        print(address)
-        print(date + " " + time)
+        
         
         
         let params = WriteMeetRequest(photos: photos, communityIdx: communityIdx!, name: name!, tagList: tagList, bio: bio!, maxPeopleNum: maxPeopleNum ?? 3, feeType: feeType!, fee: fee!, kakaoChatLink: kakaoChatLink ?? "", isRegular: isRegular ?? 0, locationIdx: 1, locationDetail: address, when: date + " " + time)
@@ -110,17 +111,21 @@ class WriteDateLocationViewController: UIViewController{
     }
     
     @IBAction func submit(_ sender: Any) {
-        postMeet()
+        if submitButtonView.backgroundColor == .primary {
+            postMeet()
+        }
     }
     
     
     
     @IBAction func setDateClicked(_ sender: Any) {
         presentTimePicker(timeOrDate: 0)
+        didSetType = 1
+        
     }
     
     @IBAction func setTimeClicked(_ sender: Any) {
-        
+        didSetType = 1
         presentTimePicker(timeOrDate: 1)
         
     }
@@ -130,9 +135,13 @@ class WriteDateLocationViewController: UIViewController{
     @IBOutlet weak var underView2: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var onlineButtonImageView: UIImageView!
+    @IBOutlet weak var offLineButtonImageView: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var submitButtonView: UIView!
     @IBOutlet weak var detailAddressTextField: UITextField!
+    @IBOutlet weak var onlineButton: UIButton!
+    @IBOutlet weak var offlineButton: UIButton!
     @IBOutlet weak var setLocationButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var underView5: UIView!
@@ -143,7 +152,36 @@ class WriteDateLocationViewController: UIViewController{
     @IBOutlet weak var underView6: UIView!
     @IBOutlet weak var locationTitleLabel: UILabel!
     @IBOutlet weak var dateTitleLabel: UILabel!
+    
+    
+    
+    @IBAction func setOffline(_ sender: Any) {
+        
+        toggleButton(offOrOn: 1)
+        print(1)
+        checkSubmitReady()
+
+    }
+    
+    
+    @IBAction func setOnline(_ sender: Any) {
+        toggleButton(offOrOn: 0)
+        print(2)
+        checkSubmitReady()
+    }
+    
+    private func toggleButton(offOrOn: Int){
+        if offOrOn == 0{
+            offLineButtonImageView.image = UIImage(named: "defaultButton100")
+            onlineButtonImageView.image = UIImage(named: "selectedButton100")
+        }else{
+            onlineButtonImageView.image = UIImage(named: "defaultButton100")
+            offLineButtonImageView.image = UIImage(named: "selectedButton100")
+        }
+    }
     private func configureUI(){
+        onlineButton.setTitle("", for: .normal)
+        offlineButton.setTitle("", for: .normal)
         setLocationButton.setTitle("", for: .normal)
         addressLabel.textColor = .grayDisabled
         
@@ -225,7 +263,6 @@ class WriteDateLocationViewController: UIViewController{
     }
     
     @objc func setDate(_ sender: UIButton){
-        
         dimmingView.removeFromSuperview()
         contentView.removeFromSuperview()
         setDateButtonImageView.removeFromSuperview()
@@ -233,8 +270,8 @@ class WriteDateLocationViewController: UIViewController{
         setDateButton.removeFromSuperview()
         
     }
+    
     @objc func setTime(_ sender: UIButton){
-        
         dimmingView.removeFromSuperview()
         contentView.removeFromSuperview()
         setDateButtonImageView.removeFromSuperview()
@@ -242,11 +279,18 @@ class WriteDateLocationViewController: UIViewController{
         setDateButton.removeFromSuperview()
         
     }
+    
+    private func checkSubmitReady(){
+        if didSetType == 1, date.count > 0, time.count > 0 , address.count > 0{
+            submitButtonView.backgroundColor = .primary
+        }
+    }
     func getAddress(_ address :String ){
         self.dismiss(animated: true, completion: nil)
         addressLabel.textColor = .black
         self.address = address
         addressLabel.text = address
+        
     }
     private func presentTimePicker(timeOrDate: Int){
         
@@ -307,9 +351,29 @@ class WriteDateLocationViewController: UIViewController{
             
             
         ])
+    }
+    @objc func removeAlert(){
+        alretView.removeFromSuperview()
+        let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 5 ], animated: false)
+    }
+    
+    private func presentDimmingView(message: String){
+
+        alretView.translatesAutoresizingMaskIntoConstraints = false
+        alretView.alretText = message
+        view.addSubview(alretView)
+        NSLayoutConstraint.activate([
+            alretView.topAnchor.constraint(equalTo: view.topAnchor),
+            alretView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            alretView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            alretView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
         
+        alretView.dismissBtn.addTarget(self, action: #selector(removeAlert), for: .touchUpInside)
         
     }
+    
 }
 
 
@@ -340,12 +404,8 @@ extension WriteDateLocationViewController{
             self.view.frame.origin.y += keyboardHeight
             
             }
-        
-//        if isSubmitReady() {
-//            let nickName = nickNameTextField.text
-//            let bio = textView.text
-//
-//        }
+        checkSubmitReady()
+
         }
     
     func addKeyboardNotifications(){ // 키보드가 나타날 때 앱에게 알리는 메서드 추가
@@ -363,10 +423,12 @@ extension WriteDateLocationViewController{
 
 extension WriteDateLocationViewController{
     func successWriteMeed(message: String){
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
+        self.presentDimmingView(message: message)
     }
     
     func failedToWrite(message: String){
-        self.presentAlert(title: message)
+        
+        self.presentDimmingView(message: message)
     }
 }

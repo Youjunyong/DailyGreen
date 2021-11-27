@@ -149,10 +149,9 @@ extension GuideViewController: UITableViewDelegate, UITableViewDataSource{
         let point = sender.location(in: linkedLabel)
         
         // fixedLabel 내에서 문자열 google이 차지하는 CGRect값을 구해, 그 안에 point가 포함되는지를 판단합니다.
-        if let googleRect = label.boundingRectForCharacterRange(subText: "여기"),
-                            googleRect.contains(point) {
-            present(url: "https://url.kr/vtofwz")
-        }
+        
+        present(url: "https://url.kr/vtofwz")
+        
         
     }
     

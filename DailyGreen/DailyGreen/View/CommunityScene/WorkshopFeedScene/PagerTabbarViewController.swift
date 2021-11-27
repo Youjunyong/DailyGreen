@@ -48,24 +48,24 @@ class PagerTabbarViewController: ButtonBarPagerTabStripViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
 
-        let chatButton = UIButton(frame: CGRect(
-            x: 0,
-            y: 0,
-            width: 44,
-            height: 44))
-        chatButton.setImage(UIImage(named: "icChat"), for: .normal)
-//        chatButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
-        let chatBarButtonItem = UIBarButtonItem(customView: chatButton)
-        let bellButton = UIButton(frame: CGRect(
-            x: 0,
-            y: 0,
-            width: 44,
-            height: 44))
-        bellButton.setImage(UIImage(named: "icBell"), for: .normal)
-//        bellButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
-        let bellBarButtonItem = UIBarButtonItem(customView: bellButton)
-        
-        self.navigationItem.rightBarButtonItems = [chatBarButtonItem, bellBarButtonItem]
+//        let chatButton = UIButton(frame: CGRect(
+//            x: 0,
+//            y: 0,
+//            width: 44,
+//            height: 44))
+//        chatButton.setImage(UIImage(named: "icChat"), for: .normal)
+////        chatButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+//        let chatBarButtonItem = UIBarButtonItem(customView: chatButton)
+//        let bellButton = UIButton(frame: CGRect(
+//            x: 0,
+//            y: 0,
+//            width: 44,
+//            height: 44))
+//        bellButton.setImage(UIImage(named: "icBell"), for: .normal)
+////        bellButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+//        let bellBarButtonItem = UIBarButtonItem(customView: bellButton)
+//
+//        self.navigationItem.rightBarButtonItems = [chatBarButtonItem, bellBarButtonItem]
         
         view.addSubview(naviShadow)
         NSLayoutConstraint.activate([

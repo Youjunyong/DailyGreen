@@ -88,6 +88,7 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
         let storyboard = UIStoryboard(name: "MeetDetailScene", bundle: nil)
         guard let VC = storyboard.instantiateViewController(withIdentifier: "meetDetailVC") as? MeetDetailViewController else{return}
         VC.clubIdx = clubIdx
+        VC.communityName = self.community
         self.navigationController?.pushViewController(VC, animated: true)
         
     }

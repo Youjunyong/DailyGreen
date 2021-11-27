@@ -18,6 +18,13 @@ class LoginViewController: UIViewController{
     
     @IBOutlet weak var testView: UIView!
 
+    @IBOutlet weak var title1: UILabel!
+    
+    @IBOutlet weak var title2: UILabel!
+    @IBOutlet weak var title3: UILabel!
+    
+    @IBOutlet weak var title4: UILabel!
+    
     
     // MARK: - 카카오 계정 로그인
     @IBAction func kakaoLogin(_ sender: Any) {
@@ -38,7 +45,7 @@ class LoginViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
+        configureUI()
         
         if UserDefaults.standard.string(forKey: "jwt") != nil{
             
@@ -55,6 +62,24 @@ class LoginViewController: UIViewController{
         setupProviderLoginView()
     }
     
+    
+    private func configureUI(){
+        title1.font = UIFont(name: NanumFont.bold, size: 20)
+        title2.font = UIFont(name: NanumFont.bold, size: 20)
+        title3.font = UIFont(name: NanumFont.bold, size: 20)
+        title4.font = UIFont(name: NanumFont.bold, size: 20)
+        
+        
+        let attributedStr = NSMutableAttributedString(string: title2.text!)
+        attributedStr.addAttribute(.foregroundColor , value: UIColor.dark2, range:(title2.text! as NSString).range(of: "그린이") )
+        title2.attributedText = attributedStr
+        
+        let attributedStr2 = NSMutableAttributedString(string: title4.text!)
+        attributedStr2.addAttribute(.foregroundColor , value: UIColor.dark2, range:(title4.text! as NSString).range(of: "그린") )
+        title4.attributedText = attributedStr2
+        
+        
+    }
     // MARK: - 카카오 토큰 존재 여부
     private func isHaveKakaoToken(){
         if (AuthApi.hasToken()) {
