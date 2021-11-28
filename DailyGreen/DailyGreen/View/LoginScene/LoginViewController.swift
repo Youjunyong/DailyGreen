@@ -16,16 +16,29 @@ class LoginViewController: UIViewController{
     lazy var kakaoLoginDataManager = KakaoLoginDataManager()
     lazy var emailLoginDataManager = EmailLoginDataManager()
     
-    @IBOutlet weak var testView: UIView!
-
-    @IBOutlet weak var title1: UILabel!
+    let naviShadowView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .dark1
+        return view
+    }()
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "간편 로그인"
+        label.font = UIFont(name: NanumFont.bold, size: 17)
+        return label
+        
+    }()
     
+    @IBOutlet weak var emailLoginButton: UIButton!
+    @IBOutlet weak var testView: UIView!
+    @IBOutlet weak var title1: UILabel!
     @IBOutlet weak var title2: UILabel!
     @IBOutlet weak var title3: UILabel!
-    
     @IBOutlet weak var title4: UILabel!
     
-    
+    @IBOutlet weak var emailLoginLabel: UILabel!
     // MARK: - 카카오 계정 로그인
     @IBAction func kakaoLogin(_ sender: Any) {
         if (UserApi.isKakaoTalkLoginAvailable()) {
@@ -34,11 +47,8 @@ class LoginViewController: UIViewController{
                     print(error)
                 }
                 else {
-                    print("loginWithKakaoTalk() success.")
-                    //dosomething
                     let token = oauthToken?.accessToken
                     self.isHaveKakaoToken()
-
                 }
             }
         }
@@ -46,24 +56,34 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
         if UserDefaults.standard.string(forKey: "jwt") != nil{
-            
             if UserDefaults.standard.string(forKey: "way") == "email" {
                 guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
                 self.changeRootViewController(MainTabBarController)
-                
             }else if UserDefaults.standard.string(forKey: "way") == "kakao"{
                 guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
                 self.changeRootViewController(MainTabBarController)
             }
         }
-
         setupProviderLoginView()
     }
     
     
     private func configureUI(){
+        emailLoginButton.setTitle("", for: .normal)
+        emailLoginLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
+        emailLoginLabel.textColor = .dark2
+        view.addSubview(naviShadowView)
+        view.addSubview(titleLabel)
+        NSLayoutConstraint.activate([
+            naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadowView.heightAnchor.constraint(equalToConstant: 1),
+            titleLabel.centerXAnchor.constraint(equalTo: naviShadowView.centerXAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: naviShadowView.topAnchor, constant: -10)
+        ])
+        
         title1.font = UIFont(name: NanumFont.bold, size: 20)
         title2.font = UIFont(name: NanumFont.bold, size: 20)
         title3.font = UIFont(name: NanumFont.bold, size: 20)
@@ -151,14 +171,12 @@ class LoginViewController: UIViewController{
                 print("tokenString: \(tokenString)")
             }
                 print("useridentifier: \(userIdentifier)")
-                print("fullName: \(fullName)")
-                print("email: \(email)")
+                
+                
         case let passwordCredential as ASPasswordCredential:
             // Sign in using an existing iCloud Keychain credential.
             let username = passwordCredential.user
             let password = passwordCredential.password
-            print("username: \(username)")
-            print("password: \(password)")
             default: break
             
         }
@@ -170,10 +188,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
     }
 }
 extension LoginViewController {
+    
+    
+    
     func successKakaoLogin(message: String){
-//        UserDefaults.standard.string(forKey: "jwt")
-//        UserDefaults.standard.string(forKey: "nickName")
-//        UserDefaults.standard.string(forKey: "profilePhotoUrl")
         guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
         self.changeRootViewController(MainTabBarController)
     }

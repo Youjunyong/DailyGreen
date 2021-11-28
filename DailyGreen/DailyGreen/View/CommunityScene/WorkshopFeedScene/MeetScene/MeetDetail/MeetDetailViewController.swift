@@ -141,13 +141,22 @@ extension MeetDetailViewController {
             shopNameLabel.text =  clubInfoObj.clubName
 //            clubInfoObj.clubIdx
             websiteLabel.text =  clubInfoObj.fee
+            if clubInfoObj.fee.count > 3 {
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                
+                var intFee = clubInfoObj.fee
+                intFee.removeLast()
+                
+                guard let res = numberFormatter.string(from: NSNumber(value:Double(intFee)!)) else{return}
+                
+                websiteLabel.text = "\(res) 원"
+            }
             print(clubInfoObj.fee)
-            
             phoneLabel.text = clubInfoObj.when
             locationLabel.text =  clubInfoObj.locationDetail
             clubInfoObj.maxPeopleNum
             nickNameLabel.text =  clubInfoObj.nickname
-            
             profileImageView.load(strUrl: clubInfoObj.profilePhotoUrl)
             bioTextView.text = clubInfoObj.bio
             dDayLabel.text = clubInfoObj.Dday

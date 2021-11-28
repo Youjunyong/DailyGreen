@@ -107,7 +107,7 @@ class OnboardingView3: UIView{
                 pageIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
                 pageIndicator.widthAnchor.constraint(equalToConstant: 68),
                 pageIndicator.heightAnchor.constraint(equalToConstant: 8),
-                pageIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -64)
+                pageIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -104)
                 
                 
             ])
