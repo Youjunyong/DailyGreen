@@ -40,6 +40,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="textFieldX"/>
+                                        <connections>
+                                            <action selector="emailClear:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KSk-Un-Wbx"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알맞은 형태의 이메일 주소를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-TG-v6U">
                                         <rect key="frame" x="28" y="61.5" width="187.5" height="13.5"/>
@@ -66,28 +69,31 @@
                                 <rect key="frame" x="0.0" y="184" width="414" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQx-rP-KNt">
-                                        <rect key="frame" x="16" y="49.5" width="382" height="2"/>
+                                        <rect key="frame" x="16" y="48" width="382" height="2"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="8Wi-yR-zGX"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ma7-nt-C4U">
-                                        <rect key="frame" x="28" y="10" width="319" height="19.5"/>
+                                        <rect key="frame" x="28" y="10" width="319" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFD-JI-oOO">
-                                        <rect key="frame" x="352" y="-2.5" width="45" height="45"/>
+                                        <rect key="frame" x="352" y="-3.5" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="JZd-lU-zAF"/>
                                             <constraint firstAttribute="height" constant="45" id="Ue6-oo-ZDq"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="textFieldX"/>
+                                        <connections>
+                                            <action selector="pwClear:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0sL-QN-8qW"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알맞은 형태의 이메일 주소를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0L-S5-BRF">
-                                        <rect key="frame" x="28" y="55.5" width="187.5" height="13.5"/>
+                                        <rect key="frame" x="28" y="54" width="187.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -111,28 +117,31 @@
                                 <rect key="frame" x="0.0" y="276" width="414" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-nh-n4H">
-                                        <rect key="frame" x="16" y="50" width="382" height="2"/>
+                                        <rect key="frame" x="16" y="48" width="382" height="2"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="Mjf-Z3-Oxo"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 재입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9w0-IR-OSD">
-                                        <rect key="frame" x="28" y="10" width="319" height="20"/>
+                                        <rect key="frame" x="28" y="10" width="319" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbB-Jv-djQ">
-                                        <rect key="frame" x="352" y="-2.5" width="45" height="45"/>
+                                        <rect key="frame" x="352" y="-3.5" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="5zJ-Rb-eB7"/>
                                             <constraint firstAttribute="height" constant="45" id="SVL-NM-TMr"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="textFieldX"/>
+                                        <connections>
+                                            <action selector="rePwCelar:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ldv-Q3-TGz"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알맞은 형태의 이메일 주소를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTT-SP-qXv">
-                                        <rect key="frame" x="28" y="56" width="187.5" height="13.5"/>
+                                        <rect key="frame" x="28" y="54" width="187.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

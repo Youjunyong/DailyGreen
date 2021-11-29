@@ -15,6 +15,7 @@ class LoginViewController: UIViewController{
 
     lazy var kakaoLoginDataManager = KakaoLoginDataManager()
     lazy var emailLoginDataManager = EmailLoginDataManager()
+    lazy var appleLoginDataManager = AppleLoginDataManager()
     
     let naviShadowView : UIView = {
         let view = UIView()
@@ -31,6 +32,7 @@ class LoginViewController: UIViewController{
         
     }()
     
+    @IBOutlet weak var kakaoLoginButton: UIButton!
     @IBOutlet weak var emailLoginButton: UIButton!
     @IBOutlet weak var testView: UIView!
     @IBOutlet weak var title1: UILabel!
@@ -44,7 +46,6 @@ class LoginViewController: UIViewController{
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
                 if let error = error {
-                    print(error)
                 }
                 else {
                     let token = oauthToken?.accessToken
@@ -55,12 +56,16 @@ class LoginViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        modalPresent()
         configureUI()
         if UserDefaults.standard.string(forKey: "jwt") != nil{
             if UserDefaults.standard.string(forKey: "way") == "email" {
                 guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
                 self.changeRootViewController(MainTabBarController)
             }else if UserDefaults.standard.string(forKey: "way") == "kakao"{
+                guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
+                self.changeRootViewController(MainTabBarController)
+            }else if UserDefaults.standard.string(forKey: "way") == "apple"{
                 guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
                 self.changeRootViewController(MainTabBarController)
             }
@@ -70,6 +75,7 @@ class LoginViewController: UIViewController{
     
     
     private func configureUI(){
+        kakaoLoginButton.setTitle("", for: .normal)
         emailLoginButton.setTitle("", for: .normal)
         emailLoginLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
         emailLoginLabel.textColor = .dark2
@@ -153,10 +159,17 @@ class LoginViewController: UIViewController{
         authorizationController.performRequests()
    
     }
+    private func modalPresent(){
+        let storyboard = UIStoryboard(name: "PolicyScene", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "PolicyVC") as? PolicyViewController else{return}
+        self.present(VC, animated: true, completion: nil)
+        
+    }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
 
-        switch authorization.credential { case let appleIDCredential as ASAuthorizationAppleIDCredential:
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
             // Create an account in your system.
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
@@ -165,6 +178,13 @@ class LoginViewController: UIViewController{
                 let identityToken = appleIDCredential.identityToken,
                 let authString = String(data: authorizationCode, encoding: .utf8),
                 let tokenString = String(data: identityToken, encoding: .utf8){
+                
+                let params = AppleLoginRequest(accessToken: authString)
+                appleLoginDataManager.postAppleLogin(params, delegate: self)
+                
+                
+  
+                
                 print("authorizationCode: \(authorizationCode)")
                 print("identityToken: \(identityToken)")
                 print("authString: \(authString)")
@@ -189,7 +209,11 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 }
 extension LoginViewController {
     
-    
+    func successAppleLogin(message: String){
+        presentAlert(title: message)
+        guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
+        self.changeRootViewController(MainTabBarController)
+    }
     
     func successKakaoLogin(message: String){
         guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
@@ -203,6 +227,15 @@ extension LoginViewController {
         let token  = TokenManager().getToken()?.accessToken
         guard let RegisterProfileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{return}
         RegisterProfileVC.kakaoToken = token
+        self.navigationController?.pushViewController(RegisterProfileVC, animated: false)
+    }
+    
+    
+    func failedToAppleLogin(message: String, appleToken: String){
+        
+        let storyboard = UIStoryboard(name: "Register", bundle: nil)
+        guard let RegisterProfileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{return}
+        RegisterProfileVC.appleToken = appleToken
         self.navigationController?.pushViewController(RegisterProfileVC, animated: false)
     }
 }

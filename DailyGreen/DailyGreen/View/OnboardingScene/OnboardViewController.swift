@@ -39,6 +39,7 @@ class OnboardViewController: UIViewController {
        
     
     @objc func startButtonClicked(_ sender: UIButton){
-        presentingVC?.changeToLoginView()
+        guard let LoginNaviVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginNaviVC") as? RegisterNavigationController else{return}
+        self.changeRootViewController(LoginNaviVC)
     }
 }

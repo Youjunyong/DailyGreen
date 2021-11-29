@@ -13,6 +13,7 @@ class RegisterProfileViewController: UIViewController {
     let dimmingView = DimmingView()
     var phoneNumber: String?
     var kakaoToken: String?
+    var appleToken: String?
     var email: String?
     var password: String?
     
@@ -21,6 +22,7 @@ class RegisterProfileViewController: UIViewController {
     var whiteViewConstraint:[NSLayoutConstraint] = []
     
     lazy var datamanager = NickNameDataManager()
+    lazy var appleRegisterDataManager = AppleRegisterDataManager()
     lazy var KRegisterDataManager = KakaoRegisterDataManager()
     lazy var emailRegisterDataManger = EmailRegisterDataManager()
     
@@ -80,6 +82,7 @@ class RegisterProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureUI()
         configureNavi()
         hideKeyboardWhenTappedBackground()
@@ -87,6 +90,8 @@ class RegisterProfileViewController: UIViewController {
         configureTargetAction()
         imagePickerController.delegate = self
     }
+    
+
     
     private func configureUI(){
         view.addSubview(submitButton)
@@ -157,7 +162,7 @@ class RegisterProfileViewController: UIViewController {
         let nickName = nickNameTextField.text!
         let bio = textView.text!
 
-        if profileImageView.image != nil {
+        if profileImageView.image != nil , submitButton.backgroundColor == .primary{
             let image = profileImageView.image
             guard let data = image?.jpegData(compressionQuality: 0.1) else{return}
             if kakaoToken != nil{
@@ -167,6 +172,14 @@ class RegisterProfileViewController: UIViewController {
                     "accessToken" : kakaoToken
                 ]
                 KRegisterDataManager.upload(image: data,  params: parameters, delegate: self)
+            }else if appleToken != nil {
+                let parameters = [
+                    "nickname": nickName,
+                    "bio" : bio,
+                    "accessToken" : kakaoToken
+                ]
+                appleRegisterDataManager.upload(image: data, params: parameters, delegate: self)
+                
             }
             else if phoneNumber != nil{
                 let parameters = [
@@ -179,7 +192,7 @@ class RegisterProfileViewController: UIViewController {
                 emailRegisterDataManger.emailRegisterUpload(image: data, params: parameters, delegate: self)
             }
             else{
-                //애플로그인
+                //
             }
         }else{
             self.presentAlert(title: "프로필 사진을 등록해주세요.")
@@ -194,7 +207,6 @@ class RegisterProfileViewController: UIViewController {
             let parameter = NickNameRequest(nickname: inputNickName)
             datamanager.postNickName(parameter, delegate: self)
         }else{return}
-        nickNameTextField.isUserInteractionEnabled = false
     }
     
     // MARK: - 키보드 노티
@@ -232,11 +244,7 @@ class RegisterProfileViewController: UIViewController {
             
             }
         
-        if isSubmitReady() {
-            let nickName = nickNameTextField.text
-            let bio = textView.text
-            
-        }
+        isSubmitReady()
         }
 
 
@@ -270,6 +278,8 @@ class RegisterProfileViewController: UIViewController {
     
     @objc func removeAlert(){
         dimmingView.removeFromSuperview()
+        let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 5 ], animated: false)
     }
     
 }
@@ -295,6 +305,8 @@ extension RegisterProfileViewController : UITextViewDelegate {
                 textView.text = "자기소개를 자유롭게 입력해주세요.(0/500)."
                 textView.font = UIFont(name: NanumFont.regular, size:15 )
                 textView.textColor = UIColor.lightGray
+            }else{
+                isSubmitReady()
             }
         }
 
@@ -337,7 +349,7 @@ extension RegisterProfileViewController {
         presentAlert(title: message)
     }
     func successKRegister(message: String){
-        presentAlert(title: message)
+        presentDimmingView()
     }
     
 }

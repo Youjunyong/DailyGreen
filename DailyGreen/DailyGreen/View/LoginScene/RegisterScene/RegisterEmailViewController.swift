@@ -72,6 +72,15 @@ class RegisterEmailViewController : UIViewController {
         
     }
     
+    @IBAction func rePwCelar(_ sender: Any) {
+        rePwTextField.text = ""
+    }
+    @IBAction func pwClear(_ sender: Any) {
+        pwTextField.text = ""
+    }
+    @IBAction func emailClear(_ sender: Any) {
+        emailTextField.text = ""
+    }
     private func configureUI(){
         view.addSubview(submitButton)
         submitButton.addTarget(self, action: #selector(submit) , for: .touchUpInside)

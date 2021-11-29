@@ -65,7 +65,7 @@
                                     <constraint firstAttribute="height" constant="2" id="cN8-yb-9ro"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico-Profile" translatesAutoresizingMaskIntoConstraints="NO" id="cEz-6w-8ZL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cEz-6w-8ZL">
                                 <rect key="frame" x="12" y="178.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Def-7M-GeX"/>
@@ -225,7 +225,7 @@
                             <constraint firstAttribute="height" constant="1" id="tEw-gq-YvL"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico-Profile" translatesAutoresizingMaskIntoConstraints="NO" id="1hB-b8-Y9i">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1hB-b8-Y9i">
                         <rect key="frame" x="39" y="117" width="36" height="36"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="36" id="8sb-2o-ciO"/>
@@ -314,7 +314,6 @@
         <image name="dummyIcoimg" width="320.5" height="160.5"/>
         <image name="icCalender" width="24" height="24"/>
         <image name="icLocation" width="24.5" height="24"/>
-        <image name="ico-Profile" width="104.5" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

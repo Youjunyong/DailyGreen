@@ -146,6 +146,13 @@
 		E1D20392274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D20391274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift */; };
 		E1D20395274BC1900098ADB7 /* EventBannerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D20394274BC1900098ADB7 /* EventBannerDataManager.swift */; };
 		E1D20397274BC1A10098ADB7 /* EventBannerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D20396274BC1A10098ADB7 /* EventBannerResponse.swift */; };
+		E1E2C6392754E4E500785DC3 /* AppleLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C6382754E4E400785DC3 /* AppleLoginDataManager.swift */; };
+		E1E2C63B2754E4F200785DC3 /* AppleLoginCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C63A2754E4F200785DC3 /* AppleLoginCodable.swift */; };
+		E1E2C63D2754FADB00785DC3 /* AppleRegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C63C2754FADB00785DC3 /* AppleRegisterDataManager.swift */; };
+		E1E2C63F2754FAE500785DC3 /* AppleReigsterCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C63E2754FAE400785DC3 /* AppleReigsterCodable.swift */; };
+		E1E2C64127551BEE00785DC3 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C64027551BEE00785DC3 /* PolicyViewController.swift */; };
+		E1E2C64327551C5B00785DC3 /* PolicyScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E2C64227551C5B00785DC3 /* PolicyScene.storyboard */; };
+		E1E2C6452755298100785DC3 /* PolicyTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C6442755298100785DC3 /* PolicyTextViewController.swift */; };
 		E1E718FF2747F01600F2710F /* SettingScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E718FE2747F01600F2710F /* SettingScene.storyboard */; };
 		E1E719012747F02E00F2710F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E719002747F02E00F2710F /* SettingViewController.swift */; };
 		E1E944F9273233C90047ABA8 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944F8273233C90047ABA8 /* CommunityView.swift */; };
@@ -325,6 +332,13 @@
 		E1D20391274B5E630098ADB7 /* PersonalnfoUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalnfoUpdateViewController.swift; sourceTree = "<group>"; };
 		E1D20394274BC1900098ADB7 /* EventBannerDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBannerDataManager.swift; sourceTree = "<group>"; };
 		E1D20396274BC1A10098ADB7 /* EventBannerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBannerResponse.swift; sourceTree = "<group>"; };
+		E1E2C6382754E4E400785DC3 /* AppleLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDataManager.swift; sourceTree = "<group>"; };
+		E1E2C63A2754E4F200785DC3 /* AppleLoginCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginCodable.swift; sourceTree = "<group>"; };
+		E1E2C63C2754FADB00785DC3 /* AppleRegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleRegisterDataManager.swift; sourceTree = "<group>"; };
+		E1E2C63E2754FAE400785DC3 /* AppleReigsterCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleReigsterCodable.swift; sourceTree = "<group>"; };
+		E1E2C64027551BEE00785DC3 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
+		E1E2C64227551C5B00785DC3 /* PolicyScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PolicyScene.storyboard; sourceTree = "<group>"; };
+		E1E2C6442755298100785DC3 /* PolicyTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyTextViewController.swift; sourceTree = "<group>"; };
 		E1E718FE2747F01600F2710F /* SettingScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingScene.storyboard; sourceTree = "<group>"; };
 		E1E719002747F02E00F2710F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E1E944F8273233C90047ABA8 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
@@ -798,6 +812,7 @@
 		E18C0BD327479CC30020FA17 /* Register,Login */ = {
 			isa = PBXGroup;
 			children = (
+				E1E2C6352754E4CF00785DC3 /* Apple */,
 				E1BAECA127487575008882FA /* Email */,
 				E1CC0F56273E97D200778650 /* PhoneAuth */,
 				E145B9752734F3F9007C593B /* NickNameCheck */,
@@ -813,6 +828,9 @@
 				E1362C4827345A890045C9EE /* RegisterProfileViewController.swift */,
 				E1509DBB2734093700D0B94C /* RegisterEmailViewController.swift */,
 				E1362C46273451D90045C9EE /* RegisterPhoneViewController.swift */,
+				E1E2C64027551BEE00785DC3 /* PolicyViewController.swift */,
+				E1E2C64227551C5B00785DC3 /* PolicyScene.storyboard */,
+				E1E2C6442755298100785DC3 /* PolicyTextViewController.swift */,
 			);
 			path = RegisterScene;
 			sourceTree = "<group>";
@@ -963,6 +981,33 @@
 			path = EventBanner;
 			sourceTree = "<group>";
 		};
+		E1E2C6352754E4CF00785DC3 /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				E1E2C6372754E4D600785DC3 /* Register */,
+				E1E2C6362754E4D500785DC3 /* Login */,
+			);
+			path = Apple;
+			sourceTree = "<group>";
+		};
+		E1E2C6362754E4D500785DC3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E1E2C6382754E4E400785DC3 /* AppleLoginDataManager.swift */,
+				E1E2C63A2754E4F200785DC3 /* AppleLoginCodable.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E1E2C6372754E4D600785DC3 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				E1E2C63C2754FADB00785DC3 /* AppleRegisterDataManager.swift */,
+				E1E2C63E2754FAE400785DC3 /* AppleReigsterCodable.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		E1E718FD2747EFE400F2710F /* SettingScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -1109,6 +1154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18C0BC527475C120020FA17 /* ShopCollectionViewCell.xib in Resources */,
+				E1E2C64327551C5B00785DC3 /* PolicyScene.storyboard in Resources */,
 				E1509DB82734006500D0B94C /* NanumSquareEB.ttf in Resources */,
 				E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */,
 				E1C4D4CA2750F9BB003CA961 /* MeetDetailCollectionViewCell.xib in Resources */,
@@ -1278,6 +1324,7 @@
 				E18C0BB32747480E0020FA17 /* EtireShopDataManager.swift in Sources */,
 				E14ED308273A396800CCBCED /* CommunityList.swift in Sources */,
 				E1502ACC274F3FF900AF4D0C /* MyPageGetDataManager.swift in Sources */,
+				E1E2C6392754E4E500785DC3 /* AppleLoginDataManager.swift in Sources */,
 				E19F535727414E4B00B3A28D /* KakaoLoginDataManager.swift in Sources */,
 				E1534EC22746098C00E1FA01 /* FeedDataManager.swift in Sources */,
 				E14426D6273186D300EC86D1 /* EventCollectionViewCell.swift in Sources */,
@@ -1305,16 +1352,20 @@
 				E1362C4927345A890045C9EE /* RegisterProfileViewController.swift in Sources */,
 				E14ED300273A2BB900CCBCED /* CommunityTableViewCell.swift in Sources */,
 				E1534EC7274610EC00E1FA01 /* FeedTableViewCell.swift in Sources */,
+				E1E2C63B2754E4F200785DC3 /* AppleLoginCodable.swift in Sources */,
 				E14321C8272FA1730028DAE4 /* AppDelegate.swift in Sources */,
 				E1897267274CDCCD0091961C /* KeyWordCollectionViewCell.swift in Sources */,
 				E1F6A1162737C2B000BEFF6A /* DimmingView.swift in Sources */,
 				E1502AD8274F6FF900AF4D0C /* WriteDateLocationViewContoller.swift in Sources */,
+				E1E2C63F2754FAE500785DC3 /* AppleReigsterCodable.swift in Sources */,
 				E1534ED427467A4B00E1FA01 /* LikeCodable.swift in Sources */,
 				E1432235272FCC000028DAE4 /* Color.swift in Sources */,
 				E19F535B2741F20A00B3A28D /* UIImageView.swift in Sources */,
 				E1432221272FA6850028DAE4 /* Font.swift in Sources */,
 				E19F535927414E5400B3A28D /* KakaoLoginCodable.swift in Sources */,
 				E1BAECA52748758C008882FA /* EmailRegisterCodable.swift in Sources */,
+				E1E2C63D2754FADB00785DC3 /* AppleRegisterDataManager.swift in Sources */,
+				E1E2C6452755298100785DC3 /* PolicyTextViewController.swift in Sources */,
 				E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */,
 				E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */,
 				E145B9742734F21E007C593B /* NickNameDataManager.swift in Sources */,
@@ -1352,6 +1403,7 @@
 				E15CB815273E12D100D66360 /* MeetingViewController.swift in Sources */,
 				E12838FD27427C5700F1E259 /* EntireShopTableViewCell.swift in Sources */,
 				E1BAECA327487583008882FA /* EmailRegisterDataManager.swift in Sources */,
+				E1E2C64127551BEE00785DC3 /* PolicyViewController.swift in Sources */,
 				E1BBD31D2743FC0E00268BB5 /* WriteStep1ViewController.swift in Sources */,
 				E10B0E5B274E82A500FD48C9 /* MyPageTableViewCell.swift in Sources */,
 				E1E719012747F02E00F2710F /* SettingViewController.swift in Sources */,
