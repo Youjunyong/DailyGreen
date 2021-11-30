@@ -12,11 +12,12 @@ class PolicyViewController: UIViewController{
     var entire = false
     var pri = false
     var ser = false
+    var presentingLoginView: LoginViewController?
+    var presentingEmailLoginView: EmailLoginViewController?
+    var type = ""
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleBodyLabel: UILabel!
-    
-    
     @IBOutlet weak var entireImageView: UIImageView!
     @IBOutlet weak var serviceImageView: UIImageView!
     @IBOutlet weak var privateImageView: UIImageView!
@@ -34,7 +35,9 @@ class PolicyViewController: UIViewController{
     @IBOutlet weak var entireButton: UIButton!
     @IBOutlet weak var submitImageView: UIImageView!
     
+    @IBOutlet weak var dismissBtn: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -63,8 +66,16 @@ class PolicyViewController: UIViewController{
     }
     @IBAction func submit(_ sender: Any) {
         
+        
         if check(){
             self.presentingViewController?.dismiss(animated: true, completion: nil)
+            if type == "kakao"{
+                presentingLoginView?.kakaoRegister()
+            }else if type == "apple"{
+                presentingLoginView?.appleRegister()
+            }else{
+                presentingEmailLoginView?.emailRegister()
+            }
         }
     }
     
@@ -73,6 +84,9 @@ class PolicyViewController: UIViewController{
     
     @IBOutlet weak var privateBtn: UIButton!
     
+    @IBAction func dismissButton(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     @IBAction func serviceButton(_ sender: Any) {
         
         if ser{
@@ -135,6 +149,7 @@ class PolicyViewController: UIViewController{
     }
     
     private func configureUI(){
+        dismissBtn.setTitle("", for: .normal)
         serviceBtn.setTitle("", for:.normal)
         privateBtn.setTitle("", for: .normal)
         entireButton.setTitle("", for: .normal)

@@ -63,25 +63,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzg-e7-e4w">
                                 <rect key="frame" x="0.0" y="68" width="414" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzc-h2-hPc">
-                                        <rect key="frame" x="356" y="3" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="5s8-bC-QvL"/>
-                                            <constraint firstAttribute="height" constant="44" id="tRr-vR-Of6"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="icFilter"/>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAH-5A-Hza">
-                                        <rect key="frame" x="16" y="1" width="324" height="48"/>
+                                        <rect key="frame" x="16" y="1" width="382" height="48"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="어떤 친환경 실천을 찾으세요?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHM-Yo-c1T">
-                                                <rect key="frame" x="5" y="15" width="265" height="18.5"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="어떤 친환경 상점을 찾으세요?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHM-Yo-c1T">
+                                                <rect key="frame" x="20" y="15" width="308" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-1B-Nd1">
-                                                <rect key="frame" x="278" y="2" width="44" height="44"/>
+                                                <rect key="frame" x="336" y="2" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Gs3-qa-iCj"/>
                                                     <constraint firstAttribute="width" constant="44" id="b4a-Vt-8yY"/>
@@ -96,18 +87,16 @@
                                             <constraint firstAttribute="trailing" secondItem="tP0-1B-Nd1" secondAttribute="trailing" constant="2" id="Vbk-Dh-Vf9"/>
                                             <constraint firstItem="tP0-1B-Nd1" firstAttribute="leading" secondItem="uHM-Yo-c1T" secondAttribute="trailing" constant="8" id="hsO-sJ-n2h"/>
                                             <constraint firstItem="uHM-Yo-c1T" firstAttribute="centerY" secondItem="XAH-5A-Hza" secondAttribute="centerY" id="t8j-3G-ikr"/>
-                                            <constraint firstItem="uHM-Yo-c1T" firstAttribute="leading" secondItem="XAH-5A-Hza" secondAttribute="leading" constant="5" id="wyr-mR-q20"/>
+                                            <constraint firstItem="uHM-Yo-c1T" firstAttribute="leading" secondItem="XAH-5A-Hza" secondAttribute="leading" constant="20" id="wyr-mR-q20"/>
+                                            <constraint firstItem="tP0-1B-Nd1" firstAttribute="centerY" secondItem="uHM-Yo-c1T" secondAttribute="centerY" id="zWH-C8-Seb"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="qzc-h2-hPc" secondAttribute="trailing" constant="14" id="0DK-v3-i4L"/>
                                     <constraint firstItem="XAH-5A-Hza" firstAttribute="leading" secondItem="pzg-e7-e4w" secondAttribute="leading" constant="16" id="6sa-MZ-r9A"/>
-                                    <constraint firstItem="XAH-5A-Hza" firstAttribute="centerY" secondItem="qzc-h2-hPc" secondAttribute="centerY" id="M3C-vX-Sd0"/>
-                                    <constraint firstItem="tP0-1B-Nd1" firstAttribute="centerY" secondItem="qzc-h2-hPc" secondAttribute="centerY" id="Twm-MS-eDj"/>
-                                    <constraint firstItem="qzc-h2-hPc" firstAttribute="leading" secondItem="XAH-5A-Hza" secondAttribute="trailing" constant="16" id="W9n-aY-5zf"/>
+                                    <constraint firstAttribute="bottom" secondItem="XAH-5A-Hza" secondAttribute="bottom" constant="1" id="Oma-oo-lLP"/>
+                                    <constraint firstAttribute="trailing" secondItem="XAH-5A-Hza" secondAttribute="trailing" constant="16" id="QEG-UA-hsE"/>
                                     <constraint firstAttribute="height" constant="50" id="gP2-n0-EGK"/>
-                                    <constraint firstItem="qzc-h2-hPc" firstAttribute="centerY" secondItem="pzg-e7-e4w" secondAttribute="centerY" id="hm1-SQ-2ax"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cb-qR-n2D">
@@ -139,7 +128,6 @@
                     <connections>
                         <outlet property="buttonBarView" destination="KHO-Vk-eCQ" id="n8I-Og-zNg"/>
                         <outlet property="containerView" destination="DqX-1S-kqG" id="7L2-U4-2X9"/>
-                        <outlet property="filterButton" destination="qzc-h2-hPc" id="4ih-p0-381"/>
                         <outlet property="pagerBarDivideView" destination="7cb-qR-n2D" id="hPa-Co-BNn"/>
                         <outlet property="searchButton" destination="tP0-1B-Nd1" id="oRY-Ax-A1a"/>
                         <outlet property="searchContentView" destination="XAH-5A-Hza" id="8d2-Wo-Wbu"/>
@@ -370,7 +358,6 @@
     </scenes>
     <resources>
         <image name="blocation" width="24" height="24"/>
-        <image name="icFilter" width="44.5" height="45"/>
         <image name="icSearch" width="44.5" height="44.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

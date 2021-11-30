@@ -121,6 +121,7 @@
 		E19F535927414E5400B3A28D /* KakaoLoginCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535827414E5400B3A28D /* KakaoLoginCodable.swift */; };
 		E19F535B2741F20A00B3A28D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535A2741F20A00B3A28D /* UIImageView.swift */; };
 		E19F535D2741F56500B3A28D /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535C2741F56500B3A28D /* ImageCacheManager.swift */; };
+		E1B802482755FB9500497397 /* ServiceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B802472755FB9500497397 /* ServiceTextViewController.swift */; };
 		E1BAECA327487583008882FA /* EmailRegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BAECA227487583008882FA /* EmailRegisterDataManager.swift */; };
 		E1BAECA52748758C008882FA /* EmailRegisterCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BAECA42748758C008882FA /* EmailRegisterCodable.swift */; };
 		E1BAECA727487D62008882FA /* EmailLoginDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BAECA627487D62008882FA /* EmailLoginDataManger.swift */; };
@@ -152,7 +153,7 @@
 		E1E2C63F2754FAE500785DC3 /* AppleReigsterCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C63E2754FAE400785DC3 /* AppleReigsterCodable.swift */; };
 		E1E2C64127551BEE00785DC3 /* PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C64027551BEE00785DC3 /* PolicyViewController.swift */; };
 		E1E2C64327551C5B00785DC3 /* PolicyScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E2C64227551C5B00785DC3 /* PolicyScene.storyboard */; };
-		E1E2C6452755298100785DC3 /* PolicyTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C6442755298100785DC3 /* PolicyTextViewController.swift */; };
+		E1E2C6452755298100785DC3 /* PrivateTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E2C6442755298100785DC3 /* PrivateTextViewController.swift */; };
 		E1E718FF2747F01600F2710F /* SettingScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E718FE2747F01600F2710F /* SettingScene.storyboard */; };
 		E1E719012747F02E00F2710F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E719002747F02E00F2710F /* SettingViewController.swift */; };
 		E1E944F9273233C90047ABA8 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E944F8273233C90047ABA8 /* CommunityView.swift */; };
@@ -307,6 +308,7 @@
 		E19F535827414E5400B3A28D /* KakaoLoginCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginCodable.swift; sourceTree = "<group>"; };
 		E19F535A2741F20A00B3A28D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		E19F535C2741F56500B3A28D /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		E1B802472755FB9500497397 /* ServiceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTextViewController.swift; sourceTree = "<group>"; };
 		E1BAECA227487583008882FA /* EmailRegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegisterDataManager.swift; sourceTree = "<group>"; };
 		E1BAECA42748758C008882FA /* EmailRegisterCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegisterCodable.swift; sourceTree = "<group>"; };
 		E1BAECA627487D62008882FA /* EmailLoginDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginDataManger.swift; sourceTree = "<group>"; };
@@ -338,7 +340,7 @@
 		E1E2C63E2754FAE400785DC3 /* AppleReigsterCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleReigsterCodable.swift; sourceTree = "<group>"; };
 		E1E2C64027551BEE00785DC3 /* PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyViewController.swift; sourceTree = "<group>"; };
 		E1E2C64227551C5B00785DC3 /* PolicyScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PolicyScene.storyboard; sourceTree = "<group>"; };
-		E1E2C6442755298100785DC3 /* PolicyTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyTextViewController.swift; sourceTree = "<group>"; };
+		E1E2C6442755298100785DC3 /* PrivateTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateTextViewController.swift; sourceTree = "<group>"; };
 		E1E718FE2747F01600F2710F /* SettingScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingScene.storyboard; sourceTree = "<group>"; };
 		E1E719002747F02E00F2710F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E1E944F8273233C90047ABA8 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
@@ -830,7 +832,8 @@
 				E1362C46273451D90045C9EE /* RegisterPhoneViewController.swift */,
 				E1E2C64027551BEE00785DC3 /* PolicyViewController.swift */,
 				E1E2C64227551C5B00785DC3 /* PolicyScene.storyboard */,
-				E1E2C6442755298100785DC3 /* PolicyTextViewController.swift */,
+				E1E2C6442755298100785DC3 /* PrivateTextViewController.swift */,
+				E1B802472755FB9500497397 /* ServiceTextViewController.swift */,
 			);
 			path = RegisterScene;
 			sourceTree = "<group>";
@@ -1365,7 +1368,7 @@
 				E19F535927414E5400B3A28D /* KakaoLoginCodable.swift in Sources */,
 				E1BAECA52748758C008882FA /* EmailRegisterCodable.swift in Sources */,
 				E1E2C63D2754FADB00785DC3 /* AppleRegisterDataManager.swift in Sources */,
-				E1E2C6452755298100785DC3 /* PolicyTextViewController.swift in Sources */,
+				E1E2C6452755298100785DC3 /* PrivateTextViewController.swift in Sources */,
 				E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */,
 				E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */,
 				E145B9742734F21E007C593B /* NickNameDataManager.swift in Sources */,
@@ -1427,6 +1430,7 @@
 				E1BAECA927487D70008882FA /* EmailLoginCodable.swift in Sources */,
 				E1E944F9273233C90047ABA8 /* CommunityView.swift in Sources */,
 				E1432239272FDA890028DAE4 /* OnboardingView2.swift in Sources */,
+				E1B802482755FB9500497397 /* ServiceTextViewController.swift in Sources */,
 				E19F5353274140B700B3A28D /* MeetDataManager.swift in Sources */,
 				E14426CF2731174700EC86D1 /* MainPageViewController.swift in Sources */,
 				E14ED30C273A571A00CCBCED /* KakaoRegisterDataManager.swift in Sources */,

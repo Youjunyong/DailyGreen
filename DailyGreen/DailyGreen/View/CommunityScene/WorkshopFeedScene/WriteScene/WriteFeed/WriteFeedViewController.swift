@@ -127,7 +127,8 @@ class WriteFeedViewController: UIViewController {
         var thumbnail = UIImage()
         option.isSynchronous = true
         manager.requestImage(for: asset, targetSize: CGSize(width: 600.0, height: 600.0), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-                thumbnail = result!
+            guard let res = result else{return}
+            thumbnail = res
             self.selecetedImage.append(thumbnail)
         })
         return thumbnail

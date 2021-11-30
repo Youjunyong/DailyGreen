@@ -10,6 +10,9 @@ import BSImagePicker
 import Photos
 
 class WriteMeetViewController: UIViewController {
+
+    
+    var writeType = 0
     var isTitle = false
     var isPhoto = false
     var isText = false
@@ -141,6 +144,8 @@ class WriteMeetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        openChatLinkTextField.delegate = self
         self.hideKeyboardWhenTappedBackground()
         configureUI()
         configureKeyWordCollectionView()
@@ -161,13 +166,14 @@ class WriteMeetViewController: UIViewController {
         var thumbnail = UIImage()
         option.isSynchronous = true
         manager.requestImage(for: asset, targetSize: CGSize(width: 600.0, height: 600.0), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-                thumbnail = result!
+            guard let res = result else{ return}
+            thumbnail = res
             self.selecetedImage.append(thumbnail)
         })
         return thumbnail
     }
     private func checkSubmitReady(){
-        if self.isText, self.isPhoto, titleTextField.text!.count > 0, peopleNumTextField.text!.count > 0, feeTextField.text!.count > 0, feeType.count > 0 {
+        if self.isText, self.isPhoto, titleTextField.text!.count > 0, peopleNumTextField.text!.count > 0, feeTextField.text!.count > 0, feeType.count > 0 , openChatLinkTextField.text!.count > 5{
             submitButtonView.backgroundColor = .primary
             submitButton.titleLabel?.textColor = .black
         }else{
@@ -179,7 +185,11 @@ class WriteMeetViewController: UIViewController {
     @objc func pickerClicked(_ sender: UIButton){
         selecetedImage =  [UIImage]()
         let imagePicker = ImagePickerController()
-        imagePicker.settings.selection.max = 5
+        if self.titleName == "정기모임" {
+            imagePicker.settings.selection.max = 5
+        }else{
+            imagePicker.settings.selection.max = 1
+        }
         imagePicker.settings.theme.selectionStyle = .numbered
         imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
         imagePicker.settings.selection.unselectOnReachingMax = true
@@ -267,7 +277,7 @@ extension WriteMeetViewController: UITextFieldDelegate {
           tags.append("#" + keyWordTextField.text!)
           keyWordTextField.text = ""
           keyWordCollectionView.reloadData()
-          print(tags)
+          
       } else {
           
       
@@ -381,4 +391,11 @@ extension WriteMeetViewController: UITextViewDelegate {
         }
     }
 
+}
+
+
+extension WriteMeetViewController {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        checkSubmitReady()
+    }
 }

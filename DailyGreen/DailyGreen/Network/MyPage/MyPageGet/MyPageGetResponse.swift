@@ -26,6 +26,7 @@ struct MyInfo: Decodable{
     var participationCnt: Int
     var createdPostCnt: Int
     var badgeCnt: Int
+    var bio: String
     var exp: Int
 }
 

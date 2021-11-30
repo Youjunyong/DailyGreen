@@ -30,9 +30,7 @@ class WriteStep1ViewController: UIViewController {
     
     @IBOutlet weak var rMeetSubLabel: UILabel!
     
-    @IBOutlet weak var workshopLabel: UILabel!
 
-    @IBOutlet weak var workshopSubLabel: UILabel!
     @IBOutlet weak var divideTitleLabel: UILabel!
     
     @IBOutlet weak var thirdTitleLabel: UILabel!
@@ -47,11 +45,10 @@ class WriteStep1ViewController: UIViewController {
     
     @IBOutlet weak var radioButton3: UIButton!
     @IBOutlet weak var radioButtonView3: UIImageView!
-    
-    @IBOutlet weak var radioButton4: UIButton!
-    @IBOutlet weak var radioButtonView4: UIImageView!
+
     
     
+    @IBOutlet weak var submitButtonImageView: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var submitButtonView: UIView!
     
@@ -69,9 +66,7 @@ class WriteStep1ViewController: UIViewController {
         selectedCheck(num : 3)
     }
     
-    @IBAction func radioButton4(_ sender: Any) {
-        selectedCheck(num : 4)
-    }
+
     
     
     
@@ -88,6 +83,12 @@ class WriteStep1ViewController: UIViewController {
             VC.communityName = self.communityName
             VC.communityIdx = self.communityIdx
             VC.titleName = "모임"
+            self.navigationController?.pushViewController(VC, animated: true)
+        case "정기모임":
+            guard let VC = self.storyboard?.instantiateViewController(withIdentifier: "WriteMeetVC") as? WriteMeetViewController else{return}
+            VC.communityName = self.communityName
+            VC.communityIdx = self.communityIdx
+            VC.titleName = "정기모임"
             self.navigationController?.pushViewController(VC, animated: true)
             
         default:
@@ -111,13 +112,13 @@ class WriteStep1ViewController: UIViewController {
         feedLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
         meetLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
         rMeetLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
-        workshopLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
+        
         
         
         feedSubLabel.font = UIFont(name: NanumFont.regular, size: 13)
         meetSubLabel.font = UIFont(name: NanumFont.regular, size: 13)
         rMeetSubLabel.font = UIFont(name: NanumFont.regular, size: 13)
-        workshopSubLabel.font = UIFont(name: NanumFont.regular, size: 13)
+        
         
         divideTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
         divideTitleLabel.textColor = UIColor.dark2
@@ -131,20 +132,14 @@ class WriteStep1ViewController: UIViewController {
         radioButton1.setTitle("", for: .normal)
         radioButton2.setTitle("", for: .normal)
         radioButton3.setTitle("", for: .normal)
-        radioButton4.setTitle("", for: .normal)
+
         radioButtonView1.image = UIImage(named: "write")
         radioButtonView2.image = UIImage(named: "write")
         radioButtonView3.image = UIImage(named: "write")
-        radioButtonView4.image = UIImage(named: "write")
+
         
-        submitButton.setTitle("완료", for: .normal)
-        
-        submitButton.setTitleColor(.white, for: .normal)
-        submitButton.titleLabel?.textColor = .white
-        submitButton.titleLabel!.font = UIFont(name: NanumFont.extraBold, size: 17)
-        
-        submitButtonView.layer.cornerRadius = 24
-        submitButtonView.backgroundColor = .grayDisabled
+        submitButton.setTitle("", for: .normal)
+  
 
     }
     
@@ -167,34 +162,27 @@ class WriteStep1ViewController: UIViewController {
     
     
     private func selectedCheck(num : Int){
-        submitButton.titleLabel?.textColor = .black
-        submitButtonView.backgroundColor = .primary
+        submitButtonImageView.image  = UIImage(named: "doneButtonTrue")
         switch num{
         case 1:
             radioButtonView1.image = UIImage(named: "writeFill")
             radioButtonView2.image = UIImage(named: "write")
             radioButtonView3.image = UIImage(named: "write")
-            radioButtonView4.image = UIImage(named: "write")
+            
             selected = "자유글"
 
         case 2:
             radioButtonView1.image = UIImage(named: "write")
             radioButtonView2.image = UIImage(named: "writeFill")
             radioButtonView3.image = UIImage(named: "write")
-            radioButtonView4.image = UIImage(named: "write")
+            
             selected = "모임"
         case 3:
             radioButtonView1.image = UIImage(named: "write")
             radioButtonView2.image = UIImage(named: "write")
             radioButtonView3.image = UIImage(named: "writeFill")
-            radioButtonView4.image = UIImage(named: "write")
+            
             selected = "정기모임"
-        case 4:
-            radioButtonView1.image = UIImage(named: "write")
-            radioButtonView2.image = UIImage(named: "write")
-            radioButtonView3.image = UIImage(named: "write")
-            radioButtonView4.image = UIImage(named: "writeFill")
-            selected = "워크샵"
         default:
             return
         }

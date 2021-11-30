@@ -22,4 +22,6 @@ struct AppleLoginData: Decodable {
     var nickname: String
     var profilePhotoUrl: String
     var jwt: String
+    var userIdx: Int?
+
 }

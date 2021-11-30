@@ -21,9 +21,12 @@ class KakaoLoginDataManager {
                         guard let jwt = result?.jwt else{return}
                         guard let nickName = result?.nickname else{return}
                         guard let profilePhotoUrl = result?.profilePhotoUrl else{return}
+                        guard let userIdx = result?.userIdx else{return}
                         UserDefaults.standard.set(jwt, forKey: "jwt")
                         UserDefaults.standard.set(nickName, forKey: "nickName")
                         UserDefaults.standard.set(profilePhotoUrl, forKey: "profilePhotoUrl")
+                        UserDefaults.standard.set(userIdx, forKey: "userIdx")
+                        
                         UserDefaults.standard.set("kakao", forKey:"way")
                         delegate.successKakaoLogin(message: response.message)
                         

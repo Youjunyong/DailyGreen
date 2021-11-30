@@ -22,7 +22,7 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     }()
     
     @IBOutlet weak var searchContentView: UIView!
-    @IBOutlet weak var filterButton: UIButton!
+    
     
     @IBOutlet weak var pagerBarDivideView: UIView!
     @IBOutlet weak var searchButton: UIButton!
@@ -36,7 +36,7 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     
     private func configureSearchBar(){
         
-        filterButton.setTitle("", for: .normal)
+        
         searchButton.setTitle("", for: .normal)
         searchContentView.layer.cornerRadius = 16
         searchContentView.layer.borderColor = UIColor.primary.cgColor
@@ -45,27 +45,6 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     private func configureNavi(){
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = UIColor.black
-        
-
-//        let chatButton = UIButton(frame: CGRect(
-//            x: 0,
-//            y: 0,
-//            width: 44,
-//            height: 44))
-//        chatButton.setImage(UIImage(named: "icChat"), for: .normal)
-////        chatButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
-//        let chatBarButtonItem = UIBarButtonItem(customView: chatButton)
-//        let bellButton = UIButton(frame: CGRect(
-//            x: 0,
-//            y: 0,
-//            width: 44,
-//            height: 44))
-//        bellButton.setImage(UIImage(named: "icBell"), for: .normal)
-////        bellButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
-//        let bellBarButtonItem = UIBarButtonItem(customView: bellButton)
-//        
-//        self.navigationItem.rightBarButtonItems = [chatBarButtonItem, bellBarButtonItem]
-        
         view.addSubview(naviShadow)
         NSLayoutConstraint.activate([
             naviShadow.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),

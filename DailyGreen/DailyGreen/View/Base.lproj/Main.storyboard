@@ -752,14 +752,14 @@
                                                 <rect key="frame" x="16" y="234" width="382" height="32"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ht3-v1-7sK" userLabel="LV Gauge">
-                                                        <rect key="frame" x="21" y="14" width="200" height="4"/>
+                                                        <rect key="frame" x="21" y="14" width="340" height="4"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="YCF-AT-bYI"/>
                                                             <constraint firstAttribute="height" constant="4" id="pzM-Cm-d37"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="ht3-v1-7sK" secondAttribute="trailing" constant="21" id="0T5-3G-Ogi"/>
                                                     <constraint firstItem="ht3-v1-7sK" firstAttribute="leading" secondItem="Skb-rj-p8g" secondAttribute="leading" constant="21" id="2hZ-xS-tRc"/>
                                                     <constraint firstAttribute="height" constant="32" id="cXq-pc-BYi"/>
                                                     <constraint firstItem="ht3-v1-7sK" firstAttribute="centerY" secondItem="Skb-rj-p8g" secondAttribute="centerY" id="d2O-de-7gH"/>
@@ -987,7 +987,6 @@
                         <outlet property="gaugeFrameView" destination="Skb-rj-p8g" id="QAD-in-gsK"/>
                         <outlet property="gaugeVIew" destination="ht3-v1-7sK" id="Ty8-Fn-QRX"/>
                         <outlet property="levelGaugeLabel" destination="xfm-ZQ-iNn" id="p1m-EV-gdN"/>
-                        <outlet property="levelWidth" destination="YCF-AT-bYI" id="bI8-g1-nBi"/>
                         <outlet property="lvLabel" destination="3jx-qh-UyC" id="BMW-Oj-JB0"/>
                         <outlet property="lvView" destination="uhL-ag-COM" id="BN9-9J-vKD"/>
                         <outlet property="profileImage" destination="u4M-hw-0Yz" id="mgB-QI-RI5"/>

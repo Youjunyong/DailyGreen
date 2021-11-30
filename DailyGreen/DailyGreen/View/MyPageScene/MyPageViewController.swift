@@ -11,7 +11,7 @@ class MyPageViewController: UIViewController{
     
     
     lazy var myPageGetDataManager = MyPageGetDataManager()
-    
+    var userIdx: Int?
 //    var badgeCnt : Int?
 //    var createdPostCnt : Int?
 //    var nickname : String?
@@ -21,7 +21,7 @@ class MyPageViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var gaugeFrameView: UIView!
-    @IBOutlet weak var levelWidth: NSLayoutConstraint!
+    
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var lvView: UIView!
@@ -66,7 +66,16 @@ class MyPageViewController: UIViewController{
         configureUI()
         configureCollectionView()
         configureTableView()
-        myPageGetDataManager.getMeetData(delegate: self, userIdx: 1) // useridx미적용
+        if userIdx == nil {
+            self.userIdx = UserDefaults.standard.integer(forKey: "userIdx")
+        }
+        
+        
+        if self.userIdx != nil {
+            myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
+
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,8 +101,8 @@ class MyPageViewController: UIViewController{
         
         profileImage.layer.cornerRadius = 53
         profileImage.contentMode = .scaleAspectFill
-        let url = UserDefaults.standard.string(forKey: "profilePhotoUrl")
-        profileImage.load(strUrl: url!)
+//        let url = UserDefaults.standard.string(forKey: "profilePhotoUrl")
+//        profileImage.load(strUrl: url!)
         lineSpace()
         
         lvView.layer.cornerRadius = 14
@@ -124,9 +133,27 @@ class MyPageViewController: UIViewController{
         scoreWorkshopLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         scoreWorkshopLabel.textColor = .dark2
         
-        //API
+
         
-//        bioLabel.text  = ""
+    }
+    private func lvGaugeSet(exp : Int){
+        lazy var whiteView: UIView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .white
+            return view
+        }()
+        let entireWidth = gaugeVIew.frame.width
+        let proportion = CGFloat(exp) / CGFloat(1000)
+        view.addSubview(whiteView)
+        NSLayoutConstraint.activate([
+            whiteView.trailingAnchor.constraint(equalTo: gaugeVIew.trailingAnchor),
+            whiteView.centerYAnchor.constraint(equalTo: gaugeVIew.centerYAnchor),
+            whiteView.heightAnchor.constraint(equalTo: gaugeVIew.heightAnchor),
+            whiteView.widthAnchor.constraint(equalToConstant: entireWidth - (entireWidth * proportion) )
+        ])
+        
+        
         
         
     }
@@ -184,26 +211,25 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyPageViewController{
     func didSuccessGet(message: String, results: InfoResult){
-        presentAlert(title: message)
         let myInfo = results.myInfo
         let participatingInfo = results.participatingInfo
-        
         scoreBadgeLabel.text = "\(myInfo.badgeCnt)회"
-        lvLabel.text = "Lv.\(myInfo.exp / 1000 + 1) "
         scoreFeedLabel.text = "\(myInfo.createdPostCnt)회"
-        let entire = UIScreen.main.bounds.size.width
-        let rate = Double((myInfo.exp % 1000)) / Double(1000)
-//        levelWidth.constant = entire * CGFloat(rate)
-        levelWidth.constant = 800
-        print(myInfo.exp ,rate, levelWidth.constant)
         scoreWorkshopLabel.text = "\(myInfo.participationCnt)회"
+        lvLabel.text = "Lv.\(myInfo.exp / 1000 + 1) "
+        lvGaugeSet(exp: myInfo.exp)
         profileImage.load(strUrl: myInfo.profilePhotoUrl)
+        print(myInfo.profilePhotoUrl)
         gaugeVIew.setGradient(color1: .grayGreen, color2: .dark2)
-
+        bioLabel.text = myInfo.bio
+        print(myInfo.exp)
+        
+        
+        
 //        badgeCnt = myInfo.badgeCnt
 //        createdPostCnt = myInfo.createdPostCnt
 //        nickname =  myInfo.nicknamex
-//        exp = myInfo.exp
+
         
         
         

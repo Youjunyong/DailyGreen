@@ -23,4 +23,6 @@ struct EmailLoginResult: Decodable{
     var nickname: String
     var profilePhotoUrl: String
     var jwt: String
+    var userIdx: Int?
+
 }

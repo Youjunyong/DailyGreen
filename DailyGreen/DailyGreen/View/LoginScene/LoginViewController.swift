@@ -17,6 +17,9 @@ class LoginViewController: UIViewController{
     lazy var emailLoginDataManager = EmailLoginDataManager()
     lazy var appleLoginDataManager = AppleLoginDataManager()
     
+    var didPolicyAgree = false
+    var appleToken = ""
+    
     let naviShadowView : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -54,9 +57,9 @@ class LoginViewController: UIViewController{
             }
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        modalPresent()
         configureUI()
         if UserDefaults.standard.string(forKey: "jwt") != nil{
             if UserDefaults.standard.string(forKey: "way") == "email" {
@@ -159,11 +162,29 @@ class LoginViewController: UIViewController{
         authorizationController.performRequests()
    
     }
-    private func modalPresent(){
+    private func modalPresent(type: String){
+        
         let storyboard = UIStoryboard(name: "PolicyScene", bundle: nil)
         guard let VC = storyboard.instantiateViewController(withIdentifier: "PolicyVC") as? PolicyViewController else{return}
+        VC.presentingLoginView = self
+        VC.type = type
         self.present(VC, animated: true, completion: nil)
         
+    }
+    
+    
+    func kakaoRegister(){
+        let storyboard = UIStoryboard(name: "Register", bundle: nil)
+        let token  = TokenManager().getToken()?.accessToken
+        guard let RegisterProfileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{return}
+        RegisterProfileVC.kakaoToken = token
+        self.navigationController?.pushViewController(RegisterProfileVC, animated: false)
+    }
+    func appleRegister(){
+        let storyboard = UIStoryboard(name: "Register", bundle: nil)
+        guard let RegisterProfileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{return}
+        RegisterProfileVC.appleToken = self.appleToken
+        self.navigationController?.pushViewController(RegisterProfileVC, animated: false)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
@@ -172,8 +193,6 @@ class LoginViewController: UIViewController{
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             // Create an account in your system.
             let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
             if let authorizationCode = appleIDCredential.authorizationCode,
                 let identityToken = appleIDCredential.identityToken,
                 let authString = String(data: authorizationCode, encoding: .utf8),
@@ -181,18 +200,9 @@ class LoginViewController: UIViewController{
                 
                 let params = AppleLoginRequest(accessToken: authString)
                 appleLoginDataManager.postAppleLogin(params, delegate: self)
-                
-                
-  
-                
-                print("authorizationCode: \(authorizationCode)")
-                print("identityToken: \(identityToken)")
-                print("authString: \(authString)")
-                print("tokenString: \(tokenString)")
+                self.appleToken = authString
             }
-                print("useridentifier: \(userIdentifier)")
-                
-                
+     
         case let passwordCredential as ASPasswordCredential:
             // Sign in using an existing iCloud Keychain credential.
             let username = passwordCredential.user
@@ -223,20 +233,15 @@ extension LoginViewController {
 
     
     func failedToKakaoLogin(message: String){
-        let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        let token  = TokenManager().getToken()?.accessToken
-        guard let RegisterProfileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{return}
-        RegisterProfileVC.kakaoToken = token
-        self.navigationController?.pushViewController(RegisterProfileVC, animated: false)
+        modalPresent(type: "kakao")
+
     }
     
     
     func failedToAppleLogin(message: String, appleToken: String){
+        modalPresent(type: "apple")
         
-        let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        guard let RegisterProfileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{return}
-        RegisterProfileVC.appleToken = appleToken
-        self.navigationController?.pushViewController(RegisterProfileVC, animated: false)
+        
     }
 }
 

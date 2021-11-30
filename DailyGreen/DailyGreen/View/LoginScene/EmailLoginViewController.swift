@@ -47,10 +47,13 @@ class EmailLoginViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     @IBAction func register(_ sender: Any) {
+        
+        modalPresent(type: "email")
+    }
+    func emailRegister(){
         let storyboard = UIStoryboard(name: "Register", bundle: nil)
         let RegisterNaviVC = storyboard.instantiateViewController(withIdentifier: "RegisterVC")
         self.navigationController?.pushViewController(RegisterNaviVC, animated: true)
-        
     }
     @IBAction func emailClear(_ sender: Any) {
         emailTextField.text = ""
@@ -60,7 +63,15 @@ class EmailLoginViewController: UIViewController {
         pwTextField.text = ""
     }
     
-
+    private func modalPresent(type: String){
+        
+        let storyboard = UIStoryboard(name: "PolicyScene", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "PolicyVC") as? PolicyViewController else{return}
+        VC.presentingEmailLoginView = self
+        VC.type = type
+        self.present(VC, animated: true, completion: nil)
+        
+    }
     override func viewDidLoad() {
         configureUI()
         configureNavi()
@@ -77,11 +88,13 @@ class EmailLoginViewController: UIViewController {
         if email.count > 3, password.count > 8 {
             let params = EmailLoginRequest(email: email, password: password)
             emailLoginDataManager.postEmailLogin(params, delegate: self)
-        } //나중에 유효성검사다시
+        }
         
     }
     private func configureUI(){
+        pwTextField.textContentType = .oneTimeCode
 
+        
         self.hideKeyboardWhenTappedBackground()
         view.addSubview(submitButton)
         view.addSubview(naviShadowView)
@@ -121,11 +134,7 @@ class EmailLoginViewController: UIViewController {
 
 extension EmailLoginViewController{
     func successEmailLogin(message: String){
-//        UserDefaults.standard.string(forKey: "jwt")
-//        UserDefaults.standard.string(forKey: "nickName")
-//        UserDefaults.standard.string(forKey: "profilePhotoUrl")
         presentAlert(title: message)
-
         guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
         self.changeRootViewController(MainTabBarController)
     }

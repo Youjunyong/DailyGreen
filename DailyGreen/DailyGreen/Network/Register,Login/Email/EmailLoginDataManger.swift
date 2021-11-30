@@ -20,11 +20,13 @@ class EmailLoginDataManager {
                         guard let jwt = result?.jwt else{return}
                         guard let nickName = result?.nickname else{return}
                         guard let profilePhotoUrl = result?.profilePhotoUrl else{return}
-                        
+                        guard let userIdx = result?.userIdx else{return}
                         
                         UserDefaults.standard.set(jwt, forKey: "jwt")
                         UserDefaults.standard.set("email", forKey: "way")
                         UserDefaults.standard.set(nickName, forKey: "nickName")
+                        UserDefaults.standard.set(userIdx, forKey: "userIdx")
+
                         UserDefaults.standard.set(profilePhotoUrl, forKey: "profilePhotoUrl")
                         delegate.successEmailLogin(message: "로그인 성공")
                         
@@ -33,10 +35,13 @@ class EmailLoginDataManager {
                     // 실패했을 때
                     else {
                         switch response.code {
-                        case 2009: delegate.failedToEmailLogin(message: "엑세스 토큰을 입력해주세요")
+                        case 2041: delegate.failedToEmailLogin(message: "이메일을 입력해주세요.")
+                        case 2042: delegate.failedToEmailLogin(message: "비밀번호를 다시 입력해주세요.")
+                        case 2044: delegate.failedToEmailLogin(message: "이메일을 다시 입력해주세요.")
+                        case 3004: delegate.failedToEmailLogin(message: "비밀번호를 다시 입력해주세요.")
                         case 3007: delegate.failedToEmailLogin(message: "존재하지 않는 계정입니다. 회원가입을 해주세요.")
                         case 4000: delegate.failedToEmailLogin(message: "데이터 베이스 에러")
-                        default: delegate.failedToEmailLogin(message: "code : \(response.code)")
+                        default: delegate.failedToEmailLogin(message: "데이터 베이스 에러")
                         }
                     }
                 case .failure(let error):

@@ -244,7 +244,7 @@ class RegisterProfileViewController: UIViewController {
             
             }
         
-        isSubmitReady()
+        _ = isSubmitReady()
         }
 
 
@@ -279,7 +279,16 @@ class RegisterProfileViewController: UIViewController {
     @objc func removeAlert(){
         dimmingView.removeFromSuperview()
         let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 5 ], animated: false)
+        if kakaoToken != nil {
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 2 ], animated: false)
+
+        }else if appleToken != nil{
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 2 ], animated: false)
+
+        }else{
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 5 ], animated: false)
+
+        }
     }
     
 }
@@ -306,7 +315,7 @@ extension RegisterProfileViewController : UITextViewDelegate {
                 textView.font = UIFont(name: NanumFont.regular, size:15 )
                 textView.textColor = UIColor.lightGray
             }else{
-                isSubmitReady()
+                _ = isSubmitReady()
             }
         }
 

@@ -21,7 +21,7 @@
                         <rect key="frame" x="27" y="135" width="360" height="320"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="플로깅 동료 그린이 찾습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUP-1b-E8u">
-                                <rect key="frame" x="12" y="42" width="194.5" height="20.5"/>
+                                <rect key="frame" x="12" y="42" width="338" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -190,6 +190,7 @@
                             <constraint firstItem="gcY-Vf-xoO" firstAttribute="top" secondItem="gpj-OK-YWD" secondAttribute="bottom" constant="8" id="Y2p-mb-Axd"/>
                             <constraint firstItem="CmX-Wf-bKC" firstAttribute="leading" secondItem="gcY-Vf-xoO" secondAttribute="trailing" constant="8" id="asc-ba-7XV"/>
                             <constraint firstAttribute="trailing" secondItem="oPJ-dB-B84" secondAttribute="trailing" constant="10" id="cja-WN-cTG"/>
+                            <constraint firstAttribute="trailing" secondItem="wUP-1b-E8u" secondAttribute="trailing" constant="10" id="eTD-cZ-Z0h"/>
                             <constraint firstItem="oPJ-dB-B84" firstAttribute="leading" secondItem="cEz-6w-8ZL" secondAttribute="leading" id="fPF-el-YYP"/>
                             <constraint firstItem="cEz-6w-8ZL" firstAttribute="leading" secondItem="gcY-Vf-xoO" secondAttribute="leading" id="mQ2-5H-YjA"/>
                             <constraint firstItem="gpj-OK-YWD" firstAttribute="leading" secondItem="wUP-1b-E8u" secondAttribute="leading" id="mWJ-jF-VQj"/>
