@@ -114,6 +114,8 @@
 		E18C0BCE2747791A0020FA17 /* BookMarkShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18C0BCC2747791A0020FA17 /* BookMarkShopTableViewCell.xib */; };
 		E18C0BD027477B110020FA17 /* BookMarkShopDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C0BCF27477B110020FA17 /* BookMarkShopDataManager.swift */; };
 		E18C0BD227477B1C0020FA17 /* BookMarkShopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C0BD127477B1C0020FA17 /* BookMarkShopResponse.swift */; };
+		E18E25C027572C0200A30A08 /* @ParticipateMeetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18E25BF27572C0200A30A08 /* @ParticipateMeetDataManager.swift */; };
+		E18E25C227572C0A00A30A08 /* @ParticipateMeetCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18E25C127572C0A00A30A08 /* @ParticipateMeetCodable.swift */; };
 		E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */; };
 		E19F5353274140B700B3A28D /* MeetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5352274140B700B3A28D /* MeetDataManager.swift */; };
 		E19F5355274140C600B3A28D /* MeetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5354274140C600B3A28D /* MeetResponse.swift */; };
@@ -301,6 +303,8 @@
 		E18C0BCC2747791A0020FA17 /* BookMarkShopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookMarkShopTableViewCell.xib; sourceTree = "<group>"; };
 		E18C0BCF27477B110020FA17 /* BookMarkShopDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkShopDataManager.swift; sourceTree = "<group>"; };
 		E18C0BD127477B1C0020FA17 /* BookMarkShopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkShopResponse.swift; sourceTree = "<group>"; };
+		E18E25BF27572C0200A30A08 /* @ParticipateMeetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "@ParticipateMeetDataManager.swift"; sourceTree = "<group>"; };
+		E18E25C127572C0A00A30A08 /* @ParticipateMeetCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "@ParticipateMeetCodable.swift"; sourceTree = "<group>"; };
 		E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		E19F5352274140B700B3A28D /* MeetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetDataManager.swift; sourceTree = "<group>"; };
 		E19F5354274140C600B3A28D /* MeetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetResponse.swift; sourceTree = "<group>"; };
@@ -823,6 +827,15 @@
 			path = "Register,Login";
 			sourceTree = "<group>";
 		};
+		E18E25BE27572BF300A30A08 /* ParicipateMeet */ = {
+			isa = PBXGroup;
+			children = (
+				E18E25BF27572C0200A30A08 /* @ParticipateMeetDataManager.swift */,
+				E18E25C127572C0A00A30A08 /* @ParticipateMeetCodable.swift */,
+			);
+			path = ParicipateMeet;
+			sourceTree = "<group>";
+		};
 		E19D4E9D2732B12C0024B6FE /* RegisterScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +854,7 @@
 		E19F53512741409700B3A28D /* Meet */ = {
 			isa = PBXGroup;
 			children = (
+				E18E25BE27572BF300A30A08 /* ParicipateMeet */,
 				E1C4D4CB2750FAE8003CA961 /* Detail */,
 				E19F5352274140B700B3A28D /* MeetDataManager.swift */,
 				E19F5354274140C600B3A28D /* MeetResponse.swift */,
@@ -1398,6 +1412,7 @@
 				E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */,
 				E14ED304273A31EC00CCBCED /* CommunityListResponse.swift in Sources */,
 				E18C0BBD274757CF0020FA17 /* ShopDetailViewController.swift in Sources */,
+				E18E25C027572C0200A30A08 /* @ParticipateMeetDataManager.swift in Sources */,
 				E1C4D4C12750E022003CA961 /* WriteMeetCodable.swift in Sources */,
 				E1D2038E274B4E660098ADB7 /* MyPageViewController.swift in Sources */,
 				E1362C47273451D90045C9EE /* RegisterPhoneViewController.swift in Sources */,
@@ -1422,6 +1437,7 @@
 				E12838EE27426BD600F1E259 /* CancelCommunityDataManager.swift in Sources */,
 				E1BAECA727487D62008882FA /* EmailLoginDataManger.swift in Sources */,
 				E143222B272FC61B0028DAE4 /* OnboardViewController.swift in Sources */,
+				E18E25C227572C0A00A30A08 /* @ParticipateMeetCodable.swift in Sources */,
 				E1E94504273261A50047ABA8 /* ModalHeaderView.swift in Sources */,
 				E1534ECC2746177B00E1FA01 /* FeedCollectionViewCell.swift in Sources */,
 				E12838F72742798500F1E259 /* EntireShopViewController.swift in Sources */,

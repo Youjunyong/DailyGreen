@@ -16,7 +16,8 @@ struct MyPageGetResponse: Decodable {
 
 struct InfoResult: Decodable{
     var myInfo: MyInfo
-    var participatingInfo: [ParticipatingInfo]
+    var participatingInfo: [ParticipatingInfo?]
+    var createdInfo: [CreatedInfo?]
 }
 
 struct MyInfo: Decodable{
@@ -39,6 +40,17 @@ struct ParticipatingInfo: Decodable {
     var Dday : Int
     
 }
+
+struct CreatedInfo: Decodable{
+    var idx: Int?
+    var type: String?
+    var name: String?
+    var when: String?
+    var locationDetail: Int?
+}
+
+
+
 
 //isSuccess    boolean
 //code    int

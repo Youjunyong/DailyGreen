@@ -19,6 +19,12 @@ class MyPageViewController: UIViewController{
 //    var participationCnt: Int?
 //    var profilePhotoUrl: String?
     
+    
+    
+    
+    
+
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var gaugeFrameView: UIView!
     
@@ -71,15 +77,21 @@ class MyPageViewController: UIViewController{
         }
         
         
-        if self.userIdx != nil {
-            myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
-
-        }
+        
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if self.userIdx != nil {
+            myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
+        }
+        
+        if CommunityData.shared.subscribedList.count < 5{
+            collectionViewHeightConstraint.constant = 80
+        }else{
+            collectionViewHeightConstraint.constant = 170
+        }
         collectionView.reloadData()
     }
     private func configureTableView(){
@@ -94,6 +106,8 @@ class MyPageViewController: UIViewController{
         collectionView.dataSource = self
         let nib = UINib(nibName: "CommunityListCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "CommunityListCell")
+        
+  
         
     }
     private func configureUI(){
@@ -212,25 +226,40 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
 extension MyPageViewController{
     func didSuccessGet(message: String, results: InfoResult){
         let myInfo = results.myInfo
+        let createdInfo = results.createdInfo
         let participatingInfo = results.participatingInfo
+        
+        
         scoreBadgeLabel.text = "\(myInfo.badgeCnt)회"
         scoreFeedLabel.text = "\(myInfo.createdPostCnt)회"
         scoreWorkshopLabel.text = "\(myInfo.participationCnt)회"
         lvLabel.text = "Lv.\(myInfo.exp / 1000 + 1) "
         lvGaugeSet(exp: myInfo.exp)
         profileImage.load(strUrl: myInfo.profilePhotoUrl)
-        print(myInfo.profilePhotoUrl)
+        
         gaugeVIew.setGradient(color1: .grayGreen, color2: .dark2)
         bioLabel.text = myInfo.bio
-        print(myInfo.exp)
         
-        
-        
-//        badgeCnt = myInfo.badgeCnt
-//        createdPostCnt = myInfo.createdPostCnt
-//        nickname =  myInfo.nicknamex
+        print("@@@@@@@@@@@@@@")
+        for createdInfo in createdInfo {
+            print("###############")
+            print(createdInfo?.name)
+        }
 
-        
+//        ㄴcreatedInfo    array<object>
+//            ㄴidx    int
+//            ㄴtype    String
+//            ㄴname    String
+//            ㄴwhen    String
+//            ㄴlocationDetail    String
+//            ㄴDday    int
+//        ㄴparticipatingInfo    object
+//            ㄴidx    int
+//            ㄴtype    String
+//            ㄴname    String
+//            ㄴwhen    String
+//            ㄴlocationDetail    String
+//            ㄴDday    int
         
         
         

@@ -25,16 +25,16 @@ class ShopDetailViewController: UIViewController {
     @IBOutlet weak var shopNameLabel: UILabel!
     @IBOutlet weak var nickNameLabel: UILabel!
     
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var likeButtonImageView: UIImageView!
-    
-    @IBAction func likeShop(_ sender: Any) {
-        if likeButtonImageView.image == UIImage(named: "wheart"){
-            likeButtonImageView.image = UIImage(named: "wheartFill")
-        }else{
-            likeButtonImageView.image = UIImage(named: "wheart")
-        }
-    }
+//    @IBOutlet weak var likeButton: UIButton!
+//    @IBOutlet weak var likeButtonImageView: UIImageView!
+//
+//    @IBAction func likeShop(_ sender: Any) {
+//        if likeButtonImageView.image == UIImage(named: "wheart"){
+//            likeButtonImageView.image = UIImage(named: "wheartFill")
+//        }else{
+//            likeButtonImageView.image = UIImage(named: "wheart")
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +59,8 @@ class ShopDetailViewController: UIViewController {
     
 
     private func configureUI(){
-        likeButton.setTitle("", for: .normal)
-        likeButtonImageView.image = UIImage(named: "wheart")
+//        likeButton.setTitle("", for: .normal)
+//        likeButtonImageView.image = UIImage(named: "wheart")
         profileImageView.layer.cornerRadius = 24
         profileImageView.contentMode = .scaleAspectFill
         nickNameLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)

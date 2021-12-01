@@ -980,6 +980,7 @@
                         <outlet property="bioLabel" destination="Vnl-qa-kWn" id="VnC-VW-xxF"/>
                         <outlet property="bioTitleLabel" destination="gxd-aQ-OFu" id="Fc4-gV-k8a"/>
                         <outlet property="collectionView" destination="5LZ-fi-adm" id="pgH-hu-YkC"/>
+                        <outlet property="collectionViewHeightConstraint" destination="gZ6-5V-I1G" id="Gb6-uo-wdk"/>
                         <outlet property="communityTitleLabel" destination="kZJ-h2-pTy" id="XWW-dc-vIM"/>
                         <outlet property="divideView1" destination="xNO-gn-ptq" id="q5r-4L-l2X"/>
                         <outlet property="divideView2" destination="kdb-C5-Ntw" id="WRR-KJ-o9F"/>

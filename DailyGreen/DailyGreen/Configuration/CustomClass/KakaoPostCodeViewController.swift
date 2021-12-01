@@ -56,18 +56,22 @@ class KakaoPostCodeViewController: UIViewController {
 
     private func setContraints() {
         guard let webView = webView else { return }
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(webView)
         view.addSubview(cancelButton)
-        webView.translatesAutoresizingMaskIntoConstraints = false
         webView.addSubview(indicator)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             
             webView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40) ,
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            
+            
+           
             cancelButton.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -70),
             cancelButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -75,6 +79,7 @@ class KakaoPostCodeViewController: UIViewController {
             
             indicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor),
             indicator.centerYAnchor.constraint(equalTo: webView.centerYAnchor),
+            
         ])
     }
     @objc func cancel(_ sender: UIButton){
