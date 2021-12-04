@@ -12,7 +12,7 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     
     
     var naviTitle = "상점 보기"
-    
+    var child1 : EntireShopViewController?
     let naviShadow: UIView = {
        let view = UIView()
         view.backgroundColor = .dark1
@@ -26,11 +26,35 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     
     @IBOutlet weak var pagerBarDivideView: UIView!
     @IBOutlet weak var searchButton: UIButton!
+    
+    @IBOutlet weak var searchKeywordTextField: UITextField!
+    
+    @IBAction func search(_ sender: Any) {
+
+        if currentIndex == 0{
+            if searchKeywordTextField.text!.count == 0 {
+                presentAlert(title: "검색 키워드를 입력해주세요")
+                return
+            }
+            child1?.search(keyword: searchKeywordTextField.text!)
+        }else{
+            if searchKeywordTextField.text!.count == 0 {
+                presentAlert(title: "검색 키워드를 입력해주세요")
+                return
+            }
+            moveTo(viewController: child1!)
+            child1?.search(keyword: searchKeywordTextField.text!)
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
         configurePager()
         super.viewDidLoad()
         configureNavi()
         configureSearchBar()
+        hideKeyboardWhenTappedBackground()
     }
     
     
@@ -60,9 +84,9 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
         pagerBarDivideView.backgroundColor = .dark2
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
-        settings.style.selectedBarBackgroundColor = UIColor.primary
+        settings.style.selectedBarBackgroundColor = UIColor.PagerIndicator
         settings.style.buttonBarItemFont = UIFont(name: NanumFont.bold, size: 16)!
-        settings.style.selectedBarHeight = 2
+        settings.style.selectedBarHeight = 3
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemTitleColor = .black
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
@@ -82,6 +106,8 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
 
         let child1 = UIStoryboard.init(name: "ShopPagerTabbar", bundle: nil).instantiateViewController(withIdentifier: "EntireShopVC") as! EntireShopViewController
+        child1.delegate = self
+        self.child1 = child1
         child1.childNumber = "전체"
         let child2 = UIStoryboard.init(name: "ShopPagerTabbar", bundle: nil).instantiateViewController(withIdentifier: "BookMarkShopVC") as! BookMarkShopViewController
         child2.childNumber = "관심상점"

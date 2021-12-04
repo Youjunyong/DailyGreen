@@ -46,12 +46,15 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var emailLoginLabel: UILabel!
     // MARK: - 카카오 계정 로그인
     @IBAction func kakaoLogin(_ sender: Any) {
+        print(#function)
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
                 if let error = error {
+                    print("error")
                 }
                 else {
                     let token = oauthToken?.accessToken
+                    print("카카오토큰:", token)
                     self.isHaveKakaoToken()
                 }
             }
@@ -118,10 +121,10 @@ class LoginViewController: UIViewController{
                         //로그인 필요
                         print("In LoginVC (kakao) : 로그인 필요")
                     }
-//                    else {
-//                        //기타 에러
-//                        print("In LoginVC (kakao) : 기타 에러")
-//                    }
+                    else {
+                        //기타 에러
+                        print("In LoginVC (kakao) : 기타 에러")
+                    }
                 }
                 else {
                     //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
@@ -197,10 +200,8 @@ class LoginViewController: UIViewController{
                 let identityToken = appleIDCredential.identityToken,
                 let authString = String(data: authorizationCode, encoding: .utf8),
                 let tokenString = String(data: identityToken, encoding: .utf8){
-                
-                let params = AppleLoginRequest(accessToken: authString)
+                let params = AppleLoginRequest(accessToken: authString) 
                 appleLoginDataManager.postAppleLogin(params, delegate: self)
-                self.appleToken = authString
             }
      
         case let passwordCredential as ASPasswordCredential:
@@ -216,6 +217,12 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
+    // 실패 후 동작
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("error")
+    }
+    
+    
 }
 extension LoginViewController {
     
@@ -234,14 +241,13 @@ extension LoginViewController {
     
     func failedToKakaoLogin(message: String){
         modalPresent(type: "kakao")
-
     }
     
     
     func failedToAppleLogin(message: String, appleToken: String){
+        print(appleToken)
+        self.appleToken = appleToken
         modalPresent(type: "apple")
-        
-        
     }
 }
 

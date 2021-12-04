@@ -25,7 +25,7 @@ class MeetDataManager {
                     if response.isSuccess  {
                         let results = response.result
 //                        print(results)
-                        delegate.didSuccessGet(message: "성공", results: results)
+                        delegate.didSuccessGet(message: "성공", results: results, keyword: nil)
                     }
 
                     else {

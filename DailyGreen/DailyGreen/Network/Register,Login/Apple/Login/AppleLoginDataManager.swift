@@ -32,12 +32,14 @@ class AppleLoginDataManager {
                         delegate.successAppleLogin(message: response.message)
                         
                         
+                        
+                        
                     }
                     // 실패했을 때
                     else {
                         switch response.code {
 
-                        case 3007: delegate.failedToAppleLogin(message: "존재하지 않는 계정입니다. 회원가입을 해주세요." , appleToken: parameters.accessToken)
+                        case 3007: delegate.failedToAppleLogin(message: "존재하지 않는 계정입니다. 회원가입을 해주세요." , appleToken: response.email ?? "")
                         case 4000: delegate.failedToAppleLogin(message: "데이터 베이스 에러",appleToken: parameters.accessToken)
                         default: delegate.failedToAppleLogin(message: "code : \(response.code)",appleToken: parameters.accessToken)
                         }
@@ -45,7 +47,7 @@ class AppleLoginDataManager {
                 case .failure(let error):
                     print(error.localizedDescription)
                     print(String(describing: error))
-
+                    
 //                    delegate.failedToAppleLogin(message: "서버와의 연결이 원활하지 않습니다")
                 }
             }

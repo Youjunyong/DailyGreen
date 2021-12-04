@@ -45,7 +45,5 @@
 	</dict>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDarkContent</string>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>ko_KR</string>
 </dict>
 </plist>

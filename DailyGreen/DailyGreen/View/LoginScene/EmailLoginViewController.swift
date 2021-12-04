@@ -11,17 +11,7 @@ class EmailLoginViewController: UIViewController {
     
     lazy var emailLoginDataManager = EmailLoginDataManager()
     
-    let submitButton: UIButton = {
-        let btn = UIButton()
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("완료", for: .normal)
-        btn.setTitleColor(.black, for: .normal)
-        btn.titleLabel?.font = UIFont(name: NanumFont.extraBold, size: 17.0)
-        btn.backgroundColor = UIColor.primary
-        btn.layer.cornerRadius = 24
-        
-        return btn
-    }()
+ 
     
     let naviShadowView : UIView = {
         let view = UIView()
@@ -42,8 +32,11 @@ class EmailLoginViewController: UIViewController {
     @IBOutlet weak var emailDeleteButton: UIButton!
     
     @IBOutlet weak var registerLabel: UILabel!
-    @IBOutlet weak var footerDivideView: UIView!
     
+    @IBOutlet weak var loginButtonLabel: UILabel!
+    @IBOutlet weak var registerUnderView: UIView!
+    
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
     @IBAction func register(_ sender: Any) {
@@ -81,7 +74,8 @@ class EmailLoginViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
     
-    @objc func submitEmailLogin(_ sender: UIButton){
+    
+    @IBAction func submitEmailLogin(_ sender: Any) {
         let email = emailTextField.text ?? ""
         let password = pwTextField.text ?? ""
         
@@ -89,23 +83,20 @@ class EmailLoginViewController: UIViewController {
             let params = EmailLoginRequest(email: email, password: password)
             emailLoginDataManager.postEmailLogin(params, delegate: self)
         }
-        
     }
+    
+
     private func configureUI(){
+        loginButton.setTitle("", for: .normal)
         pwTextField.textContentType = .oneTimeCode
-
+        registerUnderView.backgroundColor = .dark2
         
+        loginButtonLabel.font = UIFont(name: NanumFont.extraBold, size: 17)
         self.hideKeyboardWhenTappedBackground()
-        view.addSubview(submitButton)
+        
         view.addSubview(naviShadowView)
-        submitButton.addTarget(self, action: #selector(submitEmailLogin(_:)), for: .touchUpInside)
+  
         NSLayoutConstraint.activate([
-
-            submitButton.heightAnchor.constraint(equalToConstant: 48),
-            submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
-            submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
             naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
             naviShadowView.heightAnchor.constraint(equalToConstant: 1),
             naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -119,11 +110,11 @@ class EmailLoginViewController: UIViewController {
         emailDivideView.backgroundColor = .dark2
         pwDivideView.backgroundColor = .dark2
         
-        footerDivideView.backgroundColor = .dark1
+        
 
         
         registerLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
-        registerLabel.text = "회원가입"
+        registerLabel.text = "이메일로 회원가입"
         registerButton.setTitle("", for: .normal)
         registerLabel.textColor = UIColor.dark2
     }

@@ -10,7 +10,6 @@ import UIKit
 class PersonalnfoUpdateViewController : UIViewController{
     
     let menuList = ["프로필 변경",
-                    "비밀번호 변경",
                     "로그아웃 혹은 회원탈퇴"
                     ]
     
@@ -22,7 +21,6 @@ class PersonalnfoUpdateViewController : UIViewController{
         self.navigationItem.title = "개인정보 변경"
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
-        
     }
     private func configureTableView(){
         tableView.delegate = self
@@ -31,25 +29,28 @@ class PersonalnfoUpdateViewController : UIViewController{
         let nib = UINib(nibName: "SettingTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
     }
-    
-    
 }
 
 extension PersonalnfoUpdateViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return menuList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SettingTableViewCell else{return UITableViewCell()}
         cell.titleLabel.text = menuList[indexPath.row]
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         switch indexPath.row {
-        case 2:
+        case 0:
+            let storyboard = UIStoryboard(name: "Register", bundle: nil)
+            guard let profileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{break}
+            profileVC.isUpdateProfileMode = true
+            profileVC.modalPresentationStyle = .fullScreen
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        case 1:
             guard let LogoutSignOutVC = self.storyboard?.instantiateViewController(withIdentifier: "LogoutSIgnOutVC") as? LogoutSignOutViewController else{return indexPath}
             self.navigationController?.pushViewController( LogoutSignOutVC, animated: true)
         default:

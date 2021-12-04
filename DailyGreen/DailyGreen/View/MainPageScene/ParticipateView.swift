@@ -35,13 +35,23 @@ class ParticipateView: UIView {
     
     let communityImageView: UIImageView  = {
         let view = UIImageView()
-        view.layer.cornerRadius = 97
-        view.layer.borderColor = UIColor.black.cgColor
-        view.layer.borderWidth = 2
+//        view.layer.cornerRadius = 72
+//        view.layer.borderColor = UIColor.black.cgColor
+//        view.layer.borderWidth = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
         
     }()
+    
+    let imageFrameView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints  = false
+        view.layer.cornerRadius = 87
+        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.borderWidth = 2
+        return view
+    }()
+ 
     
     let dismissBtn: UIButton = {
         let btn = UIButton()
@@ -56,7 +66,10 @@ class ParticipateView: UIView {
     
     let profileImageView1: UIImageView = {
         let v = UIImageView()
-        
+        v.layer.cornerRadius = 10
+        v.layer.borderWidth = 1
+        v.layer.borderColor = UIColor.clear.cgColor
+        v.clipsToBounds = true
         v.translatesAutoresizingMaskIntoConstraints = false
 
         
@@ -64,6 +77,10 @@ class ParticipateView: UIView {
     }()
     let profileImageView2: UIImageView = {
         let v = UIImageView()
+        v.layer.cornerRadius = 10
+        v.layer.borderWidth = 1
+        v.layer.borderColor = UIColor.clear.cgColor
+        v.clipsToBounds = true
         v.translatesAutoresizingMaskIntoConstraints = false
 
         
@@ -72,6 +89,10 @@ class ParticipateView: UIView {
     }()
     let profileImageView3: UIImageView = {
         let v = UIImageView()
+        v.layer.cornerRadius = 10
+        v.layer.borderWidth = 1
+        v.layer.borderColor = UIColor.clear.cgColor
+        v.clipsToBounds = true
         v.translatesAutoresizingMaskIntoConstraints = false
 
         
@@ -121,6 +142,7 @@ class ParticipateView: UIView {
         addSubview(titleLabel)
         addSubview(subTitleLabel)
         addSubview(communityImageView)
+        addSubview(imageFrameView)
         addSubview(profileImageView1)
         addSubview(profileImageView2)
         addSubview(profileImageView3)
@@ -147,17 +169,22 @@ class ParticipateView: UIView {
             titleLabel.topAnchor.constraint(equalTo: frameView.topAnchor, constant: 24),
             titleLabel.trailingAnchor.constraint(equalTo: dismissBtn.leadingAnchor),
             
-            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 11),
             subTitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             subTitleLabel.trailingAnchor.constraint(equalTo: frameView.trailingAnchor, constant: -24),
             
             communityImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            communityImageView.topAnchor.constraint(equalTo: frameView.topAnchor, constant: 120),
-            communityImageView.widthAnchor.constraint(equalToConstant: 194),
-            communityImageView.heightAnchor.constraint(equalToConstant: 194),
+            communityImageView.topAnchor.constraint(equalTo: frameView.topAnchor, constant: 140),
+            communityImageView.widthAnchor.constraint(equalToConstant: 144),
+            communityImageView.heightAnchor.constraint(equalToConstant: 144),
+            
+            imageFrameView.centerXAnchor.constraint(equalTo: communityImageView.centerXAnchor),
+            imageFrameView.centerYAnchor.constraint(equalTo: communityImageView.centerYAnchor),
+            imageFrameView.widthAnchor.constraint(equalToConstant: 174),
+            imageFrameView.heightAnchor.constraint(equalToConstant: 174),
             
             profileImageView1.leadingAnchor.constraint(equalTo: frameView.leadingAnchor, constant: 58),
-            profileImageView1.topAnchor.constraint(equalTo: communityImageView.bottomAnchor, constant: 20),
+            profileImageView1.topAnchor.constraint(equalTo: communityImageView.bottomAnchor, constant: 60),
             profileImageView1.widthAnchor.constraint(equalToConstant: 20),
             profileImageView1.heightAnchor.constraint(equalToConstant: 20),
             

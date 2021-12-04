@@ -33,4 +33,6 @@ extension UIColor {
     class var dimming: UIColor { UIColor(hex: 0x252525 , alpha: 0.78)}
     class var dimmingView: UIColor { UIColor(hex: 0x252525 , alpha: 0.2)}
     class var grayStroke: UIColor { UIColor(hex: 0x1cc554 , alpha: 0.44)}
+    class var PagerIndicator: UIColor { UIColor(hex: 0x1CC554 ,alpha: 0.68 ) }
+
 }

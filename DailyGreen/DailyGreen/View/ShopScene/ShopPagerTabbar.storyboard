@@ -79,6 +79,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="icSearch"/>
+                                                <connections>
+                                                    <action selector="search:" destination="sbb-fU-nb2" eventType="touchUpInside" id="lDq-hG-8Vh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -131,6 +134,7 @@
                         <outlet property="pagerBarDivideView" destination="7cb-qR-n2D" id="hPa-Co-BNn"/>
                         <outlet property="searchButton" destination="tP0-1B-Nd1" id="oRY-Ax-A1a"/>
                         <outlet property="searchContentView" destination="XAH-5A-Hza" id="8d2-Wo-Wbu"/>
+                        <outlet property="searchKeywordTextField" destination="uHM-Yo-c1T" id="VsL-7Z-j12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CX8-XG-XhX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -37,10 +37,5 @@ class CancelCommunityDataManager {
             }
     }
     
-    
-
-    
-    
-    
 }
     

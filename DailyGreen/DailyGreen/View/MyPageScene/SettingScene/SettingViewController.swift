@@ -11,8 +11,8 @@ class SettingViewController: UIViewController {
     
     let menuList = ["개인정보 변경",
                     "문의하기, 신고하기",
-                    "개발자, 디자이너 정보"
-                    ]
+                    "개인정보 처리방침",
+                    "서비스 이용약관"]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,7 +37,7 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return menuList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

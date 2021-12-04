@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "dummyIcoimg.png",
+      "filename" : "emptyButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "dummyIcoimg@2x.png",
+      "filename" : "emptyButton@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "dummyIcoimg@3x.png",
+      "filename" : "emptyButton@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -17,6 +17,8 @@ class RegisterProfileViewController: UIViewController {
     var email: String?
     var password: String?
     
+    var isUpdateProfileMode = false
+    
     @IBOutlet weak var profileCircleButtonView: UIImageView!
     let imagePickerController = UIImagePickerController()
     var whiteViewConstraint:[NSLayoutConstraint] = []
@@ -25,6 +27,7 @@ class RegisterProfileViewController: UIViewController {
     lazy var appleRegisterDataManager = AppleRegisterDataManager()
     lazy var KRegisterDataManager = KakaoRegisterDataManager()
     lazy var emailRegisterDataManger = EmailRegisterDataManager()
+    lazy var profileUpdateDataManager = ProfileUpdateDataManager()
     
     let whiteView: UIView = {
        let view = UIView()
@@ -89,9 +92,28 @@ class RegisterProfileViewController: UIViewController {
         textViewPlaceholderSetting()
         configureTargetAction()
         imagePickerController.delegate = self
+        if isUpdateProfileMode {
+            updateProfileMode()
+        }
     }
     
 
+    func updateProfileMode(){
+        self.title = "프로필 수정"
+        guard let profileUrl = UserDefaults.standard.string(forKey: "profilePhotoUrl") else{return}
+        
+        profileImageView.load(strUrl: profileUrl)
+        profileImageView.isHidden = false
+        profileCircleButtonView.isHidden = true
+        nickNameTextField.text = UserDefaults.standard.string(forKey: "nickName")
+        nickNameTextField.isEnabled = false
+        nickNameInfoLabel.text = "닉네임은 변경이 불가합니다."
+        nickNameCheckButton.isHidden = true
+        textView.text = UserDefaults.standard.string(forKey: "bio")
+        submitButton.backgroundColor = .primary
+        submitButton.titleLabel?.textColor = UIColor.black
+        
+    }
     
     private func configureUI(){
         view.addSubview(submitButton)
@@ -161,6 +183,16 @@ class RegisterProfileViewController: UIViewController {
     @objc private func submit(_: UIButton){
         let nickName = nickNameTextField.text!
         let bio = textView.text!
+        
+        if isUpdateProfileMode {
+            let image = profileImageView.image
+            guard let data = image?.jpegData(compressionQuality: 0.1) else{return}
+            let parameters = [
+                "bio" : bio
+            ]
+            profileUpdateDataManager.patchProfileUpdate(image: data, params: parameters, delegate: self)
+            return
+        }
 
         if profileImageView.image != nil , submitButton.backgroundColor == .primary{
             let image = profileImageView.image
@@ -176,7 +208,7 @@ class RegisterProfileViewController: UIViewController {
                 let parameters = [
                     "nickname": nickName,
                     "bio" : bio,
-                    "accessToken" : kakaoToken
+                    "accessToken" : appleToken!
                 ]
                 appleRegisterDataManager.upload(image: data, params: parameters, delegate: self)
                 
@@ -217,14 +249,18 @@ class RegisterProfileViewController: UIViewController {
             return
         }
         
+        if self.view.frame.origin.y != 0.0{
+            return
+        }
+        
         if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             whiteViewConstraint.append(whiteView.topAnchor.constraint(equalTo: view.topAnchor, constant: keyboardHeight))
             NSLayoutConstraint.activate(whiteViewConstraint)
             whiteView.isHidden = false
-            self.view.frame.origin.y -= keyboardHeight
-            print(self.view.frame.origin.y)
+            self.view.frame.origin.y -= 100
+            
             }
         }
     // 키보드가 사라졌다는 알림을 받으면 실행할 메서드
@@ -240,7 +276,7 @@ class RegisterProfileViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             whiteView.isHidden = true
-            self.view.frame.origin.y += keyboardHeight
+            self.view.frame.origin.y += 100
             
             }
         
@@ -263,7 +299,12 @@ class RegisterProfileViewController: UIViewController {
     }
     private func presentDimmingView(){
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
-        dimmingView.alretText = "회원가입을 축하합니다."
+        if isUpdateProfileMode{
+            dimmingView.alretText = "수정이 완료되었습니다."
+        }else{
+            dimmingView.alretText = "회원가입을 축하합니다."
+        }
+        
         view.addSubview(dimmingView)
         NSLayoutConstraint.activate([
             dimmingView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -279,6 +320,11 @@ class RegisterProfileViewController: UIViewController {
     @objc func removeAlert(){
         dimmingView.removeFromSuperview()
         let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+
+        if isUpdateProfileMode{
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 4 ], animated: false)
+            return
+        }
         if kakaoToken != nil {
             self.navigationController?.popToViewController(viewControllers[viewControllers.count - 2 ], animated: false)
 

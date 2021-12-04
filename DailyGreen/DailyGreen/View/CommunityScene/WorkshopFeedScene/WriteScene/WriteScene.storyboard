@@ -13,7 +13,7 @@
         <!--Write Step1 View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="writeVC" hidesBottomBarWhenPushed="YES" id="Y6W-OH-hqX" customClass="WriteStep1ViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="writeVC" id="Y6W-OH-hqX" customClass="WriteStep1ViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,7 +282,7 @@
         <!--Write Feed View Controller-->
         <scene sceneID="n3g-Uj-mm9">
             <objects>
-                <viewController storyboardIdentifier="WriteFeedVC" hidesBottomBarWhenPushed="YES" id="k53-kq-phQ" customClass="WriteFeedViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteFeedVC" id="k53-kq-phQ" customClass="WriteFeedViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kar-z4-g2G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -425,7 +425,7 @@
         <!--Write Meet View Controller-->
         <scene sceneID="vxo-qL-kvz">
             <objects>
-                <viewController storyboardIdentifier="WriteMeetVC" hidesBottomBarWhenPushed="YES" id="KKz-eT-TZ2" customClass="WriteMeetViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteMeetVC" id="KKz-eT-TZ2" customClass="WriteMeetViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sra-MF-Ix5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -930,6 +930,7 @@
                         <outlet property="titleLabelUnderView" destination="D85-21-Acw" id="7T7-TA-GDq"/>
                         <outlet property="titleTextField" destination="OZe-JT-Txh" id="Zyb-as-Ba7"/>
                         <outlet property="titleTextFieldUnderView" destination="qL4-vO-FGv" id="EHA-ky-YwX"/>
+                        <outlet property="wonLabel" destination="sQL-6i-sAv" id="HTo-ca-iza"/>
                         <outlet property="writeTextView" destination="Nef-yd-Lqg" id="Btu-Fq-bhK"/>
                     </connections>
                 </viewController>

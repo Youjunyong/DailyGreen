@@ -9,21 +9,37 @@ import UIKit
 
 class MyPageViewController: UIViewController{
     
-    
+    lazy var dimmingView = DimmingView()
     lazy var myPageGetDataManager = MyPageGetDataManager()
+    lazy var deleteMeetDataManager = DeleteMeetDataManager()
+    
+    var isNotFirst = false
     var userIdx: Int?
-//    var badgeCnt : Int?
-//    var createdPostCnt : Int?
-//    var nickname : String?
-//    var exp: Int?
-//    var participationCnt: Int?
-//    var profilePhotoUrl: String?
     
+    var divideIdx: Int?
     
+    var cInfoLocationDetail = [String]()
+    var cInfoIdx = [Int]()
+    var cInfoWhen = [String]()
+    var cInfoName = [String]()
+    var cInfoType = [String]()
     
+    var pInfoLocationDetail = [String]()
+    var pInfoIdx = [Int]()
+    var pInfoWhen = [String]()
+    var pInfoName = [String]()
+    var pInfoType = [String]()
     
+    var didInit = true
     
+    @IBOutlet weak var historyButton: UIButton!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var postHistoryLabel: UILabel!
 
+    @IBOutlet weak var allPostedLabel: UILabel!
+    
+    @IBOutlet weak var createdEventLabel: UILabel!
+    
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var gaugeFrameView: UIView!
@@ -40,6 +56,7 @@ class MyPageViewController: UIViewController{
     
     @IBOutlet weak var divideView2: UIView!
     @IBOutlet weak var divideView3: UIView!
+    @IBOutlet weak var devideView4: UIView!
     @IBOutlet weak var bioTitleLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     
@@ -53,6 +70,14 @@ class MyPageViewController: UIViewController{
     
     @IBOutlet weak var scoreBadgeLabel: UILabel!
     
+    @IBOutlet weak var devideView6: UIView!
+    
+    
+    
+    @IBAction func history(_ sender: Any) {
+        
+        
+    }
     
     @IBAction func settingTouched(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SettingScene", bundle: nil)
@@ -71,22 +96,18 @@ class MyPageViewController: UIViewController{
         title = "나의 계정"
         configureUI()
         configureCollectionView()
-        configureTableView()
         if userIdx == nil {
             self.userIdx = UserDefaults.standard.integer(forKey: "userIdx")
         }
-        
-        
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("뷰윌어피어")
         super.viewWillAppear(true)
         if self.userIdx != nil {
             myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
+            print("VIEWWILLAPPEAR")
         }
-        
         if CommunityData.shared.subscribedList.count < 5{
             collectionViewHeightConstraint.constant = 80
         }else{
@@ -111,14 +132,15 @@ class MyPageViewController: UIViewController{
         
     }
     private func configureUI(){
-        
-        
+        postHistoryLabel.font = UIFont(name: NanumFont.regular, size: 17)
+        historyButton.setTitle("", for: .normal)
+        allPostedLabel.font = UIFont(name: NanumFont.bold, size: 20)
+        allPostedLabel.text = "게시글 히스토리"
+        devideView4.backgroundColor = .dark1
+        createdEventLabel.font = UIFont(name: NanumFont.bold, size: 20)
         profileImage.layer.cornerRadius = 53
         profileImage.contentMode = .scaleAspectFill
-//        let url = UserDefaults.standard.string(forKey: "profilePhotoUrl")
-//        profileImage.load(strUrl: url!)
         lineSpace()
-        
         lvView.layer.cornerRadius = 14
         lvView.layer.borderWidth = 1
         lvView.layer.borderColor = UIColor.dark2.cgColor
@@ -131,9 +153,10 @@ class MyPageViewController: UIViewController{
         
         levelGaugeLabel.font = UIFont(name: NanumFont.regular , size: 13)
         
-        divideView1.backgroundColor = .dark2
-        divideView2.backgroundColor = .dark2
-        divideView3.backgroundColor = .dark2
+        divideView1.backgroundColor = .dark1
+        divideView2.backgroundColor = .dark1
+        divideView3.backgroundColor = .dark1
+        devideView6.backgroundColor = .dark2
         
         bioTitleLabel.font = UIFont(name: NanumFont.bold, size: 20)
         communityTitleLabel.font = UIFont(name: NanumFont.bold, size: 20)
@@ -146,11 +169,12 @@ class MyPageViewController: UIViewController{
         scoreBadgeLabel.textColor = .dark2
         scoreWorkshopLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         scoreWorkshopLabel.textColor = .dark2
-        
-
-        
     }
+    
     private func lvGaugeSet(exp : Int){
+        if isNotFirst{return}
+        self.isNotFirst = true
+        
         lazy var whiteView: UIView = {
             let view = UIView()
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -158,7 +182,8 @@ class MyPageViewController: UIViewController{
             return view
         }()
         let entireWidth = gaugeVIew.frame.width
-        let proportion = CGFloat(exp) / CGFloat(1000)
+        let proportion = (CGFloat(exp).truncatingRemainder(dividingBy: 1000)) / CGFloat(1000)
+        
         view.addSubview(whiteView)
         NSLayoutConstraint.activate([
             whiteView.trailingAnchor.constraint(equalTo: gaugeVIew.trailingAnchor),
@@ -166,11 +191,8 @@ class MyPageViewController: UIViewController{
             whiteView.heightAnchor.constraint(equalTo: gaugeVIew.heightAnchor),
             whiteView.widthAnchor.constraint(equalToConstant: entireWidth - (entireWidth * proportion) )
         ])
-        
-        
-        
-        
     }
+    
     private func lineSpace(){
         let attrString = NSMutableAttributedString(string: bioLabel.text!)
         let paragraphStyle = NSMutableParagraphStyle()
@@ -179,6 +201,37 @@ class MyPageViewController: UIViewController{
         bioLabel.attributedText = attrString
     }
     
+    
+    private func presentDimmingView(message: String){
+
+        dimmingView.translatesAutoresizingMaskIntoConstraints = false
+        dimmingView.alretText = message
+        
+        view.addSubview(dimmingView)
+        NSLayoutConstraint.activate([
+            dimmingView.topAnchor.constraint(equalTo: view.topAnchor),
+            dimmingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            dimmingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dimmingView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
+        
+        dimmingView.dismissBtn.addTarget(self, action: #selector(removeAlert), for: .touchUpInside)
+    }
+    
+    @objc func removeAlert(){
+        dimmingView.removeFromSuperview()
+    }
+    
+    @objc func deleteMeet(_ sender: UIButton){
+        let clubIdx = sender.tag - 100
+        let params = DeleteMeetRequest(clubIdx: clubIdx)
+        deleteMeetDataManager.patchDeleteMeet(params, delegate: self, clubIdx: clubIdx)
+    }
+    @objc func cancelMeet(_ sender: UIButton){
+        let clubIdx = sender.tag - 100
+        let params = DeleteMeetRequest(clubIdx: clubIdx)
+        deleteMeetDataManager.patchDeleteMeet(params, delegate: self, clubIdx: clubIdx)
+    }
     
 }
 
@@ -194,8 +247,6 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let imageName = CommunityData.shared.imageArr[subscribeIdx]
         cell.communityImageView.image = UIImage(named: imageName)
         cell.communityLabel.text = CommunityData.shared.nameArr[subscribeIdx]
-        
-        print("inputed," , CommunityData.shared.nameArr[subscribeIdx])
         return cell
         
     }
@@ -203,17 +254,33 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        tableViewHeightConstraint.constant = 110 * CGFloat(cInfoName.count + pInfoName.count)
+        
+        return cInfoName.count + pInfoName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageCell") as? MyPageTableViewCell else{return UITableViewCell()}
-        
-        
-//        cell.openerImageView.removeFromSuperview()
-//        NSLayoutConstraint.activate([
-//            cell.titleLabel.leadingAnchor.constraint(equalTo: cell.categoryView.trailingAnchor, constant: 5)
-//        ])
+        if indexPath.row < cInfoIdx.count {
+            cell.dateLabel.text = self.cInfoLocationDetail[indexPath.row]
+            cell.dismissButton.tag = self.cInfoIdx[indexPath.row] + 100
+            cell.dismissButton.addTarget(self, action: #selector(deleteMeet(_:)), for: .touchUpInside)
+            cell.titleLabel.text = self.cInfoName[indexPath.row]
+            cell.dateLabel.text = cInfoWhen[indexPath.row]
+            cell.locationLabel.text = cInfoLocationDetail[indexPath.row]
+            cell.typeLabel.text = cInfoType[indexPath.row]
+        }else{
+            let idx = indexPath.row - cInfoIdx.count
+            cell.openerImageView.isHidden = true
+            cell.titleLeadingConstraint.constant = 10
+            cell.dateLabel.text = self.pInfoLocationDetail[idx]
+            cell.dismissButton.tag = self.pInfoIdx[idx] + 100
+            cell.dismissButton.addTarget(self, action: #selector(cancelMeet(_:)), for: .touchUpInside)
+            cell.titleLabel.text = self.pInfoName[idx]
+            cell.dateLabel.text = pInfoWhen[idx]
+            cell.locationLabel.text = pInfoLocationDetail[idx]
+            cell.typeLabel.text = pInfoType[idx]
+        }
         return cell
     }
     
@@ -230,7 +297,7 @@ extension MyPageViewController{
         let participatingInfo = results.participatingInfo
         
         
-        scoreBadgeLabel.text = "\(myInfo.badgeCnt)회"
+        scoreBadgeLabel.text = "\(myInfo.badgeCnt)개"
         scoreFeedLabel.text = "\(myInfo.createdPostCnt)회"
         scoreWorkshopLabel.text = "\(myInfo.participationCnt)회"
         lvLabel.text = "Lv.\(myInfo.exp / 1000 + 1) "
@@ -239,35 +306,67 @@ extension MyPageViewController{
         
         gaugeVIew.setGradient(color1: .grayGreen, color2: .dark2)
         bioLabel.text = myInfo.bio
+        UserDefaults.standard.set(bioLabel.text, forKey: "bio")
         
-        print("@@@@@@@@@@@@@@")
-        for createdInfo in createdInfo {
-            print("###############")
-            print(createdInfo?.name)
+        cInfoLocationDetail = [String]()
+        cInfoIdx = [Int]()
+        cInfoWhen = [String]()
+        cInfoName = [String]()
+        cInfoType = [String]()
+        
+        pInfoLocationDetail = [String]()
+        pInfoIdx = [Int]()
+        pInfoWhen = [String]()
+        pInfoName = [String]()
+        pInfoType = [String]()
+        for info in createdInfo {
+            guard let location = info?.locationDetail else{break}
+            guard let idx = info?.idx else{break}
+            guard let when = info?.when else{break}
+            guard let name = info?.name else{break}
+            guard let type = info?.type else{break}
+            cInfoLocationDetail.append(location)
+            cInfoIdx.append(idx)
+            print(name)
+            cInfoWhen.append(when)
+            cInfoName.append(name)
+            cInfoType.append(type)
         }
-
-//        ㄴcreatedInfo    array<object>
-//            ㄴidx    int
-//            ㄴtype    String
-//            ㄴname    String
-//            ㄴwhen    String
-//            ㄴlocationDetail    String
-//            ㄴDday    int
-//        ㄴparticipatingInfo    object
-//            ㄴidx    int
-//            ㄴtype    String
-//            ㄴname    String
-//            ㄴwhen    String
-//            ㄴlocationDetail    String
-//            ㄴDday    int
         
-        
-        
-
-        
+        for info in participatingInfo {
+            guard let location = info?.locationDetail else{break}
+            guard let idx = info?.idx else{break}
+            guard let when = info?.when else{break}
+            guard let name = info?.name else{break}
+            guard let type = info?.type else{break}
+            pInfoLocationDetail.append(location)
+            pInfoIdx.append(idx)
+            pInfoWhen.append(when)
+            pInfoName.append(name)
+            pInfoType.append(type)
+        }
+        if didInit {
+            configureTableView()
+            self.didInit = false
+        }else{
+            tableView.reloadData()
+        }
     }
     func failedToRequest(message: String){
         presentAlert(title: message)
-
     }
+}
+
+
+extension MyPageViewController {
+    func didSuccessDeleteMeet(message: String){
+        presentDimmingView(message: message)
+        myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
+    }
+    
+    func didSuccessParticiPateMeet(message: String){
+        presentDimmingView(message: message)
+        myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
+    }
+    
 }

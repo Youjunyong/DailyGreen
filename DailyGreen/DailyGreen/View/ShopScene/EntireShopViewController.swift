@@ -12,25 +12,33 @@ class EntireShopViewController : UIViewController, IndicatorInfoProvider{
     
     lazy var entireShopDataManger = EntireShopDataManager()
     lazy var likeShopDataManger = LikeShopDataManager()
+    lazy var shopSearchDataManager = ShopSearchDataManager()
     
+    
+    var delegate: ShopPagerViewController?
     var shopIdxArr = [Int]()
     var shopNameArr = [String]()
     var locationDetailArr = [String]()
     var urlArr = [String]()
     var isShopLikedArr = [Int]()
-    
+    var didConfigure = true
     @IBOutlet weak var tableView: UITableView!
     var childNumber: String = ""
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedBackground()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         entireShopDataManger.getEntireShop(delegate: self, page: 1)
 
+    }
+    
+    func search(keyword: String){
+        shopSearchDataManager.getShopSearch(delegate: self, page: 1, keyword: keyword)
     }
     
     private func configureTableView(){
@@ -97,12 +105,17 @@ extension EntireShopViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension EntireShopViewController {
     func didSuccessGetEntireShop(message: String, results: [EntireShopResult?]){
+        
+        
         shopIdxArr = [Int]()
         shopNameArr = [String]()
         locationDetailArr = [String]()
         urlArr = [String]()
         isShopLikedArr = [Int]()
-        configureTableView()
+        if didConfigure{
+            configureTableView()
+            didConfigure = false
+        }
         for result in results {
             guard let res = result else{continue}
             shopNameArr.append(res.shopName)

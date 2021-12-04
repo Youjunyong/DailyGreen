@@ -29,11 +29,7 @@ class WriteDateLocationViewController: UIViewController{
     lazy var alretView = DimmingView()
 
     private func postMeet(){
-        
-        
-        
-        
-        let params = WriteMeetRequest(photos: photos, communityIdx: communityIdx!, name: name!, tagList: tagList, bio: bio!, maxPeopleNum: maxPeopleNum ?? 3, feeType: feeType!, fee: fee!, kakaoChatLink: kakaoChatLink ?? "", isRegular: isRegular ?? 0, locationIdx: 1, locationDetail: address, when: date + " " + time)
+        let params = WriteMeetRequest(photos: photos, communityIdx: communityIdx!, name: name!, tagList: tagList, bio: bio!, maxPeopleNum: maxPeopleNum!, feeType: feeType!, fee: fee!, kakaoChatLink: kakaoChatLink!, isRegular: isRegular!, locationIdx: 1, locationDetail: address, when: date + " " + time)
         writeMeetDataManager.uploadFeed(params: params, delegate: self)
     }
     
@@ -156,17 +152,14 @@ class WriteDateLocationViewController: UIViewController{
     
     
     @IBAction func setOffline(_ sender: Any) {
-        
         toggleButton(offOrOn: 1)
-        print(1)
         checkSubmitReady()
-
     }
     
     
     @IBAction func setOnline(_ sender: Any) {
         toggleButton(offOrOn: 0)
-        print(2)
+        
         checkSubmitReady()
     }
     
@@ -180,6 +173,8 @@ class WriteDateLocationViewController: UIViewController{
         }
     }
     private func configureUI(){
+        submitButtonLabel.text = "다음"
+        detailAddressTextField.delegate = self
         onlineButton.setTitle("", for: .normal)
         offlineButton.setTitle("", for: .normal)
         setLocationButton.setTitle("", for: .normal)
@@ -230,7 +225,6 @@ class WriteDateLocationViewController: UIViewController{
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .wheels
             timePicker.preferredDatePickerStyle = .wheels
-        
         }
     }
     
@@ -283,6 +277,7 @@ class WriteDateLocationViewController: UIViewController{
     private func checkSubmitReady(){
         if didSetType == 1, date.count > 0, time.count > 0 , address.count > 0{
             submitButtonView.backgroundColor = .primary
+            submitButtonLabel.textColor = .black
         }
     }
     func getAddress(_ address :String ){
@@ -310,7 +305,6 @@ class WriteDateLocationViewController: UIViewController{
                 setDateButton.trailingAnchor.constraint(equalTo: setDateButtonImageView.trailingAnchor),
                 setDateButton.bottomAnchor.constraint(equalTo: setDateButtonImageView.bottomAnchor),
                 contentView.topAnchor.constraint(equalTo: datePicker.topAnchor, constant: -40),
-
             ])
         }else{
             view.addSubview(dimmingView)
@@ -355,7 +349,7 @@ class WriteDateLocationViewController: UIViewController{
     @objc func removeAlert(){
         alretView.removeFromSuperview()
         let viewControllers : [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 5 ], animated: false)
+        self.navigationController?.popToViewController(viewControllers[viewControllers.count - 4 ], animated: false)
     }
     
     private func presentDimmingView(message: String){
@@ -381,13 +375,14 @@ extension WriteDateLocationViewController{
     @objc func keyboardWillShow(_ noti: NSNotification){
         // 키보드의 높이만큼 화면을 올려준다.
         
-        
+        if self.view.frame.origin.y != 0.0 {
+            return
+        }
+        print(#function)
         if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
             let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height - 200
-            
-            self.view.frame.origin.y -= keyboardHeight
-            
+            let keyboardHeight = keyboardRectangle.height
+            self.view.frame.origin.y -= (keyboardHeight - 100)
             }
         }
     // 키보드가 사라졌다는 알림을 받으면 실행할 메서드
@@ -399,14 +394,15 @@ extension WriteDateLocationViewController{
         }
         if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height - 200
+            let keyboardHeight = keyboardRectangle.height
             
-            self.view.frame.origin.y += keyboardHeight
+            self.view.frame.origin.y += (keyboardHeight - 100)
             
             }
         checkSubmitReady()
 
         }
+    
     
     func addKeyboardNotifications(){ // 키보드가 나타날 때 앱에게 알리는 메서드 추가
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
@@ -428,7 +424,14 @@ extension WriteDateLocationViewController{
     }
     
     func failedToWrite(message: String){
-        
         self.presentDimmingView(message: message)
+    }
+}
+
+
+extension WriteDateLocationViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        checkSubmitReady()
     }
 }

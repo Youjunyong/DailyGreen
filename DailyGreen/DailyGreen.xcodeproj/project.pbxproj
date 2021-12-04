@@ -64,8 +64,6 @@
 		E14ED30F273A57AE00CCBCED /* KakaoRegisterCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14ED30E273A57AE00CCBCED /* KakaoRegisterCodable.swift */; };
 		E1502ACC274F3FF900AF4D0C /* MyPageGetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1502ACB274F3FF900AF4D0C /* MyPageGetDataManager.swift */; };
 		E1502ACE274F3FFF00AF4D0C /* MyPageGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1502ACD274F3FFF00AF4D0C /* MyPageGetResponse.swift */; };
-		E1502AD1274F4AC100AF4D0C /* WorkshopDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1502AD0274F4AC100AF4D0C /* WorkshopDataManager.swift */; };
-		E1502AD3274F4AC900AF4D0C /* WorkshopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1502AD2274F4AC900AF4D0C /* WorkshopResponse.swift */; };
 		E1502AD6274F6FE600AF4D0C /* WriteDateLocationScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1502AD5274F6FE600AF4D0C /* WriteDateLocationScene.storyboard */; };
 		E1502AD8274F6FF900AF4D0C /* WriteDateLocationViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1502AD7274F6FF900AF4D0C /* WriteDateLocationViewContoller.swift */; };
 		E1502ADB2750AB8200AF4D0C /* KakaoPostCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1502ADA2750AB8200AF4D0C /* KakaoPostCodeViewController.swift */; };
@@ -92,9 +90,10 @@
 		E15CB813273E104100D66360 /* PagerTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB812273E104100D66360 /* PagerTabbarViewController.swift */; };
 		E15CB815273E12D100D66360 /* MeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB814273E12D100D66360 /* MeetingViewController.swift */; };
 		E15CB817273E12DB00D66360 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB816273E12DB00D66360 /* FeedViewController.swift */; };
-		E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB818273E188A00D66360 /* WorkshopViewController.swift */; };
 		E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */; };
 		E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */; };
+		E161B6162759F55D00EFC594 /* SignOutDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161B6152759F55D00EFC594 /* SignOutDataManager.swift */; };
+		E161B6182759F97400EFC594 /* SignOutCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161B6172759F97400EFC594 /* SignOutCodable.swift */; };
 		E16CCEA8274E276100865C9E /* CommunityListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16CCEA6274E276100865C9E /* CommunityListCollectionViewCell.swift */; };
 		E16CCEA9274E276100865C9E /* CommunityListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16CCEA7274E276100865C9E /* CommunityListCollectionViewCell.xib */; };
 		E181EF0A275130A700225AED /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181EF09275130A700225AED /* UIView.swift */; };
@@ -114,8 +113,10 @@
 		E18C0BCE2747791A0020FA17 /* BookMarkShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18C0BCC2747791A0020FA17 /* BookMarkShopTableViewCell.xib */; };
 		E18C0BD027477B110020FA17 /* BookMarkShopDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C0BCF27477B110020FA17 /* BookMarkShopDataManager.swift */; };
 		E18C0BD227477B1C0020FA17 /* BookMarkShopResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18C0BD127477B1C0020FA17 /* BookMarkShopResponse.swift */; };
-		E18E25C027572C0200A30A08 /* @ParticipateMeetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18E25BF27572C0200A30A08 /* @ParticipateMeetDataManager.swift */; };
-		E18E25C227572C0A00A30A08 /* @ParticipateMeetCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18E25C127572C0A00A30A08 /* @ParticipateMeetCodable.swift */; };
+		E18E25C027572C0200A30A08 /* ParticipateMeetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18E25BF27572C0200A30A08 /* ParticipateMeetDataManager.swift */; };
+		E18E25C227572C0A00A30A08 /* ParticipateMeetCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18E25C127572C0A00A30A08 /* ParticipateMeetCodable.swift */; };
+		E18E25C5275754D300A30A08 /* DeleteMeetDataMananger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18E25C4275754D300A30A08 /* DeleteMeetDataMananger.swift */; };
+		E18E25C7275754F600A30A08 /* DeleteMeetCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18E25C6275754F600A30A08 /* DeleteMeetCodable.swift */; };
 		E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */; };
 		E19F5353274140B700B3A28D /* MeetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5352274140B700B3A28D /* MeetDataManager.swift */; };
 		E19F5355274140C600B3A28D /* MeetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F5354274140C600B3A28D /* MeetResponse.swift */; };
@@ -123,6 +124,10 @@
 		E19F535927414E5400B3A28D /* KakaoLoginCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535827414E5400B3A28D /* KakaoLoginCodable.swift */; };
 		E19F535B2741F20A00B3A28D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535A2741F20A00B3A28D /* UIImageView.swift */; };
 		E19F535D2741F56500B3A28D /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535C2741F56500B3A28D /* ImageCacheManager.swift */; };
+		E1AAAFC427590C58003596FB /* MeetSearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AAAFC327590C58003596FB /* MeetSearchDataManager.swift */; };
+		E1AB2A252759B3F500501B60 /* ShopSearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB2A242759B3F500501B60 /* ShopSearchDataManager.swift */; };
+		E1AB2A282759CADE00501B60 /* ProfileUpdateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB2A272759CADE00501B60 /* ProfileUpdateDataManager.swift */; };
+		E1AB2A2A2759CAE800501B60 /* ProfileUpdateCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB2A292759CAE800501B60 /* ProfileUpdateCodable.swift */; };
 		E1B802482755FB9500497397 /* ServiceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B802472755FB9500497397 /* ServiceTextViewController.swift */; };
 		E1BAECA327487583008882FA /* EmailRegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BAECA227487583008882FA /* EmailRegisterDataManager.swift */; };
 		E1BAECA52748758C008882FA /* EmailRegisterCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BAECA42748758C008882FA /* EmailRegisterCodable.swift */; };
@@ -253,8 +258,6 @@
 		E14ED30E273A57AE00CCBCED /* KakaoRegisterCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoRegisterCodable.swift; sourceTree = "<group>"; };
 		E1502ACB274F3FF900AF4D0C /* MyPageGetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageGetDataManager.swift; sourceTree = "<group>"; };
 		E1502ACD274F3FFF00AF4D0C /* MyPageGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageGetResponse.swift; sourceTree = "<group>"; };
-		E1502AD0274F4AC100AF4D0C /* WorkshopDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopDataManager.swift; sourceTree = "<group>"; };
-		E1502AD2274F4AC900AF4D0C /* WorkshopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopResponse.swift; sourceTree = "<group>"; };
 		E1502AD5274F6FE600AF4D0C /* WriteDateLocationScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WriteDateLocationScene.storyboard; sourceTree = "<group>"; };
 		E1502AD7274F6FF900AF4D0C /* WriteDateLocationViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDateLocationViewContoller.swift; sourceTree = "<group>"; };
 		E1502ADA2750AB8200AF4D0C /* KakaoPostCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPostCodeViewController.swift; sourceTree = "<group>"; };
@@ -281,9 +284,10 @@
 		E15CB812273E104100D66360 /* PagerTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTabbarViewController.swift; sourceTree = "<group>"; };
 		E15CB814273E12D100D66360 /* MeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewController.swift; sourceTree = "<group>"; };
 		E15CB816273E12DB00D66360 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		E15CB818273E188A00D66360 /* WorkshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopViewController.swift; sourceTree = "<group>"; };
 		E15CB81A273E35EA00D66360 /* CoCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoCardTableViewCell.swift; sourceTree = "<group>"; };
 		E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoCardTableViewCell.xib; sourceTree = "<group>"; };
+		E161B6152759F55D00EFC594 /* SignOutDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutDataManager.swift; sourceTree = "<group>"; };
+		E161B6172759F97400EFC594 /* SignOutCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutCodable.swift; sourceTree = "<group>"; };
 		E16CCEA6274E276100865C9E /* CommunityListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListCollectionViewCell.swift; sourceTree = "<group>"; };
 		E16CCEA7274E276100865C9E /* CommunityListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityListCollectionViewCell.xib; sourceTree = "<group>"; };
 		E181EF09275130A700225AED /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -303,8 +307,10 @@
 		E18C0BCC2747791A0020FA17 /* BookMarkShopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookMarkShopTableViewCell.xib; sourceTree = "<group>"; };
 		E18C0BCF27477B110020FA17 /* BookMarkShopDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkShopDataManager.swift; sourceTree = "<group>"; };
 		E18C0BD127477B1C0020FA17 /* BookMarkShopResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkShopResponse.swift; sourceTree = "<group>"; };
-		E18E25BF27572C0200A30A08 /* @ParticipateMeetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "@ParticipateMeetDataManager.swift"; sourceTree = "<group>"; };
-		E18E25C127572C0A00A30A08 /* @ParticipateMeetCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "@ParticipateMeetCodable.swift"; sourceTree = "<group>"; };
+		E18E25BF27572C0200A30A08 /* ParticipateMeetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateMeetDataManager.swift; sourceTree = "<group>"; };
+		E18E25C127572C0A00A30A08 /* ParticipateMeetCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateMeetCodable.swift; sourceTree = "<group>"; };
+		E18E25C4275754D300A30A08 /* DeleteMeetDataMananger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMeetDataMananger.swift; sourceTree = "<group>"; };
+		E18E25C6275754F600A30A08 /* DeleteMeetCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMeetCodable.swift; sourceTree = "<group>"; };
 		E19D4E9E2732B1F10024B6FE /* EmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginViewController.swift; sourceTree = "<group>"; };
 		E19F5352274140B700B3A28D /* MeetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetDataManager.swift; sourceTree = "<group>"; };
 		E19F5354274140C600B3A28D /* MeetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetResponse.swift; sourceTree = "<group>"; };
@@ -312,6 +318,10 @@
 		E19F535827414E5400B3A28D /* KakaoLoginCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginCodable.swift; sourceTree = "<group>"; };
 		E19F535A2741F20A00B3A28D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		E19F535C2741F56500B3A28D /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		E1AAAFC327590C58003596FB /* MeetSearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetSearchDataManager.swift; sourceTree = "<group>"; };
+		E1AB2A242759B3F500501B60 /* ShopSearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSearchDataManager.swift; sourceTree = "<group>"; };
+		E1AB2A272759CADE00501B60 /* ProfileUpdateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateDataManager.swift; sourceTree = "<group>"; };
+		E1AB2A292759CAE800501B60 /* ProfileUpdateCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateCodable.swift; sourceTree = "<group>"; };
 		E1B802472755FB9500497397 /* ServiceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTextViewController.swift; sourceTree = "<group>"; };
 		E1BAECA227487583008882FA /* EmailRegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegisterDataManager.swift; sourceTree = "<group>"; };
 		E1BAECA42748758C008882FA /* EmailRegisterCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegisterCodable.swift; sourceTree = "<group>"; };
@@ -453,7 +463,6 @@
 				E1534EC02746097E00E1FA01 /* Feed */,
 				E1534EB927452A7100E1FA01 /* Write */,
 				E1BBD31527427F7100268BB5 /* Shop */,
-				E1502ACF274F4AA100AF4D0C /* Workshop */,
 				E19F53512741409700B3A28D /* Meet */,
 				E14ED302273A31C900CCBCED /* CommunityList */,
 				E1362C4C273470BF0045C9EE /* Constant.swift */,
@@ -674,6 +683,7 @@
 		E1502AC9274F3FE100AF4D0C /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				E18E25C3275754BC00A30A08 /* DeleteMeet */,
 				E1502ACA274F3FE900AF4D0C /* MyPageGet */,
 			);
 			path = MyPage;
@@ -686,15 +696,6 @@
 				E1502ACD274F3FFF00AF4D0C /* MyPageGetResponse.swift */,
 			);
 			path = MyPageGet;
-			sourceTree = "<group>";
-		};
-		E1502ACF274F4AA100AF4D0C /* Workshop */ = {
-			isa = PBXGroup;
-			children = (
-				E1502AD0274F4AC100AF4D0C /* WorkshopDataManager.swift */,
-				E1502AD2274F4AC900AF4D0C /* WorkshopResponse.swift */,
-			);
-			path = Workshop;
 			sourceTree = "<group>";
 		};
 		E1502AD4274F6FD100AF4D0C /* WriteDateLocation */ = {
@@ -767,7 +768,6 @@
 			children = (
 				E1BBD3192743F91500268BB5 /* WriteScene */,
 				E1BBD31627439C8700268BB5 /* MeetScene */,
-				E1BBD31827439C9C00268BB5 /* WorkshopScene */,
 				E1BBD31727439C9700268BB5 /* FeedScene */,
 				E15CB810273E103200D66360 /* PagerTabbar.storyboard */,
 				E15CB812273E104100D66360 /* PagerTabbarViewController.swift */,
@@ -775,6 +775,15 @@
 				E15CB81B273E35EA00D66360 /* CoCardTableViewCell.xib */,
 			);
 			path = WorkshopFeedScene;
+			sourceTree = "<group>";
+		};
+		E161B6142759F54A00EFC594 /* SignOut */ = {
+			isa = PBXGroup;
+			children = (
+				E161B6152759F55D00EFC594 /* SignOutDataManager.swift */,
+				E161B6172759F97400EFC594 /* SignOutCodable.swift */,
+			);
+			path = SignOut;
 			sourceTree = "<group>";
 		};
 		E1897262274C93570091961C /* WriteMeet */ = {
@@ -818,6 +827,8 @@
 		E18C0BD327479CC30020FA17 /* Register,Login */ = {
 			isa = PBXGroup;
 			children = (
+				E161B6142759F54A00EFC594 /* SignOut */,
+				E1AB2A262759CAD400501B60 /* ProfileUpdate */,
 				E1E2C6352754E4CF00785DC3 /* Apple */,
 				E1BAECA127487575008882FA /* Email */,
 				E1CC0F56273E97D200778650 /* PhoneAuth */,
@@ -830,10 +841,19 @@
 		E18E25BE27572BF300A30A08 /* ParicipateMeet */ = {
 			isa = PBXGroup;
 			children = (
-				E18E25BF27572C0200A30A08 /* @ParticipateMeetDataManager.swift */,
-				E18E25C127572C0A00A30A08 /* @ParticipateMeetCodable.swift */,
+				E18E25BF27572C0200A30A08 /* ParticipateMeetDataManager.swift */,
+				E18E25C127572C0A00A30A08 /* ParticipateMeetCodable.swift */,
 			);
 			path = ParicipateMeet;
+			sourceTree = "<group>";
+		};
+		E18E25C3275754BC00A30A08 /* DeleteMeet */ = {
+			isa = PBXGroup;
+			children = (
+				E18E25C4275754D300A30A08 /* DeleteMeetDataMananger.swift */,
+				E18E25C6275754F600A30A08 /* DeleteMeetCodable.swift */,
+			);
+			path = DeleteMeet;
 			sourceTree = "<group>";
 		};
 		E19D4E9D2732B12C0024B6FE /* RegisterScene */ = {
@@ -856,6 +876,7 @@
 			children = (
 				E18E25BE27572BF300A30A08 /* ParicipateMeet */,
 				E1C4D4CB2750FAE8003CA961 /* Detail */,
+				E1AAAFC227590C24003596FB /* Search */,
 				E19F5352274140B700B3A28D /* MeetDataManager.swift */,
 				E19F5354274140C600B3A28D /* MeetResponse.swift */,
 			);
@@ -869,6 +890,31 @@
 				E14ED309273A570300CCBCED /* Register */,
 			);
 			path = Kakao;
+			sourceTree = "<group>";
+		};
+		E1AAAFC227590C24003596FB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E1AAAFC327590C58003596FB /* MeetSearchDataManager.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		E1AB2A232759B3C300501B60 /* ShopSearch */ = {
+			isa = PBXGroup;
+			children = (
+				E1AB2A242759B3F500501B60 /* ShopSearchDataManager.swift */,
+			);
+			path = ShopSearch;
+			sourceTree = "<group>";
+		};
+		E1AB2A262759CAD400501B60 /* ProfileUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				E1AB2A272759CADE00501B60 /* ProfileUpdateDataManager.swift */,
+				E1AB2A292759CAE800501B60 /* ProfileUpdateCodable.swift */,
+			);
+			path = ProfileUpdate;
 			sourceTree = "<group>";
 		};
 		E1BAECA127487575008882FA /* Email */ = {
@@ -885,6 +931,7 @@
 		E1BBD31527427F7100268BB5 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				E1AB2A232759B3C300501B60 /* ShopSearch */,
 				E18C0BB22747480E0020FA17 /* EtireShopDataManager.swift */,
 				E18C0BB42747481D0020FA17 /* EntireShopResponse.swift */,
 				E18C0BC627475C820020FA17 /* ShopDetail */,
@@ -899,7 +946,6 @@
 			isa = PBXGroup;
 			children = (
 				E1C4D4C22750F8A2003CA961 /* MeetDetail */,
-				E15CB814273E12D100D66360 /* MeetingViewController.swift */,
 			);
 			path = MeetScene;
 			sourceTree = "<group>";
@@ -916,17 +962,10 @@
 			path = FeedScene;
 			sourceTree = "<group>";
 		};
-		E1BBD31827439C9C00268BB5 /* WorkshopScene */ = {
-			isa = PBXGroup;
-			children = (
-				E15CB818273E188A00D66360 /* WorkshopViewController.swift */,
-			);
-			path = WorkshopScene;
-			sourceTree = "<group>";
-		};
 		E1BBD3192743F91500268BB5 /* WriteScene */ = {
 			isa = PBXGroup;
 			children = (
+				E15CB814273E12D100D66360 /* MeetingViewController.swift */,
 				E1502AD4274F6FD100AF4D0C /* WriteDateLocation */,
 				E1BBD31A2743F9FA00268BB5 /* WriteScene.storyboard */,
 				E1BBD31C2743FC0E00268BB5 /* WriteStep1ViewController.swift */,
@@ -1327,15 +1366,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AB2A282759CADE00501B60 /* ProfileUpdateDataManager.swift in Sources */,
 				E18C0BC427475C120020FA17 /* ShopCollectionViewCell.swift in Sources */,
-				E1502AD3274F4AC900AF4D0C /* WorkshopResponse.swift in Sources */,
 				E1E9450727326AD30047ABA8 /* GuideTableViewCell.swift in Sources */,
 				E1534ED227467A3F00E1FA01 /* LikeDataManager.swift in Sources */,
 				E1C4D4CF2750FB26003CA961 /* MeetDetailResponse.swift in Sources */,
 				E18C0BD227477B1C0020FA17 /* BookMarkShopResponse.swift in Sources */,
 				E1C4D4CD2750FAFF003CA961 /* MeetDetailDataManager.swift in Sources */,
 				E1534EBC27452AE500E1FA01 /* WriteFeedDataManager.swift in Sources */,
-				E1502AD1274F4AC100AF4D0C /* WorkshopDataManager.swift in Sources */,
 				E15CB80E273E04B500D66360 /* CoSubscribeCodabel.swift in Sources */,
 				E1C4D4C42750F8B5003CA961 /* MeetDetailViewController.swift in Sources */,
 				E18C0BB32747480E0020FA17 /* EtireShopDataManager.swift in Sources */,
@@ -1357,6 +1395,7 @@
 				E18C0BD027477B110020FA17 /* BookMarkShopDataManager.swift in Sources */,
 				E1467146273D741500DD2037 /* CoParticipateDataManager.swift in Sources */,
 				E1534EBE27452CFA00E1FA01 /* WriteFeedCodable.swift in Sources */,
+				E1AAAFC427590C58003596FB /* MeetSearchDataManager.swift in Sources */,
 				E1F6A1142737ABE100BEFF6A /* UILabel.swift in Sources */,
 				E181EF0A275130A700225AED /* UIView.swift in Sources */,
 				E14321CC272FA1730028DAE4 /* ViewController.swift in Sources */,
@@ -1384,7 +1423,7 @@
 				E1E2C63D2754FADB00785DC3 /* AppleRegisterDataManager.swift in Sources */,
 				E1E2C6452755298100785DC3 /* PrivateTextViewController.swift in Sources */,
 				E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */,
-				E15CB819273E188A00D66360 /* WorkshopViewController.swift in Sources */,
+				E1AB2A252759B3F500501B60 /* ShopSearchDataManager.swift in Sources */,
 				E145B9742734F21E007C593B /* NickNameDataManager.swift in Sources */,
 				E1467148273D742200DD2037 /* CoParticipateResponse.swift in Sources */,
 				E1CC0F5E273E9AB200778650 /* CheckAuthDataManager.swift in Sources */,
@@ -1392,6 +1431,7 @@
 				E1D20395274BC1900098ADB7 /* EventBannerDataManager.swift in Sources */,
 				E1502ACE274F3FFF00AF4D0C /* MyPageGetResponse.swift in Sources */,
 				E14ED30F273A57AE00CCBCED /* KakaoRegisterCodable.swift in Sources */,
+				E18E25C5275754D300A30A08 /* DeleteMeetDataMananger.swift in Sources */,
 				E1534EB7274500C800E1FA01 /* PickedImageCollectionViewCell.swift in Sources */,
 				E1C4D4C92750F9BB003CA961 /* MeetDetailCollectionViewCell.swift in Sources */,
 				E18C0BBA274751010020FA17 /* LikeShopCodable.swift in Sources */,
@@ -1412,11 +1452,13 @@
 				E19D4E9F2732B1F10024B6FE /* EmailLoginViewController.swift in Sources */,
 				E14ED304273A31EC00CCBCED /* CommunityListResponse.swift in Sources */,
 				E18C0BBD274757CF0020FA17 /* ShopDetailViewController.swift in Sources */,
-				E18E25C027572C0200A30A08 /* @ParticipateMeetDataManager.swift in Sources */,
+				E18E25C027572C0200A30A08 /* ParticipateMeetDataManager.swift in Sources */,
 				E1C4D4C12750E022003CA961 /* WriteMeetCodable.swift in Sources */,
 				E1D2038E274B4E660098ADB7 /* MyPageViewController.swift in Sources */,
 				E1362C47273451D90045C9EE /* RegisterPhoneViewController.swift in Sources */,
+				E1AB2A2A2759CAE800501B60 /* ProfileUpdateCodable.swift in Sources */,
 				E146714A273D772C00DD2037 /* ParticipateView.swift in Sources */,
+				E161B6182759F97400EFC594 /* SignOutCodable.swift in Sources */,
 				E145B9772734F419007C593B /* NickNameCodable.swift in Sources */,
 				E15CB815273E12D100D66360 /* MeetingViewController.swift in Sources */,
 				E12838FD27427C5700F1E259 /* EntireShopTableViewCell.swift in Sources */,
@@ -1437,7 +1479,8 @@
 				E12838EE27426BD600F1E259 /* CancelCommunityDataManager.swift in Sources */,
 				E1BAECA727487D62008882FA /* EmailLoginDataManger.swift in Sources */,
 				E143222B272FC61B0028DAE4 /* OnboardViewController.swift in Sources */,
-				E18E25C227572C0A00A30A08 /* @ParticipateMeetCodable.swift in Sources */,
+				E18E25C227572C0A00A30A08 /* ParticipateMeetCodable.swift in Sources */,
+				E161B6162759F55D00EFC594 /* SignOutDataManager.swift in Sources */,
 				E1E94504273261A50047ABA8 /* ModalHeaderView.swift in Sources */,
 				E1534ECC2746177B00E1FA01 /* FeedCollectionViewCell.swift in Sources */,
 				E12838F72742798500F1E259 /* EntireShopViewController.swift in Sources */,
@@ -1448,6 +1491,7 @@
 				E1432239272FDA890028DAE4 /* OnboardingView2.swift in Sources */,
 				E1B802482755FB9500497397 /* ServiceTextViewController.swift in Sources */,
 				E19F5353274140B700B3A28D /* MeetDataManager.swift in Sources */,
+				E18E25C7275754F600A30A08 /* DeleteMeetCodable.swift in Sources */,
 				E14426CF2731174700EC86D1 /* MainPageViewController.swift in Sources */,
 				E14ED30C273A571A00CCBCED /* KakaoRegisterDataManager.swift in Sources */,
 				E143223D272FDCA20028DAE4 /* OnboardingView4.swift in Sources */,
@@ -1557,7 +1601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1612,7 +1656,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -13,7 +13,6 @@ class CommunityView: UIView{
     let imageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
         return view
     }()
     
@@ -21,7 +20,6 @@ class CommunityView: UIView{
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("", for: .normal)
-        
         return btn
     }()
     
@@ -31,6 +29,7 @@ class CommunityView: UIView{
         label.font = UIFont(name: NanumFont.regular, size: 12)
         return label
     }()
+    
     override func layoutSubviews() {
         configureUI()
     }

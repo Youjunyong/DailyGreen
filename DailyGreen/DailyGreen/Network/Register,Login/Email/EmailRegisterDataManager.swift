@@ -60,6 +60,7 @@ class EmailRegisterDataManager {
                        print(error.localizedDescription)
                        print(String(describing: error))
 
+                       
                        delegate.failedToKRegister(message: "서버와의 연결이 원활하지 않습니다")
                    }
                }

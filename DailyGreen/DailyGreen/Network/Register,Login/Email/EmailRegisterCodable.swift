@@ -12,7 +12,7 @@ struct EmailRegisterRequest: Encodable {
     var nickname: String
     var password: String
     var phoneNum: String
-    var profilePhoto: Data? // 옵셔널 아님 바꿔야함
+    var profilePhoto: Data?
     var bio: String
 }
 
@@ -26,4 +26,15 @@ struct EmailRegisterResponse: Decodable {
 struct EmailRegisterUserData: Decodable{
     var userIdx: Int
     var accountIdx: Int
+}
+
+struct UpdateProfileResponse: Decodable{
+    var isSuccess: Bool
+    var code: Int
+    var message: String
+    var result: UpdateUserData?
+}
+
+struct UpdateUserData: Decodable{
+    var profilePhotoUrl: String
 }

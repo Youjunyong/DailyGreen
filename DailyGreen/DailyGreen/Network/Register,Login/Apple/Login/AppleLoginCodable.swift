@@ -15,6 +15,7 @@ struct AppleLoginResponse: Decodable {
     var isSuccess: Bool
     var code: Int
     var message: String
+    var email: String?
     var result: AppleLoginData?
 }
 

@@ -12,13 +12,15 @@ import XLPagerTabStrip
 class MeetingViewController: UIViewController, IndicatorInfoProvider {
     
     lazy var meetDataManger = MeetDataManager()
-    
+    lazy var meetSearchDataManager = MeetSearchDataManager()
+    var delegate: PagerTabbarViewController?
     
     var community: String?
     var communityIdx: Int? // 이전 화면에서 보내줘야됨.
     var clubInfo : [ClubInfo?]?
     var childNumber: String = ""
-    
+    var didConfigure = false
+        
     lazy var emptyLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -28,12 +30,22 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
         return label
     }()
     
-    func configureEmptyLabel(){
-        view.addSubview(emptyLabel)
-        NSLayoutConstraint.activate([
-            emptyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-            emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+    func configureEmptyLabel(type: Int){
+        if type == 0{
+            view.addSubview(emptyLabel)
+            NSLayoutConstraint.activate([
+                emptyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+                emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        }else{
+            view.addSubview(emptyLabel)
+            emptyLabel.text = "해당하는 검색결과가 없습니다."
+            NSLayoutConstraint.activate([
+                emptyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+                emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        }
+
     }
     
     
@@ -46,22 +58,35 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
         
         let storyboard = UIStoryboard(name: "WriteScene", bundle: nil)
         guard let writeVC = storyboard.instantiateViewController(withIdentifier: "writeVC") as? WriteStep1ViewController else{return}
+        writeVC.modalPresentationStyle = .fullScreen
         writeVC.communityName = self.community
         writeVC.communityIdx = self.communityIdx
         self.navigationController?.pushViewController(writeVC, animated: true)
         
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
+        self.hideKeyboardWhenTappedBackground()
         configureUI()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if communityIdx != nil {
             meetDataManger.getMeetData(delegate: self, communityIdx: communityIdx!, page: 1)
         }
-        
-        
     }
     
+    
+    func searchResult(keyword : String){
+        if communityIdx != nil, keyword.count > 0{
+            meetSearchDataManager.getMeetSearchData(delegate: self, communityIdx: communityIdx!, page: 1, keyword: keyword)
+        }
+    }
+    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -97,6 +122,8 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
 
 extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        
         return clubInfo?.count ?? 0
     }
     
@@ -105,12 +132,12 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
         
         if let clubInfo = clubInfo{
             if let clubInfoObject = clubInfo[indexPath.row]?.clubInfoObj{
-                
-                
-                
                 cell.nickNameLabel.text = clubInfoObject.nickname
                 cell.dDayLabel.text = clubInfoObject.Dday
                 cell.upperImageView.load(strUrl: clubInfoObject.clubPhoto)
+                
+                
+                
                 cell.profileImageView.load(strUrl: clubInfoObject.profilePhotoUrl)
                 cell.titleLabel.text = clubInfoObject.clubName
                 cell.locationLabel.text = clubInfoObject.locationDetail
@@ -141,14 +168,14 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
                         cell.hashTag1.text = "#\(tagName)"
                         cell.hashTag2.text = ""
                         cell.hashTag3.text = ""
-                        print(idx)
+                        
                     case 1:
                         cell.hashTag2.text = "#\(tagName)"
                         cell.hashTag3.text = ""
-                        print(idx)
+                        
                     case 2:
                         cell.hashTag3.text = "#\(tagName)"
-                        print(idx, "#\(tagName)")
+                        
                     default:
                         break
                     }
@@ -159,27 +186,61 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.devideViewConstraint.constant = 10
                 cell.isHaveHashTag = false
             }
+            
+            if let photoUrlList = clubInfo[indexPath.row]?.profilePhotoUrlListObj.urlList{
+                
+//                cell.participateProfileImageView3 = photoUrlList[2]
+                for (idx,url) in photoUrlList.enumerated(){
+                    guard let strUrl = url?.profilePhotoUrl else{break}
+                    
+                    switch idx{
+                    case 0:
+                        cell.participateProfileImageView.load(strUrl: strUrl)
+                        cell.participateProfileImageView.contentMode = .scaleAspectFill
+
+                    case 1:
+                        cell.participateProfileImageView2.load(strUrl: strUrl)
+                    case 2:
+                        cell.participateProfileImageView3.load(strUrl: strUrl)
+                    default:
+                        break
+                    }
+                    
+                }
+               
+            }
+            
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 470
+        return 490
     }
 }
 
 
 extension MeetingViewController {
-    func didSuccessGet(message: String, results: [ClubInfo?]){
-        
+    func didSuccessGet(message: String, results: [ClubInfo?], keyword: String?){
+        clubInfo?.removeAll()
         clubInfo = results
-        if clubInfo?.count == 0{
-            configureEmptyLabel()
-        }else{
-            configureTableView()
-        }
         
+        if clubInfo?.count == 0{
+            if keyword != nil {
+                configureEmptyLabel(type: 1)
+            }else{
+                configureEmptyLabel(type: 0)
+            }
+        }else{
+            if didConfigure{
+                
+            }else{
+                didConfigure = true
+                configureTableView()
+            }
+        }
 
+        tableView.reloadData()
     }
     func failedToRequest(message: String){
         presentAlert(title: message)

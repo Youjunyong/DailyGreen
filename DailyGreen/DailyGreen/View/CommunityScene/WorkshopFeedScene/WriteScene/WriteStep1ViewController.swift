@@ -82,12 +82,14 @@ class WriteStep1ViewController: UIViewController {
             guard let VC = self.storyboard?.instantiateViewController(withIdentifier: "WriteMeetVC") as? WriteMeetViewController else{return}
             VC.communityName = self.communityName
             VC.communityIdx = self.communityIdx
+            VC.isRegular = 0
             VC.titleName = "모임"
             self.navigationController?.pushViewController(VC, animated: true)
         case "정기모임":
             guard let VC = self.storyboard?.instantiateViewController(withIdentifier: "WriteMeetVC") as? WriteMeetViewController else{return}
             VC.communityName = self.communityName
             VC.communityIdx = self.communityIdx
+            VC.isRegular = 1
             VC.titleName = "정기모임"
             self.navigationController?.pushViewController(VC, animated: true)
             

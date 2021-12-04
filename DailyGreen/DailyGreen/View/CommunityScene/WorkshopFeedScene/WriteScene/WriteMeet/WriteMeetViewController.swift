@@ -20,6 +20,7 @@ class WriteMeetViewController: UIViewController {
     var communityName: String?
     var titleName: String?
     var tags = [String]()
+    var pramTags = [String]()
     var photos = [Data]()
     var isRegular: Int?
     var selecetedImage = [UIImage]()
@@ -30,16 +31,16 @@ class WriteMeetViewController: UIViewController {
             let storyboard = UIStoryboard(name: "WriteDateLocationScene", bundle: nil)
             guard let VC = storyboard.instantiateViewController(withIdentifier: "WriteDateLocationVC") as? WriteDateLocationViewController else{return}
             
+            
             VC.communityIdx = self.communityIdx
             VC.name = titleTextField.text!
-            VC.tagList = tags
+            VC.tagList = pramTags
             VC.bio = writeTextView.text!
             VC.maxPeopleNum = Int(peopleNumTextField.text!)
             VC.feeType = feeType
             VC.fee = feeTextField.text!
             VC.kakaoChatLink = openChatLinkTextField.text!
             VC.isRegular = isRegular
-            
             for image in selecetedImage{
                 let img = image
                 guard let data = img.jpegData(compressionQuality: 0.5) else{return}
@@ -52,6 +53,7 @@ class WriteMeetViewController: UIViewController {
        
     }
     
+    @IBOutlet weak var wonLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var writeTextView: UITextView!
     @IBOutlet weak var submitButtonLabel: UILabel!
@@ -131,14 +133,27 @@ class WriteMeetViewController: UIViewController {
             freeImageView.image = UIImage(named: "selectedButton100")
             freeImageView2.image = UIImage(named: "defaultButton100")
             freeImageview3.image = UIImage(named: "defaultButton100")
+            feeTextField.isHidden = true
+            helpLabel2.isHidden = true
+            wonLabel.isHidden = true
+            divideView4.isHidden = true
+            
         } else if self.feeType == "유료"{
             freeImageView.image = UIImage(named: "defaultButton100")
             freeImageView2.image = UIImage(named: "selectedButton100")
             freeImageview3.image = UIImage(named: "defaultButton100")
+            feeTextField.isHidden = false
+            helpLabel2.isHidden = false
+            wonLabel.isHidden = false
+            divideView4.isHidden = false
         }else if self.feeType == "자율기부"{
             freeImageView.image = UIImage(named: "defaultButton100")
             freeImageView2.image = UIImage(named: "defaultButton100")
             freeImageview3.image = UIImage(named: "selectedButton100")
+            feeTextField.isHidden = false
+            helpLabel2.isHidden = false
+            wonLabel.isHidden = false
+            divideView4.isHidden = false
         }
     }
     
@@ -175,9 +190,11 @@ class WriteMeetViewController: UIViewController {
     private func checkSubmitReady(){
         if self.isText, self.isPhoto, titleTextField.text!.count > 0, peopleNumTextField.text!.count > 0, feeTextField.text!.count > 0, feeType.count > 0 , openChatLinkTextField.text!.count > 5{
             submitButtonView.backgroundColor = .primary
-            submitButton.titleLabel?.textColor = .black
+            
+            submitButtonLabel.textColor = .black
         }else{
-            submitButton.titleLabel?.textColor = .white
+            submitButtonLabel.textColor = .white
+
             submitButtonView.backgroundColor = .grayDisabled
         }
     }
@@ -193,7 +210,6 @@ class WriteMeetViewController: UIViewController {
         imagePicker.settings.theme.selectionStyle = .numbered
         imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
         imagePicker.settings.selection.unselectOnReachingMax = true
-
         self.presentImagePicker(imagePicker, select: nil, deselect: nil, cancel: nil) { (assets) in
             for asset in assets{
                 _ = self.getAssetThumbnail(asset: asset)
@@ -275,6 +291,7 @@ extension WriteMeetViewController: UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       if textField == keyWordTextField{
           tags.append("#" + keyWordTextField.text!)
+          pramTags.append(keyWordTextField.text!)
           keyWordTextField.text = ""
           keyWordCollectionView.reloadData()
           
@@ -322,6 +339,7 @@ extension WriteMeetViewController:UICollectionViewDataSource, UICollectionViewDe
     @objc func deleteTag(_ sender: UIButton){
         let index = sender.tag - 100
         tags.remove(at: index)
+        pramTags.remove(at: index)
         keyWordCollectionView.reloadData()
     }
     
@@ -377,7 +395,6 @@ extension WriteMeetViewController: UITextViewDelegate {
             textView.text = nil
             textView.textColor = UIColor.black
         }
-        
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {

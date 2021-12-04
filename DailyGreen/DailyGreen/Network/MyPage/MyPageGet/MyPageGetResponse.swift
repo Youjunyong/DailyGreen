@@ -37,7 +37,7 @@ struct ParticipatingInfo: Decodable {
     var name: String
     var when: String
     var locationDetail: String
-    var Dday : Int
+//    var Dday : Int
     
 }
 
@@ -46,7 +46,7 @@ struct CreatedInfo: Decodable{
     var type: String?
     var name: String?
     var when: String?
-    var locationDetail: Int?
+    var locationDetail: String?
 }
 
 

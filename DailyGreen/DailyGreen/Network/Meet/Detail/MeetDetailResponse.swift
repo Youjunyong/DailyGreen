@@ -28,6 +28,7 @@ struct ClubInfoObj: Decodable{
     var profilePhotoUrl: String
     var clubName: String
     var locationDetail: String
+    var kakaoChatLink: String?
     var maxPeopleNum: Int
     var bio: String
     var when: String

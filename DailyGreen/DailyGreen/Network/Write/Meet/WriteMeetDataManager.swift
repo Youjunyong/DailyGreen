@@ -45,7 +45,7 @@ class WriteMeetDataManager {
             , headers: headers)
                .uploadProgress(queue: .main, closure: { progress in
                    //Current upload progress of file
-                   print("Upload Progress: \(progress.fractionCompleted)")
+                   
                })
                .validate()
                .responseDecodable(of: WriteFeedResponse.self) { response in

@@ -39,6 +39,7 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
     
     override func viewDidLoad() {
         writeButton.setTitle("", for: .normal)
+        hideKeyboardWhenTappedBackground()
         super.viewDidLoad()
         
     }
@@ -155,8 +156,6 @@ extension FeedViewController {
     func didSuccessLike(message: String){
         self.presentAlert(title: message)
         getFeedDataManager.getFeedData(delegate: self, communityIdx: self.communityIdx!, page: 1)
-
-        
     }
     
     func failedToRequest(message: String){

@@ -15,7 +15,6 @@ class MainPageViewController: UIViewController{
     lazy var cListDataManager = CommunityListDataManager() // 현재 구독중인 커뮤니티
     lazy var cancelDataManager = CancelCommunityDataManager() // 참여한 커뮤니티 구독취소하기
     lazy var eventBannerDataManager = EventBannerDataManager()
-    
     lazy var gridViews = [grid00View ,grid01View, grid02View, grid10View, grid12View, grid20View, grid21View, grid22View]
     
     var bannerIdx = [Int]()
@@ -65,6 +64,8 @@ class MainPageViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         cListDataManager.getCommunityList(delegate: self)
+        guard let url = UserDefaults.standard.string(forKey: "profilePhotoUrl") else{return}
+        gridProfileImageView.load(strUrl: url)
 
     }
     
@@ -142,8 +143,6 @@ class MainPageViewController: UIViewController{
     }
     @objc func detailButton(_ sender: UIButton){
         let communityIdx = sender.tag - 100
-        //워크샵, 모임 분류해서 상세보기 API 사용해야한다.
-        
     }
     private func configureGridView(){
         
@@ -160,7 +159,6 @@ class MainPageViewController: UIViewController{
             gridView?.layer.shadowOffset = CGSize(width: 2, height: 2)
         }
         guard let url = UserDefaults.standard.string(forKey: "profilePhotoUrl") else{return}
-
         gridProfileImageView.load(strUrl: url)
         gridProfileImageView.layer.cornerRadius = gridProfileImageView.layer.frame.size.height / 2
         profileDimmingView.layer.cornerRadius = profileDimmingView.layer.frame.size.height / 2
@@ -199,15 +197,10 @@ class MainPageViewController: UIViewController{
         cmUpperBodyLabel.font = UIFont(name: NanumFont.regular, size: 13)
         cmLowerBodyLabel.font = UIFont(name: NanumFont.regular, size: 13)
     }
-    
-    
-    
-    
 }
 extension MainPageViewController : UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: 300, height: 180)
     }
     
@@ -235,6 +228,7 @@ extension MainPageViewController : UICollectionViewDataSource {
         let idx = indexPath.row
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as? EventCollectionViewCell else {return UICollectionViewCell() }
         cell.imageView.load(strUrl: bannerPhoto[idx])
+        cell.locationLabel.text = bannerLocationDetail[idx]
         cell.titleLabel.text = bannerName[idx]
         cell.dateLabel.text = bannerWhen[idx]
         cell.typeLabel.text = bannerType[idx]
@@ -310,7 +304,6 @@ extension MainPageViewController {
     func didSuccessCancelCommunity(message: String, communityIdx: Int){
         self.presentAlert(title: message)
         cListDataManager.getCommunityList(delegate: self)
-
     }
 }
 

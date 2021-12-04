@@ -67,7 +67,7 @@
                                         <rect key="frame" x="16" y="1" width="383" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="어떤 친환경 실천을 찾으세요?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xq-rP-ekC">
-                                                <rect key="frame" x="5" y="15" width="324" height="18.5"/>
+                                                <rect key="frame" x="20" y="15" width="309" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -79,11 +79,14 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="icSearch"/>
+                                                <connections>
+                                                    <action selector="search:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KDg-fc-tUF"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="3xq-rP-ekC" firstAttribute="leading" secondItem="Yru-vM-cIG" secondAttribute="leading" constant="5" id="DEn-OJ-GeR"/>
+                                            <constraint firstItem="3xq-rP-ekC" firstAttribute="leading" secondItem="Yru-vM-cIG" secondAttribute="leading" constant="20" id="DEn-OJ-GeR"/>
                                             <constraint firstItem="Nvh-cU-Hcw" firstAttribute="centerY" secondItem="3xq-rP-ekC" secondAttribute="centerY" id="J6K-l1-azr"/>
                                             <constraint firstItem="Nvh-cU-Hcw" firstAttribute="leading" secondItem="3xq-rP-ekC" secondAttribute="trailing" constant="8" id="Jf1-QB-hOa"/>
                                             <constraint firstAttribute="height" constant="48" id="OvC-gL-4Sk"/>
@@ -131,6 +134,7 @@
                         <outlet property="pagerBarDivideView" destination="zOB-9b-pkH" id="SzT-jA-lBT"/>
                         <outlet property="searchButton" destination="Nvh-cU-Hcw" id="Pfd-1w-bed"/>
                         <outlet property="searchContentView" destination="Yru-vM-cIG" id="Kf2-ex-kh6"/>
+                        <outlet property="searchKeywordTextField" destination="3xq-rP-ekC" id="7RH-TT-IEX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -189,58 +193,6 @@
             </objects>
             <point key="canvasLocation" x="1015.9420289855074" y="92.410714285714278"/>
         </scene>
-        <!--Workshop View Controller-->
-        <scene sceneID="uDW-E5-tha">
-            <objects>
-                <viewController storyboardIdentifier="WorkshopVC" id="cV1-an-tOt" customClass="WorkshopViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="N2G-Cr-USJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yfq-aO-799">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWrite" translatesAutoresizingMaskIntoConstraints="NO" id="Ctv-Na-ikA">
-                                <rect key="frame" x="334" y="782" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="FtR-Sj-hh4"/>
-                                    <constraint firstAttribute="height" constant="64" id="zlj-ur-YoC"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdF-Tc-P2V">
-                                <rect key="frame" x="327" y="799" width="67" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="writeButton:" destination="cV1-an-tOt" eventType="touchUpInside" id="LGJ-95-h8j"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="PSg-Rm-SMh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Yfq-aO-799" firstAttribute="leading" secondItem="PSg-Rm-SMh" secondAttribute="leading" id="EZT-E5-19L"/>
-                            <constraint firstItem="PSg-Rm-SMh" firstAttribute="bottom" secondItem="Yfq-aO-799" secondAttribute="bottom" id="PPO-N3-kc7"/>
-                            <constraint firstItem="PSg-Rm-SMh" firstAttribute="trailing" secondItem="Yfq-aO-799" secondAttribute="trailing" id="WRQ-Qq-6Kk"/>
-                            <constraint firstItem="PSg-Rm-SMh" firstAttribute="trailing" secondItem="Ctv-Na-ikA" secondAttribute="trailing" constant="16" id="WZv-YT-ffw"/>
-                            <constraint firstItem="VdF-Tc-P2V" firstAttribute="top" secondItem="Ctv-Na-ikA" secondAttribute="top" id="XL7-CM-J68"/>
-                            <constraint firstItem="PSg-Rm-SMh" firstAttribute="bottom" secondItem="Ctv-Na-ikA" secondAttribute="bottom" constant="16" id="YXA-R0-oeT"/>
-                            <constraint firstItem="VdF-Tc-P2V" firstAttribute="leading" secondItem="Ctv-Na-ikA" secondAttribute="leading" id="fdZ-sd-FM6"/>
-                            <constraint firstItem="VdF-Tc-P2V" firstAttribute="trailing" secondItem="Ctv-Na-ikA" secondAttribute="trailing" id="jZr-Zi-uVA"/>
-                            <constraint firstItem="VdF-Tc-P2V" firstAttribute="bottom" secondItem="Ctv-Na-ikA" secondAttribute="bottom" id="rDI-Ht-e3d"/>
-                            <constraint firstItem="Yfq-aO-799" firstAttribute="top" secondItem="PSg-Rm-SMh" secondAttribute="top" id="vkw-Bm-917"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="Yfq-aO-799" id="eB5-Cd-0S6"/>
-                        <outlet property="writeBtn" destination="VdF-Tc-P2V" id="rut-xZ-P7P"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aGf-vf-HDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1028.985507246377" y="758.70535714285711"/>
-        </scene>
         <!--Feed View Controller-->
         <scene sceneID="RPb-D1-Ybw">
             <objects>
@@ -291,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrO-8e-yf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="1408"/>
+            <point key="canvasLocation" x="1016" y="768"/>
         </scene>
     </scenes>
     <resources>

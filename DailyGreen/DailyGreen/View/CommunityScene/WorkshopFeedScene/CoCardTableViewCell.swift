@@ -58,6 +58,14 @@ class CoCardTableViewCell: UITableViewCell {
     @IBOutlet weak var participateLabel: UILabel!
     
     @IBOutlet weak var devideViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var participateProfileImageView: UIImageView!
+    
+    
+    @IBOutlet weak var participateProfileImageView2: UIImageView!
+    
+    @IBOutlet weak var participateProfileImageView3: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -68,6 +76,13 @@ class CoCardTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         selectionStyle = .none
+        participateProfileImageView.layer.cornerRadius = 10
+        participateProfileImageView.contentMode = .scaleToFill
+        participateProfileImageView2.layer.cornerRadius = 10
+        participateProfileImageView2.contentMode = .scaleToFill
+        
+        participateProfileImageView3.layer.cornerRadius = 10
+        participateProfileImageView3.contentMode = .scaleToFill
         
         
         hashTag1.font = UIFont.systemFont(ofSize: 13)
