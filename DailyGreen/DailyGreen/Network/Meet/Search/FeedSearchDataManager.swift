@@ -1,18 +1,21 @@
 //
-//  FeedDataManager.swift
+//  FeedSearchDataManager.swift
 //  DailyGreen
 //
-//  Created by 유준용 on 2021/11/18.
+//  Created by 유준용 on 2021/12/05.
 //
 
 import Alamofire
 
-class FeedDataManager {
+class FeedSearchDataManager {
     
-    func getFeedData(delegate: FeedViewController, communityIdx: Int, page: Int) {
+    func getFeedSearchData(delegate: FeedViewController, communityIdx: Int, page: Int, keyword: String) {
         
-        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN] // 테스트 토큰
-        AF.request("\(Constant.BASE_URL)/app/communities/\(communityIdx)/posts?page=1",
+        let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN]
+        let urlString = "\(Constant.BASE_URL)/app/communities/\(communityIdx)/posts/searches?keyword=\(keyword)&page=1"
+        let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: encodedString)!
+        AF.request(url,
                    method: .get,
                    parameters: nil,
                    encoding: URLEncoding.default,
@@ -24,9 +27,8 @@ class FeedDataManager {
 
                     if response.isSuccess  {
                         let results = response.result
-                        print(results)
-            
-                        delegate.didSuccessFeed(message: "성공", results: results, keyword: nil)
+                        
+                        delegate.didSuccessFeed(message: "성공", results: results, keyword: keyword)
                     }
 
                     else {
@@ -34,7 +36,6 @@ class FeedDataManager {
                         case 2000: delegate.failedToRequest(message: "2000error")
                         default :
                             delegate.failedToRequest(message: "실패 code: \(response.code)")
-                            break
                         }
                     }
                 case .failure(let error):
@@ -45,4 +46,3 @@ class FeedDataManager {
             }
     }
 }
-

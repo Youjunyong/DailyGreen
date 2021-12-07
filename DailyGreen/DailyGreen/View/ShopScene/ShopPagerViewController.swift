@@ -18,7 +18,6 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
         view.backgroundColor = .dark1
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-        
     }()
     
     @IBOutlet weak var searchContentView: UIView!
@@ -30,7 +29,6 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     @IBOutlet weak var searchKeywordTextField: UITextField!
     
     @IBAction func search(_ sender: Any) {
-
         if currentIndex == 0{
             if searchKeywordTextField.text!.count == 0 {
                 presentAlert(title: "검색 키워드를 입력해주세요")
@@ -54,9 +52,14 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
         super.viewDidLoad()
         configureNavi()
         configureSearchBar()
-        hideKeyboardWhenTappedBackground()
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        hideKeyboardWhenTappedBackground()
+
+    }
     
     private func configureSearchBar(){
         

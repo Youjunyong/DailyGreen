@@ -17,6 +17,7 @@ class ServiceTextViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismissButton.setTitle("", for: .normal)
     }
     
 }

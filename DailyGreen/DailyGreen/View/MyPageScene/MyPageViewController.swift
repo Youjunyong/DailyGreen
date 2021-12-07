@@ -12,6 +12,7 @@ class MyPageViewController: UIViewController{
     lazy var dimmingView = DimmingView()
     lazy var myPageGetDataManager = MyPageGetDataManager()
     lazy var deleteMeetDataManager = DeleteMeetDataManager()
+    lazy var participateMeetData = ParticipateMeetDataManager()
     
     var isNotFirst = false
     var userIdx: Int?
@@ -30,13 +31,13 @@ class MyPageViewController: UIViewController{
     var pInfoName = [String]()
     var pInfoType = [String]()
     
-    var didInit = true
     
-    @IBOutlet weak var historyButton: UIButton!
+    
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var postHistoryLabel: UILabel!
+    
 
-    @IBOutlet weak var allPostedLabel: UILabel!
+    
     
     @IBOutlet weak var createdEventLabel: UILabel!
     
@@ -56,7 +57,6 @@ class MyPageViewController: UIViewController{
     
     @IBOutlet weak var divideView2: UIView!
     @IBOutlet weak var divideView3: UIView!
-    @IBOutlet weak var devideView4: UIView!
     @IBOutlet weak var bioTitleLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     
@@ -73,11 +73,7 @@ class MyPageViewController: UIViewController{
     @IBOutlet weak var devideView6: UIView!
     
     
-    
-    @IBAction func history(_ sender: Any) {
-        
-        
-    }
+
     
     @IBAction func settingTouched(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SettingScene", bundle: nil)
@@ -90,23 +86,20 @@ class MyPageViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.navigationController?.navigationBar.tintColor = .black
         title = "나의 계정"
         configureUI()
         configureCollectionView()
+        configureTableView()
         if userIdx == nil {
             self.userIdx = UserDefaults.standard.integer(forKey: "userIdx")
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("뷰윌어피어")
         super.viewWillAppear(true)
         if self.userIdx != nil {
             myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
-            print("VIEWWILLAPPEAR")
         }
         if CommunityData.shared.subscribedList.count < 5{
             collectionViewHeightConstraint.constant = 80
@@ -118,6 +111,7 @@ class MyPageViewController: UIViewController{
     private func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
+        
         let nib = UINib(nibName: "MyPageTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "MyPageCell")
         tableView.separatorStyle = .none
@@ -127,16 +121,10 @@ class MyPageViewController: UIViewController{
         collectionView.dataSource = self
         let nib = UINib(nibName: "CommunityListCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "CommunityListCell")
-        
-  
-        
     }
     private func configureUI(){
-        postHistoryLabel.font = UIFont(name: NanumFont.regular, size: 17)
-        historyButton.setTitle("", for: .normal)
-        allPostedLabel.font = UIFont(name: NanumFont.bold, size: 20)
-        allPostedLabel.text = "게시글 히스토리"
-        devideView4.backgroundColor = .dark1
+
+        
         createdEventLabel.font = UIFont(name: NanumFont.bold, size: 20)
         profileImage.layer.cornerRadius = 53
         profileImage.contentMode = .scaleAspectFill
@@ -156,7 +144,7 @@ class MyPageViewController: UIViewController{
         divideView1.backgroundColor = .dark1
         divideView2.backgroundColor = .dark1
         divideView3.backgroundColor = .dark1
-        devideView6.backgroundColor = .dark2
+        
         
         bioTitleLabel.font = UIFont(name: NanumFont.bold, size: 20)
         communityTitleLabel.font = UIFont(name: NanumFont.bold, size: 20)
@@ -229,8 +217,8 @@ class MyPageViewController: UIViewController{
     }
     @objc func cancelMeet(_ sender: UIButton){
         let clubIdx = sender.tag - 100
-        let params = DeleteMeetRequest(clubIdx: clubIdx)
-        deleteMeetDataManager.patchDeleteMeet(params, delegate: self, clubIdx: clubIdx)
+        let params = ParticipateMeetRequest(clubIdx: clubIdx)
+        participateMeetData.myPageParticiPateMeet(params, delegate: self)
     }
     
 }
@@ -247,6 +235,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let imageName = CommunityData.shared.imageArr[subscribeIdx]
         cell.communityImageView.image = UIImage(named: imageName)
         cell.communityLabel.text = CommunityData.shared.nameArr[subscribeIdx]
+        
         return cell
         
     }
@@ -295,8 +284,6 @@ extension MyPageViewController{
         let myInfo = results.myInfo
         let createdInfo = results.createdInfo
         let participatingInfo = results.participatingInfo
-        
-        
         scoreBadgeLabel.text = "\(myInfo.badgeCnt)개"
         scoreFeedLabel.text = "\(myInfo.createdPostCnt)회"
         scoreWorkshopLabel.text = "\(myInfo.participationCnt)회"
@@ -327,7 +314,6 @@ extension MyPageViewController{
             guard let type = info?.type else{break}
             cInfoLocationDetail.append(location)
             cInfoIdx.append(idx)
-            print(name)
             cInfoWhen.append(when)
             cInfoName.append(name)
             cInfoType.append(type)
@@ -345,12 +331,8 @@ extension MyPageViewController{
             pInfoName.append(name)
             pInfoType.append(type)
         }
-        if didInit {
-            configureTableView()
-            self.didInit = false
-        }else{
-            tableView.reloadData()
-        }
+        tableView.reloadData()
+        contentViewHeightConstraint.constant = tableView.frame.origin.y + CGFloat((cInfoIdx.count + pInfoIdx.count) * 110) + 100
     }
     func failedToRequest(message: String){
         presentAlert(title: message)

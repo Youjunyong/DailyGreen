@@ -30,8 +30,6 @@ class WriteMeetViewController: UIViewController {
         if  submitButtonView.backgroundColor == .primary{
             let storyboard = UIStoryboard(name: "WriteDateLocationScene", bundle: nil)
             guard let VC = storyboard.instantiateViewController(withIdentifier: "WriteDateLocationVC") as? WriteDateLocationViewController else{return}
-            
-            
             VC.communityIdx = self.communityIdx
             VC.name = titleTextField.text!
             VC.tagList = pramTags
@@ -39,6 +37,9 @@ class WriteMeetViewController: UIViewController {
             VC.maxPeopleNum = Int(peopleNumTextField.text!)
             VC.feeType = feeType
             VC.fee = feeTextField.text!
+            if feeTextField.text!.count < 4 {
+                VC.fee = "0"
+            }
             VC.kakaoChatLink = openChatLinkTextField.text!
             VC.isRegular = isRegular
             for image in selecetedImage{
@@ -53,6 +54,7 @@ class WriteMeetViewController: UIViewController {
        
     }
     
+    @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var wonLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var writeTextView: UITextView!
@@ -109,6 +111,7 @@ class WriteMeetViewController: UIViewController {
     @IBOutlet weak var btn3: UIButton!
     
     
+    @IBOutlet weak var bioViewVerticalConstraint: NSLayoutConstraint!
     @IBAction func btn1Clicked(_ sender: Any) {
         feeType = "무료"
         feeStyle()
@@ -128,6 +131,14 @@ class WriteMeetViewController: UIViewController {
     @IBAction func feeDidEnd(_ sender: Any) {
         checkSubmitReady()
     }
+    
+    
+    @IBAction func openChatTextFieldEditing(_ sender: Any) {
+        checkSubmitReady()
+    }
+    
+    
+    
     private func feeStyle(){
         if self.feeType == "무료"{
             freeImageView.image = UIImage(named: "selectedButton100")
@@ -161,12 +172,17 @@ class WriteMeetViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         openChatLinkTextField.delegate = self
-        self.hideKeyboardWhenTappedBackground()
+        
         configureUI()
         configureKeyWordCollectionView()
         configureImageCollectionView()
         keyWordTextField.delegate = self
-        
+        if isRegular == 0 {
+            bioViewVerticalConstraint.constant = 10
+            keyWordTitleLabel.text = "상세정보"
+            scrollViewHeightConstraint.constant -= 150
+        }
+        hideKeyboardWhenTappedBackground()
     }
     private func configureKeyWordCollectionView(){
         keyWordCollectionView.dataSource = self
@@ -188,7 +204,7 @@ class WriteMeetViewController: UIViewController {
         return thumbnail
     }
     private func checkSubmitReady(){
-        if self.isText, self.isPhoto, titleTextField.text!.count > 0, peopleNumTextField.text!.count > 0, feeTextField.text!.count > 0, feeType.count > 0 , openChatLinkTextField.text!.count > 5{
+        if self.isText, self.isPhoto, titleTextField.text!.count > 0, peopleNumTextField.text!.count > 0, feeType.count > 0 , openChatLinkTextField.text!.count > 5{
             submitButtonView.backgroundColor = .primary
             
             submitButtonLabel.textColor = .black
@@ -413,6 +429,7 @@ extension WriteMeetViewController: UITextViewDelegate {
 
 extension WriteMeetViewController {
     func textFieldDidEndEditing(_ textField: UITextField) {
+        print("TEXTFIELD")
         checkSubmitReady()
     }
 }

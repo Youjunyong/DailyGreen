@@ -15,9 +15,9 @@ class MeetDetailViewController: UIViewController {
     var communityName: String?
     var isRegular: Int?
     var meetUrlList = [String]()
-    
     lazy var dimmingView = DimmingView()
     
+    @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var divideView: UIView!
     @IBOutlet weak var indicatorImageView: UIImageView!
@@ -30,36 +30,29 @@ class MeetDetailViewController: UIViewController {
     @IBOutlet weak var shopNameLabel: UILabel!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var dDayLabel: UILabel!
-    
-//참가 현황
     @IBOutlet weak var participateLabel: UILabel!
-    
     @IBOutlet weak var participatePeopleNumLabel: UILabel!
-    
-    
     @IBOutlet weak var participateProfileImageview1: UIImageView!
     @IBOutlet weak var profileName1: UILabel!
-    
     @IBOutlet weak var participateProfileImageview2: UIImageView!
-    
     @IBOutlet weak var profileName2: UILabel!
     @IBOutlet weak var participateProfileImageview3: UIImageView!
     @IBOutlet weak var profileName3: UILabel!
-    
     @IBOutlet weak var participateProfileImageview4: UIImageView!
-    
     @IBOutlet weak var restNumLabel: UILabel!
     @IBOutlet weak var profileName4: UILabel!
     @IBOutlet weak var restNumView: UIView!
-    
-   
     @IBOutlet weak var openChatLabel: UILabel!
     @IBOutlet weak var participateView: UIView!
-    
     @IBOutlet weak var openChatTitleLabel: UILabel!
-    
     @IBOutlet weak var openChatLinkLabel: UILabel!
-    
+    @IBAction func report(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "ReportViewScene", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "ReportVC") as? ReportViewController else{return}
+        VC.idx = clubIdx
+        VC.sort = "c"
+        self.present(VC, animated: true, completion: nil)
+    }
     
     @IBAction func submit(_ sender: Any) {
         let params = ParticipateMeetRequest(clubIdx: self.clubIdx!)
@@ -174,6 +167,7 @@ class MeetDetailViewController: UIViewController {
     
     
     private func configureUI(){
+        reportButton.setTitle("", for: .normal)
         divideView.backgroundColor = .primary
         profileImageView.layer.cornerRadius = 24
         profileImageView.contentMode = .scaleAspectFill
@@ -273,13 +267,11 @@ extension MeetDetailViewController {
             }else{
                 websiteLabel.text = "무료"
             }
-            
             if clubInfoObj.kakaoChatLink != nil{
                 
                 openChatLinkLabel.text =  clubInfoObj.kakaoChatLink!
             }else{
                 openChatLabel.text = ""
-                
             }
             phoneLabel.text = clubInfoObj.when
             locationLabel.text =  clubInfoObj.locationDetail

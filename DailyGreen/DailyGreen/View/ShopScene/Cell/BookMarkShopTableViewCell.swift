@@ -13,12 +13,10 @@ class BookMarkShopTableViewCell: UITableViewCell {
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var shopImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var dimmingView: UIView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeButtonImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
-    
     @IBOutlet weak var locationImageView: UIImageView!
     @IBAction func like(_ sender: Any) {
         if likeButtonImageView.image == UIImage(named: "wheart"){
@@ -51,8 +49,6 @@ class BookMarkShopTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     

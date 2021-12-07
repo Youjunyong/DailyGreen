@@ -10,9 +10,9 @@ import XLPagerTabStrip
 
 class FeedViewController: UIViewController, IndicatorInfoProvider{
     
-    
     lazy var getFeedDataManager = FeedDataManager()
     lazy var likeDataManager = LikeDataManager()
+    lazy var feedSearchDataManager = FeedSearchDataManager()
     var postIdxs = [Int]()
     var captions = [String]()
     var nickNames = [String]()
@@ -26,6 +26,7 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
     var communityIdx: Int?
     var community: String?
     
+    var delegate: PagerTabbarViewController?
     
     @IBAction func write(_ sender: Any) {
         let storyboard = UIStoryboard(name: "WriteScene", bundle: nil)
@@ -37,10 +38,39 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
     @IBOutlet weak var writeButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    lazy var emptyLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "현재 개최중인 모임이 없습니다."
+        label.font = UIFont(name: NanumFont.regular, size: 17)
+        label.textColor = .grayLongtxt
+        return label
+    }()
+    
+    
+    func configureEmptyLabel(type: Int){
+        if type == 0{
+            view.addSubview(emptyLabel)
+            NSLayoutConstraint.activate([
+                emptyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+                emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        }else{
+            view.addSubview(emptyLabel)
+            emptyLabel.text = "해당하는 검색결과가 없습니다."
+            NSLayoutConstraint.activate([
+                emptyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+                emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+        }
+    }
+    
+    
     override func viewDidLoad() {
         writeButton.setTitle("", for: .normal)
-        hideKeyboardWhenTappedBackground()
         super.viewDidLoad()
+        configureTableView()
+        showIndicator()
         
     }
     
@@ -48,11 +78,8 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
         super.viewWillAppear(true)
         getFeedDataManager.getFeedData(delegate: self, communityIdx: self.communityIdx!, page: 1)
     }
-    
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
-        
     }
     private func configureTableView(){
         tableView.delegate = self
@@ -61,24 +88,37 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
         let nib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "feedCell")
     }
-    
-    
+    func getEntireFeedData(){
+        getFeedDataManager.getFeedData(delegate: self, communityIdx: self.communityIdx!, page: 1)
+    }
+
+    func searchFeedResult(keyword : String){
+        if communityIdx != nil, keyword.count > 0{
+            feedSearchDataManager.getFeedSearchData(delegate: self, communityIdx: communityIdx!, page: 1, keyword: keyword)
+        }
+    }
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "\(childNumber)")
+    }
+    @objc func report(_ sender: UIButton){
+        let storyboard = UIStoryboard(name: "ReportViewScene", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "ReportVC") as? ReportViewController else{return}
+        VC.idx = sender.tag
+        VC.sort = "p"
+        self.present(VC, animated: true, completion: nil)
+        
     }
     
     @objc func like(_ sender: UIButton){
         let postIdx = sender.tag - 100
         let params = LikeRequest(postIdx: postIdx)
         likeDataManager.postLike(params, delegate: self)
-        // 네트워크통신은 추가했으나, 버튼View가 heartFill로 바뀌는 토글과정은 추가하지 않았음.
     }
     
 }
 
 extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(nickNames)
         return nickNames.count
     }
     
@@ -99,6 +139,8 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
         cell.numOfLikeLabel.text = "\(self.postLikeTotals[idx])명이"
         cell.numOfCommentLabel.text = "\(self.commentTotals[idx])"
         cell.likeButton.tag = self.postIdxs[idx] + 100
+        cell.reportButton.tag = self.postIdxs[idx]
+        cell.reportButton.addTarget(self, action: #selector(report(_:)), for: .touchUpInside)
         cell.likeButton.addTarget(self, action: #selector(like(_:)), for: .touchUpInside)
         if isPostLikes[idx] == 1{
             cell.likeImageView.image = UIImage(named: "bheartFill")
@@ -120,7 +162,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
 }
 
 extension FeedViewController {
-    func didSuccessFeed(message: String, results: [FeedResult?]){
+    func didSuccessFeed(message: String, results: [FeedResult?] , keyword: String?){
         postIdxs = [Int]()
         captions = [String]()
         nickNames = [String]()
@@ -131,7 +173,6 @@ extension FeedViewController {
         commentTotals = [Int]()
         postLikeTotals = [Int]()
         
-        configureTableView()
         var urlArr = [String]()
         for result in results{
             urlArr = [String]()
@@ -144,13 +185,26 @@ extension FeedViewController {
             self.commentTotals.append(postInfoObj.commentTotal)
             self.postLikeTotals.append(postInfoObj.postLikeTotal)
             self.postIdxs.append(postInfoObj.postIdx)
+            
             guard let urls = result!.postPhotoUrlListObj else{continue}
             for feedUrl in urls.urlList{
                 urlArr.append(feedUrl.url)
             }
             self.feedUrls.append(urlArr)
         }
+        
+        if postIdxs.count == 0{
+            emptyLabel.isHidden = false
+            if keyword != nil {
+                configureEmptyLabel(type: 1)
+            }else{
+                configureEmptyLabel(type: 0)
+            }
+        }else{
+            emptyLabel.isHidden = true
+        }
         self.tableView.reloadData()
+        dismissIndicator()
     }
     
     func didSuccessLike(message: String){

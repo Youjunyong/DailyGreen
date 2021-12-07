@@ -133,8 +133,6 @@ class RegisterEmailViewController : UIViewController {
         let pwTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
         return pwTest.evaluate(with: str)
     }
-    
-    
 }
 
 extension RegisterEmailViewController: UITextFieldDelegate {
@@ -182,7 +180,6 @@ extension RegisterEmailViewController: UITextFieldDelegate {
                 }
             }
         }
-        
         if validate , rePwDivideView.backgroundColor == pwDivideView.backgroundColor, pwDivideView.backgroundColor  == emailDivideView.backgroundColor{
             submitButton.backgroundColor = UIColor.primary
             submitButton.setTitleColor(UIColor.black, for: .normal)
@@ -190,7 +187,5 @@ extension RegisterEmailViewController: UITextFieldDelegate {
             submitButton.backgroundColor = UIColor.grayDisabled
             submitButton.setTitleColor(UIColor.white, for: .normal)
         }
-        
     }
-   
 }

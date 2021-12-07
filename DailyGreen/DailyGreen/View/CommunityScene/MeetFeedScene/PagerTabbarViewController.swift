@@ -14,6 +14,7 @@ class PagerTabbarViewController: ButtonBarPagerTabStripViewController {
     var naviTitle = ""
     var communityIdx: Int?
     var child1: MeetingViewController?
+    var child2: FeedViewController?
     let naviShadow: UIView = {
        let view = UIView()
         view.backgroundColor = .dark1
@@ -27,13 +28,35 @@ class PagerTabbarViewController: ButtonBarPagerTabStripViewController {
     
     @IBOutlet weak var pagerBarDivideView: UIView!
     @IBOutlet weak var searchButton: UIButton!
+ 
     
-    
+    @IBAction func keywordEditingChanged(_ sender: Any) {
+        print(searchKeywordTextField.text!)
+        if searchKeywordTextField.text!.count != 0 {
+            if currentIndex == 0 {
+                let keyword = searchKeywordTextField.text!
+                self.child1?.searchMeetResult(keyword: keyword)
+            }else if currentIndex == 1{
+                let keyword = searchKeywordTextField.text!
+                self.child2?.searchFeedResult(keyword: keyword)
+            }
+        }else{
+            if currentIndex == 0 {
+                self.child1?.getEntireMeetData()
+            }else if currentIndex == 1{
+                self.child2?.getEntireFeedData()
+            }
+        }
+
+    }
     
     @IBAction func search(_ sender: Any) {
         if currentIndex == 0 {
             let keyword = searchKeywordTextField.text!
-            self.child1?.searchResult(keyword: keyword)
+            self.child1?.searchMeetResult(keyword: keyword)
+        }else if currentIndex == 1{
+            let keyword = searchKeywordTextField.text!
+            self.child2?.searchFeedResult(keyword: keyword)
         }
     }
     
@@ -41,10 +64,16 @@ class PagerTabbarViewController: ButtonBarPagerTabStripViewController {
     override func viewDidLoad() {
         configurePager()
         super.viewDidLoad()
-        
         configureNavi()
         configureSearchBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        hideKeyboardWhenTappedBackground()
+
+    }
+    
     
     
     private func configureSearchBar(){
@@ -103,11 +132,13 @@ class PagerTabbarViewController: ButtonBarPagerTabStripViewController {
         self.child1 = child1
         
         
-        let child3 = UIStoryboard.init(name: "PagerTabbar", bundle: nil).instantiateViewController(withIdentifier: "FeedVC") as! FeedViewController
-        child3.communityIdx = self.communityIdx// chile에 적용 안함
-        child3.community = naviTitle// chile에 적용 안함
-        child3.childNumber = "피드"
-      return [child1, child3]
+        let child2 = UIStoryboard.init(name: "PagerTabbar", bundle: nil).instantiateViewController(withIdentifier: "FeedVC") as! FeedViewController
+        child2.communityIdx = self.communityIdx// chile에 적용 안함
+        child2.community = naviTitle// chile에 적용 안함
+        child2.delegate = self
+        child2.childNumber = "피드"
+        self.child2 = child2
+      return [child1, child2]
 
     }
     

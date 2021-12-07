@@ -70,6 +70,9 @@
                                                 <rect key="frame" x="20" y="15" width="309" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="keywordEditingChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="eAa-JB-Q11"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvh-cU-Hcw">
                                                 <rect key="frame" x="337" y="2" width="44" height="44"/>

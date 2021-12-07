@@ -27,8 +27,6 @@ class EntireShopTableViewCell: UITableViewCell {
                 likeButtonImageView.image = UIImage(named: "wheart")
             }
         }
-        
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

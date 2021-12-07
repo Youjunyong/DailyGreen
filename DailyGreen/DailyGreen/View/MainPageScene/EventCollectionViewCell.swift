@@ -43,7 +43,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         shadowView.layer.cornerRadius = 16
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOpacity = 0.24
-        shadowView.layer.shadowRadius = 4
+        shadowView.layer.shadowRadius = 2
         shadowView.layer.shadowOffset = CGSize(width: 2, height: 2)
         
         

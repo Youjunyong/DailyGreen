@@ -25,7 +25,6 @@ class LogoutSignOutViewController : UIViewController {
     }
     
     @IBAction func signOut(_ sender: Any) {
-        
         guard let userIdx = UserDefaults.standard.string(forKey: "userIdx") else{return}
         let params = SignOutRequest(userIdx: Int(userIdx)!)
         signOutDataManager.patchSignOut(params, delegate: self, userIdx: Int(userIdx)!)
@@ -34,6 +33,7 @@ class LogoutSignOutViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         logoutButton.setTitle("", for: .normal)
         signOutButton.setTitle("", for: .normal)
     }
@@ -49,7 +49,6 @@ extension LogoutSignOutViewController {
         UserDefaults.standard.removeObject(forKey: "nickName")
         UserDefaults.standard.removeObject(forKey: "profilePhotoUrl")
         let LoginNaviVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginNaviVC")
-        
         self.changeRootViewController(LoginNaviVC)
     }
     

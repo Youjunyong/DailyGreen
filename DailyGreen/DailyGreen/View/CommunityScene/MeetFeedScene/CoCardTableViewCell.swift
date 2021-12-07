@@ -92,8 +92,8 @@ class CoCardTableViewCell: UITableViewCell {
         hashTagView2.backgroundColor = .light1
         hashTagView3.backgroundColor = .light1
         
-        hashTagView1.layer.cornerRadius = 12
-        hashTagView2.layer.cornerRadius = 12
+        hashTagView1.layer.cornerRadius = 15
+        hashTagView2.layer.cornerRadius = 15
         hashTagView3.layer.cornerRadius = 12
 
         

@@ -33,6 +33,9 @@ class WriteDateLocationViewController: UIViewController{
         writeMeetDataManager.uploadFeed(params: params, delegate: self)
     }
     
+    @IBAction func detailLocationChanged(_ sender: Any) {
+        checkSubmitReady()
+    }
     lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -131,60 +134,32 @@ class WriteDateLocationViewController: UIViewController{
     @IBOutlet weak var underView2: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var onlineButtonImageView: UIImageView!
-    @IBOutlet weak var offLineButtonImageView: UIImageView!
+  
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var submitButtonView: UIView!
     @IBOutlet weak var detailAddressTextField: UITextField!
-    @IBOutlet weak var onlineButton: UIButton!
-    @IBOutlet weak var offlineButton: UIButton!
+  
     @IBOutlet weak var setLocationButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var underView5: UIView!
     @IBOutlet weak var underView4: UIView!
     @IBOutlet weak var underView3: UIView!
-    @IBOutlet weak var offlineButtonLabel: UILabel!
-    @IBOutlet weak var onlineButtonLabel: UILabel!
+    
     @IBOutlet weak var underView6: UIView!
     @IBOutlet weak var locationTitleLabel: UILabel!
     @IBOutlet weak var dateTitleLabel: UILabel!
     
-    
-    
-    @IBAction func setOffline(_ sender: Any) {
-        toggleButton(offOrOn: 1)
-        checkSubmitReady()
-    }
-    
-    
-    @IBAction func setOnline(_ sender: Any) {
-        toggleButton(offOrOn: 0)
-        
-        checkSubmitReady()
-    }
-    
-    private func toggleButton(offOrOn: Int){
-        if offOrOn == 0{
-            offLineButtonImageView.image = UIImage(named: "defaultButton100")
-            onlineButtonImageView.image = UIImage(named: "selectedButton100")
-        }else{
-            onlineButtonImageView.image = UIImage(named: "defaultButton100")
-            offLineButtonImageView.image = UIImage(named: "selectedButton100")
-        }
-    }
     private func configureUI(){
         submitButtonLabel.text = "다음"
         detailAddressTextField.delegate = self
-        onlineButton.setTitle("", for: .normal)
-        offlineButton.setTitle("", for: .normal)
+       
         setLocationButton.setTitle("", for: .normal)
         addressLabel.textColor = .grayDisabled
         
         titleLabel.font = UIFont(name: NanumFont.bold, size: 17)
         dateTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
         locationTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
-        onlineButtonLabel.font = UIFont(name: NanumFont.extraBold, size: 17)
-        offlineButtonLabel.font = UIFont(name: NanumFont.extraBold, size: 17)
+       
         
         underView1.backgroundColor = .primary
         underView6.backgroundColor = .primary

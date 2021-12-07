@@ -56,7 +56,6 @@ extension PersonalnfoUpdateViewController: UITableViewDelegate, UITableViewDataS
         default:
             break
         }
-        
         return indexPath
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

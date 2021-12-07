@@ -10,20 +10,12 @@ import UIKit
 class EmailLoginViewController: UIViewController {
     
     lazy var emailLoginDataManager = EmailLoginDataManager()
-    
- 
-    
     let naviShadowView : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .dark1
         return view
     }()
-    
-//    @IBOutlet weak var testLabel: UILabel!
-    
-    
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var emailDivideView: UIView!
@@ -40,7 +32,6 @@ class EmailLoginViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     @IBAction func register(_ sender: Any) {
-        
         modalPresent(type: "email")
     }
     func emailRegister(){
@@ -57,18 +48,15 @@ class EmailLoginViewController: UIViewController {
     }
     
     private func modalPresent(type: String){
-        
         let storyboard = UIStoryboard(name: "PolicyScene", bundle: nil)
         guard let VC = storyboard.instantiateViewController(withIdentifier: "PolicyVC") as? PolicyViewController else{return}
         VC.presentingEmailLoginView = self
         VC.type = type
         self.present(VC, animated: true, completion: nil)
-        
     }
     override func viewDidLoad() {
         configureUI()
         configureNavi()
-        
     }
     private func configureNavi(){
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
@@ -84,43 +72,28 @@ class EmailLoginViewController: UIViewController {
             emailLoginDataManager.postEmailLogin(params, delegate: self)
         }
     }
-    
-
     private func configureUI(){
         loginButton.setTitle("", for: .normal)
         pwTextField.textContentType = .oneTimeCode
         registerUnderView.backgroundColor = .dark2
-        
         loginButtonLabel.font = UIFont(name: NanumFont.extraBold, size: 17)
         self.hideKeyboardWhenTappedBackground()
-        
         view.addSubview(naviShadowView)
-  
         NSLayoutConstraint.activate([
             naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
             naviShadowView.heightAnchor.constraint(equalToConstant: 1),
             naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-
-        
-        
         pwDeleteButton.setTitle("", for: .normal)
         emailDeleteButton.setTitle("", for: .normal)
         emailDivideView.backgroundColor = .dark2
         pwDivideView.backgroundColor = .dark2
-        
-        
-
-        
         registerLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
         registerLabel.text = "이메일로 회원가입"
         registerButton.setTitle("", for: .normal)
         registerLabel.textColor = UIColor.dark2
     }
-    
-   
-    
 }
 
 extension EmailLoginViewController{
@@ -129,9 +102,7 @@ extension EmailLoginViewController{
         guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
         self.changeRootViewController(MainTabBarController)
     }
-    
     func failedToEmailLogin(message: String){
         presentAlert(title: message)
     }
-    
 }

@@ -15,10 +15,7 @@ class CommunityListCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         communityImageView.layer.cornerRadius = 24
-        
-        
         communityView.layer.cornerRadius = 24
         communityView.layer.shadowColor = UIColor.black.cgColor
         communityView.layer.shadowOpacity = 0.12

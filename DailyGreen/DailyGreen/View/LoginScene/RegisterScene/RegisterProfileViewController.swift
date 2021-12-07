@@ -118,6 +118,7 @@ class RegisterProfileViewController: UIViewController {
     private func configureUI(){
         view.addSubview(submitButton)
         view.addSubview(whiteView)
+        whiteView.isHidden = true
         let l = whiteView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         let r = whiteView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         let h = whiteView.heightAnchor.constraint(equalToConstant: 88)
@@ -258,7 +259,7 @@ class RegisterProfileViewController: UIViewController {
             let keyboardHeight = keyboardRectangle.height
             whiteViewConstraint.append(whiteView.topAnchor.constraint(equalTo: view.topAnchor, constant: keyboardHeight))
             NSLayoutConstraint.activate(whiteViewConstraint)
-            whiteView.isHidden = false
+//            whiteView.isHidden = false
             self.view.frame.origin.y -= 100
             
             }

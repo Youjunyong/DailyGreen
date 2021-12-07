@@ -52,6 +52,20 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             guard let PersonalInfoVC = self.storyboard?.instantiateViewController(withIdentifier: "PersonalInfoVC") as? PersonalnfoUpdateViewController else{return indexPath}
             self.navigationController?.pushViewController(PersonalInfoVC, animated: true)
+        case 1:
+            guard let InquireVC = self.storyboard?.instantiateViewController(withIdentifier: "InquireVC") else{return indexPath}
+            self.present(InquireVC, animated: true, completion: nil)
+            
+        case 2:
+            let storyboard = UIStoryboard(name: "PolicyScene", bundle: nil)
+            let VC = storyboard.instantiateViewController(withIdentifier: "PolicyTextVC")
+            self.present(VC, animated: true, completion: nil)
+
+        case 3:
+            let storyboard = UIStoryboard(name: "PolicyScene", bundle: nil)
+            let VC = storyboard.instantiateViewController(withIdentifier: "ServiceTextVC")
+            self.present(VC, animated: true, completion: nil)
+            
         default:
             break
         }

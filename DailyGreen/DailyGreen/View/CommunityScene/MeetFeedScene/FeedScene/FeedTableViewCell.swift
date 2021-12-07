@@ -14,6 +14,7 @@ class FeedTableViewCell: UITableViewCell{
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var likeImageView: UIImageView!
     
+    @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var commentImageView: UIImageView!
     @IBOutlet weak var moreCommentButton: UIButton!
     @IBOutlet weak var followImageView: UIImageView!
@@ -29,6 +30,9 @@ class FeedTableViewCell: UITableViewCell{
     @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var commentButton: UIButton!
+    
+    
+
     
     
     @IBAction func togleLike(_ sender: Any) {
@@ -49,6 +53,7 @@ class FeedTableViewCell: UITableViewCell{
         
     }
     private func configureUI(){
+        reportButton.setTitle("", for: .normal)
         likeButton.setTitle("", for: .normal)
         commentButton.setTitle("", for: .normal)
         moreCommentButton.setTitle("", for: .normal)

@@ -33,7 +33,6 @@ class BookMarkShopViewController : UIViewController, IndicatorInfoProvider{
         bookMarkShopDataManager.getBookMarkShop(delegate: self, page: 1)
     }
     
-    
     private func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self

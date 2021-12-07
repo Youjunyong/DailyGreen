@@ -45,7 +45,6 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
                 emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ])
         }
-
     }
     
     
@@ -68,19 +67,21 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        self.hideKeyboardWhenTappedBackground()
         configureUI()
+        configureTableView()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getEntireMeetData()
+    }
+    func getEntireMeetData(){
         if communityIdx != nil {
             meetDataManger.getMeetData(delegate: self, communityIdx: communityIdx!, page: 1)
         }
     }
     
-    
-    func searchResult(keyword : String){
+    func searchMeetResult(keyword : String){
         if communityIdx != nil, keyword.count > 0{
             meetSearchDataManager.getMeetSearchData(delegate: self, communityIdx: communityIdx!, page: 1, keyword: keyword)
         }
@@ -135,9 +136,6 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.nickNameLabel.text = clubInfoObject.nickname
                 cell.dDayLabel.text = clubInfoObject.Dday
                 cell.upperImageView.load(strUrl: clubInfoObject.clubPhoto)
-                
-                
-                
                 cell.profileImageView.load(strUrl: clubInfoObject.profilePhotoUrl)
                 cell.titleLabel.text = clubInfoObject.clubName
                 cell.locationLabel.text = clubInfoObject.locationDetail
@@ -147,6 +145,7 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.participateButton.tag = clubInfoObject.clubIdx + 100
                 
                 cell.participateButton.addTarget(self, action: #selector(detailView(_:)) , for: .touchUpInside)
+                
                 
                 if clubInfoObject.isRegular == 0 {
                     cell.categoryLabel.text = "모임"
@@ -159,10 +158,8 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
             if let tagList = clubInfo[indexPath.row]?.clubTagListObj.tagList{
                 cell.isHaveHashTag = true
                 cell.devideViewConstraint.constant = 40
-                
                 for (idx, tag) in tagList.enumerated() {
                     let tagName = tag?.tagName ?? ""
-                    
                     switch idx{
                     case 0:
                         cell.hashTag1.text = "#\(tagName)"
@@ -192,7 +189,7 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
 //                cell.participateProfileImageView3 = photoUrlList[2]
                 for (idx,url) in photoUrlList.enumerated(){
                     guard let strUrl = url?.profilePhotoUrl else{break}
-                    
+
                     switch idx{
                     case 0:
                         cell.participateProfileImageView.load(strUrl: strUrl)
@@ -205,11 +202,8 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
                     default:
                         break
                     }
-                    
                 }
-               
             }
-            
         }
         return cell
     }
@@ -224,23 +218,20 @@ extension MeetingViewController {
     func didSuccessGet(message: String, results: [ClubInfo?], keyword: String?){
         clubInfo?.removeAll()
         clubInfo = results
-        
         if clubInfo?.count == 0{
+            emptyLabel.isHidden = false
             if keyword != nil {
                 configureEmptyLabel(type: 1)
             }else{
                 configureEmptyLabel(type: 0)
             }
         }else{
-            if didConfigure{
-                
-            }else{
-                didConfigure = true
-                configureTableView()
-            }
+            emptyLabel.isHidden = true
         }
-
         tableView.reloadData()
+
+        
+        
     }
     func failedToRequest(message: String){
         presentAlert(title: message)

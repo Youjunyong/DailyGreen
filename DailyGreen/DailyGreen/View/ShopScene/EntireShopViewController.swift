@@ -28,13 +28,12 @@ class EntireShopViewController : UIViewController, IndicatorInfoProvider{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTappedBackground()
+        showIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         entireShopDataManger.getEntireShop(delegate: self, page: 1)
-
     }
     
     func search(keyword: String){
@@ -100,7 +99,6 @@ extension EntireShopViewController: UITableViewDataSource, UITableViewDelegate {
         return 245
     }
     
-    
 }
 
 extension EntireShopViewController {
@@ -126,6 +124,7 @@ extension EntireShopViewController {
             
         }
         tableView.reloadData()
+        dismissIndicator()
     }
     func didSuccessLikeShop(message: String){
         self.presentAlert(title: message)

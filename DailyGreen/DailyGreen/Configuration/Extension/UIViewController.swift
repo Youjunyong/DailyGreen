@@ -26,7 +26,7 @@ extension UIViewController{
             UIView.transition(with: window, duration: 0, options: .transitionCrossDissolve, animations: nil)
             
         } else {
-//            viewControllerToPresent.modalPresentationStyle = .overFullScreen
+            viewControllerToPresent.modalPresentationStyle = .overFullScreen
             self.present(viewControllerToPresent, animated: false, completion: nil)
             
         }
@@ -63,7 +63,16 @@ extension UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: 인디케이터 표시
+    func showIndicator() {
+        IndicatorView.shared.show()
+        IndicatorView.shared.showIndicator()
+    }
     
+    // MARK: 인디케이터 숨김
+    @objc func dismissIndicator() {
+        IndicatorView.shared.dismiss()
+    }
 }
 
 

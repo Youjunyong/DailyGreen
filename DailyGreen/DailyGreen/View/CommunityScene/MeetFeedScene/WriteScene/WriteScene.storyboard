@@ -434,7 +434,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Kx-W3-b1W">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1600"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어떤 정기모임을 개최하시겠어요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eET-bT-OHE">
                                                 <rect key="frame" x="16" y="36" width="223" height="21"/>
@@ -511,7 +511,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIS-KP-qiH">
-                                                <rect key="frame" x="16" y="889" width="382" height="2"/>
+                                                <rect key="frame" x="0.0" y="889" width="414" height="2"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="VW7-tF-UJa"/>
@@ -704,7 +704,10 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="참여자들과 소통을 위한 오픈카톡링크를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-1Q-qTv">
                                                 <rect key="frame" x="30" y="1368" width="364" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="url"/>
+                                                <connections>
+                                                    <action selector="openChatTextFieldEditing:" destination="KKz-eT-TZ2" eventType="editingChanged" id="mZb-e7-O7b"/>
+                                                </connections>
                                             </textField>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pindicatorW12" translatesAutoresizingMaskIntoConstraints="NO" id="EUI-QP-9hd">
                                                 <rect key="frame" x="189.5" y="1446.5" width="35" height="8"/>
@@ -791,6 +794,7 @@
                                             <constraint firstItem="7i5-1Q-qTv" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" constant="30" id="BRj-Gg-CwV"/>
                                             <constraint firstAttribute="trailing" secondItem="T4H-Ms-6Uo" secondAttribute="trailing" id="BwK-oa-pgp"/>
                                             <constraint firstAttribute="trailing" secondItem="WPV-ea-TAt" secondAttribute="trailing" constant="16" id="CeL-xY-wKJ"/>
+                                            <constraint firstItem="vFp-kw-od2" firstAttribute="top" secondItem="KGe-Eh-iKm" secondAttribute="bottom" constant="201.5" id="CfX-xz-k5l"/>
                                             <constraint firstItem="o64-a6-Xz6" firstAttribute="leading" secondItem="k7k-0k-jMt" secondAttribute="trailing" constant="10" id="CwU-Vn-6Kz"/>
                                             <constraint firstItem="qL4-vO-FGv" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" constant="16" id="Czb-uJ-Ziv"/>
                                             <constraint firstAttribute="trailing" secondItem="dVA-yr-TCl" secondAttribute="trailing" constant="16" id="DKA-Xl-m8J"/>
@@ -816,7 +820,7 @@
                                             <constraint firstItem="9Nb-io-7uD" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" id="Ogq-9M-SGI"/>
                                             <constraint firstAttribute="trailing" secondItem="7i5-1Q-qTv" secondAttribute="trailing" constant="20" id="P2b-UJ-An1"/>
                                             <constraint firstItem="PIS-KP-qiH" firstAttribute="top" secondItem="vFp-kw-od2" secondAttribute="bottom" constant="29" id="PJJ-Kw-f0u"/>
-                                            <constraint firstItem="PIS-KP-qiH" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" constant="16" id="Pfn-d0-t5x"/>
+                                            <constraint firstItem="PIS-KP-qiH" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" id="Pfn-d0-t5x"/>
                                             <constraint firstItem="D85-21-Acw" firstAttribute="trailing" secondItem="eET-bT-OHE" secondAttribute="trailing" id="Pv7-oy-mmx"/>
                                             <constraint firstAttribute="trailing" secondItem="2MI-fW-fUV" secondAttribute="trailing" id="Qpk-a8-zKN"/>
                                             <constraint firstItem="ThF-bA-mHV" firstAttribute="centerY" secondItem="WPV-ea-TAt" secondAttribute="centerY" id="REV-Y9-XvJ"/>
@@ -845,7 +849,7 @@
                                             <constraint firstItem="T4H-Ms-6Uo" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" id="gEn-x8-5Tb"/>
                                             <constraint firstItem="edj-AG-xCV" firstAttribute="centerY" secondItem="7eK-Dm-r4R" secondAttribute="centerY" id="iaK-eO-TzY"/>
                                             <constraint firstItem="XdF-Zy-UyY" firstAttribute="top" secondItem="7eK-Dm-r4R" secondAttribute="top" id="ibG-ve-4NY"/>
-                                            <constraint firstAttribute="height" constant="1700" id="jnE-to-Q45"/>
+                                            <constraint firstAttribute="height" constant="1600" id="jnE-to-Q45"/>
                                             <constraint firstItem="sQL-6i-sAv" firstAttribute="leading" secondItem="SFg-n4-Io2" secondAttribute="trailing" constant="10" id="jwi-e4-1vy"/>
                                             <constraint firstAttribute="trailing" secondItem="9Nb-io-7uD" secondAttribute="trailing" id="kNS-8h-LQb"/>
                                             <constraint firstItem="PUY-Rk-Lh1" firstAttribute="bottom" secondItem="7i5-1Q-qTv" secondAttribute="bottom" constant="20" id="m5B-At-NCF"/>
@@ -857,11 +861,10 @@
                                             <constraint firstItem="mec-21-7Gr" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" constant="16" id="pdj-uf-UzU"/>
                                             <constraint firstItem="4aC-qW-km0" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" constant="16" id="phM-2q-Vs2"/>
                                             <constraint firstItem="uk1-GC-Jxj" firstAttribute="top" secondItem="KGe-Eh-iKm" secondAttribute="bottom" constant="48" id="q0U-kV-FB9"/>
-                                            <constraint firstItem="vFp-kw-od2" firstAttribute="top" secondItem="dVA-yr-TCl" secondAttribute="bottom" constant="115" id="qbc-5l-HN0"/>
                                             <constraint firstItem="OZe-JT-Txh" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" constant="29" id="qkd-d4-XFE"/>
                                             <constraint firstItem="KGe-Eh-iKm" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" constant="17" id="sZ3-VZ-G0W"/>
                                             <constraint firstAttribute="trailing" secondItem="VMR-8r-Fhp" secondAttribute="trailing" constant="16" id="tIE-FB-Imr"/>
-                                            <constraint firstAttribute="trailing" secondItem="PIS-KP-qiH" secondAttribute="trailing" constant="16" id="uLW-or-77L"/>
+                                            <constraint firstAttribute="trailing" secondItem="PIS-KP-qiH" secondAttribute="trailing" id="uLW-or-77L"/>
                                             <constraint firstItem="E1M-4I-BUM" firstAttribute="leading" secondItem="6Kx-W3-b1W" secondAttribute="leading" constant="16" id="uXN-F0-2GH"/>
                                             <constraint firstItem="6dh-7U-cox" firstAttribute="centerX" secondItem="6Kx-W3-b1W" secondAttribute="centerX" id="v0p-vW-cuL"/>
                                             <constraint firstItem="WPV-ea-TAt" firstAttribute="centerY" secondItem="edj-AG-xCV" secondAttribute="centerY" id="wQX-Wo-nbg"/>
@@ -892,6 +895,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bioViewVerticalConstraint" destination="CfX-xz-k5l" id="4BZ-pC-Ihi"/>
                         <outlet property="btn1" destination="XdF-Zy-UyY" id="ObH-mM-Q6x"/>
                         <outlet property="btn2" destination="dye-mX-aJJ" id="JGb-yE-YgE"/>
                         <outlet property="btn3" destination="i9E-c4-pWe" id="8gN-hS-FuI"/>
@@ -922,6 +926,7 @@
                         <outlet property="openChatTitleLabel" destination="mec-21-7Gr" id="a0a-vy-i2A"/>
                         <outlet property="peopleNumTextField" destination="k7k-0k-jMt" id="0Hx-KX-LBl"/>
                         <outlet property="peopleTitleLabel" destination="Lxp-ge-P8r" id="dzj-YE-lCL"/>
+                        <outlet property="scrollViewHeightConstraint" destination="jnE-to-Q45" id="mox-Nw-02R"/>
                         <outlet property="submitButton" destination="f6y-qZ-JvQ" id="t5a-bk-dX8"/>
                         <outlet property="submitButtonLabel" destination="IO9-46-UfV" id="y0B-sj-XRW"/>
                         <outlet property="submitButtonView" destination="fIa-JU-MWm" id="w9n-14-8in"/>

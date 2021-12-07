@@ -51,7 +51,6 @@ class WriteFeedViewController: UIViewController {
         self.title = "\(communityName ?? "") 글쓰기"
         configureUI()
         hideKeyboardWhenTappedBackground()
-
         placeholderSetting()
         configureNaviShadow()
         configureCollectionView()
@@ -63,7 +62,7 @@ class WriteFeedViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
         // 키보드가 사라질 때 앱에게 알리는 메서드 추가
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil) }
-    // 노티피케이션을 제거하는 메서드
+    
     func removeKeyboardNotifications(){
         // 키보드가 나타날 때 앱에게 알리는 메서드 제거
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification , object: nil)
@@ -206,6 +205,7 @@ class WriteFeedViewController: UIViewController {
         if self.isText, self.isPhoto{
             submitButtonView.backgroundColor = .primary
             submitButton.titleLabel?.textColor = .black
+            submitButton.setTitleColor(.black, for: .normal)
         }else{
             submitButton.titleLabel?.textColor = .white
             submitButtonView.backgroundColor = .grayDisabled

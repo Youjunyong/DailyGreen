@@ -134,10 +134,77 @@
             </objects>
             <point key="canvasLocation" x="1236" y="116"/>
         </scene>
+        <!--Setting Inquire View Controller-->
+        <scene sceneID="av1-Q8-QhO">
+            <objects>
+                <viewController storyboardIdentifier="InquireVC" id="y2o-hS-YfF" customClass="SettingInquireViewController" customModule="DailyGreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ONJ-Ad-yEE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음의 이메일로 연락주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjd-Bb-NqL">
+                                <rect key="frame" x="15" y="114" width="191" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ilsang.green@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKT-ey-VO9">
+                                <rect key="frame" x="16" y="180" width="187" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQ0-Zz-mcy">
+                                <rect key="frame" x="16" y="205" width="382" height="2"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="ro3-je-upd"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3l-mi-y73">
+                                <rect key="frame" x="360" y="84" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="SpR-h0-Ucu"/>
+                                    <constraint firstAttribute="height" constant="44" id="p4L-oD-M1d"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="y2o-hS-YfF" eventType="touchUpInside" id="3nC-4G-jUR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OYa-9l-avC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aQ0-Zz-mcy" firstAttribute="top" secondItem="QKT-ey-VO9" secondAttribute="bottom" constant="4" id="2zJ-hc-qGo"/>
+                            <constraint firstItem="QKT-ey-VO9" firstAttribute="top" secondItem="Tjd-Bb-NqL" secondAttribute="bottom" constant="45" id="81a-iT-t34"/>
+                            <constraint firstItem="Tjd-Bb-NqL" firstAttribute="leading" secondItem="OYa-9l-avC" secondAttribute="leading" constant="15" id="EPB-DA-Dwg"/>
+                            <constraint firstItem="QKT-ey-VO9" firstAttribute="leading" secondItem="OYa-9l-avC" secondAttribute="leading" constant="16" id="I0c-hq-z2F"/>
+                            <constraint firstItem="OYa-9l-avC" firstAttribute="trailing" secondItem="aQ0-Zz-mcy" secondAttribute="trailing" constant="16" id="Xbj-SQ-48U"/>
+                            <constraint firstItem="aQ0-Zz-mcy" firstAttribute="leading" secondItem="OYa-9l-avC" secondAttribute="leading" constant="16" id="fL3-02-gJB"/>
+                            <constraint firstItem="J3l-mi-y73" firstAttribute="top" secondItem="OYa-9l-avC" secondAttribute="top" constant="40" id="gxB-Le-hQo"/>
+                            <constraint firstItem="OYa-9l-avC" firstAttribute="trailing" secondItem="J3l-mi-y73" secondAttribute="trailing" constant="10" id="keB-4M-Obg"/>
+                            <constraint firstItem="Tjd-Bb-NqL" firstAttribute="top" secondItem="OYa-9l-avC" secondAttribute="top" constant="70" id="weW-t7-rQK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="J3l-mi-y73" id="bXr-hK-cQ5"/>
+                        <outlet property="emailLabel" destination="QKT-ey-VO9" id="nbX-au-r9x"/>
+                        <outlet property="titleLabel" destination="Tjd-Bb-NqL" id="tRS-aK-3QO"/>
+                        <outlet property="underView" destination="aQ0-Zz-mcy" id="yPB-ua-YTk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMG-Ef-1ai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2418" y="113"/>
+        </scene>
     </scenes>
     <resources>
         <image name="logoutButton" width="351" height="56"/>
         <image name="signoutButton" width="351" height="56"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

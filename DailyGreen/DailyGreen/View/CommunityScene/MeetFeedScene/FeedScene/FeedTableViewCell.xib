@@ -122,6 +122,18 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="declaration" translatesAutoresizingMaskIntoConstraints="NO" id="WaG-ji-eMT">
+                        <rect key="frame" x="359" y="-0.5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="d48-Aw-sI5"/>
+                            <constraint firstAttribute="width" constant="45" id="sMB-yk-qKP"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBp-dn-PgM">
+                        <rect key="frame" x="359" y="-0.5" width="45" height="45"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bqW-pJ-hyl" firstAttribute="bottom" secondItem="tIm-Sc-EgF" secondAttribute="bottom" id="4V3-fF-Dyi"/>
@@ -131,14 +143,19 @@
                     <constraint firstItem="i8e-gA-ZUI" firstAttribute="leading" secondItem="EjA-DH-Ts3" secondAttribute="trailing" constant="-5" id="7rE-aR-aOF"/>
                     <constraint firstItem="3qE-XW-k5E" firstAttribute="leading" secondItem="Dp9-zr-rO6" secondAttribute="leading" id="8xR-vf-jGp"/>
                     <constraint firstItem="fMv-QA-5ni" firstAttribute="trailing" secondItem="oW0-3a-R6X" secondAttribute="trailing" id="AwX-cL-ayU"/>
+                    <constraint firstItem="sBp-dn-PgM" firstAttribute="centerY" secondItem="WaG-ji-eMT" secondAttribute="centerY" id="BHL-qg-h2F"/>
                     <constraint firstItem="9MC-Tb-9Cb" firstAttribute="leading" secondItem="FHt-0W-S4V" secondAttribute="trailing" constant="7" id="CBd-JX-5rG"/>
                     <constraint firstItem="9MC-Tb-9Cb" firstAttribute="centerY" secondItem="FHt-0W-S4V" secondAttribute="centerY" id="CuN-sG-8cs"/>
                     <constraint firstItem="tGf-I7-LhP" firstAttribute="top" secondItem="dtt-5W-s0i" secondAttribute="bottom" constant="5" id="Nng-bz-dKM"/>
+                    <constraint firstItem="WaG-ji-eMT" firstAttribute="centerY" secondItem="lb3-2J-P4t" secondAttribute="centerY" id="PyE-3W-x1b"/>
+                    <constraint firstAttribute="trailing" secondItem="WaG-ji-eMT" secondAttribute="trailing" constant="10" id="RqT-Yb-8Ao"/>
                     <constraint firstItem="EjA-DH-Ts3" firstAttribute="top" secondItem="Dp9-zr-rO6" secondAttribute="top" constant="6" id="S50-Un-nUZ"/>
                     <constraint firstItem="VXb-nS-1oq" firstAttribute="leading" secondItem="el3-G4-GMC" secondAttribute="leading" id="TQR-xZ-VnJ"/>
                     <constraint firstItem="lb3-2J-P4t" firstAttribute="centerY" secondItem="EjA-DH-Ts3" secondAttribute="centerY" id="X1X-xC-9pL"/>
+                    <constraint firstItem="sBp-dn-PgM" firstAttribute="width" secondItem="WaG-ji-eMT" secondAttribute="width" id="Y11-XF-vIT"/>
                     <constraint firstItem="oW0-3a-R6X" firstAttribute="leading" secondItem="tGf-I7-LhP" secondAttribute="trailing" constant="5" id="avc-dH-VhA"/>
                     <constraint firstAttribute="trailing" secondItem="3qE-XW-k5E" secondAttribute="trailing" id="b3r-Fn-Tpx"/>
+                    <constraint firstItem="sBp-dn-PgM" firstAttribute="height" secondItem="WaG-ji-eMT" secondAttribute="height" id="d12-dD-gyS"/>
                     <constraint firstItem="fMv-QA-5ni" firstAttribute="centerY" secondItem="oW0-3a-R6X" secondAttribute="centerY" id="dhD-MT-ZdU"/>
                     <constraint firstItem="FHt-0W-S4V" firstAttribute="leading" secondItem="Dp9-zr-rO6" secondAttribute="leading" constant="15" id="dqA-mF-ute"/>
                     <constraint firstItem="dtt-5W-s0i" firstAttribute="top" secondItem="FHt-0W-S4V" secondAttribute="bottom" constant="5" id="hnK-uc-qci"/>
@@ -155,6 +172,7 @@
                     <constraint firstAttribute="trailing" secondItem="dtt-5W-s0i" secondAttribute="trailing" constant="10" id="q1K-yQ-kw0"/>
                     <constraint firstItem="lb3-2J-P4t" firstAttribute="leading" secondItem="EjA-DH-Ts3" secondAttribute="trailing" constant="7" id="qMz-gq-P9l"/>
                     <constraint firstItem="bqW-pJ-hyl" firstAttribute="top" secondItem="tIm-Sc-EgF" secondAttribute="top" id="rQ2-7m-5AR"/>
+                    <constraint firstItem="sBp-dn-PgM" firstAttribute="centerX" secondItem="WaG-ji-eMT" secondAttribute="centerX" id="s0C-Jd-pKO"/>
                     <constraint firstItem="tIm-Sc-EgF" firstAttribute="leading" secondItem="Dp9-zr-rO6" secondAttribute="leading" constant="15" id="t7a-Ne-B9s"/>
                     <constraint firstItem="3qE-XW-k5E" firstAttribute="top" secondItem="EjA-DH-Ts3" secondAttribute="bottom" constant="10" id="uXb-TD-Tx0"/>
                     <constraint firstItem="VXb-nS-1oq" firstAttribute="top" secondItem="el3-G4-GMC" secondAttribute="top" id="vWd-gj-oqs"/>
@@ -179,12 +197,14 @@
                 <outlet property="numOfLikeLabel" destination="FHt-0W-S4V" id="ECd-ax-eVh"/>
                 <outlet property="numOfLikeSubLabel" destination="9MC-Tb-9Cb" id="ZbT-0O-lGX"/>
                 <outlet property="profileImageView" destination="EjA-DH-Ts3" id="5wJ-vj-2dl"/>
+                <outlet property="reportButton" destination="sBp-dn-PgM" id="P7a-5d-jn5"/>
             </connections>
             <point key="canvasLocation" x="181.15942028985509" y="91.071428571428569"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="bheart" width="44.5" height="44.5"/>
+        <image name="declaration" width="44.5" height="44.5"/>
         <image name="ic-comment" width="44" height="44"/>
         <image name="ic_follower" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
