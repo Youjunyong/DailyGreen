@@ -74,7 +74,7 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.black
         view.addSubview(naviShadow)
         NSLayoutConstraint.activate([
-            naviShadow.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadow.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             naviShadow.heightAnchor.constraint(equalToConstant: 1),
             naviShadow.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             naviShadow.trailingAnchor.constraint(equalTo: view.trailingAnchor)

@@ -19,6 +19,7 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        configureNaviShadow()
         self.navigationItem.title = "설정"
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
@@ -32,6 +33,23 @@ class SettingViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: "cell")
     }
     
+    private func configureNaviShadow(){
+        let naviShadowView : UIView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .dark1
+            return view
+        }()
+        
+        view.addSubview(naviShadowView)
+        
+        NSLayoutConstraint.activate([
+            naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            naviShadowView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+    }
     
 }
 

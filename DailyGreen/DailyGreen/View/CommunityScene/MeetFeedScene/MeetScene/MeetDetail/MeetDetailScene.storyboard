@@ -301,10 +301,17 @@
                                                     <action selector="report:" destination="NhE-uc-ERn" eventType="touchUpInside" id="s3o-FT-45J"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="참여하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2L-HF-uRk">
+                                                <rect key="frame" x="177.5" y="1016.5" width="59" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="QEd-V7-WSo" firstAttribute="top" secondItem="8cD-Ey-WFN" secondAttribute="top" id="0fm-L7-7yl"/>
+                                            <constraint firstItem="k2L-HF-uRk" firstAttribute="centerY" secondItem="xdZ-2P-6qd" secondAttribute="centerY" id="30Q-ll-Pjo"/>
                                             <constraint firstItem="jUN-AA-TD2" firstAttribute="top" secondItem="QEd-V7-WSo" secondAttribute="bottom" constant="65" id="3cm-PR-Omk"/>
                                             <constraint firstItem="BgA-eP-8Es" firstAttribute="centerY" secondItem="i8x-JK-ZbG" secondAttribute="centerY" id="4Y8-Ef-AGP"/>
                                             <constraint firstItem="gyr-Ds-cjk" firstAttribute="centerY" secondItem="xJ4-qw-Cua" secondAttribute="centerY" id="4iu-Cn-Ivr"/>
@@ -350,6 +357,7 @@
                                             <constraint firstItem="n3l-KK-yj0" firstAttribute="centerY" secondItem="Su9-nc-klw" secondAttribute="centerY" id="sdX-Iv-Cw6"/>
                                             <constraint firstAttribute="height" constant="1100" id="se2-W3-CIq"/>
                                             <constraint firstItem="Su9-nc-klw" firstAttribute="leading" secondItem="8cD-Ey-WFN" secondAttribute="leading" constant="16" id="tA6-rc-JZE"/>
+                                            <constraint firstItem="k2L-HF-uRk" firstAttribute="centerX" secondItem="xdZ-2P-6qd" secondAttribute="centerX" id="tNZ-Vf-cVD"/>
                                             <constraint firstItem="4EF-B5-oFQ" firstAttribute="top" secondItem="fdd-UW-v0i" secondAttribute="bottom" constant="28" id="ufU-hb-i1e"/>
                                             <constraint firstItem="Vl9-Cr-ze7" firstAttribute="top" secondItem="CCj-0B-41h" secondAttribute="bottom" constant="4" id="xJH-e4-tjG"/>
                                             <constraint firstItem="CCj-0B-41h" firstAttribute="centerX" secondItem="Vl9-Cr-ze7" secondAttribute="centerX" id="xWh-0h-bHU"/>
@@ -408,6 +416,7 @@
                         <outlet property="restNumView" destination="rCD-LG-ijS" id="sja-hf-Rbs"/>
                         <outlet property="shopNameLabel" destination="jUN-AA-TD2" id="hJY-xO-i07"/>
                         <outlet property="submitButton" destination="353-Cu-CAX" id="eCU-XI-B1Q"/>
+                        <outlet property="submitButtonLabel" destination="k2L-HF-uRk" id="xrv-Z2-vdu"/>
                         <outlet property="websiteLabel" destination="BgA-eP-8Es" id="6GP-PE-2Bk"/>
                     </connections>
                 </viewController>
@@ -421,7 +430,7 @@
         <image name="bWon" width="24.5" height="24.5"/>
         <image name="blocation" width="24" height="24"/>
         <image name="declaration" width="44.5" height="44.5"/>
-        <image name="participateButton" width="349.5" height="61"/>
+        <image name="participateButton" width="351.5" height="56.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

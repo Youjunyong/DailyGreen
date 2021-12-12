@@ -127,7 +127,7 @@ extension EntireShopViewController {
         dismissIndicator()
     }
     func didSuccessLikeShop(message: String){
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
     }
     func failedToRequest(message: String){
         

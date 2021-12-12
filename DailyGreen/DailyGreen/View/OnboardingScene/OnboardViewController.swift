@@ -27,7 +27,9 @@ class OnboardViewController: UIViewController {
            for i in 0..<onBoardingViews.count {
                let xPos = self.view.frame.width * CGFloat(i)
                let width = self.view.frame.width
-               onBoardingViews[i].frame = CGRect(x:xPos, y:0, width: width, height: scrollView.bounds.height)
+               let height = self.view.frame.height
+//               scrollView.bounds.height
+               onBoardingViews[i].frame = CGRect(x:xPos, y:0, width: width, height: height)
                scrollView.addSubview(onBoardingViews[i])
                scrollView.contentSize.width = onBoardingViews[i].frame.width * CGFloat(i + 1)
                if i == 3{

@@ -14,6 +14,15 @@ class MyPageViewController: UIViewController{
     lazy var deleteMeetDataManager = DeleteMeetDataManager()
     lazy var participateMeetData = ParticipateMeetDataManager()
     
+    
+    
+    let naviShadowView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .dark1
+        return view
+    }()
+    
     var isNotFirst = false
     var userIdx: Int?
     
@@ -157,6 +166,14 @@ class MyPageViewController: UIViewController{
         scoreBadgeLabel.textColor = .dark2
         scoreWorkshopLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         scoreWorkshopLabel.textColor = .dark2
+        view.addSubview(naviShadowView)
+        NSLayoutConstraint.activate([
+            naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            naviShadowView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
     }
     
     private func lvGaugeSet(exp : Int){
@@ -290,7 +307,8 @@ extension MyPageViewController{
         lvLabel.text = "Lv.\(myInfo.exp / 1000 + 1) "
         lvGaugeSet(exp: myInfo.exp)
         profileImage.load(strUrl: myInfo.profilePhotoUrl)
-        
+        UserDefaults.standard.set(myInfo.profilePhotoUrl, forKey: "profilePhotoUrl") // 회원가입시 받아오기 성공하면 필요없는 코드
+
         gaugeVIew.setGradient(color1: .grayGreen, color2: .dark2)
         bioLabel.text = myInfo.bio
         UserDefaults.standard.set(bioLabel.text, forKey: "bio")
@@ -331,6 +349,7 @@ extension MyPageViewController{
             pInfoName.append(name)
             pInfoType.append(type)
         }
+
         tableView.reloadData()
         contentViewHeightConstraint.constant = tableView.frame.origin.y + CGFloat((cInfoIdx.count + pInfoIdx.count) * 110) + 100
     }

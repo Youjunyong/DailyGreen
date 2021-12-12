@@ -192,7 +192,7 @@ class WriteDateLocationViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.presentAlert(title: self.feeType!)
+//        self.presentAlert(title: self.feeType!)
         setTimeBtn.setTitle("", for: .normal)
         setDateBtn.setTitle("", for: .normal)
         configureUI()
@@ -353,7 +353,7 @@ extension WriteDateLocationViewController{
         if self.view.frame.origin.y != 0.0 {
             return
         }
-        print(#function)
+        
         if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height

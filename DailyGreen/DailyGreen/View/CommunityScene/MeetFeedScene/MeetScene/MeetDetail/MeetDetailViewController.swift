@@ -17,6 +17,7 @@ class MeetDetailViewController: UIViewController {
     var meetUrlList = [String]()
     lazy var dimmingView = DimmingView()
     
+    @IBOutlet weak var submitButtonLabel: UILabel!
     @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var divideView: UIView!
@@ -167,6 +168,7 @@ class MeetDetailViewController: UIViewController {
     
     
     private func configureUI(){
+        submitButtonLabel.font = UIFont(name: NanumFont.extraBold, size: 17)
         reportButton.setTitle("", for: .normal)
         divideView.backgroundColor = .primary
         profileImageView.layer.cornerRadius = 24
@@ -250,6 +252,15 @@ extension MeetDetailViewController : UICollectionViewDataSource {
 
 extension MeetDetailViewController {
     func didSuccessGetMeetDetail(message: String, results: MeetDetailResult){
+        profileName1.text = ""
+        participateProfileImageview1.image = nil
+        profileName2.text = ""
+        participateProfileImageview2.image = nil
+        profileName3.text = ""
+        participateProfileImageview3.image = nil
+        profileName4.text = ""
+        participateProfileImageview4.image = nil
+        
         if let clubInfoObj = results.clubInfoObj {
             shopNameLabel.text =  clubInfoObj.clubName
 //            clubInfoObj.clubIdx
@@ -303,10 +314,7 @@ extension MeetDetailViewController {
             
             for (idx, participant) in participateListObj.enumerated() {
                 guard let imageUrl = participant?.profilePhotoUrl else{break}
-                
                 guard let name = participant?.nickname else{break}
-                
-                
                 switch idx{
                 case 0:
                     profileName1.text = name
@@ -331,8 +339,7 @@ extension MeetDetailViewController {
     }
     
         func failedToRequest(message: String){
-            self.presentAlert(title: message)
-            
+            self.presentAlert(title: "이미 모집이 종료되었습니다.")
         }
     
 }

@@ -154,7 +154,7 @@ extension ShopDetailViewController : UICollectionViewDataSource {
 extension ShopDetailViewController {
     
     func didSuccessGetShopDetail(message: String, results: ShopDetailResult?){
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
         guard let shopInfo = results?.shopInfoObj else{return}
         shopNameLabel.text = shopInfo.shopName
         locationLabel.text =  shopInfo.locationDetail
@@ -176,6 +176,6 @@ extension ShopDetailViewController {
     }
     
     func failedToRequest(message: String) {
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
     }
 }

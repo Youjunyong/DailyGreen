@@ -429,7 +429,7 @@ extension WriteMeetViewController: UITextViewDelegate {
 
 extension WriteMeetViewController {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("TEXTFIELD")
+        
         checkSubmitReady()
     }
 }

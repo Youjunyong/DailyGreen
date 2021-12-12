@@ -23,4 +23,5 @@ struct LoginData: Decodable {
     var profilePhotoUrl: String
     var jwt: String
     var userIdx: Int?
+    
 }

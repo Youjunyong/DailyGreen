@@ -15,21 +15,21 @@ class FeedTableViewCell: UITableViewCell{
     @IBOutlet weak var likeImageView: UIImageView!
     
     @IBOutlet weak var reportButton: UIButton!
-    @IBOutlet weak var commentImageView: UIImageView!
-    @IBOutlet weak var moreCommentButton: UIButton!
+//    @IBOutlet weak var commentImageView: UIImageView!
+//    @IBOutlet weak var moreCommentButton: UIButton!
     @IBOutlet weak var followImageView: UIImageView!
     
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var indicatorImageView: UIImageView!
     var feedUrlsForRow = [String]()
     
-    @IBOutlet weak var numOfCommentSubLabel: UILabel!
-    @IBOutlet weak var numOfCommentLabel: UILabel!
+//    @IBOutlet weak var numOfCommentSubLabel: UILabel!
+//    @IBOutlet weak var numOfCommentLabel: UILabel!
     @IBOutlet weak var numOfLikeSubLabel: UILabel!
     @IBOutlet weak var numOfLikeLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
-    @IBOutlet weak var commentButton: UIButton!
+//    @IBOutlet weak var commentButton: UIButton!
     
     
 
@@ -55,10 +55,10 @@ class FeedTableViewCell: UITableViewCell{
     private func configureUI(){
         reportButton.setTitle("", for: .normal)
         likeButton.setTitle("", for: .normal)
-        commentButton.setTitle("", for: .normal)
-        moreCommentButton.setTitle("", for: .normal)
-        numOfCommentSubLabel.font = UIFont(name: NanumFont.regular, size: 12)
-        numOfCommentLabel.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+//        commentButton.setTitle("", for: .normal)
+//        moreCommentButton.setTitle("", for: .normal)
+//        numOfCommentSubLabel.font = UIFont(name: NanumFont.regular, size: 12)
+//        numOfCommentLabel.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         bodyLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         numOfLikeLabel.font = UIFont(name: NanumFont.bold, size: 14)
         numOfLikeSubLabel.font = UIFont(name: NanumFont.bold, size: 14)
@@ -112,20 +112,15 @@ extension FeedTableViewCell : UICollectionViewDelegate, UICollectionViewDelegate
         switch page{
         case 0:
             self.indicatorImageView.image = UIImage(named: "pindicator\(page + 1)\(feedUrlsForRow.count)")
-            print(page)
 
         case 1:
             self.indicatorImageView.image = UIImage(named: "pindicator\(page + 1)\(feedUrlsForRow.count)")
-            print(page)
 
         case 2:
-            print(page)
             self.indicatorImageView.image = UIImage(named: "pindicator\(page + 1)\(feedUrlsForRow.count)")
         case 3:
-            print(page)
             self.indicatorImageView.image = UIImage(named: "pindicator\(page + 1)\(feedUrlsForRow.count)")
         case 4:
-            print(page)
             self.indicatorImageView.image = UIImage(named: "pindicator\(page + 1)\(feedUrlsForRow.count)")
         default:
             print("default")

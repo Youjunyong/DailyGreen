@@ -1,0 +1,126 @@
+
+/* Class = "UILabel"; text = "참여 중인 이벤트"; ObjectID = "1L0-CL-zyf"; */
+"1L0-CL-zyf.text" = "참여 중인 이벤트";
+
+/* Class = "UILabel"; text = "Lv2"; ObjectID = "3jx-qh-UyC"; */
+"3jx-qh-UyC.text" = "Lv2";
+
+/* Class = "UITabBarItem"; title = "커뮤니티"; ObjectID = "4j2-uM-Xda"; */
+"4j2-uM-Xda.title" = "커뮤니티";
+
+/* Class = "UILabel"; text = "함께 하는 친환경 실천을 하고 싶나요?"; ObjectID = "96g-Sb-38X"; */
+"96g-Sb-38X.text" = "함께 하는 친환경 실천을 하고 싶나요?";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "ARO-Ue-7hN"; */
+"ARO-Ue-7hN.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ARO-Ue-7hN"; */
+"ARO-Ue-7hN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "환영합니다"; ObjectID = "BIB-uL-uLC"; */
+"BIB-uL-uLC.text" = "환영합니다";
+
+/* Class = "UILabel"; text = "친환경 미닝아웃 플랫폼"; ObjectID = "Bit-T6-hzg"; */
+"Bit-T6-hzg.text" = "친환경 미닝아웃 플랫폼";
+
+/* Class = "UILabel"; text = "안녕, 한나"; ObjectID = "Cqg-4b-gOt"; */
+"Cqg-4b-gOt.text" = "안녕, 한나";
+
+/* Class = "UITextField"; placeholder = "비밀번호를 입력해주세요."; ObjectID = "DfP-xJ-CCp"; */
+"DfP-xJ-CCp.placeholder" = "비밀번호를 입력해주세요.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "EfX-T5-LfV"; */
+"EfX-T5-LfV.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "참여하고 싶은 커뮤니티에 탭해보세요."; ObjectID = "F7Y-eq-Gh6"; */
+"F7Y-eq-Gh6.text" = "참여하고 싶은 커뮤니티에 탭해보세요.";
+
+/* Class = "UILabel"; text = "0회"; ObjectID = "IBI-2Z-Or9"; */
+"IBI-2Z-Or9.text" = "0회";
+
+/* Class = "UITabBarItem"; title = "상점 보기"; ObjectID = "Iwq-8h-VsY"; */
+"Iwq-8h-VsY.title" = "상점 보기";
+
+/* Class = "UILabel"; text = "나의 친환경 실천 관심사를 공유해보세요."; ObjectID = "LR5-kS-BPL"; */
+"LR5-kS-BPL.text" = "나의 친환경 실천 관심사를 공유해보세요.";
+
+/* Class = "UILabel"; text = "다른 그린이들과 함께"; ObjectID = "M6z-Co-mO7"; */
+"M6z-Co-mO7.text" = "다른 그린이들과 함께";
+
+/* Class = "UINavigationItem"; title = "이메일 로그인"; ObjectID = "OJ7-QG-pWH"; */
+"OJ7-QG-pWH.title" = "이메일 로그인";
+
+/* Class = "UILabel"; text = "일상그린입니다."; ObjectID = "PLW-db-h3n"; */
+"PLW-db-h3n.text" = "일상그린입니다.";
+
+/* Class = "UILabel"; text = "0회"; ObjectID = "Ps5-Ox-cKQ"; */
+"Ps5-Ox-cKQ.text" = "0회";
+
+/* Class = "UILabel"; text = "환경에 대해서 관심을 가진 지는 얼마되지 않지만 아무것도 할 수 없지는 않을 것 같아서 조금씩 친환경 실천을 하고 있습니다! \n플로깅 마니아, 비건은 아니지만 채식주의자입니다!"; ObjectID = "Vnl-qa-kWn"; */
+"Vnl-qa-kWn.text" = "환경에 대해서 관심을 가진 지는 얼마되지 않지만 아무것도 할 수 없지는 않을 것 같아서 조금씩 친환경 실천을 하고 있습니다! \n플로깅 마니아, 비건은 아니지만 채식주의자입니다!";
+
+/* Class = "UITabBarItem"; title = "홈"; ObjectID = "Xre-Eb-pFq"; */
+"Xre-Eb-pFq.title" = "홈";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "aKG-Su-IZB"; */
+"aKG-Su-IZB.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "aKG-Su-IZB"; */
+"aKG-Su-IZB.normalTitle" = "Button";
+
+/* Class = "UITabBarItem"; title = "나의 계정"; ObjectID = "biN-I3-uaq"; */
+"biN-I3-uaq.title" = "나의 계정";
+
+/* Class = "UILabel"; text = "로그인"; ObjectID = "cGE-M6-IJs"; */
+"cGE-M6-IJs.text" = "로그인";
+
+/* Class = "UITextField"; placeholder = "가입하신 이메일 계정을 입력해주세요."; ObjectID = "czR-hI-qiB"; */
+"czR-hI-qiB.placeholder" = "가입하신 이메일 계정을 입력해주세요.";
+
+/* Class = "UILabel"; text = "여기는 그린이들의"; ObjectID = "dO4-VJ-gJv"; */
+"dO4-VJ-gJv.text" = "여기는 그린이들의";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fNG-Hy-wFi"; */
+"fNG-Hy-wFi.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "fQW-zA-eZ1"; */
+"fQW-zA-eZ1.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fQW-zA-eZ1"; */
+"fQW-zA-eZ1.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "원하시는 로그인 방법이 없으세요?"; ObjectID = "g0A-7S-s9A"; */
+"g0A-7S-s9A.text" = "원하시는 로그인 방법이 없으세요?";
+
+/* Class = "UILabel"; text = "나에 대하여"; ObjectID = "gxd-aQ-OFu"; */
+"gxd-aQ-OFu.text" = "나에 대하여";
+
+/* Class = "UILabel"; text = "그린이들의 일상에 참여해보세요."; ObjectID = "i3F-Bd-SGX"; */
+"i3F-Bd-SGX.text" = "그린이들의 일상에 참여해보세요.";
+
+/* Class = "UILabel"; text = "참여 중인 커뮤니티"; ObjectID = "kZJ-h2-pTy"; */
+"kZJ-h2-pTy.text" = "참여 중인 커뮤니티";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "kb5-yX-ghz"; */
+"kb5-yX-ghz.title" = "Title";
+
+/* Class = "UILabel"; text = "0회"; ObjectID = "nX5-bu-HC9"; */
+"nX5-bu-HC9.text" = "0회";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "o15-ku-66G"; */
+"o15-ku-66G.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qSx-6E-Ypz"; */
+"qSx-6E-Ypz.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "unq-8v-Qyr"; */
+"unq-8v-Qyr.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "unq-8v-Qyr"; */
+"unq-8v-Qyr.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "이런 활동들은 어때요?"; ObjectID = "uoa-2B-MWO"; */
+"uoa-2B-MWO.text" = "이런 활동들은 어때요?";
+
+/* Class = "UILabel"; text = "지구가 당신의 레벨바를 좋아합니다."; ObjectID = "xfm-ZQ-iNn"; */
+"xfm-ZQ-iNn.text" = "지구가 당신의 레벨바를 좋아합니다.";

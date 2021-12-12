@@ -116,7 +116,7 @@ extension BookMarkShopViewController {
         tableView.reloadData()
     }
     func didSuccessLikeShop(message: String){
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
         
         bookMarkShopDataManager.getBookMarkShop(delegate: self, page: 1)
         

@@ -25,5 +25,10 @@ struct AppleRegisterResponse: Decodable {
 struct AppleUserData: Decodable{
     var userIdx: Int
     var accountIdx: Int
+    
+    var nickname: String
+    var profilePhotoUrl: String
+    var jwt: String
+
 }
 

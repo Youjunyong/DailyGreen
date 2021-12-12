@@ -158,19 +158,33 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
             if let tagList = clubInfo[indexPath.row]?.clubTagListObj.tagList{
                 cell.isHaveHashTag = true
                 cell.devideViewConstraint.constant = 40
+                cell.hashTagView1.isHidden = true
+                cell.hashTagView2.isHidden = true
+                cell.hashTagView3.isHidden = true
                 for (idx, tag) in tagList.enumerated() {
                     let tagName = tag?.tagName ?? ""
                     switch idx{
                     case 0:
+                        if tagName.count > 1{
+                            cell.hashTagView1.isHidden = false
+                        }
+                        
                         cell.hashTag1.text = "#\(tagName)"
                         cell.hashTag2.text = ""
+                        
                         cell.hashTag3.text = ""
                         
                     case 1:
+                        if tagName.count > 1{
+                            cell.hashTagView2.isHidden = false
+                        }
                         cell.hashTag2.text = "#\(tagName)"
                         cell.hashTag3.text = ""
                         
                     case 2:
+                        if tagName.count > 1{
+                            cell.hashTagView3.isHidden = false
+                        }
                         cell.hashTag3.text = "#\(tagName)"
                         
                     default:
@@ -197,8 +211,12 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
 
                     case 1:
                         cell.participateProfileImageView2.load(strUrl: strUrl)
+                        cell.participateProfileImageView.contentMode = .scaleAspectFill
+
                     case 2:
                         cell.participateProfileImageView3.load(strUrl: strUrl)
+                        cell.participateProfileImageView.contentMode = .scaleAspectFill
+
                     default:
                         break
                     }
@@ -234,6 +252,6 @@ extension MeetingViewController {
         
     }
     func failedToRequest(message: String){
-        presentAlert(title: message)
+//        presentAlert(title: message)
     }
 }

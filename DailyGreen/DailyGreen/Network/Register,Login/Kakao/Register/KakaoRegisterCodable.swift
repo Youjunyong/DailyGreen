@@ -24,5 +24,8 @@ struct KRegisterResponse: Decodable {
 struct UserData: Decodable{
     var userIdx: Int
     var accountIdx: Int
+    var nickname: String
+    var profilePhotoUrl: String
+    var jwt: String
 }
 

@@ -46,24 +46,41 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var emailLoginLabel: UILabel!
     // MARK: - 카카오 계정 로그인
     @IBAction func kakaoLogin(_ sender: Any) {
-        print(#function)
+        
+
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
                 if let error = error {
-                    print("error")
+                    
                 }
                 else {
                     let token = oauthToken?.accessToken
-                    print("카카오토큰:", token)
                     self.isHaveKakaoToken()
                 }
             }
+        }else{
+            //브라우저
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                    if let error = error {
+                        print(error)
+
+                    }
+                    else {
+                        let token = oauthToken?.accessToken
+                        self.isHaveKakaoToken()
+                    }
+                }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setupProviderLoginView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         if UserDefaults.standard.string(forKey: "jwt") != nil{
             if UserDefaults.standard.string(forKey: "way") == "email" {
                 guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
@@ -76,9 +93,8 @@ class LoginViewController: UIViewController{
                 self.changeRootViewController(MainTabBarController)
             }
         }
-        setupProviderLoginView()
+
     }
-    
     
     private func configureUI(){
         kakaoLoginButton.setTitle("", for: .normal)
@@ -90,7 +106,7 @@ class LoginViewController: UIViewController{
         NSLayoutConstraint.activate([
             naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             naviShadowView.heightAnchor.constraint(equalToConstant: 1),
             titleLabel.centerXAnchor.constraint(equalTo: naviShadowView.centerXAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: naviShadowView.topAnchor, constant: -10)
@@ -227,7 +243,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 extension LoginViewController {
     
     func successAppleLogin(message: String){
-        presentAlert(title: message)
+//        presentAlert(title: message)
         guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
         self.changeRootViewController(MainTabBarController)
     }
@@ -245,7 +261,7 @@ extension LoginViewController {
     
     
     func failedToAppleLogin(message: String, appleToken: String){
-        print(appleToken)
+        
         self.appleToken = appleToken
         modalPresent(type: "apple")
     }

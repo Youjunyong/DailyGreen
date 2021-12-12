@@ -39,9 +39,22 @@ class AppleRegisterDataManager {
                    case .success(let response):
                        // 성공했을 때
                        if response.isSuccess {
-                           let result = response.message
-                           delegate.successKRegister(message: result)
                            
+                           let result = response.result
+                           guard let jwt = result?.jwt else{return}
+                           UserDefaults.standard.set(jwt, forKey: "jwt")
+
+                           guard let nickName = result?.nickname else{return}
+                           UserDefaults.standard.set(nickName, forKey: "nickName")
+
+                           guard let profilePhotoUrl = result?.profilePhotoUrl else{return}
+                           UserDefaults.standard.set(profilePhotoUrl, forKey: "profilePhotoUrl")
+
+                           guard let userIdx = result?.userIdx else{return}
+                           UserDefaults.standard.set(userIdx, forKey: "userIdx")
+                           
+                           UserDefaults.standard.set("apple", forKey:"way")
+                           delegate.successKRegister(message: response.message)
                        }
                        // 실패했을 때
                        else {

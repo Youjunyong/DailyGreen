@@ -142,7 +142,7 @@ extension GuideViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     @objc func fixedLabelTapped(_ sender: UITapGestureRecognizer) {
-        print(#function)
+        
         
         guard let label:UILabel = self.linkedLabel else {return}
         //fixedLabel에서 UITapGestureRecognizer로 선택된 부분의 CGPoint를 구합니다.

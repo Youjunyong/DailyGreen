@@ -65,6 +65,7 @@ class MainPageViewController: UIViewController{
         super.viewWillAppear(true)
         cListDataManager.getCommunityList(delegate: self)
         guard let url = UserDefaults.standard.string(forKey: "profilePhotoUrl") else{return}
+        
         gridProfileImageView.load(strUrl: url)
 
     }
@@ -81,7 +82,7 @@ class MainPageViewController: UIViewController{
 
         guard let participateView = sender.superview as? ParticipateView else{return}
         let idx = participateView.tag
-        print(#function, idx)
+        
         if CommunityData.shared.subscribedList.contains(idx) {
             
             let param = CancelCommunityRequest(communityIdx: String(idx))
@@ -242,7 +243,7 @@ extension MainPageViewController : UICollectionViewDataSource {
 extension MainPageViewController {
     
     func failedToRequest(message: String){
-        presentAlert(title: message)
+//        presentAlert(title: message)
     }
     
     func didSuccessGet(message: String, results: CoPResult, communityIdx: Int){  // 커뮤니티 클릭시 참가 Alert창 프사받아오는용
@@ -284,7 +285,6 @@ extension MainPageViewController {
     
     func didSuccessGetCList(message: String, dataList: [CommunityList]){
         
-        
         var newList = [Int]()
         for data in dataList {
             view.viewWithTag(data.idx + 10)?.backgroundColor = .selected
@@ -299,10 +299,11 @@ extension MainPageViewController {
                 view.viewWithTag(idx + 10)?.backgroundColor = .white
             }
         }
+
     }
     
     func didSuccessCancelCommunity(message: String, communityIdx: Int){
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
         cListDataManager.getCommunityList(delegate: self)
     }
 }

@@ -137,7 +137,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
         cell.profileImageView.load(strUrl: self.profileUrl[idx])
         cell.bodyLabel.text = self.captions[idx]
         cell.numOfLikeLabel.text = "\(self.postLikeTotals[idx])명이"
-        cell.numOfCommentLabel.text = "\(self.commentTotals[idx])"
+//        cell.numOfCommentLabel.text = "\(self.commentTotals[idx])"
         cell.likeButton.tag = self.postIdxs[idx] + 100
         cell.reportButton.tag = self.postIdxs[idx]
         cell.reportButton.addTarget(self, action: #selector(report(_:)), for: .touchUpInside)
@@ -157,7 +157,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 530
     }
 }
 
@@ -208,12 +208,12 @@ extension FeedViewController {
     }
     
     func didSuccessLike(message: String){
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
         getFeedDataManager.getFeedData(delegate: self, communityIdx: self.communityIdx!, page: 1)
     }
     
     func failedToRequest(message: String){
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
     }
 }
 

@@ -152,7 +152,7 @@ class RegisterPhoneViewController: UIViewController {
         view.addSubview(naviShadowView)
         NSLayoutConstraint.activate([
             naviShadowView.heightAnchor.constraint(equalToConstant: 1),
-            naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])

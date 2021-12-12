@@ -26,6 +26,9 @@ struct EmailRegisterResponse: Decodable {
 struct EmailRegisterUserData: Decodable{
     var userIdx: Int
     var accountIdx: Int
+    var profilePhotoUrl: String
+    var nickname: String
+    var jwt: String
 }
 
 struct UpdateProfileResponse: Decodable{
@@ -37,4 +40,5 @@ struct UpdateProfileResponse: Decodable{
 
 struct UpdateUserData: Decodable{
     var profilePhotoUrl: String
+
 }

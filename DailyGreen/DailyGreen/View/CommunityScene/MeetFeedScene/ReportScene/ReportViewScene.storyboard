@@ -171,6 +171,19 @@
                                     <action selector="check4:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9Kf-Vo-Oaz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gu9-t3-CXs">
+                                <rect key="frame" x="354" y="82.5" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SJd-Si-qPX"/>
+                                    <constraint firstAttribute="width" constant="44" id="aM2-0k-UJq"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1Rj-dM-iNj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -187,6 +200,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Osj-0M-hzQ" secondAttribute="trailing" constant="16" id="EyZ-go-M1t"/>
                             <constraint firstItem="KXN-UW-UjI" firstAttribute="centerY" secondItem="eHo-SM-jB8" secondAttribute="centerY" id="FOH-Yl-vZX"/>
                             <constraint firstItem="jR2-QA-6eS" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="FVL-ch-DPm"/>
+                            <constraint firstItem="Gu9-t3-CXs" firstAttribute="centerY" secondItem="MKJ-7N-a3x" secondAttribute="centerY" id="Fpa-Yc-fRA"/>
                             <constraint firstItem="UkU-Gu-Omj" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="LDm-Tb-jLo"/>
                             <constraint firstItem="uMU-VV-g0i" firstAttribute="centerX" secondItem="4Ng-B1-D4q" secondAttribute="centerX" id="Lid-cM-mef"/>
                             <constraint firstItem="uha-VW-DsB" firstAttribute="centerY" secondItem="WQ1-UH-Bec" secondAttribute="centerY" id="MDQ-iG-Vgm"/>
@@ -201,6 +215,7 @@
                             <constraint firstItem="y6f-R9-hHX" firstAttribute="leading" secondItem="WQ1-UH-Bec" secondAttribute="trailing" constant="10" id="cDZ-hd-dgA"/>
                             <constraint firstItem="jR2-QA-6eS" firstAttribute="top" secondItem="KXN-UW-UjI" secondAttribute="bottom" constant="10" id="h2R-hg-ZJj"/>
                             <constraint firstItem="VEt-32-1aK" firstAttribute="top" secondItem="Osj-0M-hzQ" secondAttribute="bottom" constant="22" id="hCD-P8-Joz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Gu9-t3-CXs" secondAttribute="trailing" constant="16" id="hsp-lL-0eS"/>
                             <constraint firstItem="3ra-qL-h6S" firstAttribute="top" secondItem="jR2-QA-6eS" secondAttribute="bottom" constant="30" id="iH4-zV-5v6"/>
                             <constraint firstItem="4Ng-B1-D4q" firstAttribute="top" secondItem="J73-3g-Da0" secondAttribute="bottom" constant="22" id="lbL-KM-agu"/>
                             <constraint firstItem="WQ1-UH-Bec" firstAttribute="top" secondItem="MKJ-7N-a3x" secondAttribute="bottom" constant="48" id="luP-Nv-Uol"/>
@@ -227,6 +242,7 @@
                         <outlet property="btnImageView2" destination="VEt-32-1aK" id="mbB-NE-zur"/>
                         <outlet property="btnImageView3" destination="4Ng-B1-D4q" id="XST-Ex-X7r"/>
                         <outlet property="btnImageView4" destination="eHo-SM-jB8" id="CIo-6l-t1A"/>
+                        <outlet property="dismissButton" destination="Gu9-t3-CXs" id="2Em-8d-ojq"/>
                         <outlet property="divideView1" destination="Osj-0M-hzQ" id="NOx-g5-etu"/>
                         <outlet property="divideView2" destination="J73-3g-Da0" id="PJ5-Vv-17d"/>
                         <outlet property="divideView3" destination="UkU-Gu-Omj" id="qJF-mF-G30"/>
@@ -247,6 +263,7 @@
     </scenes>
     <resources>
         <image name="write" width="28" height="28.5"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -80,7 +80,7 @@ class EmailLoginViewController: UIViewController {
         self.hideKeyboardWhenTappedBackground()
         view.addSubview(naviShadowView)
         NSLayoutConstraint.activate([
-            naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             naviShadowView.heightAnchor.constraint(equalToConstant: 1),
             naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
@@ -98,7 +98,7 @@ class EmailLoginViewController: UIViewController {
 
 extension EmailLoginViewController{
     func successEmailLogin(message: String){
-        presentAlert(title: message)
+//        presentAlert(title: message)
         guard let MainTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else{return}
         self.changeRootViewController(MainTabBarController)
     }

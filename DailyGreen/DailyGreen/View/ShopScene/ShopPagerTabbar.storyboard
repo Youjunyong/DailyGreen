@@ -235,7 +235,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QYb-CD-xvE">
-                                <rect key="frame" x="16" y="519" width="382" height="343"/>
+                                <rect key="frame" x="16" y="519" width="382" height="333"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -274,7 +274,7 @@
                             <constraint firstItem="e3b-ZT-wWR" firstAttribute="leading" secondItem="YOJ-5V-yyk" secondAttribute="trailing" constant="12" id="MaP-vZ-gx1"/>
                             <constraint firstItem="xsf-sA-zwo" firstAttribute="leading" secondItem="YOJ-5V-yyk" secondAttribute="leading" id="QJS-s4-oNa"/>
                             <constraint firstItem="QYb-CD-xvE" firstAttribute="top" secondItem="xsf-sA-zwo" secondAttribute="bottom" constant="15" id="RiT-p0-paP"/>
-                            <constraint firstItem="TPG-GE-fg7" firstAttribute="bottom" secondItem="QYb-CD-xvE" secondAttribute="bottom" id="Vsf-XD-Ugu"/>
+                            <constraint firstItem="TPG-GE-fg7" firstAttribute="bottom" secondItem="QYb-CD-xvE" secondAttribute="bottom" constant="10" id="Vsf-XD-Ugu"/>
                             <constraint firstItem="p8s-XT-abV" firstAttribute="centerY" secondItem="I9Z-G1-zJq" secondAttribute="centerY" id="a3t-vV-wOZ"/>
                             <constraint firstItem="SBZ-Og-Ycs" firstAttribute="top" secondItem="xsf-sA-zwo" secondAttribute="top" id="bFE-HT-eB7"/>
                             <constraint firstItem="SBZ-Og-Ycs" firstAttribute="trailing" secondItem="xsf-sA-zwo" secondAttribute="trailing" id="bFe-w8-2X0"/>

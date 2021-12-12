@@ -55,6 +55,7 @@ struct ParticipantListObj: Decodable{
 struct Participants: Decodable{
     var profilePhotoUrl: String
     var nickname: String
+//    var userIdx: Int
 }
 struct ClubTagListMObj: Decodable{
 //    var clubIdx: Int?

@@ -42,6 +42,7 @@ class ReportViewController: UIViewController {
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var btn4: UIButton!
     @IBAction func check1(_ sender: Any) {
         checkedNum = 1
@@ -114,6 +115,7 @@ class ReportViewController: UIViewController {
         textFrameView.layer.borderColor = UIColor.dark2.cgColor
         textFrameView.layer.borderWidth = 2
         textFrameView.layer.cornerRadius = 16
+        dismissButton.setTitle("", for: .normal)
         
         divideView1.backgroundColor = .dark2
         divideView2.backgroundColor = .dark2
@@ -128,6 +130,9 @@ class ReportViewController: UIViewController {
         ])
     }
     
+    @IBAction func dismiss(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     @objc func submit(_ sender: UIButton){
         var content = textView.text!
         if content.count == 0 {
@@ -182,7 +187,7 @@ extension ReportViewController{
         presentDimmingView()
     }
     func failedToRequest(message: String){
-        self.presentAlert(title: message)
+//        self.presentAlert(title: message)
         
     }
 }

@@ -48,7 +48,7 @@ class CommunityViewController: UIViewController {
         view.addSubview(naviShadowView)
         
         NSLayoutConstraint.activate([
-            naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             naviShadowView.heightAnchor.constraint(equalToConstant: 1),
             naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
@@ -132,7 +132,7 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
 extension CommunityViewController {
     
     func failedToRequest(message: String){
-        presentAlert(title: message)
+//        presentAlert(title: message)
     }
     func didSuccessGet(message: String, dataList: [CommunityList]){
         

@@ -138,10 +138,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQ8-Jb-nPT">
-                                <rect key="frame" x="159" y="135.5" width="54" height="27"/>
+                                <rect key="frame" x="155" y="134" width="62" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKf-JP-ewa">
-                                        <rect key="frame" x="6" y="3" width="42" height="21"/>
+                                        <rect key="frame" x="10" y="4.5" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -149,9 +149,9 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="zKf-JP-ewa" secondAttribute="width" constant="12" id="J0a-gM-uH3"/>
+                                    <constraint firstAttribute="width" secondItem="zKf-JP-ewa" secondAttribute="width" constant="20" id="J0a-gM-uH3"/>
+                                    <constraint firstAttribute="height" constant="30" id="Rgz-Fb-kV2"/>
                                     <constraint firstItem="zKf-JP-ewa" firstAttribute="centerX" secondItem="mQ8-Jb-nPT" secondAttribute="centerX" id="g15-Jr-Bhi"/>
-                                    <constraint firstAttribute="height" secondItem="zKf-JP-ewa" secondAttribute="height" multiplier="1.3" id="jfq-SY-jJM"/>
                                     <constraint firstItem="zKf-JP-ewa" firstAttribute="centerY" secondItem="mQ8-Jb-nPT" secondAttribute="centerY" id="mgc-BR-tK9"/>
                                 </constraints>
                             </view>

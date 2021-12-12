@@ -18,10 +18,30 @@ class PersonalnfoUpdateViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        configureNaviShadow()
         self.navigationItem.title = "개인정보 변경"
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
+    private func configureNaviShadow(){
+        let naviShadowView : UIView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .dark1
+            return view
+        }()
+        
+        view.addSubview(naviShadowView)
+        
+        NSLayoutConstraint.activate([
+            naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            naviShadowView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+    }
+    
+
     private func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -49,6 +69,7 @@ extension PersonalnfoUpdateViewController: UITableViewDelegate, UITableViewDataS
             guard let profileVC = storyboard.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{break}
             profileVC.isUpdateProfileMode = true
             profileVC.modalPresentationStyle = .fullScreen
+            profileVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(profileVC, animated: true)
         case 1:
             guard let LogoutSignOutVC = self.storyboard?.instantiateViewController(withIdentifier: "LogoutSIgnOutVC") as? LogoutSignOutViewController else{return indexPath}

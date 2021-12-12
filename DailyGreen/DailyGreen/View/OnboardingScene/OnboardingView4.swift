@@ -96,7 +96,7 @@ class OnboardingView4: UIView{
         addSubview(bodyLabel)
         addSubview(startButtonView)
         addSubview(startButton)
-        addSubview(pageIndicator)
+//        addSubview(pageIndicator)
         
         NSLayoutConstraint.activate([
                 titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 91.9),
@@ -111,7 +111,7 @@ class OnboardingView4: UIView{
                 bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 36),
                 
                 startButtonView.widthAnchor.constraint(equalToConstant: 343),
-                startButtonView.bottomAnchor.constraint(equalTo: pageIndicator.topAnchor, constant: -52),
+                startButtonView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -124),
                 startButtonView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 startButtonView.heightAnchor.constraint(equalToConstant: 48),
                 
@@ -120,10 +120,10 @@ class OnboardingView4: UIView{
                 startButton.topAnchor.constraint(equalTo: startButtonView.topAnchor),
                 startButton.bottomAnchor.constraint(equalTo: startButtonView.bottomAnchor),
                 
-                pageIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-                pageIndicator.widthAnchor.constraint(equalToConstant: 68),
-                pageIndicator.heightAnchor.constraint(equalToConstant: 8),
-                pageIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -104)
+//                pageIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+//                pageIndicator.widthAnchor.constraint(equalToConstant: 68),
+//                pageIndicator.heightAnchor.constraint(equalToConstant: 8),
+//                pageIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -104)
             ])
     }
     

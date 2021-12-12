@@ -85,7 +85,7 @@ class RegisterProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureUI()
         configureNavi()
         hideKeyboardWhenTappedBackground()
@@ -128,7 +128,7 @@ class RegisterProfileViewController: UIViewController {
         view.addSubview(nickNameCheckButton)
         NSLayoutConstraint.activate([
             submitButton.heightAnchor.constraint(equalToConstant: 48),
-            submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
+            submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
             submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             nickNameCheckButton.heightAnchor.constraint(equalToConstant: 48),
@@ -162,7 +162,7 @@ class RegisterProfileViewController: UIViewController {
         view.addSubview(naviShadowView)
         NSLayoutConstraint.activate([
             naviShadowView.heightAnchor.constraint(equalToConstant: 1),
-            naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
@@ -204,6 +204,7 @@ class RegisterProfileViewController: UIViewController {
                     "bio" : bio,
                     "accessToken" : kakaoToken
                 ]
+                UserDefaults.standard.set("kakao", forKey: "way")
                 KRegisterDataManager.upload(image: data,  params: parameters, delegate: self)
             }else if appleToken != nil {
                 let parameters = [
@@ -211,8 +212,9 @@ class RegisterProfileViewController: UIViewController {
                     "bio" : bio,
                     "accessToken" : appleToken!
                 ]
+                UserDefaults.standard.set("apple", forKey: "way")
                 appleRegisterDataManager.upload(image: data, params: parameters, delegate: self)
-                
+
             }
             else if phoneNumber != nil{
                 let parameters = [
@@ -222,13 +224,19 @@ class RegisterProfileViewController: UIViewController {
                     "nickname": nickName,
                     "bio" : bio
                 ]
+                UserDefaults.standard.set("email", forKey: "way")
+
                 emailRegisterDataManger.emailRegisterUpload(image: data, params: parameters, delegate: self)
+
             }
             else{
                 //
             }
         }else{
-            self.presentAlert(title: "프로필 사진을 등록해주세요.")
+            profileImageView.image = UIImage(named: "defaultImage")
+            profileImageView.isHidden = false
+            profileCircleButtonView.isHidden = true
+            self.presentAlert(title: "이미지를 추가하지 않으면 기본 이미지로 등록됩니다.")
         }
         
         
@@ -333,7 +341,7 @@ class RegisterProfileViewController: UIViewController {
             self.navigationController?.popToViewController(viewControllers[viewControllers.count - 2 ], animated: false)
 
         }else{
-            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 5 ], animated: false)
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 4 ], animated: false)
 
         }
     }

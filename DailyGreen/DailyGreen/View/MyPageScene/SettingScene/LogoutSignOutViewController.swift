@@ -33,17 +33,39 @@ class LogoutSignOutViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "로그아웃, 회원탈퇴"
+        configureNaviShadow()
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         logoutButton.setTitle("", for: .normal)
         signOutButton.setTitle("", for: .normal)
+        
     }
+    private func configureNaviShadow(){
+        let naviShadowView : UIView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .dark1
+            return view
+        }()
+        
+        view.addSubview(naviShadowView)
+        
+        NSLayoutConstraint.activate([
+            naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            naviShadowView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+    }
+    
+
 }
 
 
 extension LogoutSignOutViewController {
     
     func successToSignOut(message: String){
-        presentAlert(title: message)
+//        presentAlert(title: message)
         UserDefaults.standard.removeObject(forKey: "jwt")
         UserDefaults.standard.removeObject(forKey: "way")
         UserDefaults.standard.removeObject(forKey: "nickName")
@@ -53,6 +75,6 @@ extension LogoutSignOutViewController {
     }
     
     func failedToRequest(message: String){
-        presentAlert(title: message)
+//        presentAlert(title: message)
     }
 }

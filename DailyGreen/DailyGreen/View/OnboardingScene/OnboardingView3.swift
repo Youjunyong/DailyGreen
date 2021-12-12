@@ -66,6 +66,8 @@ class OnboardingView3: UIView{
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.image = UIImage(named: "ico-ONB3")
+        view.contentMode = .scaleAspectFit
+
         return view
     }()
     
@@ -89,25 +91,26 @@ class OnboardingView3: UIView{
         addSubview(imageView)
         addSubview(subTitleLabel)
         addSubview(bodyLabel)
-        addSubview(pageIndicator)
+//        addSubview(pageIndicator)
         NSLayoutConstraint.activate([
-                titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 91.9),
-                titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                indexLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 48),
-                indexLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                imageView.widthAnchor.constraint(equalToConstant: 240),
-                imageView.heightAnchor.constraint(equalToConstant: 280),
-                imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                imageView.topAnchor.constraint(equalTo: indexLabel.topAnchor, constant: 56.3),
-                subTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                subTitleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 32),
-                bodyLabel.widthAnchor.constraint(equalToConstant: 280),
-                bodyLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 24),
-                pageIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-                pageIndicator.widthAnchor.constraint(equalToConstant: 68),
-                pageIndicator.heightAnchor.constraint(equalToConstant: 8),
-                pageIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -104)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 91.9),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            indexLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 48),
+            indexLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            imageView.topAnchor.constraint(equalTo: indexLabel.bottomAnchor, constant: 20),
+            imageView.heightAnchor.constraint(equalToConstant: 230),
+            subTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            subTitleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
+            bodyLabel.widthAnchor.constraint(equalToConstant: 280),
+            bodyLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bodyLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 24),
+//            pageIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+//                pageIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+//                pageIndicator.widthAnchor.constraint(equalToConstant: 68),
+//                pageIndicator.heightAnchor.constraint(equalToConstant: 8),
+//                pageIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -104)
                 
                 
             ])

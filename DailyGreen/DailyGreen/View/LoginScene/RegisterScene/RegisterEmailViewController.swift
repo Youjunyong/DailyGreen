@@ -64,10 +64,16 @@ class RegisterEmailViewController : UIViewController {
         email = emailTextField.text
         
         if submitButton.backgroundColor == .primary , password != nil, email != nil{
-            guard let RegisterPhoneVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterPhoneVC") as? RegisterPhoneViewController else{return}
-            RegisterPhoneVC.email = self.email
-            RegisterPhoneVC.password = self.password
-            self.navigationController?.pushViewController(RegisterPhoneVC, animated: true)
+            // 휴대폰 인증화면 삭제
+//            guard let RegisterPhoneVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterPhoneVC") as? RegisterPhoneViewController else{return}
+//            RegisterPhoneVC.email = self.email
+//            RegisterPhoneVC.password = self.password
+            
+            guard let RegisterProfileVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterProfileVC") as? RegisterProfileViewController else{return}
+            RegisterProfileVC.phoneNumber = "0"
+            RegisterProfileVC.email = self.email
+            RegisterProfileVC.password = self.password
+            self.navigationController?.pushViewController(RegisterProfileVC, animated: true)
         }
         
     }
@@ -117,7 +123,7 @@ class RegisterEmailViewController : UIViewController {
         view.addSubview(naviShadowView)
         NSLayoutConstraint.activate([
             naviShadowView.heightAnchor.constraint(equalToConstant: 1),
-            naviShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 88),
+            naviShadowView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             naviShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             naviShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
