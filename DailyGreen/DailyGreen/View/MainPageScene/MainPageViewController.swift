@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class MainPageViewController: UIViewController{
     
@@ -25,6 +26,7 @@ class MainPageViewController: UIViewController{
     var bannerPhoto = [String]()
     var bannerType = [String]()
     
+    @IBOutlet weak var eventLinkButton: UIButton!
     @IBOutlet weak var profileDimmingView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -53,6 +55,15 @@ class MainPageViewController: UIViewController{
         self.present(GuideVC, animated: true, completion: nil)
     }
     
+    @IBAction func eventLink(_ sender: Any) {
+        
+
+        let eventUrl = NSURL(string: "https://seoulkfem.or.kr/notice/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=9102777&t=board")
+        let safariView: SFSafariViewController = SFSafariViewController(url: eventUrl as! URL)
+        self.present(safariView, animated: true, completion: nil)
+
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGridView()
@@ -183,7 +194,7 @@ class MainPageViewController: UIViewController{
     }
     
     private func configureUI(){
-        // MARK: - 네비바를 어떻게해야할지,,, 커스텀 뷰로 해야하나 아니면 커스텀 네비바로 해야하나....
+        eventLinkButton.setTitle("", for: .normal)
         self.navigationController?.isNavigationBarHidden = true
         upperDivider.backgroundColor = UIColor.dark1
         lowerDivider.backgroundColor = UIColor.dark1

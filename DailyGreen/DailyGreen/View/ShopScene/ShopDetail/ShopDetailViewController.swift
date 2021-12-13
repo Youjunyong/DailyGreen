@@ -25,14 +25,13 @@ class ShopDetailViewController: UIViewController {
     @IBOutlet weak var nickNameLabel: UILabel!
     
     @IBOutlet weak var websiteButton: UIButton!
+    
     @IBAction func hyperLink(_ sender: Any) {
         if website != nil{
             let blogUrl = NSURL(string: website!)
             let blogSafariView: SFSafariViewController = SFSafariViewController(url: blogUrl as! URL)
             self.present(blogSafariView, animated: true, completion: nil)
         }
-            
-        
     }
     
     override func viewDidLoad() {

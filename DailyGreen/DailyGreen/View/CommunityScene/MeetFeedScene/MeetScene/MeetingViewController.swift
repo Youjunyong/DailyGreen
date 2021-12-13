@@ -60,6 +60,8 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
         writeVC.modalPresentationStyle = .fullScreen
         writeVC.communityName = self.community
         writeVC.communityIdx = self.communityIdx
+        writeVC.hidesBottomBarWhenPushed = true
+
         self.navigationController?.pushViewController(writeVC, animated: true)
         
     }
@@ -115,6 +117,8 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
         guard let VC = storyboard.instantiateViewController(withIdentifier: "meetDetailVC") as? MeetDetailViewController else{return}
         VC.clubIdx = clubIdx
         VC.communityName = self.community
+        VC.hidesBottomBarWhenPushed = true
+
         self.navigationController?.pushViewController(VC, animated: true)
         
     }

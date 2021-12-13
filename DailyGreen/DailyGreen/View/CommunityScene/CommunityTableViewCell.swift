@@ -28,6 +28,10 @@ class CommunityTableViewCell: UITableViewCell {
         backView.layer.cornerRadius = 16
         backView.layer.borderWidth = 2
         backView.layer.borderColor = UIColor.primary.cgColor
+        backView?.layer.shadowColor = UIColor.black.cgColor
+        backView?.layer.shadowOpacity = 0.12
+        backView?.layer.shadowRadius = 4
+        backView?.layer.shadowOffset = CGSize(width: 3, height: 3)
         cImageView.backgroundColor = .none
         
         

@@ -64,7 +64,6 @@ class CommunityViewController: UIViewController {
             dimmingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             dimmingView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
-        
         dimmingView.dismissBtn.addTarget(self, action: #selector(removeAlert), for: .touchUpInside)
         
     }
@@ -113,7 +112,6 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.profileImage1.layer.cornerRadius = 10
                     cell.profileImage1.contentMode = .scaleAspectFill
                     cell.profileImage1.load(strUrl: strUrl)
-                    
                 case 1:
                     cell.profileImage2.load(strUrl: strUrl)
                 case 2:

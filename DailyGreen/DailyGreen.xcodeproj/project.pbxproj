@@ -126,6 +126,7 @@
 		E19F535927414E5400B3A28D /* KakaoLoginCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535827414E5400B3A28D /* KakaoLoginCodable.swift */; };
 		E19F535B2741F20A00B3A28D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535A2741F20A00B3A28D /* UIImageView.swift */; };
 		E19F535D2741F56500B3A28D /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19F535C2741F56500B3A28D /* ImageCacheManager.swift */; };
+		E1A5E9B52767266F00581690 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5E9B42767266F00581690 /* AlertView.swift */; };
 		E1AAAFC427590C58003596FB /* MeetSearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AAAFC327590C58003596FB /* MeetSearchDataManager.swift */; };
 		E1AB2A252759B3F500501B60 /* ShopSearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB2A242759B3F500501B60 /* ShopSearchDataManager.swift */; };
 		E1AB2A282759CADE00501B60 /* ProfileUpdateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB2A272759CADE00501B60 /* ProfileUpdateDataManager.swift */; };
@@ -327,6 +328,7 @@
 		E19F535827414E5400B3A28D /* KakaoLoginCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginCodable.swift; sourceTree = "<group>"; };
 		E19F535A2741F20A00B3A28D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		E19F535C2741F56500B3A28D /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		E1A5E9B42767266F00581690 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		E1AAAFC327590C58003596FB /* MeetSearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetSearchDataManager.swift; sourceTree = "<group>"; };
 		E1AB2A242759B3F500501B60 /* ShopSearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSearchDataManager.swift; sourceTree = "<group>"; };
 		E1AB2A272759CADE00501B60 /* ProfileUpdateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateDataManager.swift; sourceTree = "<group>"; };
@@ -1125,6 +1127,7 @@
 				E1F6A1152737C2B000BEFF6A /* DimmingView.swift */,
 				E1502ADA2750AB8200AF4D0C /* KakaoPostCodeViewController.swift */,
 				E10D4E51275C599300F050BE /* IndicatorView.swift */,
+				E1A5E9B42767266F00581690 /* AlertView.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -1510,6 +1513,7 @@
 				E12838FD27427C5700F1E259 /* EntireShopTableViewCell.swift in Sources */,
 				E1BAECA327487583008882FA /* EmailRegisterDataManager.swift in Sources */,
 				E1E2C64127551BEE00785DC3 /* PolicyViewController.swift in Sources */,
+				E1A5E9B52767266F00581690 /* AlertView.swift in Sources */,
 				E1BBD31D2743FC0E00268BB5 /* WriteStep1ViewController.swift in Sources */,
 				E10B0E5B274E82A500FD48C9 /* MyPageTableViewCell.swift in Sources */,
 				E1E719012747F02E00F2710F /* SettingViewController.swift in Sources */,

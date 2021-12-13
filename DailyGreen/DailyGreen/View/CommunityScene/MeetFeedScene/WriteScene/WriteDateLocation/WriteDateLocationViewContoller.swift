@@ -191,8 +191,8 @@ class WriteDateLocationViewController: UIViewController{
     override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications() }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.presentAlert(title: self.feeType!)
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+
         setTimeBtn.setTitle("", for: .normal)
         setDateBtn.setTitle("", for: .normal)
         configureUI()

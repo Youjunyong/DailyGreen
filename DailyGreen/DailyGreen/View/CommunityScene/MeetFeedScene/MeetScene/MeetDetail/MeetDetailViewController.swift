@@ -15,7 +15,8 @@ class MeetDetailViewController: UIViewController {
     var communityName: String?
     var isRegular: Int?
     var meetUrlList = [String]()
-    lazy var dimmingView = DimmingView()
+    
+    lazy var alertView = AlertView()
     
     @IBOutlet weak var submitButtonLabel: UILabel!
     @IBOutlet weak var reportButton: UIButton!
@@ -133,24 +134,25 @@ class MeetDetailViewController: UIViewController {
         profileName4.font = UIFont.systemFont(ofSize: 10)
     }
     
-    private func presentDimmingView(message: String){
+    private func presentAlertView(message: String, bodyMessage: String){
 
-        dimmingView.translatesAutoresizingMaskIntoConstraints = false
-        dimmingView.alretText = message
+        alertView.translatesAutoresizingMaskIntoConstraints = false
+        alertView.titleText = message
+        alertView.bodyText = bodyMessage
         
-        view.addSubview(dimmingView)
+        view.addSubview(alertView)
         NSLayoutConstraint.activate([
-            dimmingView.topAnchor.constraint(equalTo: view.topAnchor),
-            dimmingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            dimmingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            dimmingView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+            alertView.topAnchor.constraint(equalTo: view.topAnchor),
+            alertView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
         
-        dimmingView.dismissBtn.addTarget(self, action: #selector(removeAlert), for: .touchUpInside)
+        alertView.dismissBtn.addTarget(self, action: #selector(removeAlert), for: .touchUpInside)
     }
     
     @objc func removeAlert(){
-        dimmingView.removeFromSuperview()
+        alertView.removeFromSuperview()
     }
     
     private func configureCollectionView(){
@@ -233,13 +235,10 @@ extension MeetDetailViewController : UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        if isRegular == 1{
+        if meetUrlList.count > 1{
             return meetUrlList.count
-
-        }else{
-            return 1
         }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -263,17 +262,13 @@ extension MeetDetailViewController {
         
         if let clubInfoObj = results.clubInfoObj {
             shopNameLabel.text =  clubInfoObj.clubName
-//            clubInfoObj.clubIdx
             websiteLabel.text =  clubInfoObj.fee
             if clubInfoObj.fee.count > 4 {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
-                
                 var intFee = clubInfoObj.fee
                 intFee.removeLast()
-                
                 guard let res = numberFormatter.string(from: NSNumber(value:Double(intFee)!)) else{return}
-                
                 websiteLabel.text = "\(res) 원"
             }else{
                 websiteLabel.text = "무료"
@@ -288,11 +283,8 @@ extension MeetDetailViewController {
             locationLabel.text =  clubInfoObj.locationDetail
             let max = clubInfoObj.maxPeopleNum
             let now = clubInfoObj.nowFollowing
-            
             restNumLabel.text = "잔여 \(max - now)석"
-            
             participatePeopleNumLabel.text = "\(now) / \(max)명 참가중"
-            
             nickNameLabel.text =  clubInfoObj.nickname
             profileImageView.load(strUrl: clubInfoObj.profilePhotoUrl)
             bioTextView.text = clubInfoObj.bio
@@ -315,6 +307,8 @@ extension MeetDetailViewController {
             for (idx, participant) in participateListObj.enumerated() {
                 guard let imageUrl = participant?.profilePhotoUrl else{break}
                 guard let name = participant?.nickname else{break}
+                print("####>>>",name) // 여기서 내가 참여중인 모임인지 확인할것,
+                // 2. 내가 주최중인 모임인지 확인할것.
                 switch idx{
                 case 0:
                     profileName1.text = name
@@ -345,8 +339,8 @@ extension MeetDetailViewController {
 }
 
 extension MeetDetailViewController {
-    func didSuccessParticiPateMeet(message: String){
-        presentDimmingView(message: message)
+    func didSuccessParticiPateMeet(message: String, bodyMessage: String){
+        presentAlertView(message: message, bodyMessage: bodyMessage)
         meetDetailDataManager.getMeetDetail(delegate: self, clubIdx: clubIdx!)
     }
 
