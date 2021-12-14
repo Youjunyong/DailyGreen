@@ -94,7 +94,7 @@ class CoCardTableViewCell: UITableViewCell {
         
         hashTagView1.layer.cornerRadius = 15
         hashTagView2.layer.cornerRadius = 15
-        hashTagView3.layer.cornerRadius = 12
+        hashTagView3.layer.cornerRadius = 15
 
         
         bodyLabel.textColor = .grayLongtxt

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SafariServices
+
 
 class MeetDetailViewController: UIViewController {
     
@@ -16,8 +18,16 @@ class MeetDetailViewController: UIViewController {
     var isRegular: Int?
     var meetUrlList = [String]()
     
+    var participateNames = [String]()
+    var participateImages = [String]()
     lazy var alertView = AlertView()
+    @IBOutlet weak var linkOpenButton: UIButton!
+    @IBOutlet weak var openChatLinkView: UIView!
     
+    @IBOutlet weak var openChatLinkViewLabel: UILabel!
+    
+    @IBOutlet weak var participateListButton: UIButton!
+    @IBOutlet weak var participateButtonImageView: UIImageView!
     @IBOutlet weak var submitButtonLabel: UILabel!
     @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
@@ -48,6 +58,49 @@ class MeetDetailViewController: UIViewController {
     @IBOutlet weak var participateView: UIView!
     @IBOutlet weak var openChatTitleLabel: UILabel!
     @IBOutlet weak var openChatLinkLabel: UILabel!
+    
+    
+    
+    private func checkUrl(strUrl: String) -> Bool{
+        if strUrl.count <= 7 {
+            return false
+        }
+        var firstUrl = ""
+        for (idx, i) in  strUrl.enumerated(){
+            firstUrl += "\(i)"
+            if idx == 5{
+                break
+            }
+        }
+        if firstUrl == "https:" {
+            return true
+        }
+        return false
+    }
+    
+    @IBAction func openLink(_ sender: Any) {
+        if openChatLinkLabel.text != nil{
+            var strUrl = openChatLinkLabel.text!
+            if checkUrl(strUrl: strUrl) == false {
+                strUrl = "https:" + strUrl
+            }
+            guard let url = NSURL(string: strUrl) as? URL else{return}
+            let safariView: SFSafariViewController = SFSafariViewController(url: url)
+            self.present(safariView, animated: true, completion: nil)
+        }
+        
+    }
+    
+    @IBAction func participateList(_ sender: Any) {
+        guard let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipateListVC") as? ParticipateListViewController else{return}
+        VC.participateNames = self.participateNames
+        VC.participateImages = self.participateImages
+        print(self.participateImages, "@@@@@")
+        self.present(VC, animated: true, completion: nil)
+        
+    }
+    
+    
     @IBAction func report(_ sender: Any) {
         let storyboard = UIStoryboard(name: "ReportViewScene", bundle: nil)
         guard let VC = storyboard.instantiateViewController(withIdentifier: "ReportVC") as? ReportViewController else{return}
@@ -64,6 +117,9 @@ class MeetDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         if isRegular == 1{
             title = "\(communityName!) 정기모임"
@@ -75,6 +131,7 @@ class MeetDetailViewController: UIViewController {
         configureOpenChat()
         submitButton.setTitle("", for: .normal)
         bioTextView.isEditable = false
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -170,6 +227,13 @@ class MeetDetailViewController: UIViewController {
     
     
     private func configureUI(){
+        linkOpenButton.setTitle("", for: .normal)
+        openChatLinkLabel.isHidden = true
+        openChatLinkView.layer.cornerRadius = 12
+        openChatLinkView.backgroundColor = .grayGreen
+        openChatLinkViewLabel.textColor = .dark2
+        bioTextView.isScrollEnabled = false
+        participateListButton.setTitle("", for: .normal)
         submitButtonLabel.font = UIFont(name: NanumFont.extraBold, size: 17)
         reportButton.setTitle("", for: .normal)
         divideView.backgroundColor = .primary
@@ -259,7 +323,8 @@ extension MeetDetailViewController {
         participateProfileImageview3.image = nil
         profileName4.text = ""
         participateProfileImageview4.image = nil
-        
+        self.participateNames.removeAll()
+        self.participateImages.removeAll()
         if let clubInfoObj = results.clubInfoObj {
             shopNameLabel.text =  clubInfoObj.clubName
             websiteLabel.text =  clubInfoObj.fee
@@ -300,15 +365,22 @@ extension MeetDetailViewController {
                 self.indicatorImageView.image = UIImage(named: "pindicator1\(meetUrlList.count)")
             }
         }
+        var buttonType = 0
+
         
         if let participateListObj = results.participantListObj?.participants{
             
+            let myNickName = UserDefaults.standard.string(forKey: "nickName")
             
             for (idx, participant) in participateListObj.enumerated() {
                 guard let imageUrl = participant?.profilePhotoUrl else{break}
                 guard let name = participant?.nickname else{break}
-                print("####>>>",name) // 여기서 내가 참여중인 모임인지 확인할것,
-                // 2. 내가 주최중인 모임인지 확인할것.
+                self.participateNames.append(name)
+                self.participateImages.append(imageUrl)
+                
+                if name == myNickName {
+                    buttonType = 1
+                }
                 switch idx{
                 case 0:
                     profileName1.text = name
@@ -329,6 +401,24 @@ extension MeetDetailViewController {
                 
             }
         }
+        if buttonType == 1 {
+            openChatLinkLabel.isHidden = false
+            linkOpenButton.isHidden = false
+            openChatLinkView.isHidden = true
+            openChatLinkViewLabel.isHidden = true
+            submitButtonLabel.text = "참여 취소하기"
+            participateButtonImageView.image = UIImage(named: "participateButtonFalse")
+        }else{
+            openChatLinkLabel.isHidden = true
+            linkOpenButton.isHidden = true
+            openChatLinkView.isHidden = false
+            openChatLinkViewLabel.isHidden = false
+            submitButtonLabel.text = "참여하기"
+            participateButtonImageView.image = UIImage(named: "participateButton")
+        }
+        bioTextView.sizeToFit()
+        view.layoutIfNeeded()
+        
         configureCollectionView()
     }
     

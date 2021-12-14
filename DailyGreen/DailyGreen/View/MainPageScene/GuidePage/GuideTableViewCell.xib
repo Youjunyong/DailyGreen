@@ -22,16 +22,25 @@
                         <rect key="frame" x="0.0" y="112" width="508" height="124"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izj-tZ-mNm">
-                                <rect key="frame" x="108" y="0.0" width="377" height="21"/>
+                                <rect key="frame" x="108" y="0.0" width="377" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E91-cD-wHS">
+                                <rect key="frame" x="108" y="0.0" width="377" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Izj-tZ-mNm" firstAttribute="top" secondItem="Rte-be-FJS" secondAttribute="top" id="49Z-hK-Umf"/>
                             <constraint firstAttribute="height" constant="124" id="5a5-EU-Qmg"/>
+                            <constraint firstItem="E91-cD-wHS" firstAttribute="leading" secondItem="Izj-tZ-mNm" secondAttribute="leading" id="5oe-Pb-g10"/>
                             <constraint firstAttribute="trailing" secondItem="Izj-tZ-mNm" secondAttribute="trailing" constant="23" id="C6S-JE-ryF"/>
+                            <constraint firstItem="E91-cD-wHS" firstAttribute="top" secondItem="Izj-tZ-mNm" secondAttribute="top" id="X6k-1Y-eS4"/>
+                            <constraint firstItem="E91-cD-wHS" firstAttribute="trailing" secondItem="Izj-tZ-mNm" secondAttribute="trailing" id="glz-D9-Jbb"/>
+                            <constraint firstItem="E91-cD-wHS" firstAttribute="bottom" secondItem="Izj-tZ-mNm" secondAttribute="bottom" id="tx7-BZ-Nl5"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnU-cl-a1p">
@@ -106,6 +115,7 @@
                 <outlet property="btn" destination="5us-ts-QcY" id="2Vv-Xp-COY"/>
                 <outlet property="divideView" destination="0Ag-Vb-Cok" id="KHB-bz-UwK"/>
                 <outlet property="imgView" destination="qTP-AE-wm7" id="RGq-u1-yXi"/>
+                <outlet property="linkButton" destination="E91-cD-wHS" id="7Pz-QX-IP5"/>
                 <outlet property="lowerview" destination="Rte-be-FJS" id="0fK-dN-ib7"/>
                 <outlet property="subTitleLabel" destination="aAD-g3-fed" id="3xG-vD-0SS"/>
                 <outlet property="titleLabel" destination="ubj-nh-4BF" id="9N8-3G-wB3"/>

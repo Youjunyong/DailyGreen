@@ -55,12 +55,21 @@ class RegisterProfileViewController: UIViewController {
         view.backgroundColor = .dark1
         return view
     }()
+
+    let submitButtonLabel : UILabel = {
+       let label = UILabel()
+        label.text = "다음"
+        label.textColor = .white
+        label.font = UIFont(name: NanumFont.extraBold, size: 17.0)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     let submitButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("다음", for: .normal)
-        btn.titleLabel?.font = UIFont(name: NanumFont.extraBold, size: 17.0)
-        btn.setTitleColor(UIColor.white, for: .normal)
+        btn.setTitle("", for: .normal)
         btn.backgroundColor = UIColor.grayDisabled
         btn.layer.cornerRadius = 24
         return btn
@@ -117,6 +126,7 @@ class RegisterProfileViewController: UIViewController {
     
     private func configureUI(){
         view.addSubview(submitButton)
+        view.addSubview(submitButtonLabel)
         view.addSubview(whiteView)
         whiteView.isHidden = true
         let l = whiteView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
@@ -131,6 +141,8 @@ class RegisterProfileViewController: UIViewController {
             submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
             submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            submitButtonLabel.centerXAnchor.constraint(equalTo: submitButton.centerXAnchor),
+            submitButtonLabel.centerYAnchor.constraint(equalTo: submitButton.centerYAnchor),
             nickNameCheckButton.heightAnchor.constraint(equalToConstant: 48),
             nickNameCheckButton.widthAnchor.constraint(equalToConstant: 100),
             nickNameCheckButton.bottomAnchor.constraint(equalTo: nickNameDivideView.bottomAnchor),
@@ -173,8 +185,12 @@ class RegisterProfileViewController: UIViewController {
         let bio = textView.text
         if nickName!.count > 0 , bio!.count > 0 {
             submitButton.backgroundColor = .primary
-            submitButton.titleLabel?.textColor = UIColor.black
+            submitButtonLabel.textColor = .black
+            
             return true
+        }else{
+            submitButton.backgroundColor = .grayDisabled
+            submitButtonLabel.textColor = .white
         }
         return false
     }

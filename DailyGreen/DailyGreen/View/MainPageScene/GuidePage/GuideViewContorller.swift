@@ -35,6 +35,7 @@ class GuideViewController: UIViewController{
     var expandedCellArr = [Int]()
     
     
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     @IBOutlet weak var headerView: ModalHeaderView!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -89,6 +90,9 @@ class GuideViewController: UIViewController{
     @objc func dismissGuide(_ sender: UIButton){
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
+    @objc func link(_ sender: UIButton){
+        present(url: "https://url.kr/vtofwz")
+    }
     
 
     
@@ -113,20 +117,17 @@ extension GuideViewController: UITableViewDelegate, UITableViewDataSource{
         cell.btn.tag = indexPath.row
         cell.btn.addTarget(self, action: #selector(expandCell(_:)), for: .touchUpInside)
         cell.bodyLabel.text = bodyArr[indexPath.row]
-        
+        cell.linkButton.addTarget(self, action: #selector(link(_:)), for: .touchUpInside)
         if indexPath.row == 2 {
+            cell.linkButton.isHidden = false
             let attrString = NSMutableAttributedString(string: cell.bodyLabel.text!)
-            cell.bodyLabel.isUserInteractionEnabled = true
-            let recognizer = UITapGestureRecognizer(
-              target: self,
-              action: #selector(fixedLabelTapped(_:))
-            )
-            cell.bodyLabel.addGestureRecognizer(recognizer)
-            
+
             attrString.addAttribute(.font, value: UIFont(name: NanumFont.extraBold, size: 13)!, range: (cell.bodyLabel.text! as NSString).range(of: "여기"))
             attrString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: (cell.bodyLabel.text! as NSString).range(of: "여기"))
             cell.bodyLabel.attributedText = attrString
             linkedLabel = cell.bodyLabel
+        }else{
+            cell.linkButton.isHidden = true
         }
         
         return cell
@@ -135,25 +136,14 @@ extension GuideViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if   expandedCellArr.contains(indexPath.row) {
+            
             return 220
         }else{
             return 100
         }
     }
     
-    @objc func fixedLabelTapped(_ sender: UITapGestureRecognizer) {
-        
-        
-        guard let label:UILabel = self.linkedLabel else {return}
-        //fixedLabel에서 UITapGestureRecognizer로 선택된 부분의 CGPoint를 구합니다.
-        let point = sender.location(in: linkedLabel)
-        
-        // fixedLabel 내에서 문자열 google이 차지하는 CGRect값을 구해, 그 안에 point가 포함되는지를 판단합니다.
-        
-        present(url: "https://url.kr/vtofwz")
-        
-        
-    }
+
     
     func present(url string: String) {
       if let url = URL(string: string) {

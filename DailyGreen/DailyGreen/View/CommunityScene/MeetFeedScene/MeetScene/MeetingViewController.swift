@@ -161,7 +161,7 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
 
             if let tagList = clubInfo[indexPath.row]?.clubTagListObj.tagList{
                 cell.isHaveHashTag = true
-                cell.devideViewConstraint.constant = 40
+                cell.devideViewConstraint.constant = 43
                 cell.hashTagView1.isHidden = true
                 cell.hashTagView2.isHidden = true
                 cell.hashTagView3.isHidden = true

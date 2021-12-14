@@ -10,6 +10,7 @@ import UIKit
 class BookMarkShopTableViewCell: UITableViewCell {
 
    
+    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var shopImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,6 +33,11 @@ class BookMarkShopTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         selectionStyle = .none
+        shadowView.layer.cornerRadius = 12
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowOpacity = 0.25
+        shadowView.layer.shadowRadius = 8
+        shadowView.layer.shadowOffset = CGSize(width: 2, height: 4)
         detailButton.setTitle("", for: .normal)
         dimmingView.backgroundColor = UIColor.dimmingView
         dimmingView.layer.cornerRadius = 12

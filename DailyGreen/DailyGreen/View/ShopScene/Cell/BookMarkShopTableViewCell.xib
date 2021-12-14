@@ -17,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="362"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Het-Qb-rfk">
+                        <rect key="frame" x="16" y="31" width="382" height="200"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PKO-0l-Mud">
                         <rect key="frame" x="16" y="31" width="382" height="200"/>
                         <constraints>
@@ -68,12 +72,14 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Het-Qb-rfk" firstAttribute="top" secondItem="PKO-0l-Mud" secondAttribute="top" id="06g-rA-ocY"/>
                     <constraint firstItem="PKO-0l-Mud" firstAttribute="top" secondItem="Ex3-ci-Qv9" secondAttribute="topMargin" constant="20" id="0Oz-82-ZQV"/>
                     <constraint firstItem="0ne-LB-ziv" firstAttribute="leading" secondItem="3DJ-1v-N5b" secondAttribute="leading" id="6te-dp-51y"/>
                     <constraint firstItem="F7E-EP-3mS" firstAttribute="bottom" secondItem="vWh-N5-258" secondAttribute="bottom" id="BUL-xE-VhN"/>
                     <constraint firstItem="0ne-LB-ziv" firstAttribute="top" secondItem="3DJ-1v-N5b" secondAttribute="top" id="Ejc-lh-NM3"/>
                     <constraint firstItem="TIO-z0-YiA" firstAttribute="top" secondItem="F68-lE-xCZ" secondAttribute="bottom" constant="12" id="L5S-oQ-mnU"/>
                     <constraint firstItem="3DJ-1v-N5b" firstAttribute="trailing" secondItem="PKO-0l-Mud" secondAttribute="trailing" id="Pee-kS-cYA"/>
+                    <constraint firstItem="Het-Qb-rfk" firstAttribute="leading" secondItem="PKO-0l-Mud" secondAttribute="leading" id="QTX-5L-P3p"/>
                     <constraint firstItem="UnM-7P-bNg" firstAttribute="leading" secondItem="TIO-z0-YiA" secondAttribute="trailing" constant="5" id="Qa5-HE-Za2"/>
                     <constraint firstItem="vWh-N5-258" firstAttribute="top" secondItem="PKO-0l-Mud" secondAttribute="top" id="TrD-XS-PYp"/>
                     <constraint firstItem="PKO-0l-Mud" firstAttribute="leading" secondItem="Ex3-ci-Qv9" secondAttribute="leading" constant="16" id="X1W-N9-omQ"/>
@@ -83,7 +89,9 @@
                     <constraint firstItem="F7E-EP-3mS" firstAttribute="top" secondItem="vWh-N5-258" secondAttribute="top" id="d0O-0u-cBK"/>
                     <constraint firstItem="vWh-N5-258" firstAttribute="leading" secondItem="PKO-0l-Mud" secondAttribute="leading" id="fSR-sN-Lth"/>
                     <constraint firstItem="F68-lE-xCZ" firstAttribute="bottom" secondItem="PKO-0l-Mud" secondAttribute="bottom" constant="-48" id="hp6-gy-oxW"/>
+                    <constraint firstItem="Het-Qb-rfk" firstAttribute="bottom" secondItem="PKO-0l-Mud" secondAttribute="bottom" id="jXi-jI-Nuv"/>
                     <constraint firstItem="TIO-z0-YiA" firstAttribute="leading" secondItem="F68-lE-xCZ" secondAttribute="leading" id="kmn-6s-S3l"/>
+                    <constraint firstItem="Het-Qb-rfk" firstAttribute="trailing" secondItem="PKO-0l-Mud" secondAttribute="trailing" id="koZ-3m-QBU"/>
                     <constraint firstItem="0ne-LB-ziv" firstAttribute="trailing" secondItem="3DJ-1v-N5b" secondAttribute="trailing" id="nLo-d7-ge3"/>
                     <constraint firstAttribute="trailing" secondItem="PKO-0l-Mud" secondAttribute="trailing" constant="16" id="qgr-3E-NaE"/>
                     <constraint firstItem="F7E-EP-3mS" firstAttribute="trailing" secondItem="vWh-N5-258" secondAttribute="trailing" id="taz-Ny-sfb"/>
@@ -101,6 +109,7 @@
                 <outlet property="likeButtonImageView" destination="3DJ-1v-N5b" id="StH-bH-MIO"/>
                 <outlet property="locationImageView" destination="TIO-z0-YiA" id="cV2-8Z-mQA"/>
                 <outlet property="locationLabel" destination="UnM-7P-bNg" id="FXK-Ln-bqb"/>
+                <outlet property="shadowView" destination="Het-Qb-rfk" id="T0h-j9-szV"/>
                 <outlet property="shopImageView" destination="PKO-0l-Mud" id="yLs-jZ-QJU"/>
                 <outlet property="titleLabel" destination="F68-lE-xCZ" id="AcY-Vw-QVE"/>
             </connections>

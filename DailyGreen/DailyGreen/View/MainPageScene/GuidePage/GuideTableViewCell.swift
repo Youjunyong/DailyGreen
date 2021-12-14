@@ -17,6 +17,7 @@ class GuideTableViewCell: UITableViewCell {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var divideView: UIView!
     
+    @IBOutlet weak var linkButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,7 @@ class GuideTableViewCell: UITableViewCell {
     }
     
     private func configureUI(){
+        linkButton.setTitle("", for: .normal)
         btn.setTitle("", for: .normal)
         titleLabel.font = UIFont(name: NanumFont.bold, size: 20)
         subTitleLabel.font = UIFont(name: NanumFont.bold, size: 13)

@@ -14,7 +14,7 @@ class EntireShopViewController : UIViewController, IndicatorInfoProvider{
     lazy var likeShopDataManger = LikeShopDataManager()
     lazy var shopSearchDataManager = ShopSearchDataManager()
     
-    
+
     var delegate: ShopPagerViewController?
     var shopIdxArr = [Int]()
     var shopNameArr = [String]()
@@ -28,12 +28,14 @@ class EntireShopViewController : UIViewController, IndicatorInfoProvider{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showIndicator()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        showIndicator()
+
         entireShopDataManger.getEntireShop(delegate: self, page: 1)
+        
     }
     
     func search(keyword: String){
@@ -77,6 +79,7 @@ extension EntireShopViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntireCell") as? EntireShopTableViewCell else{return UITableViewCell()}
         
         cell.shopImageView.load(strUrl: urlArr[indexPath.row])
+
         cell.locationLabel.text = locationDetailArr[indexPath.row]
         cell.titleLabel.text = shopNameArr[indexPath.row]
         
@@ -125,9 +128,11 @@ extension EntireShopViewController {
         }
         tableView.reloadData()
         dismissIndicator()
+
     }
     func didSuccessLikeShop(message: String){
-//        self.presentAlert(title: message)
+        
+        self.presentAlert(title: "관심상점에 추가되었습니다.")
     }
     func failedToRequest(message: String){
         

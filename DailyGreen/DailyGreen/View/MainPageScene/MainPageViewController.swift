@@ -56,8 +56,6 @@ class MainPageViewController: UIViewController{
     }
     
     @IBAction func eventLink(_ sender: Any) {
-        
-
         let eventUrl = NSURL(string: "https://seoulkfem.or.kr/notice/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=9102777&t=board")
         let safariView: SFSafariViewController = SFSafariViewController(url: eventUrl as! URL)
         self.present(safariView, animated: true, completion: nil)
@@ -74,6 +72,8 @@ class MainPageViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.isNavigationBarHidden = true
+
         cListDataManager.getCommunityList(delegate: self)
         guard let url = UserDefaults.standard.string(forKey: "profilePhotoUrl") else{return}
         
@@ -154,7 +154,17 @@ class MainPageViewController: UIViewController{
         participateView.removeFromSuperview()
     }
     @objc func detailButton(_ sender: UIButton){
-        let communityIdx = sender.tag - 100
+        let clubIdx = sender.tag - 100
+        let storyboard = UIStoryboard(name: "MeetDetailScene", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "meetDetailVC") as? MeetDetailViewController else{return}
+        VC.clubIdx = clubIdx
+//        VC.communityName = self.community
+        VC.communityName = "이벤트"
+//        VC.hidesBottomBarWhenPushed = true
+
+        self.navigationController?.pushViewController(VC, animated: true)
+        print(self.navigationController?.viewControllers)
+        
     }
     private func configureGridView(){
         
@@ -195,7 +205,10 @@ class MainPageViewController: UIViewController{
     
     private func configureUI(){
         eventLinkButton.setTitle("", for: .normal)
-        self.navigationController?.isNavigationBarHidden = true
+
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        
         upperDivider.backgroundColor = UIColor.dark1
         lowerDivider.backgroundColor = UIColor.dark1
         guideButton.setTitle("", for: .normal)

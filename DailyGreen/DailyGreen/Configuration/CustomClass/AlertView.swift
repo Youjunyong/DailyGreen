@@ -55,6 +55,7 @@ class AlertView: UIView {
     let defaultLabel : UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.lineBreakMode = .byWordWrapping
         label.text = " ⚠️ 불가피하게 불참해야 하는 경우, 사전에 멤버들에게 오픈채팅방을 통해 알려주세요."
         label.font = UIFont(name: NanumFont.regular, size: 14)
         label.numberOfLines = 0

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icBtnQuestion.png",
+      "filename" : "participateButtonFalse.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icBtnQuestion@2x.png",
+      "filename" : "participateButtonFalse@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icBtnQuestion@3x.png",
+      "filename" : "participateButtonFalse@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

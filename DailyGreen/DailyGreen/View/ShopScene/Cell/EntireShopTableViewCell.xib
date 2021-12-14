@@ -17,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="362"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owT-Vy-fEy">
+                        <rect key="frame" x="16" y="31" width="382" height="200"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o64-JM-fUH">
                         <rect key="frame" x="16" y="31" width="382" height="200"/>
                         <constraints>
@@ -73,10 +77,12 @@
                     <constraint firstItem="Sfz-Re-pDh" firstAttribute="bottom" secondItem="o64-JM-fUH" secondAttribute="bottom" constant="-48" id="BYj-pk-g6w"/>
                     <constraint firstAttribute="trailing" secondItem="o64-JM-fUH" secondAttribute="trailing" constant="16" id="Bdr-Oa-BbC"/>
                     <constraint firstItem="JLD-c1-JqC" firstAttribute="top" secondItem="OfI-mo-upr" secondAttribute="top" id="Dy8-7d-fCa"/>
+                    <constraint firstItem="owT-Vy-fEy" firstAttribute="bottom" secondItem="o64-JM-fUH" secondAttribute="bottom" id="FTx-7m-dB9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nVX-Gc-Vma" secondAttribute="trailing" constant="10" id="Gty-3O-2Pd"/>
                     <constraint firstItem="Ve4-Et-JSJ" firstAttribute="top" secondItem="Sfz-Re-pDh" secondAttribute="bottom" constant="12" id="IHR-Hp-sUq"/>
                     <constraint firstItem="o64-JM-fUH" firstAttribute="leading" secondItem="YMV-Dq-bsr" secondAttribute="leading" constant="16" id="J6x-IP-BBJ"/>
                     <constraint firstItem="nVX-Gc-Vma" firstAttribute="centerY" secondItem="Ve4-Et-JSJ" secondAttribute="centerY" id="J6x-dQ-bks"/>
+                    <constraint firstItem="owT-Vy-fEy" firstAttribute="top" secondItem="o64-JM-fUH" secondAttribute="top" id="KXb-lJ-sjC"/>
                     <constraint firstItem="o64-JM-fUH" firstAttribute="top" secondItem="YMV-Dq-bsr" secondAttribute="topMargin" constant="20" id="M8P-DZ-6UZ"/>
                     <constraint firstItem="OfI-mo-upr" firstAttribute="bottom" secondItem="o64-JM-fUH" secondAttribute="bottom" id="MVT-hm-3xc"/>
                     <constraint firstItem="bQL-QQ-dcR" firstAttribute="trailing" secondItem="NJq-pz-pKc" secondAttribute="trailing" id="Odc-ud-mO4"/>
@@ -86,11 +92,13 @@
                     <constraint firstItem="NJq-pz-pKc" firstAttribute="trailing" secondItem="o64-JM-fUH" secondAttribute="trailing" id="Scs-EE-Brt"/>
                     <constraint firstItem="NJq-pz-pKc" firstAttribute="top" secondItem="o64-JM-fUH" secondAttribute="top" id="SeS-a8-eUR"/>
                     <constraint firstItem="OfI-mo-upr" firstAttribute="top" secondItem="o64-JM-fUH" secondAttribute="top" id="dqb-Re-Bt6"/>
+                    <constraint firstItem="owT-Vy-fEy" firstAttribute="leading" secondItem="o64-JM-fUH" secondAttribute="leading" id="hkO-Vy-fic"/>
                     <constraint firstItem="bQL-QQ-dcR" firstAttribute="top" secondItem="NJq-pz-pKc" secondAttribute="top" id="mxi-4X-oZZ"/>
                     <constraint firstItem="JLD-c1-JqC" firstAttribute="leading" secondItem="OfI-mo-upr" secondAttribute="leading" id="qiZ-T4-d2w"/>
                     <constraint firstItem="JLD-c1-JqC" firstAttribute="bottom" secondItem="OfI-mo-upr" secondAttribute="bottom" id="rcs-CQ-gS0"/>
                     <constraint firstItem="bQL-QQ-dcR" firstAttribute="leading" secondItem="NJq-pz-pKc" secondAttribute="leading" id="sNf-ht-zfr"/>
                     <constraint firstItem="OfI-mo-upr" firstAttribute="leading" secondItem="o64-JM-fUH" secondAttribute="leading" id="uYi-WM-t9F"/>
+                    <constraint firstItem="owT-Vy-fEy" firstAttribute="trailing" secondItem="o64-JM-fUH" secondAttribute="trailing" id="ucs-CP-3kB"/>
                     <constraint firstItem="Sfz-Re-pDh" firstAttribute="leading" secondItem="o64-JM-fUH" secondAttribute="leading" constant="12" id="wVy-vp-oAN"/>
                 </constraints>
             </tableViewCellContentView>
@@ -101,6 +109,7 @@
                 <outlet property="likeButtonImageView" destination="NJq-pz-pKc" id="JtE-tM-YU1"/>
                 <outlet property="locationImageView" destination="Ve4-Et-JSJ" id="ec3-a7-uyJ"/>
                 <outlet property="locationLabel" destination="nVX-Gc-Vma" id="hra-BE-t7Z"/>
+                <outlet property="shadowView" destination="owT-Vy-fEy" id="k4s-Dm-n4y"/>
                 <outlet property="shopImageView" destination="o64-JM-fUH" id="u5D-nZ-e0B"/>
                 <outlet property="titleLabel" destination="Sfz-Re-pDh" id="wZY-HG-pbM"/>
             </connections>

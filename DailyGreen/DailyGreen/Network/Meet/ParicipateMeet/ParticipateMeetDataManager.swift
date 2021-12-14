@@ -28,7 +28,7 @@ class ParticipateMeetDataManager {
                             message = "참여 취소되었습니다."
                             bodyMessage = "무단으로 불참석하는 횟수가 누적되면 서비스 이용에 제한을 받을 수 있습니다."
                         case 1019:
-                            message = "이벤트에 재 참가되었습니다."
+                            message = "이벤트에 재참가되었습니다."
                             bodyMessage = "참석과 취소를 반복하는 횟수가 누적되면 서비스 이용에 제한을 받을 수 있습니다."
                         default: break
                         }

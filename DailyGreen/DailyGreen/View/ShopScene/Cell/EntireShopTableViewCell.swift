@@ -13,6 +13,7 @@ class EntireShopTableViewCell: UITableViewCell {
     @IBOutlet weak var shopImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var dimmingView: UIView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeButtonImageView: UIImageView!
@@ -34,6 +35,11 @@ class EntireShopTableViewCell: UITableViewCell {
         detailButton.setTitle("", for: .normal)
         dimmingView.backgroundColor = UIColor.dimmingView
         dimmingView.layer.cornerRadius = 12
+        shadowView.layer.cornerRadius = 12
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowOpacity = 0.25
+        shadowView.layer.shadowRadius = 8
+        shadowView.layer.shadowOffset = CGSize(width: 2, height: 4)
         locationImageView.image = UIImage(named: "wlocation")
         likeButtonImageView.image = UIImage(named: "wheart")
         likeButton.setTitle("", for: .normal)

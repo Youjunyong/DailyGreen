@@ -59,43 +59,43 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJY-fV-CDy">
-                                <rect key="frame" x="12" y="164.5" width="336" height="2"/>
+                                <rect key="frame" x="12" y="179.5" width="336" height="2"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="cN8-yb-9ro"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cEz-6w-8ZL">
-                                <rect key="frame" x="12" y="178.5" width="20" height="20"/>
+                                <rect key="frame" x="12" y="187.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Def-7M-GeX"/>
                                     <constraint firstAttribute="width" constant="20" id="tAN-qS-Igm"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gU4-w4-RQZ">
-                                <rect key="frame" x="28" y="178.5" width="20" height="20"/>
+                                <rect key="frame" x="28" y="187.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="TYW-Vt-DMI"/>
                                     <constraint firstAttribute="height" constant="20" id="XWp-Ul-ZCh"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BcS-rn-NBW">
-                                <rect key="frame" x="44" y="178.5" width="20" height="20"/>
+                                <rect key="frame" x="44" y="187.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="h0i-DZ-U2K"/>
                                     <constraint firstAttribute="height" constant="20" id="vn4-wC-WPs"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/5명 참가중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isj-Yq-xzX">
-                                <rect key="frame" x="67" y="180.5" width="69" height="16"/>
+                                <rect key="frame" x="67" y="189.5" width="69" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕하세요, 혹시 뚝섬 유원지쪽에서 플로깅 하실 분 있나요? 뚝섬유원지쪽에서 평일 저녁이나 주말에 가끔 플" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPJ-dB-B84">
-                                <rect key="frame" x="12" y="206.5" width="338" height="65"/>
+                                <rect key="frame" x="12" y="215.5" width="338" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="SfD-DY-uLm"/>
+                                    <constraint firstAttribute="height" constant="55" id="SfD-DY-uLm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -195,8 +195,8 @@
                             <constraint firstItem="cEz-6w-8ZL" firstAttribute="leading" secondItem="gcY-Vf-xoO" secondAttribute="leading" id="mQ2-5H-YjA"/>
                             <constraint firstItem="gpj-OK-YWD" firstAttribute="leading" secondItem="wUP-1b-E8u" secondAttribute="leading" id="mWJ-jF-VQj"/>
                             <constraint firstItem="isj-Yq-xzX" firstAttribute="centerY" secondItem="BcS-rn-NBW" secondAttribute="centerY" id="ppt-ZF-Ubq"/>
-                            <constraint firstItem="OJY-fV-CDy" firstAttribute="top" secondItem="CmX-Wf-bKC" secondAttribute="bottom" constant="40" id="qkB-Md-gbp"/>
-                            <constraint firstItem="cEz-6w-8ZL" firstAttribute="top" secondItem="OJY-fV-CDy" secondAttribute="bottom" constant="12" id="rYA-K1-z0C"/>
+                            <constraint firstItem="OJY-fV-CDy" firstAttribute="top" secondItem="CmX-Wf-bKC" secondAttribute="bottom" constant="55" id="qkB-Md-gbp"/>
+                            <constraint firstItem="cEz-6w-8ZL" firstAttribute="top" secondItem="OJY-fV-CDy" secondAttribute="bottom" constant="6" id="rYA-K1-z0C"/>
                             <constraint firstAttribute="trailing" secondItem="MpK-n1-V8A" secondAttribute="trailing" constant="26" id="vOc-Ri-t9G"/>
                             <constraint firstItem="uBx-Ym-y0J" firstAttribute="width" secondItem="MpK-n1-V8A" secondAttribute="width" multiplier="1.61446" id="w81-DI-q4E"/>
                             <constraint firstItem="oPJ-dB-B84" firstAttribute="top" secondItem="cEz-6w-8ZL" secondAttribute="bottom" constant="8" id="xQZ-6v-t4V"/>

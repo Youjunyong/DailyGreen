@@ -14,6 +14,9 @@
 		E10B0E5C274E82A500FD48C9 /* MyPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10B0E5A274E82A500FD48C9 /* MyPageTableViewCell.xib */; };
 		E10D4E52275C599300F050BE /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D4E51275C599300F050BE /* IndicatorView.swift */; };
 		E10D4E56275C70D300F050BE /* SettingInquireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D4E55275C70D300F050BE /* SettingInquireViewController.swift */; };
+		E11A76102768B9AF003CE06B /* ParticipateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A760E2768B9AF003CE06B /* ParticipateTableViewCell.swift */; };
+		E11A76112768B9AF003CE06B /* ParticipateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11A760F2768B9AF003CE06B /* ParticipateTableViewCell.xib */; };
+		E11A76132768BC76003CE06B /* ParticipateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A76122768BC76003CE06B /* ParticipateListViewController.swift */; };
 		E12838EE27426BD600F1E259 /* CancelCommunityDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12838ED27426BD600F1E259 /* CancelCommunityDataManager.swift */; };
 		E12838F027426BE500F1E259 /* CancelCommunityCodabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12838EF27426BE500F1E259 /* CancelCommunityCodabel.swift */; };
 		E12838F3274275A700F1E259 /* ShopPagerTabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12838F2274275A700F1E259 /* ShopPagerTabbar.storyboard */; };
@@ -212,6 +215,9 @@
 		E10B0E5A274E82A500FD48C9 /* MyPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageTableViewCell.xib; sourceTree = "<group>"; };
 		E10D4E51275C599300F050BE /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		E10D4E55275C70D300F050BE /* SettingInquireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInquireViewController.swift; sourceTree = "<group>"; };
+		E11A760E2768B9AF003CE06B /* ParticipateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateTableViewCell.swift; sourceTree = "<group>"; };
+		E11A760F2768B9AF003CE06B /* ParticipateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipateTableViewCell.xib; sourceTree = "<group>"; };
+		E11A76122768BC76003CE06B /* ParticipateListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateListViewController.swift; sourceTree = "<group>"; };
 		E12838ED27426BD600F1E259 /* CancelCommunityDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelCommunityDataManager.swift; sourceTree = "<group>"; };
 		E12838EF27426BE500F1E259 /* CancelCommunityCodabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelCommunityCodabel.swift; sourceTree = "<group>"; };
 		E12838F2274275A700F1E259 /* ShopPagerTabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShopPagerTabbar.storyboard; sourceTree = "<group>"; };
@@ -1031,6 +1037,9 @@
 				E1C4D4C52750F8DA003CA961 /* MeetDetailScene.storyboard */,
 				E1C4D4C72750F9BB003CA961 /* MeetDetailCollectionViewCell.swift */,
 				E1C4D4C82750F9BB003CA961 /* MeetDetailCollectionViewCell.xib */,
+				E11A760E2768B9AF003CE06B /* ParticipateTableViewCell.swift */,
+				E11A760F2768B9AF003CE06B /* ParticipateTableViewCell.xib */,
+				E11A76122768BC76003CE06B /* ParticipateListViewController.swift */,
 			);
 			path = MeetDetail;
 			sourceTree = "<group>";
@@ -1259,6 +1268,7 @@
 				E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */,
 				E1C4D4CA2750F9BB003CA961 /* MeetDetailCollectionViewCell.xib in Resources */,
 				E1E9450827326AD30047ABA8 /* GuideTableViewCell.xib in Resources */,
+				E11A76112768B9AF003CE06B /* ParticipateTableViewCell.xib in Resources */,
 				E1E9450227325E560047ABA8 /* Guide.storyboard in Resources */,
 				E1C4D4C62750F8DA003CA961 /* MeetDetailScene.storyboard in Resources */,
 				E14321D7272FA1740028DAE4 /* LaunchScreen.storyboard in Resources */,
@@ -1441,6 +1451,7 @@
 				E1897264274C94A80091961C /* WriteMeetViewController.swift in Sources */,
 				E18C0BD027477B110020FA17 /* BookMarkShopDataManager.swift in Sources */,
 				E1467146273D741500DD2037 /* CoParticipateDataManager.swift in Sources */,
+				E11A76102768B9AF003CE06B /* ParticipateTableViewCell.swift in Sources */,
 				E1534EBE27452CFA00E1FA01 /* WriteFeedCodable.swift in Sources */,
 				E1AAAFC427590C58003596FB /* MeetSearchDataManager.swift in Sources */,
 				E1F6A1142737ABE100BEFF6A /* UILabel.swift in Sources */,
@@ -1472,6 +1483,7 @@
 				E15CB81C273E35EA00D66360 /* CoCardTableViewCell.swift in Sources */,
 				E1AB2A252759B3F500501B60 /* ShopSearchDataManager.swift in Sources */,
 				E145B9742734F21E007C593B /* NickNameDataManager.swift in Sources */,
+				E11A76132768BC76003CE06B /* ParticipateListViewController.swift in Sources */,
 				E1467148273D742200DD2037 /* CoParticipateResponse.swift in Sources */,
 				E1CC0F5E273E9AB200778650 /* CheckAuthDataManager.swift in Sources */,
 				E1CC0F58273E97EB00778650 /* PhoneAuthCodable.swift in Sources */,
