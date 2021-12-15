@@ -108,6 +108,13 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
         self.present(VC, animated: true, completion: nil)
         
     }
+    @objc func comment(_ sender: UIButton){
+        let postIdx = sender.tag - 100
+        let storyboard = UIStoryboard(name: "CommentScene", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "CommentVC") as? CommentViewController else{return}
+        VC.postIdx = postIdx
+        present(VC, animated: true, completion: nil)
+    }
     
     @objc func like(_ sender: UIButton){
         let postIdx = sender.tag - 100
@@ -137,7 +144,8 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
         cell.profileImageView.load(strUrl: self.profileUrl[idx])
         cell.bodyLabel.text = self.captions[idx]
         cell.numOfLikeLabel.text = "\(self.postLikeTotals[idx])명이"
-//        cell.numOfCommentLabel.text = "\(self.commentTotals[idx])"
+        cell.commentButton.tag = postIdxs[idx] + 100
+        cell.commentButton.addTarget(self, action: #selector(comment(_:)), for: .touchUpInside)
         cell.likeButton.tag = self.postIdxs[idx] + 100
         cell.reportButton.tag = self.postIdxs[idx]
         cell.reportButton.addTarget(self, action: #selector(report(_:)), for: .touchUpInside)
@@ -157,7 +165,7 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 530
+        return 570
     }
 }
 

@@ -32,9 +32,22 @@ class CommunityViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        if UserDefaults.standard.integer(forKey: "pushFromMain") > 0{
+            pushFromMainPage(UserDefaults.standard.integer(forKey: "pushFromMain"))
+            UserDefaults.standard.set(0, forKey: "pushFromMain")
+        }
         datamanager.getCommunityListDetail(delegate: self)
     }
 
+    func pushFromMainPage(_ communityIdx: Int){
+        let storyboard = UIStoryboard(name: "PagerTabbar", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "PagerTabVC") as? PagerTabbarViewController else{return}
+        VC.naviTitle = CommunityData.shared.nameArr[communityIdx]
+        VC.communityIdx = communityIdx
+        self.navigationController?.pushViewController(VC, animated: true)
+    }
+    
     private func configureTabelView(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -73,13 +86,15 @@ class CommunityViewController: UIViewController {
     }
     
     @objc func pushPagerTabVC(_ sender: UIButton){
-
         let storyboard = UIStoryboard(name: "PagerTabbar", bundle: nil)
         guard let VC = storyboard.instantiateViewController(withIdentifier: "PagerTabVC") as? PagerTabbarViewController else{return}
         VC.naviTitle = CommunityData.shared.nameArr[sender.tag]
         VC.communityIdx = sender.tag
         self.navigationController?.pushViewController(VC, animated: true)
     }
+    
+    
+    
 }
 
 
@@ -130,7 +145,6 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
 extension CommunityViewController {
     
     func failedToRequest(message: String){
-//        presentAlert(title: message)
     }
     func didSuccessGet(message: String, dataList: [CommunityList]){
         

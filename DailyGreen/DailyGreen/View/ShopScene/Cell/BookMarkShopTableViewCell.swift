@@ -36,7 +36,7 @@ class BookMarkShopTableViewCell: UITableViewCell {
         shadowView.layer.cornerRadius = 12
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOpacity = 0.25
-        shadowView.layer.shadowRadius = 8
+        shadowView.layer.shadowRadius = 4
         shadowView.layer.shadowOffset = CGSize(width: 2, height: 4)
         detailButton.setTitle("", for: .normal)
         dimmingView.backgroundColor = UIColor.dimmingView

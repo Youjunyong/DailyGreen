@@ -21,12 +21,16 @@ class ShopPagerViewController: ButtonBarPagerTabStripViewController {
     }()
     
     @IBOutlet weak var searchContentView: UIView!
-    
-    
     @IBOutlet weak var pagerBarDivideView: UIView!
     @IBOutlet weak var searchButton: UIButton!
-    
     @IBOutlet weak var searchKeywordTextField: UITextField!
+    
+    
+    @IBAction func searchTextFiledChanged(_ sender: Any) {
+        if currentIndex == 0 {
+            child1?.search(keyword: searchKeywordTextField.text!)
+        }
+    }
     
     @IBAction func search(_ sender: Any) {
         if currentIndex == 0{

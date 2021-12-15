@@ -17,6 +17,7 @@ class MainPageViewController: UIViewController{
     lazy var cancelDataManager = CancelCommunityDataManager() // 참여한 커뮤니티 구독취소하기
     lazy var eventBannerDataManager = EventBannerDataManager()
     lazy var gridViews = [grid00View ,grid01View, grid02View, grid10View, grid12View, grid20View, grid21View, grid22View]
+    lazy var cancelAlertView = CancelAlertView()
     
     var bannerIdx = [Int]()
     var bannerCommunityIdx = [Int]()
@@ -48,6 +49,8 @@ class MainPageViewController: UIViewController{
     @IBOutlet weak var grid22View: CommunityView!
 
     
+    
+    
     @IBAction func presentGuide(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Guide", bundle: nil)
         let GuideVC = storyBoard.instantiateViewController(withIdentifier: "GuideVC")
@@ -59,26 +62,20 @@ class MainPageViewController: UIViewController{
         let eventUrl = NSURL(string: "https://seoulkfem.or.kr/notice/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=9102777&t=board")
         let safariView: SFSafariViewController = SFSafariViewController(url: eventUrl as! URL)
         self.present(safariView, animated: true, completion: nil)
-
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGridView()
         configureUI()
         eventBannerDataManager.getEventBanner(delegate: self)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-
         cListDataManager.getCommunityList(delegate: self)
         guard let url = UserDefaults.standard.string(forKey: "profilePhotoUrl") else{return}
-        
         gridProfileImageView.load(strUrl: url)
-
     }
     
     @objc func participate(_ sender: UIButton){ // 커뮤니티 view 눌렀을때
@@ -86,30 +83,22 @@ class MainPageViewController: UIViewController{
         dataManager.getCoParticpate(delegate: self, communityIdx: communityView.tag - 10)
     }
     
-
-    
     @objc func postSubscribe(_ sender: UIButton) {
-        
-
         guard let participateView = sender.superview as? ParticipateView else{return}
         let idx = participateView.tag
-        
         if CommunityData.shared.subscribedList.contains(idx) {
-            
             let param = CancelCommunityRequest(communityIdx: String(idx))
             cancelDataManager.patchCancelCommunity(param, delegate: self, communityIdx: idx)
-            
         }else{
             let param = CoSubscribeRequest(communityIdx: "\(idx)")
             subscribeDataManager.postSubscribe(param, delegate: self, communityIdx: idx)
         }
-
         participateView.removeFromSuperview()
-
-        
     }
 
     private func configureParticipateView(_ communityIdx: Int, urls: [String], followers: Int, contain: Bool){
+        
+        participateView = ParticipateView()
         participateView.translatesAutoresizingMaskIntoConstraints = false
         for (i,url) in urls.enumerated(){
             switch i {
@@ -129,17 +118,21 @@ class MainPageViewController: UIViewController{
         participateView.communityImageView.image = UIImage(named: CommunityData.shared.imageArr[communityIdx])
         participateView.dismissBtn.addTarget(self, action: #selector(dismissParticipateView(_:)) , for: .touchUpInside)
         participateView.participateButton.addTarget(self, action: #selector(postSubscribe(_:)), for: .touchUpInside)
-
-    
+        participateView.presentButton.addTarget(self, action: #selector(communityPage(_:)), for: .touchUpInside)
         if contain {
+            participateView.type = 0
+            participateView.presentButton.isHidden = false
+            participateView.presentButtonView.isHidden = false
             participateView.participateButton.setTitle("참여 취소하기", for: .normal)
             participateView.participateButtonView.backgroundColor = .white
             participateView.participateButtonView.layer.borderWidth = 2
             participateView.participateButtonView.layer.borderColor = UIColor.primary.cgColor
-
         }else{
+            participateView.type = 1
+            participateView.presentButton.isHidden = true
+            participateView.presentButtonView.isHidden = true
+            participateView.participateButtonView.backgroundColor = .primary
             participateView.participateButton.setTitle("참여하기", for: .normal)
-
         }
         self.view.addSubview(participateView)
         NSLayoutConstraint.activate([
@@ -153,22 +146,43 @@ class MainPageViewController: UIViewController{
     @objc func dismissParticipateView(_ sender: UIButton){
         participateView.removeFromSuperview()
     }
-    @objc func detailButton(_ sender: UIButton){
-        let clubIdx = sender.tag - 100
-        let storyboard = UIStoryboard(name: "MeetDetailScene", bundle: nil)
-        guard let VC = storyboard.instantiateViewController(withIdentifier: "meetDetailVC") as? MeetDetailViewController else{return}
-        VC.clubIdx = clubIdx
-//        VC.communityName = self.community
-        VC.communityName = "이벤트"
-//        VC.hidesBottomBarWhenPushed = true
+    
+    @objc func communityPage(_ sender: UIButton){
+        guard let participateView = sender.superview as? ParticipateView else{return}
+        let idx = participateView.tag
+        participateView.removeFromSuperview()
+        let cnt = self.tabBarController?.viewControllers?[1].children.count
+        if cnt == 2{
+            guard let naviVC = self.tabBarController?.viewControllers?[1] as? UINavigationController else{return}
+            naviVC.popViewController(animated: false)
+            UserDefaults.standard.set(idx, forKey: "pushFromMain")
+        }else if cnt == 1{
+            UserDefaults.standard.set(idx, forKey: "pushFromMain")
+        }
 
-        self.navigationController?.pushViewController(VC, animated: true)
-        print(self.navigationController?.viewControllers)
+        self.tabBarController?.selectedIndex = 1
+    }
+    
+    @objc func detailButton(_ sender: UIButton){
         
+        let communityIdx = sender.tag - 100
+        
+        if CommunityData.shared.subscribedList.contains(communityIdx) == false {
+            
+            let name = CommunityData.shared.nameArr[communityIdx]
+            
+            presentCancelAlertView(title: "해당 이벤트를 보시려면" , body:"홈 하단에서 \(name) 커뮤니티를 먼저 구독해주세요!" ,type: 3)
+        }else{
+            let communityView = sender.superview
+            let clubIdx = communityView!.tag - 100
+            let storyboard = UIStoryboard(name: "MeetDetailScene", bundle: nil)
+            guard let VC = storyboard.instantiateViewController(withIdentifier: "meetDetailVC") as? MeetDetailViewController else{return}
+            VC.clubIdx = clubIdx
+            VC.communityName = "이벤트"
+            self.navigationController?.pushViewController(VC, animated: true)
+        }
     }
     private func configureGridView(){
-        
-
         for (idx,gridView) in gridViews.enumerated() {
             gridView?.participateBtn.addTarget(self, action: #selector(participate(_:)), for: .touchUpInside)
             gridView?.nameLabel.text = CommunityData.shared.nameArr[idx + 1]
@@ -222,6 +236,37 @@ class MainPageViewController: UIViewController{
         cmUpperBodyLabel.font = UIFont(name: NanumFont.regular, size: 13)
         cmLowerBodyLabel.font = UIFont(name: NanumFont.regular, size: 13)
     }
+    
+    
+    @objc func removeCancelAlertView(){
+        cancelAlertView.removeFromSuperview()
+    }
+    
+    private func presentCancelAlertView(title: String, body: String, type: Int){
+
+        
+        if type == 1{
+            cancelAlertView.image = UIImage(named: "cancelMan")
+        }else if type == 0{
+            cancelAlertView.image = UIImage(named: "ParticipateMan")
+        }else if type == 3{
+            cancelAlertView.image = UIImage(named: "subsMan")
+        }
+        cancelAlertView.translatesAutoresizingMaskIntoConstraints = false
+        cancelAlertView.titleText = title
+        cancelAlertView.bodyText = body
+        view.addSubview(cancelAlertView)
+        NSLayoutConstraint.activate([
+            cancelAlertView.topAnchor.constraint(equalTo: view.topAnchor),
+            cancelAlertView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            cancelAlertView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            cancelAlertView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
+        
+        cancelAlertView.dismissBtn.addTarget(self, action: #selector(removeCancelAlertView), for: .touchUpInside)
+        
+    }
+    
 }
 extension MainPageViewController : UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -258,6 +303,7 @@ extension MainPageViewController : UICollectionViewDataSource {
         cell.dateLabel.text = bannerWhen[idx]
         cell.typeLabel.text = bannerType[idx]
         cell.detailButton.tag = bannerCommunityIdx[idx] + 100
+        cell.dimmingView.tag = bannerIdx[idx] + 100
         cell.detailButton.addTarget(self, action: #selector(detailButton(_:)), for: .touchUpInside)
         return cell
     }
@@ -265,9 +311,7 @@ extension MainPageViewController : UICollectionViewDataSource {
 
 
 extension MainPageViewController {
-    
     func failedToRequest(message: String){
-//        presentAlert(title: message)
     }
     
     func didSuccessGet(message: String, results: CoPResult, communityIdx: Int){  // 커뮤니티 클릭시 참가 Alert창 프사받아오는용
@@ -288,6 +332,9 @@ extension MainPageViewController {
     func didSuccessPostSubscribe(message: String, communityIdx: Int){
         
         cListDataManager.getCommunityList(delegate: self)
+        
+        let communityName = CommunityData.shared.nameArr[communityIdx]
+        presentCancelAlertView(title: "환영합니다!" , body:"\(communityName) 커뮤니티를 구독했습니다!" ,type: 0)
 
     }
     func didSuccessGetEventBanner(message: String, results: [EventBannerResult]){
@@ -327,7 +374,7 @@ extension MainPageViewController {
     }
     
     func didSuccessCancelCommunity(message: String, communityIdx: Int){
-//        self.presentAlert(title: message)
+        presentCancelAlertView(title: "" , body:"커뮤니티 참여가 취소되었습니다." ,type: 1)
         cListDataManager.getCommunityList(delegate: self)
     }
 }

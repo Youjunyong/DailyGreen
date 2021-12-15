@@ -184,6 +184,15 @@
 		E1E9450827326AD30047ABA8 /* GuideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E9450627326AD30047ABA8 /* GuideTableViewCell.xib */; };
 		E1F6A1142737ABE100BEFF6A /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6A1132737ABE100BEFF6A /* UILabel.swift */; };
 		E1F6A1162737C2B000BEFF6A /* DimmingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F6A1152737C2B000BEFF6A /* DimmingView.swift */; };
+		E1F7B1982769E083009B6BDC /* CancelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B1972769E083009B6BDC /* CancelAlertView.swift */; };
+		E1F7B19B2769F204009B6BDC /* CommentScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F7B19A2769F204009B6BDC /* CommentScene.storyboard */; };
+		E1F7B19D2769F6BF009B6BDC /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B19C2769F6BF009B6BDC /* CommentViewController.swift */; };
+		E1F7B1A02769F845009B6BDC /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B19E2769F845009B6BDC /* CommentTableViewCell.swift */; };
+		E1F7B1A12769F845009B6BDC /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F7B19F2769F845009B6BDC /* CommentTableViewCell.xib */; };
+		E1F7B1A42769FC44009B6BDC /* CommentGetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B1A32769FC44009B6BDC /* CommentGetDataManager.swift */; };
+		E1F7B1A6276A0181009B6BDC /* CommentPostDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B1A5276A0181009B6BDC /* CommentPostDataManager.swift */; };
+		E1F7B1A8276A018B009B6BDC /* CommentPostCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B1A7276A018B009B6BDC /* CommentPostCodable.swift */; };
+		E1F7B1AA276A0769009B6BDC /* CommentGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7B1A9276A0769009B6BDC /* CommentGetResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,6 +400,15 @@
 		E1E9450627326AD30047ABA8 /* GuideTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideTableViewCell.xib; sourceTree = "<group>"; };
 		E1F6A1132737ABE100BEFF6A /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		E1F6A1152737C2B000BEFF6A /* DimmingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingView.swift; sourceTree = "<group>"; };
+		E1F7B1972769E083009B6BDC /* CancelAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelAlertView.swift; sourceTree = "<group>"; };
+		E1F7B19A2769F204009B6BDC /* CommentScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentScene.storyboard; sourceTree = "<group>"; };
+		E1F7B19C2769F6BF009B6BDC /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		E1F7B19E2769F845009B6BDC /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		E1F7B19F2769F845009B6BDC /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		E1F7B1A32769FC44009B6BDC /* CommentGetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentGetDataManager.swift; sourceTree = "<group>"; };
+		E1F7B1A5276A0181009B6BDC /* CommentPostDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPostDataManager.swift; sourceTree = "<group>"; };
+		E1F7B1A7276A018B009B6BDC /* CommentPostCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPostCodable.swift; sourceTree = "<group>"; };
+		E1F7B1A9276A0769009B6BDC /* CommentGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentGetResponse.swift; sourceTree = "<group>"; };
 		E495ED25C705C91183EA472D /* Pods_DailyGreen_DailyGreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyGreen_DailyGreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F972C54A305860F3A48AD373 /* Pods_DailyGreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyGreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -764,6 +782,7 @@
 		E1534EC02746097E00E1FA01 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				E1F7B1A22769FC34009B6BDC /* Comment */,
 				E1534ED027467A3200E1FA01 /* Like */,
 				E1534EC12746098C00E1FA01 /* FeedDataManager.swift */,
 				E1534EC3274609AD00E1FA01 /* FeedResponse.swift */,
@@ -1000,6 +1019,7 @@
 		E1BBD31727439C9700268BB5 /* FeedScene */ = {
 			isa = PBXGroup;
 			children = (
+				E1F7B1992769F1F2009B6BDC /* Comment */,
 				E15CB816273E12DB00D66360 /* FeedViewController.swift */,
 				E1534EC5274610EC00E1FA01 /* FeedTableViewCell.swift */,
 				E1534EC6274610EC00E1FA01 /* FeedTableViewCell.xib */,
@@ -1134,6 +1154,7 @@
 				E1E94503273261A50047ABA8 /* ModalHeaderView.swift */,
 				E1509DBD27340CEE00D0B94C /* RegisterNavigationConroller.swift */,
 				E1F6A1152737C2B000BEFF6A /* DimmingView.swift */,
+				E1F7B1972769E083009B6BDC /* CancelAlertView.swift */,
 				E1502ADA2750AB8200AF4D0C /* KakaoPostCodeViewController.swift */,
 				E10D4E51275C599300F050BE /* IndicatorView.swift */,
 				E1A5E9B42767266F00581690 /* AlertView.swift */,
@@ -1150,6 +1171,28 @@
 				E1E9450627326AD30047ABA8 /* GuideTableViewCell.xib */,
 			);
 			path = GuidePage;
+			sourceTree = "<group>";
+		};
+		E1F7B1992769F1F2009B6BDC /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				E1F7B19A2769F204009B6BDC /* CommentScene.storyboard */,
+				E1F7B19C2769F6BF009B6BDC /* CommentViewController.swift */,
+				E1F7B19E2769F845009B6BDC /* CommentTableViewCell.swift */,
+				E1F7B19F2769F845009B6BDC /* CommentTableViewCell.xib */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		E1F7B1A22769FC34009B6BDC /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				E1F7B1A32769FC44009B6BDC /* CommentGetDataManager.swift */,
+				E1F7B1A5276A0181009B6BDC /* CommentPostDataManager.swift */,
+				E1F7B1A7276A018B009B6BDC /* CommentPostCodable.swift */,
+				E1F7B1A9276A0769009B6BDC /* CommentGetResponse.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1273,7 +1316,9 @@
 				E1C4D4C62750F8DA003CA961 /* MeetDetailScene.storyboard in Resources */,
 				E14321D7272FA1740028DAE4 /* LaunchScreen.storyboard in Resources */,
 				E1534ECD2746177B00E1FA01 /* FeedCollectionViewCell.xib in Resources */,
+				E1F7B1A12769F845009B6BDC /* CommentTableViewCell.xib in Resources */,
 				E1534EB8274500C800E1FA01 /* PickedImageCollectionViewCell.xib in Resources */,
+				E1F7B19B2769F204009B6BDC /* CommentScene.storyboard in Resources */,
 				E1E718FF2747F01600F2710F /* SettingScene.storyboard in Resources */,
 				E1BBD31B2743F9FA00268BB5 /* WriteScene.storyboard in Resources */,
 				E1897268274CDCCD0091961C /* KeyWordCollectionViewCell.xib in Resources */,
@@ -1422,6 +1467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F7B19D2769F6BF009B6BDC /* CommentViewController.swift in Sources */,
 				E1AB2A282759CADE00501B60 /* ProfileUpdateDataManager.swift in Sources */,
 				E18C0BC427475C120020FA17 /* ShopCollectionViewCell.swift in Sources */,
 				E1E9450727326AD30047ABA8 /* GuideTableViewCell.swift in Sources */,
@@ -1454,6 +1500,7 @@
 				E11A76102768B9AF003CE06B /* ParticipateTableViewCell.swift in Sources */,
 				E1534EBE27452CFA00E1FA01 /* WriteFeedCodable.swift in Sources */,
 				E1AAAFC427590C58003596FB /* MeetSearchDataManager.swift in Sources */,
+				E1F7B1A6276A0181009B6BDC /* CommentPostDataManager.swift in Sources */,
 				E1F6A1142737ABE100BEFF6A /* UILabel.swift in Sources */,
 				E181EF0A275130A700225AED /* UIView.swift in Sources */,
 				E14321CC272FA1730028DAE4 /* ViewController.swift in Sources */,
@@ -1473,6 +1520,8 @@
 				E1502AD8274F6FF900AF4D0C /* WriteDateLocationViewContoller.swift in Sources */,
 				E1E2C63F2754FAE500785DC3 /* AppleReigsterCodable.swift in Sources */,
 				E1534ED427467A4B00E1FA01 /* LikeCodable.swift in Sources */,
+				E1F7B1A42769FC44009B6BDC /* CommentGetDataManager.swift in Sources */,
+				E1F7B1A8276A018B009B6BDC /* CommentPostCodable.swift in Sources */,
 				E1432235272FCC000028DAE4 /* Color.swift in Sources */,
 				E19F535B2741F20A00B3A28D /* UIImageView.swift in Sources */,
 				E1432221272FA6850028DAE4 /* Font.swift in Sources */,
@@ -1486,6 +1535,7 @@
 				E11A76132768BC76003CE06B /* ParticipateListViewController.swift in Sources */,
 				E1467148273D742200DD2037 /* CoParticipateResponse.swift in Sources */,
 				E1CC0F5E273E9AB200778650 /* CheckAuthDataManager.swift in Sources */,
+				E1F7B1AA276A0769009B6BDC /* CommentGetResponse.swift in Sources */,
 				E1CC0F58273E97EB00778650 /* PhoneAuthCodable.swift in Sources */,
 				E1D20395274BC1900098ADB7 /* EventBannerDataManager.swift in Sources */,
 				E1502ACE274F3FFF00AF4D0C /* MyPageGetResponse.swift in Sources */,
@@ -1503,6 +1553,7 @@
 				E15CB817273E12DB00D66360 /* FeedViewController.swift in Sources */,
 				E143223F272FE3D00028DAE4 /* UIViewController.swift in Sources */,
 				E1CC0F5C273E9AA400778650 /* CheckAuthCodable.swift in Sources */,
+				E1F7B1982769E083009B6BDC /* CancelAlertView.swift in Sources */,
 				E19F535D2741F56500B3A28D /* ImageCacheManager.swift in Sources */,
 				E14ED2FD2739643700CCBCED /* CommunityViewController.swift in Sources */,
 				E18C0BB8274750FC0020FA17 /* LikeShopDataManager.swift in Sources */,
@@ -1547,6 +1598,7 @@
 				E1E94504273261A50047ABA8 /* ModalHeaderView.swift in Sources */,
 				E1534ECC2746177B00E1FA01 /* FeedCollectionViewCell.swift in Sources */,
 				E1B3007C275CA782003B4D17 /* ReportDataManager.swift in Sources */,
+				E1F7B1A02769F845009B6BDC /* CommentTableViewCell.swift in Sources */,
 				E12838F72742798500F1E259 /* EntireShopViewController.swift in Sources */,
 				E18C0BC827475C900020FA17 /* ShopDetailDataManager.swift in Sources */,
 				E1B3007E275CA790003B4D17 /* ReportCodable.swift in Sources */,
@@ -1743,7 +1795,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DailyGreen/DailyGreen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.9;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = 5KZ5C4UW39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyGreen/Info.plist;
@@ -1763,7 +1815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jy.DailyGreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1780,7 +1832,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DailyGreen/DailyGreen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.9;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = 5KZ5C4UW39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyGreen/Info.plist;
@@ -1800,7 +1852,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jy.DailyGreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -11,8 +11,6 @@ class MyPageViewController: UIViewController{
     
     lazy var dimmingView = DimmingView()
     lazy var myPageGetDataManager = MyPageGetDataManager()
-    lazy var deleteMeetDataManager = DeleteMeetDataManager()
-    lazy var participateMeetData = ParticipateMeetDataManager()
     
     
     
@@ -132,8 +130,6 @@ class MyPageViewController: UIViewController{
         collectionView.register(nib, forCellWithReuseIdentifier: "CommunityListCell")
     }
     private func configureUI(){
-
-        
         createdEventLabel.font = UIFont(name: NanumFont.bold, size: 20)
         profileImage.layer.cornerRadius = 53
         profileImage.contentMode = .scaleAspectFill
@@ -142,24 +138,16 @@ class MyPageViewController: UIViewController{
         lvView.layer.borderWidth = 1
         lvView.layer.borderColor = UIColor.dark2.cgColor
         lvLabel.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
-        
-        
         gaugeFrameView.layer.cornerRadius = 16
         gaugeFrameView.layer.borderWidth = 1
         gaugeFrameView.layer.borderColor = UIColor.dark2.cgColor
-        
         levelGaugeLabel.font = UIFont(name: NanumFont.regular , size: 13)
-        
         divideView1.backgroundColor = .dark1
         divideView2.backgroundColor = .dark1
         divideView3.backgroundColor = .dark1
-        
-        
         bioTitleLabel.font = UIFont(name: NanumFont.bold, size: 20)
         communityTitleLabel.font = UIFont(name: NanumFont.bold, size: 20)
         bioLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        
-        
         scoreFeedLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         scoreFeedLabel.textColor = .dark2
         scoreBadgeLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -227,17 +215,14 @@ class MyPageViewController: UIViewController{
         dimmingView.removeFromSuperview()
     }
     
-    @objc func deleteMeet(_ sender: UIButton){
+    @objc func meetDetail(_ sender: UIButton){
         let clubIdx = sender.tag - 100
-        let params = DeleteMeetRequest(clubIdx: clubIdx)
-        deleteMeetDataManager.patchDeleteMeet(params, delegate: self, clubIdx: clubIdx)
+        let storyboard = UIStoryboard(name: "MeetDetailScene", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(withIdentifier: "meetDetailVC") as? MeetDetailViewController else{return}
+        VC.clubIdx = clubIdx
+        VC.communityName = "참여 중인 이벤트"
+        self.navigationController?.pushViewController(VC, animated: true)
     }
-    @objc func cancelMeet(_ sender: UIButton){
-        let clubIdx = sender.tag - 100
-        let params = ParticipateMeetRequest(clubIdx: clubIdx)
-        participateMeetData.myPageParticiPateMeet(params, delegate: self)
-    }
-    
 }
 
 
@@ -252,7 +237,6 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let imageName = CommunityData.shared.imageArr[subscribeIdx]
         cell.communityImageView.image = UIImage(named: imageName)
         cell.communityLabel.text = CommunityData.shared.nameArr[subscribeIdx]
-        
         return cell
         
     }
@@ -261,16 +245,18 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableViewHeightConstraint.constant = 110 * CGFloat(cInfoName.count + pInfoName.count)
-        
+        print(pInfoName, cInfoName)
         return cInfoName.count + pInfoName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageCell") as? MyPageTableViewCell else{return UITableViewCell()}
         if indexPath.row < cInfoIdx.count {
+            cell.openerImageView.isHidden = false
+            cell.titleLeadingConstraint.constant = 37
             cell.dateLabel.text = self.cInfoLocationDetail[indexPath.row]
             cell.dismissButton.tag = self.cInfoIdx[indexPath.row] + 100
-            cell.dismissButton.addTarget(self, action: #selector(deleteMeet(_:)), for: .touchUpInside)
+            cell.dismissButton.addTarget(self, action: #selector(meetDetail(_:)), for: .touchUpInside)
             cell.titleLabel.text = self.cInfoName[indexPath.row]
             cell.dateLabel.text = cInfoWhen[indexPath.row]
             cell.locationLabel.text = cInfoLocationDetail[indexPath.row]
@@ -281,7 +267,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLeadingConstraint.constant = 10
             cell.dateLabel.text = self.pInfoLocationDetail[idx]
             cell.dismissButton.tag = self.pInfoIdx[idx] + 100
-            cell.dismissButton.addTarget(self, action: #selector(cancelMeet(_:)), for: .touchUpInside)
+            cell.dismissButton.addTarget(self, action: #selector(meetDetail(_:)), for: .touchUpInside)
             cell.titleLabel.text = self.pInfoName[idx]
             cell.dateLabel.text = pInfoWhen[idx]
             cell.locationLabel.text = pInfoLocationDetail[idx]
@@ -307,18 +293,15 @@ extension MyPageViewController{
         lvLabel.text = "Lv.\(myInfo.exp / 1000 + 1) "
         lvGaugeSet(exp: myInfo.exp)
         profileImage.load(strUrl: myInfo.profilePhotoUrl)
-        UserDefaults.standard.set(myInfo.profilePhotoUrl, forKey: "profilePhotoUrl") // 회원가입시 받아오기 성공하면 필요없는 코드
-
+        UserDefaults.standard.set(myInfo.profilePhotoUrl, forKey: "profilePhotoUrl")
         gaugeVIew.setGradient(color1: .grayGreen, color2: .dark2)
         bioLabel.text = myInfo.bio
         UserDefaults.standard.set(bioLabel.text, forKey: "bio")
-        
         cInfoLocationDetail = [String]()
         cInfoIdx = [Int]()
         cInfoWhen = [String]()
         cInfoName = [String]()
         cInfoType = [String]()
-        
         pInfoLocationDetail = [String]()
         pInfoIdx = [Int]()
         pInfoWhen = [String]()
@@ -359,15 +342,15 @@ extension MyPageViewController{
 }
 
 
-extension MyPageViewController {
-    func didSuccessDeleteMeet(message: String){
-        presentDimmingView(message: message)
-        myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
-    }
-    
-    func didSuccessParticiPateMeet(message: String){
-        presentDimmingView(message: message)
-        myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
-    }
-    
-}
+//extension MyPageViewController {
+//    func didSuccessDeleteMeet(message: String){
+//        presentDimmingView(message: message)
+//        myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
+//    }
+//    
+//    func didSuccessParticiPateMeet(message: String){
+//        presentDimmingView(message: message)
+//        myPageGetDataManager.getMeetData(delegate: self, userIdx: self.userIdx!)
+//    }
+//    
+//}

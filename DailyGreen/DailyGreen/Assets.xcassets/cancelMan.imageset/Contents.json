@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icChat.png",
+      "filename" : "cancelMan.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icChat@2x.png",
+      "filename" : "cancelMan@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icChat@3x.png",
+      "filename" : "cancelMan@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

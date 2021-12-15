@@ -1,30 +1,30 @@
 //
-//  DeleteMeetDataMananger.swift
+//  CommentPostDataManager.swift
 //  DailyGreen
 //
-//  Created by 유준용 on 2021/12/01.
+//  Created by 유준용 on 2021/12/15.
+//
 
 import Alamofire
 
-class DeleteMeetDataManager {
-    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN] // 테스트 토큰
-    
-    func patchDeleteMeet(_ parameters: DeleteMeetRequest, delegate: MeetDetailViewController, clubIdx: Int) {
-        AF.request("\(Constant.BASE_URL)/app/clubs/\(clubIdx)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)
+class CommentPostDataManager {
+    let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN]
+    func postComment(_ parameters: CommentPostRequest, delegate: CommentViewController) {
+        AF.request("\(Constant.BASE_URL)/app/comments", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: headers)
             .validate()
-            .responseDecodable(of: DeleteMeetResponse.self) { response in
+            .responseDecodable(of: CommentPostResponse.self) { response in
                 switch response.result {
                 case .success(let response):
                     // 성공했을 때
                     if response.isSuccess {
-                        delegate.didSuccessDeleteMeet(message: response.message )
+                        print(response.message)
+                        delegate.didSuccessPostComment(message: response.message)
+                        
                     }
                     // 실패했을 때
                     else {
                         switch response.code {
-                        case 2007: delegate.failedToRequest(message:  "중복된 닉네임 입니다.")
-                        
-                        
+                        case 2007: delegate.failedToRequest(message:  "\(#function) 중복된 닉네임 입니다.")
                         default: delegate.failedToRequest(message: "else-default | code : \(response.code)")
                         }
                     }
@@ -36,4 +36,3 @@ class DeleteMeetDataManager {
             }
     }
 }
-    

@@ -171,6 +171,8 @@ class WriteMeetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        self.title = "\(communityName ?? "") \(titleName ?? "") 글쓰기"
+
         openChatLinkTextField.delegate = self
         
         configureUI()
@@ -310,10 +312,7 @@ extension WriteMeetViewController: UITextFieldDelegate {
           pramTags.append(keyWordTextField.text!)
           keyWordTextField.text = ""
           keyWordCollectionView.reloadData()
-          
       } else {
-          
-      
     }
     return true
   }
@@ -429,7 +428,6 @@ extension WriteMeetViewController: UITextViewDelegate {
 
 extension WriteMeetViewController {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         checkSubmitReady()
     }
 }

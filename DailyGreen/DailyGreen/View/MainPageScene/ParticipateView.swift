@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ParticipateView: UIView {
+    
+    
+    
+    var type: Int? = nil
     
     let frameView : UIView = {
         let view = UIView()
@@ -35,9 +40,6 @@ class ParticipateView: UIView {
     
     let communityImageView: UIImageView  = {
         let view = UIImageView()
-//        view.layer.cornerRadius = 72
-//        view.layer.borderColor = UIColor.black.cgColor
-//        view.layer.borderWidth = 2
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
         
@@ -111,7 +113,7 @@ class ParticipateView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "명 참여중"
+        label.text = "명 참여중입니다!"
         return label
     }()
     
@@ -129,10 +131,28 @@ class ParticipateView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.primary
         view.layer.cornerRadius = 24
-        
         return view
     }()
     
+    let presentButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("커뮤니티 둘러보기", for: .normal)
+        btn.setTitleColor( UIColor.black, for: .normal)
+        btn.titleLabel?.font = UIFont(name: NanumFont.extraBold, size: 17)
+        return btn
+    }()
+    
+    let presentButtonView: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.primary
+        view.layer.cornerRadius = 24
+        return view
+    }()
+    
+    
+
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -150,14 +170,20 @@ class ParticipateView: UIView {
         addSubview(followerTrailLabel)
         addSubview(participateButtonView)
         addSubview(participateButton)
+        addSubview(presentButtonView)
+        addSubview(presentButton)
         
+        if type == 1{
+            frameView.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        }else{
+            frameView.heightAnchor.constraint(equalToConstant: 510).isActive = true
+        }
         
         backgroundColor = UIColor.dimming
         NSLayoutConstraint.activate([
             frameView.centerXAnchor.constraint(equalTo: centerXAnchor),
             frameView.centerYAnchor.constraint(equalTo: centerYAnchor),
             frameView.widthAnchor.constraint(equalToConstant: 280),
-            frameView.heightAnchor.constraint(equalToConstant: 475),
             
             dismissBtn.trailingAnchor.constraint(equalTo: frameView.trailingAnchor, constant: -15),
             dismissBtn.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
@@ -183,8 +209,9 @@ class ParticipateView: UIView {
             imageFrameView.widthAnchor.constraint(equalToConstant: 174),
             imageFrameView.heightAnchor.constraint(equalToConstant: 174),
             
-            profileImageView1.leadingAnchor.constraint(equalTo: frameView.leadingAnchor, constant: 58),
-            profileImageView1.topAnchor.constraint(equalTo: communityImageView.bottomAnchor, constant: 60),
+            profileImageView1.leadingAnchor.constraint(equalTo: frameView.leadingAnchor, constant: 40),
+            
+            profileImageView1.topAnchor.constraint(equalTo: communityImageView.bottomAnchor, constant: 36),
             profileImageView1.widthAnchor.constraint(equalToConstant: 20),
             profileImageView1.heightAnchor.constraint(equalToConstant: 20),
             
@@ -205,15 +232,27 @@ class ParticipateView: UIView {
             followerTrailLabel.centerYAnchor.constraint(equalTo: followerLabel.centerYAnchor),
             followerTrailLabel.leadingAnchor.constraint(equalTo: followerLabel.trailingAnchor, constant: 3),
             
-            participateButtonView.bottomAnchor.constraint(equalTo: frameView.bottomAnchor, constant: -24),
+            presentButtonView.bottomAnchor.constraint(equalTo: participateButtonView.topAnchor, constant: -20),
+            presentButtonView.leadingAnchor.constraint(equalTo: frameView.leadingAnchor, constant: 24),
+            presentButtonView.trailingAnchor.constraint(equalTo: frameView.trailingAnchor, constant: -24),
+            presentButtonView.heightAnchor.constraint(equalToConstant: 48),
+            
+            presentButton.leadingAnchor.constraint(equalTo: presentButtonView.leadingAnchor),
+            presentButton.trailingAnchor.constraint(equalTo: presentButtonView.trailingAnchor),
+            presentButton.topAnchor.constraint(equalTo: presentButtonView.topAnchor),
+            presentButton.bottomAnchor.constraint(equalTo: presentButtonView.bottomAnchor),
+            
             participateButtonView.trailingAnchor.constraint(equalTo: frameView.trailingAnchor, constant: -24),
             participateButtonView.leadingAnchor.constraint(equalTo: frameView.leadingAnchor, constant: 24),
             participateButtonView.heightAnchor.constraint(equalToConstant: 48),
+            participateButtonView.bottomAnchor.constraint(equalTo: frameView.bottomAnchor, constant: -24),
             
             participateButton.leadingAnchor.constraint(equalTo: participateButtonView.leadingAnchor),
             participateButton.trailingAnchor.constraint(equalTo: participateButtonView.trailingAnchor),
             participateButton.topAnchor.constraint(equalTo: participateButtonView.topAnchor),
-            participateButton.bottomAnchor.constraint(equalTo: participateButtonView.bottomAnchor)
+            participateButton.bottomAnchor.constraint(equalTo: participateButtonView.bottomAnchor),
+            
+            
         ])
         
 

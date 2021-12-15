@@ -69,7 +69,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUN-AA-TD2">
-                                                <rect key="frame" x="16" y="305" width="41.5" height="20.5"/>
+                                                <rect key="frame" x="16" y="305" width="388" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -404,6 +404,7 @@
                                             <constraint firstItem="4EF-B5-oFQ" firstAttribute="leading" secondItem="8cD-Ey-WFN" secondAttribute="leading" id="drh-t9-i4E"/>
                                             <constraint firstItem="Su9-nc-klw" firstAttribute="top" secondItem="xJ4-qw-Cua" secondAttribute="bottom" constant="12" id="eIS-3v-9Xq"/>
                                             <constraint firstItem="jUN-AA-TD2" firstAttribute="leading" secondItem="8cD-Ey-WFN" secondAttribute="leading" constant="16" id="gXe-HR-E9Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="jUN-AA-TD2" secondAttribute="trailing" constant="10" id="gce-az-aUA"/>
                                             <constraint firstItem="xJ4-qw-Cua" firstAttribute="top" secondItem="jUN-AA-TD2" secondAttribute="bottom" constant="32" id="kNO-Ed-wds"/>
                                             <constraint firstItem="dUe-Pt-gF9" firstAttribute="centerY" secondItem="8Wf-vp-7xX" secondAttribute="centerY" id="l1L-on-E3z"/>
                                             <constraint firstItem="xdZ-2P-6qd" firstAttribute="leading" secondItem="8cD-Ey-WFN" secondAttribute="leading" constant="16" id="lMb-Lv-Byv"/>
@@ -476,6 +477,7 @@
                         <outlet property="reportButton" destination="Pbb-s7-s1w" id="7nH-w3-j1f"/>
                         <outlet property="restNumLabel" destination="cnW-6f-SsU" id="XI8-bh-0rU"/>
                         <outlet property="restNumView" destination="rCD-LG-ijS" id="sja-hf-Rbs"/>
+                        <outlet property="scrollViewHeightConstraint" destination="se2-W3-CIq" id="Y6O-cs-yQc"/>
                         <outlet property="shopNameLabel" destination="jUN-AA-TD2" id="hJY-xO-i07"/>
                         <outlet property="submitButton" destination="353-Cu-CAX" id="eCU-XI-B1Q"/>
                         <outlet property="submitButtonLabel" destination="k2L-HF-uRk" id="xrv-Z2-vdu"/>
@@ -522,7 +524,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vPl-0e-bUy" firstAttribute="top" secondItem="aws-KJ-bvG" secondAttribute="top" constant="100" id="0T3-Q3-pe0"/>
-                            <constraint firstItem="vPl-0e-bUy" firstAttribute="top" secondItem="ruS-WH-pbs" secondAttribute="bottom" constant="25" id="3Se-1c-MGk"/>
+                            <constraint firstItem="ruS-WH-pbs" firstAttribute="top" secondItem="aws-KJ-bvG" secondAttribute="top" constant="54" id="2em-fx-wvZ"/>
                             <constraint firstItem="aws-KJ-bvG" firstAttribute="bottom" secondItem="vPl-0e-bUy" secondAttribute="bottom" id="93v-VB-mlI"/>
                             <constraint firstItem="aws-KJ-bvG" firstAttribute="trailing" secondItem="vPl-0e-bUy" secondAttribute="trailing" id="ESE-Je-3zw"/>
                             <constraint firstItem="VQt-Wj-fku" firstAttribute="top" secondItem="aws-KJ-bvG" secondAttribute="top" constant="5" id="La5-lr-hID"/>

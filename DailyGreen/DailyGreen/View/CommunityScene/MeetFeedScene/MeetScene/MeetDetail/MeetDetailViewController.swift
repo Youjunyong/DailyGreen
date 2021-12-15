@@ -13,17 +13,26 @@ class MeetDetailViewController: UIViewController {
     
     lazy var meetDetailDataManager = MeetDetailDataManager()
     lazy var participateDataManager = ParticipateMeetDataManager()
+    lazy var deleteMeetDataManager = DeleteMeetDataManager()
     var clubIdx: Int?
     var communityName: String?
     var isRegular: Int?
     var meetUrlList = [String]()
-    
+    var isDidLoaded = false
     var participateNames = [String]()
     var participateImages = [String]()
+    var buttonType = 0
+    
+    lazy var dimmingView = DimmingView()
+
     lazy var alertView = AlertView()
+    
+    
+    
     @IBOutlet weak var linkOpenButton: UIButton!
     @IBOutlet weak var openChatLinkView: UIView!
     
+    @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var openChatLinkViewLabel: UILabel!
     
     @IBOutlet weak var participateListButton: UIButton!
@@ -90,13 +99,31 @@ class MeetDetailViewController: UIViewController {
         }
         
     }
-    
+    @objc func removeDimming(){
+        dimmingView.removeFromSuperview()
+    }
+    private func presentDimmingView(){
+        dimmingView.translatesAutoresizingMaskIntoConstraints = false
+        dimmingView.alretText = "아직 참가자가 없습니다."
+        view.addSubview(dimmingView)
+        NSLayoutConstraint.activate([
+            dimmingView.topAnchor.constraint(equalTo: view.topAnchor),
+            dimmingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            dimmingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dimmingView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
+        dimmingView.dismissBtn.addTarget(self, action: #selector(removeDimming), for: .touchUpInside)
+    }
     @IBAction func participateList(_ sender: Any) {
         guard let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipateListVC") as? ParticipateListViewController else{return}
         VC.participateNames = self.participateNames
         VC.participateImages = self.participateImages
-        print(self.participateImages, "@@@@@")
-        self.present(VC, animated: true, completion: nil)
+        if participateNames.count == 0{
+            presentDimmingView()
+        }else{
+            self.present(VC, animated: true, completion: nil)
+        }
+        
         
     }
     
@@ -110,17 +137,22 @@ class MeetDetailViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        let params = ParticipateMeetRequest(clubIdx: self.clubIdx!)
-        participateDataManager.particiPateMeet(params, delegate: self)
+        if buttonType == 3{
+            let params = DeleteMeetRequest(clubIdx: self.clubIdx!)
+            deleteMeetDataManager.patchDeleteMeet(params, delegate: self, clubIdx: self.clubIdx!)
+            
+        }else{
+            let params = ParticipateMeetRequest(clubIdx: self.clubIdx!)
+            participateDataManager.particiPateMeet(params, delegate: self)
+
+        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.tintColor = .black
-        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+        
         if isRegular == 1{
             title = "\(communityName!) 정기모임"
         }else{
@@ -136,6 +168,9 @@ class MeetDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         meetDetailDataManager.getMeetDetail(delegate: self, clubIdx: clubIdx!)
 
     }
@@ -209,6 +244,9 @@ class MeetDetailViewController: UIViewController {
     }
     
     @objc func removeAlert(){
+        if buttonType == 3{
+            self.navigationController?.popViewController(animated: true)
+        }
         alertView.removeFromSuperview()
     }
     
@@ -315,6 +353,7 @@ extension MeetDetailViewController : UICollectionViewDataSource {
 
 extension MeetDetailViewController {
     func didSuccessGetMeetDetail(message: String, results: MeetDetailResult){
+        buttonType = 0
         profileName1.text = ""
         participateProfileImageview1.image = nil
         profileName2.text = ""
@@ -328,6 +367,9 @@ extension MeetDetailViewController {
         if let clubInfoObj = results.clubInfoObj {
             shopNameLabel.text =  clubInfoObj.clubName
             websiteLabel.text =  clubInfoObj.fee
+            if UserDefaults.standard.string(forKey: "nickName") == clubInfoObj.nickname {
+                buttonType = 3
+            }
             if clubInfoObj.fee.count > 4 {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
@@ -365,19 +407,15 @@ extension MeetDetailViewController {
                 self.indicatorImageView.image = UIImage(named: "pindicator1\(meetUrlList.count)")
             }
         }
-        var buttonType = 0
 
         
         if let participateListObj = results.participantListObj?.participants{
-            
             let myNickName = UserDefaults.standard.string(forKey: "nickName")
-            
             for (idx, participant) in participateListObj.enumerated() {
                 guard let imageUrl = participant?.profilePhotoUrl else{break}
                 guard let name = participant?.nickname else{break}
                 self.participateNames.append(name)
                 self.participateImages.append(imageUrl)
-                
                 if name == myNickName {
                     buttonType = 1
                 }
@@ -408,16 +446,28 @@ extension MeetDetailViewController {
             openChatLinkViewLabel.isHidden = true
             submitButtonLabel.text = "참여 취소하기"
             participateButtonImageView.image = UIImage(named: "participateButtonFalse")
-        }else{
+        }else if buttonType == 0{
             openChatLinkLabel.isHidden = true
             linkOpenButton.isHidden = true
             openChatLinkView.isHidden = false
             openChatLinkViewLabel.isHidden = false
             submitButtonLabel.text = "참여하기"
             participateButtonImageView.image = UIImage(named: "participateButton")
+        }else if buttonType == 3{
+            openChatLinkLabel.isHidden = false
+            linkOpenButton.isHidden = false
+            openChatLinkView.isHidden = true
+            openChatLinkViewLabel.isHidden = true
+            submitButtonLabel.text = "주최한 모임 삭제하기"
+            participateButtonImageView.image = UIImage(named: "participateButtonFalse")
         }
-        bioTextView.sizeToFit()
-        view.layoutIfNeeded()
+        if isDidLoaded == false{
+            isDidLoaded = true
+            bioTextView.sizeToFit()
+            scrollViewHeightConstraint.constant +=  bioTextView.frame.height - 120
+            view.layoutIfNeeded()
+        }
+
         
         configureCollectionView()
     }
@@ -432,6 +482,11 @@ extension MeetDetailViewController {
     func didSuccessParticiPateMeet(message: String, bodyMessage: String){
         presentAlertView(message: message, bodyMessage: bodyMessage)
         meetDetailDataManager.getMeetDetail(delegate: self, clubIdx: clubIdx!)
+        
     }
+    func didSuccessDeleteMeet(message: String){
+        self.presentAlertView(message: "삭제", bodyMessage: "주최한 모임이 삭제되었습니다.")
+    }
+
 
 }

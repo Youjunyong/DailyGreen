@@ -70,6 +70,9 @@
                                                 <rect key="frame" x="20" y="15" width="308" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="searchTextFiledChanged:" destination="sbb-fU-nb2" eventType="editingChanged" id="2hF-UF-UQf"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-1B-Nd1">
                                                 <rect key="frame" x="336" y="2" width="44" height="44"/>

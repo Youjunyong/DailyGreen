@@ -29,7 +29,8 @@ class FeedTableViewCell: UITableViewCell{
     @IBOutlet weak var numOfLikeLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
-//    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
+    //    @IBOutlet weak var commentButton: UIButton!
     
     
 
@@ -55,7 +56,8 @@ class FeedTableViewCell: UITableViewCell{
     private func configureUI(){
         reportButton.setTitle("", for: .normal)
         likeButton.setTitle("", for: .normal)
-//        commentButton.setTitle("", for: .normal)
+        
+        commentButton.setTitle("", for: .normal)
 //        moreCommentButton.setTitle("", for: .normal)
 //        numOfCommentSubLabel.font = UIFont(name: NanumFont.regular, size: 12)
 //        numOfCommentLabel.font = UIFont.systemFont(ofSize: 13, weight: .semibold)

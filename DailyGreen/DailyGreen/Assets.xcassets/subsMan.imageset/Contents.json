@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icFilter.png",
+      "filename" : "subsMan.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icFilter@2x.png",
+      "filename" : "subsMan@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icFilter@3x.png",
+      "filename" : "subsMan@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

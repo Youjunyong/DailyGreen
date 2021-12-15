@@ -11,6 +11,16 @@ class ParticipateListViewController: UIViewController {
     
     var participateNames = [String]()
     var participateImages = [String]()
+    lazy var nottingLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "작성된 댓글이 없습니다!"
+        label.font = UIFont(name: NanumFont.regular, size: 17)
+        label.textColor = .systemGray
+        label.textAlignment = .center
+        return label
+    }()
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,9 +31,18 @@ class ParticipateListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
         configureTableView()
+        configureNottingLabel()
     }
-    
+    private func configureNottingLabel(){
+        self.view.addSubview(nottingLabel)
+        NSLayoutConstraint.activate([
+            nottingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            nottingLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+        nottingLabel.isHidden = true
+    }
     private func configureTableView(){
         tableView.separatorStyle = .none
         dismissButton.setTitle("", for: .normal)
@@ -37,12 +56,17 @@ class ParticipateListViewController: UIViewController {
 }
 extension ParticipateListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if participateNames.count == 0{
+            nottingLabel.isHidden = false
+        }else{
+            nottingLabel.isHidden = true
+        }
+        
         return participateNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipateCell") as? ParticipateTableViewCell else{return UITableViewCell()}
-        print(self.participateImages[indexPath.row])
         cell.profileImageView.load(strUrl: self.participateImages[indexPath.row])
         cell.nickNameLabel.text = self.participateNames[indexPath.row]
         
