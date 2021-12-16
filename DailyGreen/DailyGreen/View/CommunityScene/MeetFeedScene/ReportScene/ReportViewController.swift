@@ -70,6 +70,9 @@ class ReportViewController: UIViewController {
         submitButton.titleLabel?.textColor = UIColor.black
 
         switch checkedNum{
+        case 0:
+            textFrameView.isHidden = true
+
         case 1:
             btnImageView1.image = UIImage(named: "writeFill")
             textView.isHidden = true
@@ -126,8 +129,9 @@ class ReportViewController: UIViewController {
             submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             submitButton.heightAnchor.constraint(equalToConstant: 48),
-            submitButton.topAnchor.constraint(equalTo: textFrameView.bottomAnchor, constant: 40)
+            submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60) //123!!
         ])
+        check()
     }
     
     @IBAction func dismiss(_ sender: Any) {

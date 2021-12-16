@@ -178,7 +178,7 @@ class MainPageViewController: UIViewController{
             let storyboard = UIStoryboard(name: "MeetDetailScene", bundle: nil)
             guard let VC = storyboard.instantiateViewController(withIdentifier: "meetDetailVC") as? MeetDetailViewController else{return}
             VC.clubIdx = clubIdx
-            VC.communityName = "이벤트"
+            VC.communityName = "최근 이벤트"
             self.navigationController?.pushViewController(VC, animated: true)
         }
     }

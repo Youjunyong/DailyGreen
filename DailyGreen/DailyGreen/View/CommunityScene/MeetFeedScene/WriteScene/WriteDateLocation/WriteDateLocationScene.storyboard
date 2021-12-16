@@ -152,7 +152,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzw-oP-hfh">
-                                <rect key="frame" x="16" y="764" width="382" height="48"/>
+                                <rect key="frame" x="16" y="814" width="382" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mq0-Hc-MbF">
                                         <rect key="frame" x="170" y="13.5" width="42" height="21"/>
@@ -233,7 +233,7 @@
                             <constraint firstItem="hax-Sx-qGY" firstAttribute="top" secondItem="2nN-k9-QK1" secondAttribute="top" constant="35" id="rQZ-sS-Tkm"/>
                             <constraint firstItem="Dmn-fZ-ZyH" firstAttribute="top" secondItem="hax-Sx-qGY" secondAttribute="bottom" constant="4" id="rjt-gJ-9iV"/>
                             <constraint firstItem="2nN-k9-QK1" firstAttribute="trailing" secondItem="aJo-ds-UlT" secondAttribute="trailing" id="rk7-gN-7z5"/>
-                            <constraint firstItem="2nN-k9-QK1" firstAttribute="bottom" secondItem="Kzw-oP-hfh" secondAttribute="bottom" constant="50" id="uYM-Mw-BWa"/>
+                            <constraint firstItem="2nN-k9-QK1" firstAttribute="bottom" secondItem="Kzw-oP-hfh" secondAttribute="bottom" id="uYM-Mw-BWa"/>
                             <constraint firstItem="Dmn-fZ-ZyH" firstAttribute="trailing" secondItem="hax-Sx-qGY" secondAttribute="trailing" id="wWu-4R-NSf"/>
                             <constraint firstItem="X3D-Vh-lOT" firstAttribute="leading" secondItem="2nN-k9-QK1" secondAttribute="leading" constant="29" id="zEm-Dw-AGn"/>
                             <constraint firstItem="Fao-FZ-Rxb" firstAttribute="leading" secondItem="MUc-PW-0UQ" secondAttribute="leading" constant="16" id="zXS-c8-CPh"/>

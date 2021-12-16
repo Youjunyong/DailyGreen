@@ -112,6 +112,12 @@ class WriteMeetViewController: UIViewController {
     
     
     @IBOutlet weak var bioViewVerticalConstraint: NSLayoutConstraint!
+    @IBAction func keywordLimit(_ sender: Any) {
+        if keyWordTextField.text!.count > 8{
+            self.presentAlert(title: "키워드는 8자가 최대입니다.")
+            self.keyWordTextField.text = ""
+        }
+    }
     @IBAction func btn1Clicked(_ sender: Any) {
         feeType = "무료"
         feeStyle()
@@ -170,6 +176,7 @@ class WriteMeetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         self.title = "\(communityName ?? "") \(titleName ?? "") 글쓰기"
 

@@ -36,7 +36,7 @@ class OnboardingView2: UIView{
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }

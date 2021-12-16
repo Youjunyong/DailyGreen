@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2p-OY-loD" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홈화면에서 해당 커뮤니티를 탭하면 간단한 커뮤니티 정보를 볼 수 있으며 참여취소를 원하시는 경우 다시 한 번 탭해주세요." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcC-jN-4EM">
                                                 <rect key="frame" x="16" y="24" width="382" height="61"/>
@@ -30,7 +30,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HGV-Ex-l65">
-                                                <rect key="frame" x="0.0" y="128" width="414" height="872"/>
+                                                <rect key="frame" x="0.0" y="128" width="414" height="1022"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                         </subviews>
@@ -41,7 +41,7 @@
                                             <constraint firstAttribute="trailing" secondItem="LcC-jN-4EM" secondAttribute="trailing" constant="16" id="Slx-ey-So3"/>
                                             <constraint firstItem="HGV-Ex-l65" firstAttribute="top" secondItem="LcC-jN-4EM" secondAttribute="bottom" constant="43" id="XMn-TW-DQu"/>
                                             <constraint firstAttribute="trailing" secondItem="HGV-Ex-l65" secondAttribute="trailing" id="qpH-vt-YU4"/>
-                                            <constraint firstAttribute="height" priority="250" constant="1000" id="s6p-1A-L9o"/>
+                                            <constraint firstAttribute="height" priority="250" constant="1150" id="s6p-1A-L9o"/>
                                             <constraint firstItem="HGV-Ex-l65" firstAttribute="leading" secondItem="Z2p-OY-loD" secondAttribute="leading" id="siz-Nk-4tW"/>
                                             <constraint firstItem="LcC-jN-4EM" firstAttribute="top" secondItem="Z2p-OY-loD" secondAttribute="top" constant="24" id="svs-ST-BTl"/>
                                         </constraints>

@@ -56,7 +56,7 @@ class OnboardingView4: UIView{
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
             imageView.topAnchor.constraint(equalTo: topAnchor),
             startButtonView.widthAnchor.constraint(equalToConstant: 343),
             startButtonView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -124),

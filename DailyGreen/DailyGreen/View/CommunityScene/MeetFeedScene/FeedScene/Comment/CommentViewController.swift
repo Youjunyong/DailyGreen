@@ -40,6 +40,19 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dismissButton: UIButton!
     
+    @IBAction func commentLimit(_ sender: Any) {
+        if commentTextField.text!.count > 40{
+            self.presentAlert(title: "댓글은 40자까지 가능합니다.")
+            var limitText = ""
+            var cnt = 0
+            for i in commentTextField.text!{
+                cnt += 1
+                if cnt == 40{break}
+                limitText += "\(i)"
+            }
+            commentTextField.text = limitText
+        }
+    }
     @IBAction func dismiss(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -72,7 +85,7 @@ class CommentViewController: UIViewController {
         self.view.addSubview(nottingLabel)
         NSLayoutConstraint.activate([
             nottingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nottingLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            nottingLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
         ])
         nottingLabel.isHidden = true
     }

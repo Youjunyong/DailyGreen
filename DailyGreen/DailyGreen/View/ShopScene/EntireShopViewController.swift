@@ -132,7 +132,7 @@ extension EntireShopViewController {
     }
     func didSuccessLikeShop(message: String){
         
-        self.presentAlert(title: "관심상점에 추가되었습니다.")
+//        self.presentAlert(title: "관심상점에 추가되었습니다.")
     }
     func failedToRequest(message: String){
         

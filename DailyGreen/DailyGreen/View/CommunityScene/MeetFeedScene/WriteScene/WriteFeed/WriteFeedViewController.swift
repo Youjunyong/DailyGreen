@@ -49,6 +49,7 @@ class WriteFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "\(communityName ?? "") 글쓰기"
+        self.tabBarController?.tabBar.isHidden = true
         configureUI()
         hideKeyboardWhenTappedBackground()
         placeholderSetting()

@@ -29,6 +29,7 @@ class WriteDateLocationViewController: UIViewController{
     lazy var alretView = DimmingView()
 
     private func postMeet(){
+        self.address += " " + detailAddressTextField.text!
         let params = WriteMeetRequest(photos: photos, communityIdx: communityIdx!, name: name!, tagList: tagList, bio: bio!, maxPeopleNum: maxPeopleNum!, feeType: feeType!, fee: fee!, kakaoChatLink: kakaoChatLink!, isRegular: isRegular!, locationIdx: 1, locationDetail: address, when: date + " " + time)
         writeMeetDataManager.uploadFeed(params: params, delegate: self)
     }
@@ -191,6 +192,7 @@ class WriteDateLocationViewController: UIViewController{
     override func viewWillDisappear(_ animated: Bool) { self.removeKeyboardNotifications() }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
 
         setTimeBtn.setTitle("", for: .normal)

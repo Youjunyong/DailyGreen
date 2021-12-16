@@ -15,7 +15,7 @@ class ProfileUpdateDataManager {
                "X-ACCESS-TOKEN": Constant.shared.JWTTOKEN
            ]
            AF.upload(multipartFormData: { multiPart in
-               print(Constant.shared.JWTTOKEN)
+               
                for (key, value) in params {
                    if let temp = value as? String {
                        multiPart.append(temp.data(using: .utf8)!, withName: key)
