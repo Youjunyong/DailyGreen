@@ -16,9 +16,13 @@ class MainPageViewController: UIViewController{
     lazy var cListDataManager = CommunityListDataManager() // 현재 구독중인 커뮤니티
     lazy var cancelDataManager = CancelCommunityDataManager() // 참여한 커뮤니티 구독취소하기
     lazy var eventBannerDataManager = EventBannerDataManager()
+    lazy var exeventBannerDataManater = ExEventBannerDataManager()
     lazy var gridViews = [grid00View ,grid01View, grid02View, grid10View, grid12View, grid20View, grid21View, grid22View]
     lazy var cancelAlertView = CancelAlertView()
     
+    @IBOutlet weak var exEventBannerCollectionView: UICollectionView!
+
+    var exEventData = exEventData()
     var bannerIdx = [Int]()
     var bannerCommunityIdx = [Int]()
     var bannerName = [String]()
@@ -27,7 +31,9 @@ class MainPageViewController: UIViewController{
     var bannerPhoto = [String]()
     var bannerType = [String]()
     
-    @IBOutlet weak var eventLinkButton: UIButton!
+    
+    
+    
     @IBOutlet weak var profileDimmingView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -47,29 +53,43 @@ class MainPageViewController: UIViewController{
     @IBOutlet weak var grid20View: CommunityView!
     @IBOutlet weak var grid21View: CommunityView!
     @IBOutlet weak var grid22View: CommunityView!
-
-    
-    
     
     @IBAction func presentGuide(_ sender: Any) {
+        
+        
         let storyBoard = UIStoryboard(name: "Guide", bundle: nil)
         let GuideVC = storyBoard.instantiateViewController(withIdentifier: "GuideVC")
         GuideVC.modalPresentationStyle = .fullScreen
         self.present(GuideVC, animated: true, completion: nil)
     }
     
-    @IBAction func eventLink(_ sender: Any) {
-        let eventUrl = NSURL(string: "https://seoulkfem.or.kr/notice/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=9102777&t=board")
+    @objc func eventLink(_ sender: Any) {
+        guard let button = sender as? UIButton else{return}
+        let idx = button.tag - 100
+        let eventUrl = NSURL(string: self.exEventData.linkedUrl[idx])
         let safariView: SFSafariViewController = SFSafariViewController(url: eventUrl as! URL)
         self.present(safariView, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.exeventBannerDataManater.getExEventBanner(delegate: self)
+        
         configureGridView()
         configureUI()
+        
         eventBannerDataManager.getEventBanner(delegate: self)
     }
     
+    private func configureExEventBanner(){
+        exEventBannerCollectionView.delegate = self
+        exEventBannerCollectionView.dataSource = self
+        
+        let nib = UINib(nibName: "ExEventBannerCollectionViewCell", bundle: nil)
+        exEventBannerCollectionView.register(nib, forCellWithReuseIdentifier: "exEventCell")
+        
+        self.bannerTimer()
+
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
@@ -218,8 +238,6 @@ class MainPageViewController: UIViewController{
     }
     
     private func configureUI(){
-        eventLinkButton.setTitle("", for: .normal)
-
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         
@@ -271,10 +289,20 @@ class MainPageViewController: UIViewController{
 extension MainPageViewController : UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView == exEventBannerCollectionView{
+            return CGSize(width:UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width*0.250666)
+        }
         return CGSize(width: 310, height: 190)
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.exEventData.nowPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == exEventBannerCollectionView{
+            return 0
+        }
         return 10
     }
     
@@ -291,11 +319,28 @@ extension MainPageViewController : UICollectionViewDelegate, UICollectionViewDel
 
 extension MainPageViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == exEventBannerCollectionView {
+            return self.exEventData.addUrl.count
+        }
+        
         return bannerIdx.count
+        
+    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let idx = indexPath.row
+        if collectionView == exEventBannerCollectionView{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "exEventCell", for: indexPath) as? ExEventBannerCollectionViewCell else {return UICollectionViewCell()}
+            cell.exEventImageView.load(strUrl: self.exEventData.addUrl[idx])
+            cell.exEventButton.tag = idx + 100
+            cell.exEventButton.addTarget(self, action: #selector(eventLink(_:)), for: .touchUpInside)
+            return cell
+        }
+        
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as? EventCollectionViewCell else {return UICollectionViewCell() }
         cell.imageView.load(strUrl: bannerPhoto[idx])
         cell.locationLabel.text = bannerLocationDetail[idx]
@@ -353,7 +398,15 @@ extension MainPageViewController {
         configureCollectionView()
 
     }
-    
+    func didSuccessGetExEventBanner(message: String, results: [ExEventBannerResult]){
+        for result in results{
+            self.exEventData.addUrl.append(result.addUrl)
+            self.exEventData.linkedUrl.append(result.linkedUrl)
+        }
+        print(results)
+        
+        configureExEventBanner()
+    }
     func didSuccessGetCList(message: String, dataList: [CommunityList]){
         
         var newList = [Int]()
@@ -379,4 +432,39 @@ extension MainPageViewController {
     }
 }
 
+
+extension MainPageViewController{
+    struct exEventData {
+        var nowPage = 0
+        var addUrl = [String]()
+        var linkedUrl = [String]()
+    }
+    func bannerTimer() {
+        
+        let _: Timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (Timer) in
+            print("nowPage: ",self.exEventData.nowPage)
+                self.bannerMove()
+        }
+    }
+    // 배너 움직이는 매서드
+    func bannerMove() {
+        // 현재페이지가 마지막 페이지일 경우
+//        print(self.exEventData.nowPage)
+
+        if self.exEventData.nowPage == self.exEventData.addUrl.count-1 {
+        // 맨 처음 페이지로 돌아감
+            self.exEventData.nowPage = 0
+            DispatchQueue.main.async {
+                self.exEventBannerCollectionView.scrollToItem(at: IndexPath(item: self.exEventData.nowPage, section: 0), at: .right, animated: true)
+            }
+
+            return
+        }
+        // 다음 페이지로 전환
+        self.exEventData.nowPage += 1
+        DispatchQueue.main.async {
+            self.exEventBannerCollectionView.scrollToItem(at: IndexPath(item: self.exEventData.nowPage, section: 0), at: .right, animated: true)
+        }
+    }
+}
 

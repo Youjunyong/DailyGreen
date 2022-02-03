@@ -25,6 +25,10 @@
 		E12838F92742799900F1E259 /* BookMarkShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12838F82742799900F1E259 /* BookMarkShopViewController.swift */; };
 		E12838FD27427C5700F1E259 /* EntireShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12838FB27427C5700F1E259 /* EntireShopTableViewCell.swift */; };
 		E12838FE27427C5700F1E259 /* EntireShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12838FC27427C5700F1E259 /* EntireShopTableViewCell.xib */; };
+		E12C40FF27AA532000930BDB /* ExEventBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C40FD27AA532000930BDB /* ExEventBannerCollectionViewCell.swift */; };
+		E12C410027AA532000930BDB /* ExEventBannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12C40FE27AA532000930BDB /* ExEventBannerCollectionViewCell.xib */; };
+		E12C410227AA558000930BDB /* ExEventBannerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C410127AA558000930BDB /* ExEventBannerDataManager.swift */; };
+		E12C410427AA55E000930BDB /* ExEventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12C410327AA55E000930BDB /* ExEventResponse.swift */; };
 		E1362C47273451D90045C9EE /* DD_RegisterPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1362C46273451D90045C9EE /* DD_RegisterPhoneViewController.swift */; };
 		E1362C4927345A890045C9EE /* RegisterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1362C4827345A890045C9EE /* RegisterProfileViewController.swift */; };
 		E1362C4D273470BF0045C9EE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1362C4C273470BF0045C9EE /* Constant.swift */; };
@@ -235,6 +239,10 @@
 		E12838F82742799900F1E259 /* BookMarkShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkShopViewController.swift; sourceTree = "<group>"; };
 		E12838FB27427C5700F1E259 /* EntireShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntireShopTableViewCell.swift; sourceTree = "<group>"; };
 		E12838FC27427C5700F1E259 /* EntireShopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntireShopTableViewCell.xib; sourceTree = "<group>"; };
+		E12C40FD27AA532000930BDB /* ExEventBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExEventBannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		E12C40FE27AA532000930BDB /* ExEventBannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExEventBannerCollectionViewCell.xib; sourceTree = "<group>"; };
+		E12C410127AA558000930BDB /* ExEventBannerDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExEventBannerDataManager.swift; sourceTree = "<group>"; };
+		E12C410327AA55E000930BDB /* ExEventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExEventResponse.swift; sourceTree = "<group>"; };
 		E1362C46273451D90045C9EE /* DD_RegisterPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DD_RegisterPhoneViewController.swift; sourceTree = "<group>"; };
 		E1362C4827345A890045C9EE /* RegisterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewController.swift; sourceTree = "<group>"; };
 		E1362C4C273470BF0045C9EE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -659,6 +667,8 @@
 				E14426D4273186D300EC86D1 /* EventCollectionViewCell.swift */,
 				E14426D5273186D300EC86D1 /* EventCollectionViewCell.xib */,
 				E1E944F8273233C90047ABA8 /* CommunityView.swift */,
+				E12C40FD27AA532000930BDB /* ExEventBannerCollectionViewCell.swift */,
+				E12C40FE27AA532000930BDB /* ExEventBannerCollectionViewCell.xib */,
 				E1E944FE27325E280047ABA8 /* GuidePage */,
 			);
 			path = MainPageScene;
@@ -1102,6 +1112,8 @@
 			children = (
 				E1D20394274BC1900098ADB7 /* EventBannerDataManager.swift */,
 				E1D20396274BC1A10098ADB7 /* EventBannerResponse.swift */,
+				E12C410327AA55E000930BDB /* ExEventResponse.swift */,
+				E12C410127AA558000930BDB /* ExEventBannerDataManager.swift */,
 			);
 			path = EventBanner;
 			sourceTree = "<group>";
@@ -1311,6 +1323,7 @@
 				E15CB81D273E35EA00D66360 /* CoCardTableViewCell.xib in Resources */,
 				E1C4D4CA2750F9BB003CA961 /* MeetDetailCollectionViewCell.xib in Resources */,
 				E1E9450827326AD30047ABA8 /* GuideTableViewCell.xib in Resources */,
+				E12C410027AA532000930BDB /* ExEventBannerCollectionViewCell.xib in Resources */,
 				E11A76112768B9AF003CE06B /* ParticipateTableViewCell.xib in Resources */,
 				E1E9450227325E560047ABA8 /* Guide.storyboard in Resources */,
 				E1C4D4C62750F8DA003CA961 /* MeetDetailScene.storyboard in Resources */,
@@ -1484,6 +1497,7 @@
 				E1E2C6392754E4E500785DC3 /* AppleLoginDataManager.swift in Sources */,
 				E19F535727414E4B00B3A28D /* KakaoLoginDataManager.swift in Sources */,
 				E1534EC22746098C00E1FA01 /* FeedDataManager.swift in Sources */,
+				E12C410227AA558000930BDB /* ExEventBannerDataManager.swift in Sources */,
 				E14426D6273186D300EC86D1 /* EventCollectionViewCell.swift in Sources */,
 				E12838F027426BE500F1E259 /* CancelCommunityCodabel.swift in Sources */,
 				E1432242272FE89B0028DAE4 /* LoginViewController.swift in Sources */,
@@ -1508,6 +1522,7 @@
 				E1C4D4BF2750E01F003CA961 /* WriteMeetDataManager.swift in Sources */,
 				E1432229272FC1CF0028DAE4 /* UserDefault.swift in Sources */,
 				E1362C4D273470BF0045C9EE /* Constant.swift in Sources */,
+				E12C410427AA55E000930BDB /* ExEventResponse.swift in Sources */,
 				E12838F5274275D000F1E259 /* ShopPagerViewController.swift in Sources */,
 				E1E9450027325E400047ABA8 /* GuideViewContorller.swift in Sources */,
 				E1362C4927345A890045C9EE /* RegisterProfileViewController.swift in Sources */,
@@ -1557,6 +1572,7 @@
 				E19F535D2741F56500B3A28D /* ImageCacheManager.swift in Sources */,
 				E14ED2FD2739643700CCBCED /* CommunityViewController.swift in Sources */,
 				E18C0BB8274750FC0020FA17 /* LikeShopDataManager.swift in Sources */,
+				E12C40FF27AA532000930BDB /* ExEventBannerCollectionViewCell.swift in Sources */,
 				E18C0BCD2747791A0020FA17 /* BookMarkShopTableViewCell.swift in Sources */,
 				E1502ADB2750AB8200AF4D0C /* KakaoPostCodeViewController.swift in Sources */,
 				E1534EB32744A88A00E1FA01 /* WriteFeedViewController.swift in Sources */,
