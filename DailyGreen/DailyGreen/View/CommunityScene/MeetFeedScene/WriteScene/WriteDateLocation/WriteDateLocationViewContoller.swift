@@ -31,6 +31,7 @@ class WriteDateLocationViewController: UIViewController{
     private func postMeet(){
         self.address += " " + detailAddressTextField.text!
         let params = WriteMeetRequest(photos: photos, communityIdx: communityIdx!, name: name!, tagList: tagList, bio: bio!, maxPeopleNum: maxPeopleNum!, feeType: feeType!, fee: fee!, kakaoChatLink: kakaoChatLink!, isRegular: isRegular!, locationIdx: 1, locationDetail: address, when: date + " " + time)
+        print("##수정중####:", self.time)
         writeMeetDataManager.uploadFeed(params: params, delegate: self)
     }
     
@@ -227,8 +228,9 @@ class WriteDateLocationViewController: UIViewController{
         var selectedTime: String = dateFormatter.string(from: sender.date)
         self.timeLabel.text = selectedTime
 
-        dateFormatter.dateFormat = "HH:MM"
+        dateFormatter.dateFormat = "HH:mm"
         selectedTime = dateFormatter.string(from: sender.date)
+        print(#function, selectedTime)
         self.time = selectedTime + ":00"
         
     }
