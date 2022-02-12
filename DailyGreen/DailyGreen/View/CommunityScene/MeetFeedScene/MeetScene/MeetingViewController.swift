@@ -61,6 +61,9 @@ class MeetingViewController: UIViewController, IndicatorInfoProvider {
         writeVC.communityName = self.community
         writeVC.communityIdx = self.communityIdx
         writeVC.hidesBottomBarWhenPushed = true
+//        writeVC.tabBarController?.tabBar.isHidden = true
+        
+
 
         self.navigationController?.pushViewController(writeVC, animated: true)
         

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -65,13 +65,6 @@
                                     <constraint firstAttribute="height" constant="26" id="kFk-vd-BOA"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xuS-l9-Esm">
-                                <rect key="frame" x="24" y="413" width="26" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="26" id="49A-YW-ECk"/>
-                                    <constraint firstAttribute="height" constant="26" id="enw-hb-AFt"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A01-Rk-Ysn">
                                 <rect key="frame" x="15" y="173" width="44" height="44"/>
                                 <constraints>
@@ -97,19 +90,6 @@
                                     <action selector="radioButton2:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qUw-hH-QDB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBF-JP-caD">
-                                <rect key="frame" x="15" y="408.5" width="44" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="b9s-kS-fcB"/>
-                                    <constraint firstAttribute="height" constant="35" id="gyG-XR-vDY"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="radioButton1:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lLV-Zb-w21"/>
-                                    <action selector="radioButton3:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HBL-f7-tqw"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자유글 쓰기:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="re3-OS-vkO">
                                 <rect key="frame" x="57" y="182" width="82.5" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -122,12 +102,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정기모임:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYK-LR-p7W">
-                                <rect key="frame" x="57" y="416" width="63.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자유롭게 쓰고 싶어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7l-OM-lGh">
                                 <rect key="frame" x="144.5" y="186" width="129.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -136,12 +110,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사람들과 한번 같이 해보고싶어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSt-Dj-JYr">
                                 <rect key="frame" x="96.5" y="379" width="198" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사람들과 꾸준히 같이 해보고 싶어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaP-Qq-0b9">
-                                <rect key="frame" x="125.5" y="417" width="215" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -197,12 +165,10 @@
                             <constraint firstItem="GIL-fV-bRg" firstAttribute="top" secondItem="ACM-3Y-ERz" secondAttribute="top" id="10i-Kn-lgO"/>
                             <constraint firstItem="GIL-fV-bRg" firstAttribute="leading" secondItem="ACM-3Y-ERz" secondAttribute="leading" id="2K2-Lp-kCw"/>
                             <constraint firstItem="fmg-pP-Sxi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="4Id-wX-0w7"/>
-                            <constraint firstItem="yYK-LR-p7W" firstAttribute="centerY" secondItem="xuS-l9-Esm" secondAttribute="centerY" id="5Vr-Kq-PUd"/>
                             <constraint firstItem="hcr-CH-ycN" firstAttribute="centerY" secondItem="TJB-6N-eQd" secondAttribute="centerY" id="5iR-L0-0cI"/>
                             <constraint firstItem="TJB-6N-eQd" firstAttribute="centerX" secondItem="A01-Rk-Ysn" secondAttribute="centerX" id="7XD-20-lqh"/>
                             <constraint firstItem="lVp-QJ-G6M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="Anj-3w-IGr"/>
                             <constraint firstItem="GIL-fV-bRg" firstAttribute="bottom" secondItem="ACM-3Y-ERz" secondAttribute="bottom" id="B3P-RO-oij"/>
-                            <constraint firstItem="xuS-l9-Esm" firstAttribute="top" secondItem="TJB-6N-eQd" secondAttribute="bottom" constant="12" id="Cae-ka-qhE"/>
                             <constraint firstItem="XcF-8Y-HSn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="DsR-9I-FWq"/>
                             <constraint firstItem="Wo1-na-VhS" firstAttribute="trailing" secondItem="nIv-MI-Hip" secondAttribute="trailing" id="EOa-6v-j2B"/>
                             <constraint firstItem="re3-OS-vkO" firstAttribute="leading" secondItem="lVp-QJ-G6M" secondAttribute="trailing" constant="7" id="Ejv-tN-4Sc"/>
@@ -213,17 +179,13 @@
                             <constraint firstItem="A01-Rk-Ysn" firstAttribute="centerX" secondItem="lVp-QJ-G6M" secondAttribute="centerX" id="NKg-A5-5cC"/>
                             <constraint firstItem="lVp-QJ-G6M" firstAttribute="top" secondItem="ios-lX-MKa" secondAttribute="bottom" constant="22" id="NmK-xo-Fwd"/>
                             <constraint firstItem="V1B-08-OE4" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="OAJ-jo-nDx"/>
-                            <constraint firstItem="yYK-LR-p7W" firstAttribute="leading" secondItem="tgf-Dm-hwb" secondAttribute="leading" id="Oi2-50-PSx"/>
                             <constraint firstItem="FzG-Jg-O0h" firstAttribute="top" secondItem="V1B-08-OE4" secondAttribute="bottom" constant="3" id="S9R-V2-aVi"/>
                             <constraint firstItem="FzG-Jg-O0h" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="27" id="Tdg-Ae-lrc"/>
                             <constraint firstItem="Wo1-na-VhS" firstAttribute="leading" secondItem="nIv-MI-Hip" secondAttribute="leading" id="VAH-6C-2P2"/>
                             <constraint firstItem="jQd-lv-vgf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Vgt-sc-uTz"/>
                             <constraint firstItem="hcr-CH-ycN" firstAttribute="centerX" secondItem="TJB-6N-eQd" secondAttribute="centerX" id="WvU-ej-b3E"/>
-                            <constraint firstItem="xaP-Qq-0b9" firstAttribute="centerY" secondItem="yYK-LR-p7W" secondAttribute="centerY" id="X3P-vZ-RLh"/>
                             <constraint firstItem="tgf-Dm-hwb" firstAttribute="centerY" secondItem="TJB-6N-eQd" secondAttribute="centerY" id="XFf-9W-Dv2"/>
                             <constraint firstItem="GIL-fV-bRg" firstAttribute="trailing" secondItem="ACM-3Y-ERz" secondAttribute="trailing" id="XLi-1E-rSa"/>
-                            <constraint firstItem="xaP-Qq-0b9" firstAttribute="leading" secondItem="yYK-LR-p7W" secondAttribute="trailing" constant="5" id="XOD-ho-xsr"/>
-                            <constraint firstItem="hBF-JP-caD" firstAttribute="centerX" secondItem="xuS-l9-Esm" secondAttribute="centerX" id="YuB-s1-Ugj"/>
                             <constraint firstItem="XcF-8Y-HSn" firstAttribute="top" secondItem="FzG-Jg-O0h" secondAttribute="bottom" constant="35" id="ZpP-Kb-6rs"/>
                             <constraint firstItem="gSt-Dj-JYr" firstAttribute="leading" secondItem="tgf-Dm-hwb" secondAttribute="trailing" constant="5" id="Zpz-Rg-Esj"/>
                             <constraint firstItem="ACM-3Y-ERz" firstAttribute="centerX" secondItem="fmg-pP-Sxi" secondAttribute="centerX" id="aZK-bh-86T"/>
@@ -236,9 +198,7 @@
                             <constraint firstItem="V1B-08-OE4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="eXF-GU-W1A"/>
                             <constraint firstItem="lVp-QJ-G6M" firstAttribute="top" secondItem="re3-OS-vkO" secondAttribute="top" id="ecj-jv-zvE"/>
                             <constraint firstItem="ACM-3Y-ERz" firstAttribute="centerY" secondItem="fmg-pP-Sxi" secondAttribute="centerY" id="gln-Cq-NAc"/>
-                            <constraint firstItem="xuS-l9-Esm" firstAttribute="centerX" secondItem="TJB-6N-eQd" secondAttribute="centerX" id="h0g-ez-OAQ"/>
                             <constraint firstItem="Wo1-na-VhS" firstAttribute="top" secondItem="nIv-MI-Hip" secondAttribute="bottom" constant="4" id="ha3-J1-6zu"/>
-                            <constraint firstItem="hBF-JP-caD" firstAttribute="centerY" secondItem="xuS-l9-Esm" secondAttribute="centerY" id="izf-aX-Y6V"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FzG-Jg-O0h" secondAttribute="trailing" constant="27" id="j5w-8h-kgA"/>
                             <constraint firstItem="Y7l-OM-lGh" firstAttribute="leading" secondItem="re3-OS-vkO" secondAttribute="trailing" constant="5" id="jKx-U9-RSr"/>
                             <constraint firstItem="re3-OS-vkO" firstAttribute="centerY" secondItem="A01-Rk-Ysn" secondAttribute="centerY" id="ng3-Pq-vYN"/>
@@ -256,14 +216,10 @@
                         <outlet property="feedSubLabel" destination="Y7l-OM-lGh" id="EIc-W6-Zsm"/>
                         <outlet property="meetLabel" destination="tgf-Dm-hwb" id="d7p-UX-srh"/>
                         <outlet property="meetSubLabel" destination="gSt-Dj-JYr" id="day-mf-xKk"/>
-                        <outlet property="rMeetLabel" destination="yYK-LR-p7W" id="5MA-Ab-eXd"/>
-                        <outlet property="rMeetSubLabel" destination="xaP-Qq-0b9" id="crY-UN-DFK"/>
                         <outlet property="radioButton1" destination="A01-Rk-Ysn" id="wZE-5n-KyU"/>
                         <outlet property="radioButton2" destination="hcr-CH-ycN" id="BZN-ZE-F6u"/>
-                        <outlet property="radioButton3" destination="hBF-JP-caD" id="HDd-x4-hE7"/>
                         <outlet property="radioButtonView1" destination="lVp-QJ-G6M" id="os2-he-paS"/>
                         <outlet property="radioButtonView2" destination="TJB-6N-eQd" id="jRv-xf-PeS"/>
-                        <outlet property="radioButtonView3" destination="xuS-l9-Esm" id="p85-fP-tZ4"/>
                         <outlet property="secTitleLabel" destination="XcF-8Y-HSn" id="lYz-ef-PX8"/>
                         <outlet property="secTitleUnderView" destination="ios-lX-MKa" id="Yvw-I5-JLE"/>
                         <outlet property="submitButton" destination="GIL-fV-bRg" id="Jpe-Aa-inJ"/>

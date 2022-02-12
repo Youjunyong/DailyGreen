@@ -33,6 +33,8 @@ class FeedViewController: UIViewController, IndicatorInfoProvider{
         guard let writeVC = storyboard.instantiateViewController(withIdentifier: "writeVC") as? WriteStep1ViewController else{return}
         writeVC.communityName = self.community
         writeVC.communityIdx = self.communityIdx
+        writeVC.hidesBottomBarWhenPushed = true
+
         self.navigationController?.pushViewController(writeVC, animated: true)
     }
     @IBOutlet weak var writeButton: UIButton!

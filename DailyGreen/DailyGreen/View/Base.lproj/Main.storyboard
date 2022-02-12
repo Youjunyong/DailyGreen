@@ -313,6 +313,13 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exPage13" translatesAutoresizingMaskIntoConstraints="NO" id="wmn-T4-vxR">
+                                                <rect key="frame" x="20" y="409" width="48" height="8"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="8" id="PZc-MW-AEl"/>
+                                                    <constraint firstAttribute="width" constant="48" id="Yys-Do-0WM"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -327,6 +334,7 @@
                                             <constraint firstItem="uoa-2B-MWO" firstAttribute="top" secondItem="Cqg-4b-gOt" secondAttribute="bottom" constant="4.4000000000000004" id="HLG-cK-DuM"/>
                                             <constraint firstItem="8bf-BH-5VI" firstAttribute="centerX" secondItem="Q2D-8w-cVi" secondAttribute="centerX" id="OtC-jY-b7f"/>
                                             <constraint firstItem="96g-Sb-38X" firstAttribute="leading" secondItem="i3F-Bd-SGX" secondAttribute="leading" id="PDf-ah-naW"/>
+                                            <constraint firstItem="wmn-T4-vxR" firstAttribute="bottom" secondItem="OPu-h6-LCa" secondAttribute="bottom" constant="-10" id="Pjn-fk-aix"/>
                                             <constraint firstItem="Q2D-8w-cVi" firstAttribute="top" secondItem="C9E-dX-fte" secondAttribute="bottom" constant="20" id="PoB-2j-wfZ"/>
                                             <constraint firstAttribute="trailing" secondItem="qSx-6E-Ypz" secondAttribute="trailing" constant="18.5" id="SVP-wp-ga7"/>
                                             <constraint firstItem="PSz-hR-7lt" firstAttribute="top" secondItem="Cqg-4b-gOt" secondAttribute="bottom" constant="56" id="TDl-cT-ViD"/>
@@ -351,6 +359,7 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cqg-4b-gOt" secondAttribute="trailing" constant="20" symbolic="YES" id="rCk-tT-tRI"/>
                                             <constraint firstItem="C9E-dX-fte" firstAttribute="top" secondItem="F7Y-eq-Gh6" secondAttribute="bottom" constant="24" id="tMZ-SB-whB"/>
                                             <constraint firstItem="qSx-6E-Ypz" firstAttribute="centerY" secondItem="sDs-Fn-YaK" secondAttribute="centerY" id="uiV-gx-bpt"/>
+                                            <constraint firstItem="wmn-T4-vxR" firstAttribute="leading" secondItem="a01-jq-7D4" secondAttribute="leading" constant="20" id="vd1-Gf-TSC"/>
                                             <constraint firstItem="tyI-i8-QM9" firstAttribute="top" secondItem="a01-jq-7D4" secondAttribute="top" id="x9H-H7-tY5"/>
                                             <constraint firstAttribute="height" priority="250" constant="1100" id="xSO-Cz-5N1"/>
                                             <constraint firstItem="96g-Sb-38X" firstAttribute="top" secondItem="sDs-Fn-YaK" secondAttribute="bottom" constant="16" id="yQa-G4-xbR"/>
@@ -387,6 +396,7 @@
                         <outlet property="collectionView" destination="PSz-hR-7lt" id="apA-wO-Icb"/>
                         <outlet property="communityTitleLabel" destination="i3F-Bd-SGX" id="ruO-Qs-wEr"/>
                         <outlet property="exEventBannerCollectionView" destination="OPu-h6-LCa" id="i59-qX-QpH"/>
+                        <outlet property="exEventBannerPageIndicator" destination="wmn-T4-vxR" id="GvA-OA-nZq"/>
                         <outlet property="grid00View" destination="Bdd-Sy-uxc" id="lov-4G-0J8"/>
                         <outlet property="grid01View" destination="Bjy-Ym-Uug" id="d5F-8w-tIj"/>
                         <outlet property="grid02View" destination="bIv-gN-k0l" id="8XP-ZL-15s"/>
@@ -1163,6 +1173,7 @@
     </scenes>
     <resources>
         <image name="emptyButton" width="375" height="107"/>
+        <image name="exPage13" width="48" height="8"/>
         <image name="icBtnQuestion" width="62" height="62"/>
         <image name="kakao" width="280" height="44"/>
         <image name="scoreBadge" width="100" height="144"/>

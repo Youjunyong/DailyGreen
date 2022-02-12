@@ -34,6 +34,7 @@ class MainPageViewController: UIViewController{
     
     
     
+    @IBOutlet weak var exEventBannerPageIndicator: UIImageView!
     @IBOutlet weak var profileDimmingView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -76,16 +77,17 @@ class MainPageViewController: UIViewController{
         
         configureGridView()
         configureUI()
-        
         eventBannerDataManager.getEventBanner(delegate: self)
+        
     }
     
     private func configureExEventBanner(){
         exEventBannerCollectionView.delegate = self
         exEventBannerCollectionView.dataSource = self
-        
         let nib = UINib(nibName: "ExEventBannerCollectionViewCell", bundle: nil)
         exEventBannerCollectionView.register(nib, forCellWithReuseIdentifier: "exEventCell")
+        
+        self.exEventBannerCollectionView.layoutIfNeeded()
         
         self.bannerTimer()
 
@@ -154,11 +156,12 @@ class MainPageViewController: UIViewController{
             participateView.participateButtonView.backgroundColor = .primary
             participateView.participateButton.setTitle("참여하기", for: .normal)
         }
-        self.view.addSubview(participateView)
+        
+        self.view.window?.addSubview(participateView)
         NSLayoutConstraint.activate([
             participateView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             participateView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            participateView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            participateView.bottomAnchor.constraint(equalTo: self.view.superview!.bottomAnchor),
             participateView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
@@ -258,10 +261,11 @@ class MainPageViewController: UIViewController{
     
     @objc func removeCancelAlertView(){
         cancelAlertView.removeFromSuperview()
+        
     }
     
     private func presentCancelAlertView(title: String, body: String, type: Int){
-
+        
         
         if type == 1{
             cancelAlertView.image = UIImage(named: "cancelMan")
@@ -273,10 +277,11 @@ class MainPageViewController: UIViewController{
         cancelAlertView.translatesAutoresizingMaskIntoConstraints = false
         cancelAlertView.titleText = title
         cancelAlertView.bodyText = body
-        view.addSubview(cancelAlertView)
+        
+        self.view.window?.addSubview(cancelAlertView)
         NSLayoutConstraint.activate([
             cancelAlertView.topAnchor.constraint(equalTo: view.topAnchor),
-            cancelAlertView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            cancelAlertView.bottomAnchor.constraint(equalTo: view.superview!.bottomAnchor),
             cancelAlertView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             cancelAlertView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
@@ -326,6 +331,7 @@ extension MainPageViewController : UICollectionViewDataSource {
         return bannerIdx.count
         
     }
+ 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -403,7 +409,7 @@ extension MainPageViewController {
             self.exEventData.addUrl.append(result.addUrl)
             self.exEventData.linkedUrl.append(result.linkedUrl)
         }
-        print(results)
+        
         
         configureExEventBanner()
     }
@@ -438,24 +444,27 @@ extension MainPageViewController{
         var nowPage = 0
         var addUrl = [String]()
         var linkedUrl = [String]()
+        var indicatorIamge = [UIImage(named: "exPage13"),UIImage(named: "exPage23"),UIImage(named: "exPage33")]
     }
     func bannerTimer() {
-        
+
+
         let _: Timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (Timer) in
-            print("nowPage: ",self.exEventData.nowPage)
-                self.bannerMove()
+            self.bannerMove()
+
         }
     }
     // 배너 움직이는 매서드
     func bannerMove() {
         // 현재페이지가 마지막 페이지일 경우
-//        print(self.exEventData.nowPage)
-
-        if self.exEventData.nowPage == self.exEventData.addUrl.count-1 {
+        if self.exEventData.nowPage == 2 {
         // 맨 처음 페이지로 돌아감
             self.exEventData.nowPage = 0
             DispatchQueue.main.async {
-                self.exEventBannerCollectionView.scrollToItem(at: IndexPath(item: self.exEventData.nowPage, section: 0), at: .right, animated: true)
+                self.exEventBannerCollectionView.isPagingEnabled = false
+                self.exEventBannerCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
+                self.exEventBannerPageIndicator.image = self.exEventData.indicatorIamge[0]
+                self.exEventBannerCollectionView.isPagingEnabled = true
             }
 
             return
@@ -463,8 +472,13 @@ extension MainPageViewController{
         // 다음 페이지로 전환
         self.exEventData.nowPage += 1
         DispatchQueue.main.async {
+            self.exEventBannerCollectionView.isPagingEnabled = false
             self.exEventBannerCollectionView.scrollToItem(at: IndexPath(item: self.exEventData.nowPage, section: 0), at: .right, animated: true)
+            self.exEventBannerPageIndicator.image = self.exEventData.indicatorIamge[self.exEventData.nowPage]
+            self.exEventBannerCollectionView.isPagingEnabled = true
+
         }
+
     }
 }
 

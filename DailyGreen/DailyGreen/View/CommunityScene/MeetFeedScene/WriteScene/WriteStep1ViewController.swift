@@ -43,8 +43,8 @@ class WriteStep1ViewController: UIViewController {
     @IBOutlet weak var radioButton2: UIButton!
     @IBOutlet weak var radioButtonView2: UIImageView!
     
-    @IBOutlet weak var radioButton3: UIButton!
-    @IBOutlet weak var radioButtonView3: UIImageView!
+//    @IBOutlet weak var radioButton3: UIButton!
+//    @IBOutlet weak var radioButtonView3: UIImageView!
 
     
     
@@ -62,9 +62,7 @@ class WriteStep1ViewController: UIViewController {
         selectedCheck(num : 2)
     }
     
-    @IBAction func radioButton3(_ sender: Any) {
-        selectedCheck(num : 3)
-    }
+ 
     
 
     
@@ -113,13 +111,11 @@ class WriteStep1ViewController: UIViewController {
         titleLabel.font = UIFont(name: NanumFont.regular, size: 15)
         feedLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
         meetLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
-        rMeetLabel.font = UIFont(name: NanumFont.extraBold, size: 15)
         
         
         
         feedSubLabel.font = UIFont(name: NanumFont.regular, size: 13)
         meetSubLabel.font = UIFont(name: NanumFont.regular, size: 13)
-        rMeetSubLabel.font = UIFont(name: NanumFont.regular, size: 13)
         
         
         divideTitleLabel.font = UIFont(name: NanumFont.bold, size: 17)
@@ -133,11 +129,9 @@ class WriteStep1ViewController: UIViewController {
         
         radioButton1.setTitle("", for: .normal)
         radioButton2.setTitle("", for: .normal)
-        radioButton3.setTitle("", for: .normal)
 
         radioButtonView1.image = UIImage(named: "write")
         radioButtonView2.image = UIImage(named: "write")
-        radioButtonView3.image = UIImage(named: "write")
 
         
         submitButton.setTitle("", for: .normal)
@@ -169,22 +163,15 @@ class WriteStep1ViewController: UIViewController {
         case 1:
             radioButtonView1.image = UIImage(named: "writeFill")
             radioButtonView2.image = UIImage(named: "write")
-            radioButtonView3.image = UIImage(named: "write")
             
             selected = "자유글"
 
         case 2:
             radioButtonView1.image = UIImage(named: "write")
             radioButtonView2.image = UIImage(named: "writeFill")
-            radioButtonView3.image = UIImage(named: "write")
             
             selected = "모임"
-        case 3:
-            radioButtonView1.image = UIImage(named: "write")
-            radioButtonView2.image = UIImage(named: "write")
-            radioButtonView3.image = UIImage(named: "writeFill")
-            
-            selected = "정기모임"
+
         default:
             return
         }
