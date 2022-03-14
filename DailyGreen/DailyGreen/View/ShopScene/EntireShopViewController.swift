@@ -75,6 +75,8 @@ extension EntireShopViewController: UITableViewDataSource, UITableViewDelegate {
         return urlArr.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EntireCell") as? EntireShopTableViewCell else{return UITableViewCell()}
         

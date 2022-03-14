@@ -65,9 +65,12 @@ class MainPageViewController: UIViewController{
     }
     
     @objc func eventLink(_ sender: Any) {
+        
         guard let button = sender as? UIButton else{return}
         let idx = button.tag - 100
         let eventUrl = NSURL(string: self.exEventData.linkedUrl[idx])
+
+        
         let safariView: SFSafariViewController = SFSafariViewController(url: eventUrl as! URL)
         self.present(safariView, animated: true, completion: nil)
     }
@@ -325,6 +328,7 @@ extension MainPageViewController : UICollectionViewDelegate, UICollectionViewDel
 extension MainPageViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == exEventBannerCollectionView {
+            
             return self.exEventData.addUrl.count
         }
         
@@ -406,6 +410,7 @@ extension MainPageViewController {
     }
     func didSuccessGetExEventBanner(message: String, results: [ExEventBannerResult]){
         for result in results{
+            
             self.exEventData.addUrl.append(result.addUrl)
             self.exEventData.linkedUrl.append(result.linkedUrl)
         }

@@ -13,6 +13,7 @@ class ExEventBannerDataManager {
     func getExEventBanner(delegate: MainPageViewController) {
         
         let headers: HTTPHeaders = ["X-ACCESS-TOKEN": Constant.shared.JWTTOKEN]
+        
         AF.request("\(Constant.BASE_URL)/app/ads",
                    method: .get,
                    parameters: nil,
@@ -39,7 +40,7 @@ class ExEventBannerDataManager {
                 case .failure(let error):
                     print(error.localizedDescription)
                     print(String(describing: error))
-                    delegate.failedToRequest(message: "EventBAnnerDataManagerError")
+                    delegate.failedToRequest(message: "EventBannerDataManagerError")
                 }
             }
     }

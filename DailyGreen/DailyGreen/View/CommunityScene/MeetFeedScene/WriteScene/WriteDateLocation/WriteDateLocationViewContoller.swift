@@ -31,15 +31,17 @@ class WriteDateLocationViewController: UIViewController{
     private func postMeet(){
         self.address += " " + detailAddressTextField.text!
         let params = WriteMeetRequest(photos: photos, communityIdx: communityIdx!, name: name!, tagList: tagList, bio: bio!, maxPeopleNum: maxPeopleNum!, feeType: feeType!, fee: fee!, kakaoChatLink: kakaoChatLink!, isRegular: isRegular!, locationIdx: 1, locationDetail: address, when: date + " " + time)
-        print("##수정중####:", self.time)
+        
         writeMeetDataManager.uploadFeed(params: params, delegate: self)
     }
     
     @IBAction func detailLocationChanged(_ sender: Any) {
         checkSubmitReady()
     }
+    
     lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
+        
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.timeZone = .autoupdatingCurrent
         datePicker.backgroundColor = UIColor.white
@@ -230,7 +232,7 @@ class WriteDateLocationViewController: UIViewController{
 
         dateFormatter.dateFormat = "HH:mm"
         selectedTime = dateFormatter.string(from: sender.date)
-        print(#function, selectedTime)
+        
         self.time = selectedTime + ":00"
         
     }

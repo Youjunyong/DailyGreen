@@ -10,6 +10,8 @@ import UIKit
 extension UIImageView{
     
     func load(strUrl: String) {
+        
+        
         let cacheKey = NSString(string: strUrl) // 캐시에 사용될 Key 값
         if let cachedImage = ImageCacheManager.shared.object(forKey: cacheKey) { // 해당 Key 에 캐시이미지가 저장되어 있으면 이미지를 사용
             self.image = cachedImage
