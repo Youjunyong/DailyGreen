@@ -28,13 +28,13 @@ class EntireShopViewController : UIViewController, IndicatorInfoProvider{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showIndicator()
+        entireShopDataManger.getEntireShop(delegate: self, page: 1)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        showIndicator()
 
-        entireShopDataManger.getEntireShop(delegate: self, page: 1)
         
     }
     
@@ -128,9 +128,11 @@ extension EntireShopViewController {
             locationDetailArr.append(res.locationDetail)
             
         }
-        tableView.reloadData()
-        dismissIndicator()
 
+        tableView.performBatchUpdates(tableView.reloadData) {_ in
+            self.dismissIndicator()
+            sleep(1)
+        }
     }
     func didSuccessLikeShop(message: String){
         

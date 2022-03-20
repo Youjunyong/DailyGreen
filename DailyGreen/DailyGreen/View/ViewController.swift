@@ -11,9 +11,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-    
-    
     lazy var upperLabel: UILabel = {
         let label = UILabel()
         label.text = "일상그린과 친환경적인 일상을"
@@ -37,10 +34,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         animateLabel()
-       
     }
-    
-
     
     private func configureUI(){
         view.addSubview(upperLabel)

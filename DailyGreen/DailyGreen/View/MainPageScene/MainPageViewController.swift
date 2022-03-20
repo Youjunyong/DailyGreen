@@ -69,7 +69,6 @@ class MainPageViewController: UIViewController{
         guard let button = sender as? UIButton else{return}
         let idx = button.tag - 100
         let eventUrl = NSURL(string: self.exEventData.linkedUrl[idx])
-
         
         let safariView: SFSafariViewController = SFSafariViewController(url: eventUrl as! URL)
         self.present(safariView, animated: true, completion: nil)
@@ -77,11 +76,9 @@ class MainPageViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.exeventBannerDataManater.getExEventBanner(delegate: self)
-        
         configureGridView()
         configureUI()
         eventBannerDataManager.getEventBanner(delegate: self)
-        
     }
     
     private func configureExEventBanner(){
@@ -89,12 +86,10 @@ class MainPageViewController: UIViewController{
         exEventBannerCollectionView.dataSource = self
         let nib = UINib(nibName: "ExEventBannerCollectionViewCell", bundle: nil)
         exEventBannerCollectionView.register(nib, forCellWithReuseIdentifier: "exEventCell")
-        
         self.exEventBannerCollectionView.layoutIfNeeded()
-        
         self.bannerTimer()
-
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
